@@ -3,7 +3,7 @@ import sys
 import pandas as pd
 
 
-FINANCIAL_DATA_PATH = Path("data/raw/financial_statements_template.csv")
+FINANCIAL_DATA_PATH = Path("data/raw/financial_statements_raw.csv")
 COMPANY_MASTER_PATH = Path("data/raw/sample_companies_master.csv")
 
 EXPECTED_COLUMNS = [

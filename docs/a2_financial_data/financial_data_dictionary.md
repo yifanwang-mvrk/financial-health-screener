@@ -8,7 +8,7 @@ The table stores company-year level financial data. Each row represents one comp
 
 ## File
 
-`data/raw/financial_statements_template.csv`
+`data/raw/financial_statements_raw.csv`
 
 ## Table Grain
 
@@ -78,3 +78,9 @@ Raw financial data should not be overwritten silently.
 
 If a number is adjusted, transformed, or manually corrected, the reason should be recorded in the `notes` field or in a separate data cleaning log.
 
+
+## Template File
+
+`data/raw/financial_statements_template.csv` is kept as the blank schema template.
+
+`data/raw/financial_statements_raw.csv` is the working raw data file used for actual company-year financial statement records.
