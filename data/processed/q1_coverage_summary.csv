@@ -1,0 +1,7 @@
+ticker,company_name,analysis_peer_group,first_fiscal_year,last_fiscal_year,company_year_rows,valid_dupont_company_years,quality_warning_count,valid_dupont_transitions
+AMZN,Amazon.com Inc,Inventory-led E-commerce,2021,2023,3,2,1,1
+BKNG,Booking Holdings Inc,Marketplace / Platform,2021,2023,3,2,8,1
+CHWY,Chewy Inc,Inventory-led E-commerce,2021,2023,3,2,6,1
+DASH,DoorDash Inc,Marketplace / Platform,2021,2023,3,2,11,1
+EBAY,eBay Inc,Marketplace / Platform,2021,2023,3,2,7,1
+ETSY,Etsy Inc,Marketplace / Platform,2021,2023,3,1,6,0

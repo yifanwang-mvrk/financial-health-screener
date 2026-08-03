@@ -1,239 +1,106 @@
-# Financial Health Screener
+# Financial Health Screener Project Status
 
-## Project Status
+Last updated: 2026-08-03
 
-Last updated: 2026-07-28
+## Current Position
 
+The original v3 Q1 plan is active again.
 
-# 1. Project Goal
+Current milestone: **B4 Analytical Release complete; B5 Power BI product build next.**
 
-## Business Question
+```text
+sample and source mapping
+    -> verified financial data
+    -> Python validation
+    -> DuckDB core tables
+    -> SQL metrics and peer benchmarks
+    -> exact Shapley decomposition
+    -> H1 sample and Evidence Tier audit
+    -> B4 analysis, notebooks, charts, and documentation
+    -> B5 single-page Power BI Executive Overview (next)
+```
 
-Can financial deterioration signals be identified before severe financial distress happens for publicly listed e-commerce related companies?
+The current release uses six companies and FY2021-FY2023, but the analytical method has not been reduced to the earlier simple risk score.
 
+## Scope
 
-## Core Objective
-
-Build a financial health screening framework that combines:
-
-- Financial statement analysis
-- Business model classification
-- Data engineering
-- SQL analysis
-- Power BI visualization
-
-
-The final output is designed to help identify companies showing potential financial deterioration risks.
-
-
----
-
-# 2. Current Project Phase
-
-Current phase:
-
-A2 - Financial Data Collection
-
-
-Overall pipeline:
-
-A1 Sample Design
-✅ Completed
-
-
-A2 Financial Data Collection
-🔄 In progress
-
-
-A3 Data Cleaning and Standardization
-⬜ Not started
-
-
-A4 Financial Indicator Engineering
-⬜ Not started
-
-
-A5 Risk Signal Analysis
-⬜ Not started
-
-
-A6 Dashboard Development
-⬜ Not started
-
-
-
----
-
-# 3. Completed Tasks
-
-
-## Project Structure
-
-Completed:
-
-- Created professional project environment
-- Established Git repository
-- Created folder structure
-
-
-## Sample Design
-
-Completed:
-
-- Defined company universe
-- Created sample company master table
-- Added business model classification
-
-
-## Data Quality Framework
-
-Completed:
-
-Implemented validation scripts:
-
-- check_sample_master.py
-- check_financial_statements.py
-
-
-Current checks include:
-
-- Schema validation
-- Required field validation
-- Duplicate detection
-- Data type validation
-- Business classification validation
-
-
-
----
-
-# 4. Current Work
-
-
-## Financial Statement Data Collection
-
-Current target companies:
+Companies:
 
 - AMZN
+- BKNG
+- CHWY
+- DASH
 - EBAY
 - ETSY
 
+Years: FY2021-FY2023.
 
-Target period:
+Research:
 
-2021-2023 annual financial statements
+- Q1-A DuPont financial-quality analysis.
+- H1 leverage-driven versus operating-driven persistence design.
+- Evidence-tier decision based on the actual eligible sample.
 
+## Completed
 
-Required data fields:
+### Data and Governance
 
-- Revenue
-- Gross profit
-- Operating income
-- Net income
-- Total assets
-- Total liabilities
-- Total equity
-- Operating cash flow
-- Capital expenditure
+- 18 company-year financial statement rows populated and validated.
+- Detailed company source mappings retained.
+- Q1 analytical scope and peer groups frozen.
+- Canonical concept map and conflict register added.
+- Latest-restated manual compatibility path documented.
 
+### SQL Analysis
 
----
+- Average assets and average equity.
+- ROE, ROA, net margin, asset turnover, and equity multiplier.
+- Profitability, liquidity, leverage, cash-flow, and growth metrics.
+- Exact three-factor Shapley contributions.
+- Driver classification and leverage contribution share.
+- Peer medians and company-versus-peer positions.
+- Next-year persistence outcomes.
+- H1 eligibility, exclusion waterfall, concentration, and Evidence Tier.
+- Frozen Power BI mart.
 
-# 5. Data Pipeline Concept
+### Python and QA
 
+- Rebuildable Q1 pipeline.
+- Rebuildable EDA, charts, and notebooks.
+- Seven automated accounting and research-logic tests.
+- DuPont and Shapley reconciliation tolerances verified below `1e-10`.
 
-Raw data:
+### B4 Deliverables
 
-data/raw/
+- Ten exported Q1 analytical tables.
+- Six inspected static charts.
+- Three executed notebooks.
+- Research design and analysis report.
+- Data dictionary and limitations.
+- Manual reconciliation for AMZN and CHWY.
+- Risk register, changelog, README, and recruiter pitch.
 
-Purpose:
+## Current Findings
 
-Store original collected financial data.
+- 11 valid DuPont company-years.
+- 5 valid Shapley transitions.
+- AMZN and CHWY demonstrate similar ROE from different margin, turnover, and multiplier combinations.
+- BKNG demonstrates why extreme ROE can be a near-zero-equity denominator warning.
+- H1 is Evidence Tier C with zero eligible transitions.
+- No H1 group test is permitted or reported.
 
+## Next Step
 
-Normalized data:
+Build the B5 single-page Power BI Executive Overview using only `data/processed/q1_powerbi_mart.csv`, then reconcile each visual back to DuckDB and export the reference `.pbix` and screenshots.
 
-data/normalized/
+## Legacy Files
 
-Purpose:
+The earlier MVP risk-score pipeline remains for learning history:
 
-Standardize:
+- `sql/financial_health_screener_mvp.sql`
+- `src/build_mvp_pipeline.py`
+- `data/processed/risk_ranking.csv`
+- `sql/mvp_analysis_rebuild.sql`
+- `src/run_analysis_rebuild.py`
 
-- Units
-- Currency
-- Dates
-- Accounting definitions
-
-
-Processed data:
-
-data/processed/
-
-Purpose:
-
-Analysis-ready dataset for:
-
-- SQL
-- Python analysis
-- Power BI
-
-
-
----
-
-# 6. Technical Architecture
-
-
-Python:
-
-Used for:
-
-- Data collection
-- Data cleaning
-- Validation
-- Feature engineering
-
-
-SQL:
-
-Used for:
-
-- Data querying
-- Financial indicator calculation
-
-
-Power BI:
-
-Used for:
-
-- Dashboard creation
-- Business insight communication
-
-
-
----
-
-# 7. Known Issues
-
-
-Current limitations:
-
-- Financial data has not been collected yet
-- Accounting definition mapping needs verification
-- Automated extraction has not been implemented
-
-
----
-
-# 8. Next Steps
-
-
-1. Collect AMZN / EBAY / ETSY 2021-2023 financial data
-
-2. Validate collected data
-
-3. Normalize financial statement structure
-
-4. Calculate financial health indicators
-
-5. Build screening logic
+These files are not part of the active v3 Q1 research product and must not be described as the final methodology.

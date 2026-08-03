@@ -1,0 +1,5 @@
+metric_flag,flagged_company_years,unique_companies
+near_zero_average_equity_flag,2,2
+one_off_net_income_warning_flag,3,1
+structural_break_flag,1,1
+cash_scope_warning_flag,6,2

@@ -1,0 +1,5 @@
+finding_id,finding_type,finding,evidence_boundary
+Q1A-01,comparable_roe_different_drivers,"AMZN and CHWY have broadly comparable 2023 ROE, but AMZN relies on margin while CHWY combines very low margin with high turnover and a much larger equity multiplier.",Descriptive company comparison; not an industry inference.
+Q1A-02,counterexample,BKNG's extreme 2023 ROE is driven by a near-zero average equity base; the large number is a denominator warning rather than evidence of proportionally superior operating quality.,ROE remains mathematically reconciled but is mechanically unstable.
+H1-01,evidence_tier,No transition meets the full H1 rule because valid improvements either begin from nonpositive ROE or lack an observable next-year outcome.,Evidence Tier C; no leverage-versus-operating group test is permitted.
+H1-02,illustrative_case,"BKNG's 2023 ROE increase is leverage-driven under Shapley decomposition, but FY2024 is absent, so persistence cannot be evaluated.",Illustrative case only; not support for H1.

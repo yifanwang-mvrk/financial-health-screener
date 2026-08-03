@@ -1,0 +1,5 @@
+h1_sample_status,transition_count,unique_company_count
+invalid_dupont_transition,7,6
+turnaround_from_loss,3,3
+next_year_not_observable,1,1
+no_roe_improvement,1,1

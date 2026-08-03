@@ -67,6 +67,8 @@ NUMERIC_COLUMNS = [
 
 YEAR_MIN = 2000
 YEAR_MAX = 2030
+CORE_TICKERS = ["AMZN", "EBAY", "ETSY", "CHWY", "DASH", "BKNG"]
+CORE_YEARS = ["2021", "2022", "2023"]
 
 
 def fail(message: str) -> None:
@@ -125,6 +127,17 @@ def main() -> None:
 
     print("✅ Duplicate ticker-year check passed.")
 
+    expected_core_rows = pd.MultiIndex.from_product(
+        [CORE_TICKERS, CORE_YEARS], names=["ticker", "fiscal_year"]
+    )
+    actual_rows = pd.MultiIndex.from_frame(financial_df[["ticker", "fiscal_year"]])
+    missing_core_rows = expected_core_rows.difference(actual_rows)
+
+    if len(missing_core_rows) > 0:
+        fail(f"Missing current Q1 scope ticker-year rows: {list(missing_core_rows)}")
+
+    print("✅ Current Q1 scope coverage check passed.")
+
     valid_tickers = set(master_df["ticker"])
     financial_tickers = set(financial_df["ticker"])
     unknown_tickers = sorted(financial_tickers - valid_tickers)
@@ -170,6 +183,34 @@ def main() -> None:
             fail(f"Column '{col}' has non-numeric values: {bad_values}")
 
     print("✅ Numeric field check passed.")
+
+    numeric_df = financial_df.copy()
+    for col in NUMERIC_COLUMNS:
+        numeric_df[col] = pd.to_numeric(numeric_df[col], errors="coerce")
+
+    fcf_diff = (
+        numeric_df["free_cash_flow"]
+        - (numeric_df["operating_cash_flow"] - numeric_df["capital_expenditure"])
+    ).abs()
+    bad_fcf_rows = numeric_df[fcf_diff > 0.01]
+
+    if not bad_fcf_rows.empty:
+        print(bad_fcf_rows[["ticker", "fiscal_year", "operating_cash_flow", "capital_expenditure", "free_cash_flow"]])
+        fail("Some free_cash_flow values do not equal operating_cash_flow minus capital_expenditure.")
+
+    print("✅ Free cash flow formula check passed.")
+
+    balance_diff = (
+        numeric_df["total_assets"] - numeric_df["total_liabilities"] - numeric_df["total_equity"]
+    ).abs()
+    balance_tolerance = numeric_df["total_assets"].abs().mul(0.005).clip(lower=1.0)
+    bad_balance_rows = numeric_df[balance_diff > balance_tolerance]
+
+    if not bad_balance_rows.empty:
+        print(bad_balance_rows[["ticker", "fiscal_year", "total_assets", "total_liabilities", "total_equity"]])
+        fail("Some balance-sheet rows are outside the accounting tolerance.")
+
+    print("✅ Balance-sheet relationship check passed.")
 
     print("\nRows by ticker:")
     print(financial_df["ticker"].value_counts().sort_index())

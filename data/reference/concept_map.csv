@@ -1,0 +1,17 @@
+standard_field,statement_type,canonical_definition,source_policy,sign_policy,required_for_q1,applicability_rule
+revenue,income_statement,Consolidated annual revenue or issuer-equivalent net sales,Direct reported value unless company mapping documents an aggregation,Preserve reported sign,1,Required for every company-year
+gross_profit,income_statement,Revenue less the issuer-relevant direct cost base,Direct or project-derived only when the company mapping documents the derivation,Preserve reported sign,0,May be unavailable for platform models without a reliable cost-of-revenue definition
+operating_income,income_statement,Consolidated operating income or loss,Direct reported value,Income positive and loss negative,1,Required for every company-year
+net_income,income_statement,Consolidated GAAP net income attributable to the defined common equity base,Direct reported value using the company-specific mapping,Income positive and loss negative,1,Required for every company-year
+total_assets,balance_sheet,Fiscal-year-end consolidated total assets,Direct reported value,Positive balance,1,Required for every company-year
+total_liabilities,balance_sheet,Fiscal-year-end consolidated liabilities under the project reconciliation boundary,Direct or derived only when documented,Positive balance,1,Required for every company-year
+total_equity,balance_sheet,Fiscal-year-end stockholders' equity or deficit under the project boundary,Direct reported value,Deficit remains negative,1,Required; nonpositive average equity makes ROE invalid
+current_assets,balance_sheet,Fiscal-year-end current assets,Direct reported value,Positive balance,0,Required for liquidity ratios when reported
+current_liabilities,balance_sheet,Fiscal-year-end current liabilities,Direct reported value,Positive balance,0,Required for liquidity ratios when reported
+cash_and_equivalents,balance_sheet,Cash and cash equivalents excluding marketable securities unless issuer presentation requires otherwise,Direct reported value,Positive balance,0,Cash-only liquidity can understate broader liquid assets
+inventory,balance_sheet,Fiscal-year-end separately reported inventory,Direct reported value,Positive balance,0,Blank is not zero when inventory is not separately reported or not applicable
+long_term_debt,balance_sheet,Fiscal-year-end long-term borrowing excluding operating lease liabilities,Direct or verified zero only when the filing supports it,Positive balance or verified zero,0,Blank when no reliable separate borrowing balance is available
+operating_cash_flow,cash_flow,Net cash provided by or used in operating activities,Direct reported value,Cash inflow positive and cash outflow negative,1,Required for every company-year
+capital_expenditure,cash_flow,Project-defined purchases of property/equipment plus documented capitalized software where applicable,Direct or documented aggregation,Store cash outflow as a positive amount,1,Required for project free cash flow
+free_cash_flow,cash_flow,Operating cash flow minus project capital expenditure,Project-derived,Preserve formula result,1,Required and reconciled to OCF minus CapEx
+shares_outstanding,balance_sheet,Fiscal-year-end common shares outstanding across relevant share classes,Direct or documented aggregation,Positive balance,0,Do not use weighted-average EPS shares

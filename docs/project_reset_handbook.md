@@ -6,6 +6,8 @@
 > **Document type:** Internal project handbook  
 > **Primary purpose:** Explain the stable business, data, technical, and analytical logic of the project
 
+> **Current execution note:** The original v3 Q1 research framework was restored on 2026-08-03. The active six-company release keeps the full average-balance DuPont, Shapley, peer, H1 audit, and Evidence Tier method. See `docs/project_status.md`; the simple risk-score MVP is retained only as history.
+
 ---
 
 ## Document Scope

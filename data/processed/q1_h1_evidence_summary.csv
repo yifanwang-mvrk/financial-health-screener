@@ -1,0 +1,2 @@
+eligible_transition_count,eligible_unique_company_count,leverage_driven_unique_company_count,operating_driven_unique_company_count,max_transitions_from_one_company,maximum_company_transition_share,over_concentration_flag,evidence_tier,permitted_inference
+0,0,0,0,0,0.0,False,C,Evidence insufficient for group testing; illustrative cases only

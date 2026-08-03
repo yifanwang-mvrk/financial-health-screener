@@ -1,0 +1,10 @@
+conflict_id,ticker,fiscal_year,standard_field,severity,conflict_type,resolution,status,analytical_effect
+C001,CHWY,2021-2023,multiple,high,restatement,Use the latest comparative figures disclosed in Chewy's 2024 Form 10-K,resolved,Latest-restated manual series used
+C002,DASH,2022-2023,total_equity,high,accounting_boundary,Reconcile redeemable non-controlling interests outside stockholders' equity,resolved_with_tolerance,Balance equation uses documented tolerance and row notes
+C003,DASH,2021-2023,gross_profit,medium,source_gap,Keep raw gross profit blank until the disclosed non-GAAP reconciliation is transcribed,open,Gross margin is unavailable and flagged
+C004,AMZN,2021-2023,gross_profit,medium,definition,Derive gross profit as net sales minus cost of sales per the company mapping,resolved,Comparable only under the project definition
+C005,BKNG,2021-2023,gross_profit,medium,not_applicable,Keep blank because no reliable consolidated cost-of-revenue definition is available,resolved,Gross margin is not used
+C006,ETSY,2022-2023,total_equity,high,nonpositive_equity,Preserve reported negative equity and mark ROE invalid,resolved,ROE and DuPont outputs are null when average equity is nonpositive
+C007,BKNG,2023,total_equity,high,nonpositive_equity,Preserve the reported stockholders' deficit and apply average-equity validity rules,resolved,ROE is reported only if average equity remains positive
+C008,EBAY,2021-2023,net_income,medium,comparability,Preserve GAAP net income and flag discontinued operations and investment remeasurement effects,resolved,Net margin and ROE require qualitative interpretation
+C009,DASH,2022,total_assets,medium,structural_break,Preserve reported values and flag the Wolt acquisition,resolved,Year-over-year asset turnover is not purely organic
