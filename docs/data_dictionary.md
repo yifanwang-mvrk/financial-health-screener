@@ -1,8 +1,30 @@
 # Q1 Analytical Data Dictionary
 
-Last updated: 2026-08-03
+Last updated: 2026-08-05
 
 ## Inputs
+
+### `data/reference/company_universe.csv`
+
+Grain: one company.
+
+Contains the 26-company census, stable company ID, SEC CIK where available, provisional listing date, company status, operating-model classification, Q1 candidate/release flags, Q2 event flag, and explicit exclusion rationale. `status_group` describes issuer status; `analysis_scope_group` separately describes the project's use of the company.
+
+### `data/reference/events.csv`
+
+Grain: one candidate event.
+
+Contains the first-public event date, date basis, effective date, official SEC source, confidence, theoretical and verified pre-event coverage, Q2 qualification, and exclusion reason. The current five records all fail Gate 2 because point-in-time quarterly coverage is unverified.
+
+### `data/raw/sec/`
+
+Contains gzip-compressed official SEC `companyfacts` and `submissions` JSON for the six Q1 release companies. `manifest.csv` records ticker, CIK, artifact type, source URL, SHA-256 checksum, and fetch time.
+
+### `data/normalized/financial_facts.csv`
+
+Grain: one company x canonical field x reported annual fact version.
+
+Retains taxonomy, source tag, priority, accession, filing date, form, period, duration, reported value, standardized value, unit, source URL, and load timestamp. Historical versions are retained; this table is not the analytical mart.
 
 ### `data/raw/financial_statements_raw.csv`
 
@@ -26,13 +48,37 @@ Adds the broader `analysis_peer_group` used for descriptive Q1 peer comparisons 
 
 Grain: one canonical financial concept.
 
-Records project definitions, source policy, sign policy, Q1 requirement status, and applicability. This is the compatibility map for the current manually verified wide data path; it is not an accession-level XBRL tag history.
+Records canonical definitions, candidate SEC tags in priority order, statement type, flow/stock behavior, expected unit, sign treatment, duration rule, Q1 requirement status, applicability, and compatibility policy.
 
 ### `data/reference/concept_conflicts.csv`
 
 Grain: one documented source or interpretation conflict.
 
 Records severity, resolution status, and analytical effect for restatements, nonpositive equity, source gaps, boundary differences, and structural breaks.
+
+### `data/processed/sec_latest_restated_long.csv`
+
+Grain: one company x fiscal year x canonical field.
+
+Selects the latest annual filing available by 2024-04-30, with source-tag priority as the deterministic tie-breaker. It preserves the winning accession and source metadata.
+
+### `data/processed/sec_concept_conflicts.csv`
+
+Grain: one automatically detected non-winning fact value.
+
+Records the winning and discarded tags/versions, values, relative difference, severity, and resolution rule. Different values are never silently discarded.
+
+### `data/processed/sec_manual_reconciliation.csv`
+
+Grain: one selected SEC canonical fact.
+
+Compares the SEC selection with the frozen manually verified analytical value and labels each row `match`, `review_company_mapping`, or `manual_value_unavailable`. Review rows do not overwrite the Q1 mart.
+
+### `data/processed/phase_a_coverage.csv`
+
+Grain: one release company x required canonical field.
+
+Records FY2021-FY2023 year coverage and reconciliation counts used in the A3 coverage report.
 
 ## SQL Marts
 

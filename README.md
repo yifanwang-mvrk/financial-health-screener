@@ -1,6 +1,6 @@
 # Financial Health Screener
 
-A reproducible Python, DuckDB, SQL, and Power BI-ready research pipeline that explains how e-commerce companies produce return on equity and whether ROE improvements appear operationally or leverage driven.
+A reproducible SEC-to-Power BI research pipeline that explains how e-commerce companies produce return on equity and whether ROE improvements appear operationally or leverage driven.
 
 ## Research Questions
 
@@ -12,13 +12,16 @@ This release does not produce an investment recommendation or a black-box risk s
 
 ## Current Release
 
-Status: **B5 Interactive Q1 Release**
+Status: **Phase A and Q1 Portfolio Release v1.0 complete; Gate 2 closed as Tier C / No-Go**
 
 Data scope:
 
 - 6 public e-commerce or platform companies
 - Fiscal years 2021-2023
 - 18 company-year financial statement rows
+- 26-company census and 5-event candidate census
+- 12 cached official SEC JSON artifacts for the six-company release
+- 599 accession-level normalized SEC facts and 222 cutoff-eligible canonical selections
 - USD millions, with company-specific filing mappings
 - Latest fiscal period end in the dataset: 2024-01-28
 
@@ -29,7 +32,9 @@ Analysis peer groups:
 
 The peer groups are analytical operating-model categories. With only six companies, peer comparisons are descriptive rather than industry estimates.
 
-Release verification: the isolated rebuild completes successfully and all 8 automated tests pass.
+Release verification: the end-to-end rebuild completes successfully and all 16 automated tests pass.
+
+Gate 2 result: none of the five event candidates has a verified point-in-time pre-event quarterly panel. Under the v3 downgrade rule, Q2 and Q3 are not started and the project ends successfully with the complete Q1 product.
 
 ## Method
 
@@ -91,14 +96,17 @@ The operating-profile scatter and other cohort views remain available as reprodu
 
 ## CV-Ready Summary
 
-> Built a reproducible Python-DuckDB financial research pipeline and interactive Power BI report for six public e-commerce companies and 18 company-years, engineering average-balance DuPont metrics, exact Shapley ROE decomposition, peer benchmarks, evidence-tier controls, quality flags, and automated tests.
+> Built a reproducible SEC-Python-DuckDB financial research pipeline and interactive Power BI report for six public e-commerce companies and 18 company-years, retaining accession-level evidence and engineering average-balance DuPont metrics, exact Shapley ROE decomposition, peer benchmarks, evidence-tier controls, quality flags, and automated tests.
 
 ## Architecture
 
 ```text
-manually verified 10-K mappings
-        -> raw financial statements
-        -> Python validation and normalization
+26-company and event census
+        -> cached SEC companyfacts and submissions JSON
+        -> accession-level normalized annual facts
+        -> latest-restated selection and reconciliation
+        -> frozen manually verified Q1 financial statements
+        -> Python validation
         -> DuckDB core tables
         -> SQL average-balance metrics
         -> exact Shapley contributions
@@ -107,20 +115,24 @@ manually verified 10-K mappings
         -> notebooks, static charts, Power BI mart
 ```
 
-Python orchestrates file loading, validation, database execution, exports, EDA, and charts. SQL owns the financial definitions, peer comparisons, driver labels, persistence outcomes, and sample audit. Power BI is restricted to presentation logic and consumes only `data/processed/q1_powerbi_mart.csv`.
+Python orchestrates SEC extraction, normalization, reconciliation, validation, database execution, exports, EDA, and charts. SQL owns the financial definitions, peer comparisons, driver labels, persistence outcomes, and sample audit. Power BI is restricted to presentation logic and consumes only `data/processed/q1_powerbi_mart.csv`.
 
 ## Repository Guide
 
 | Path | Role |
 | --- | --- |
+| `data/reference/company_universe.csv` | Auditable 26-company census, status, model, and scope flags |
+| `data/reference/events.csv` | Candidate distress-event census and Gate 2 eligibility evidence |
+| `data/raw/sec/` | Cached official SEC companyfacts and submissions JSON plus manifest |
+| `data/normalized/financial_facts.csv` | Annual accession-level SEC fact history with tags, units, and filing dates |
 | `data/raw/financial_statements_raw.csv` | Manually verified company-year financial facts and source notes |
-| `data/reference/` | Q1 scope, canonical concept definitions, and conflict register |
+| `src/build_phase_a_release.py` | Rebuilds the census, SEC evidence, restatement selection, coverage, and Gate 2 record |
 | `src/build_q1_v3_pipeline.py` | Validates inputs, executes SQL, and exports marts |
 | `src/build_q1_analysis_outputs.py` | Builds EDA tables, static charts, and notebooks |
 | `sql/01_core_tables.sql` to `sql/07_q1_powerbi_mart.sql` | Rebuildable research logic |
 | `data/processed/q1_powerbi_mart.csv` | Sole Power BI input table |
 | `notebooks/` | Executed source, quality, and Q1 analysis notebooks |
-| `tests/test_q1_v3_pipeline.py` | Minimum accounting and research-logic test suite |
+| `tests/` | SEC evidence, accounting identity, research-rule, and release-contract tests |
 | `docs/` | Research design, data dictionary, limitations, analysis report, and reconciliation |
 | `powerbi/` | B5 report export, final screenshot, build notes, and reconciliation record |
 
@@ -151,8 +163,10 @@ To intentionally regenerate notebook source before execution, run `src/build_q1_
 - Six companies and three fiscal years do not support industry-wide inference.
 - FY2021 lacks prior-year balances, so average-balance DuPont metrics begin in FY2022.
 - FY2023 lacks a next-year outcome, which prevents evaluation of otherwise valid improvements.
-- Latest-restated manual selection is not point-in-time financial data.
+- The SEC evidence layer uses a 2024-04-30 source cutoff and is not point-in-time investor information.
+- Seven SEC-to-manual differences remain explicit company-mapping reviews; they do not overwrite the frozen Q1 release.
 - Fiscal calendars, revenue recognition, acquisitions, buybacks, non-operating gains, and issuer-specific definitions limit direct comparability.
+- Q2/Q3 are cancelled for this release because no event has verified point-in-time quarterly coverage.
 - The project is analytical decision support, not investment advice.
 
 See [`docs/limitations.md`](docs/limitations.md) and [`docs/research_design.md`](docs/research_design.md) for the full boundary.

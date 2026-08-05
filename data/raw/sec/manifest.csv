@@ -1,0 +1,13 @@
+ticker,cik,artifact,relative_path,source_url,sha256,fetched_at
+AMZN,0001018724,companyfacts,data/raw/sec/CIK0001018724/companyfacts.json.gz,https://data.sec.gov/api/xbrl/companyfacts/CIK0001018724.json,5202f1439c4bb06ffbde629dddc6bb38f8833a95ae61b05dfcead86ded46d130,2026-08-05T12:11:50+00:00
+AMZN,0001018724,submissions,data/raw/sec/CIK0001018724/submissions.json.gz,https://data.sec.gov/submissions/CIK0001018724.json,4145186914d12ae54bbf396bc8167f85ae1f0b5a17c6913c5a3c6f98ddca54b6,2026-08-05T12:11:50+00:00
+BKNG,0001075531,companyfacts,data/raw/sec/CIK0001075531/companyfacts.json.gz,https://data.sec.gov/api/xbrl/companyfacts/CIK0001075531.json,74047040038b68aaf9625df4b8894b5718c52058fd30ccec7f6a8709b34065b5,2026-08-05T12:11:50+00:00
+BKNG,0001075531,submissions,data/raw/sec/CIK0001075531/submissions.json.gz,https://data.sec.gov/submissions/CIK0001075531.json,fff706a183120c2b6474e1a2fc73f81f73f6bc1049b1bbd506aef05b270aba87,2026-08-05T12:11:50+00:00
+CHWY,0001766502,companyfacts,data/raw/sec/CIK0001766502/companyfacts.json.gz,https://data.sec.gov/api/xbrl/companyfacts/CIK0001766502.json,64fb7b4c94e7fd40fe4953981110142cba7f27d841a0f0c8d4fb1a2ff813bf1d,2026-08-05T12:11:50+00:00
+CHWY,0001766502,submissions,data/raw/sec/CIK0001766502/submissions.json.gz,https://data.sec.gov/submissions/CIK0001766502.json,ec18f58bea7a48bb87f5da54af7bd3af9c45f8952dfe99e4bb9f6343f55400b4,2026-08-05T12:11:50+00:00
+DASH,0001792789,companyfacts,data/raw/sec/CIK0001792789/companyfacts.json.gz,https://data.sec.gov/api/xbrl/companyfacts/CIK0001792789.json,5c167fedbb532013c7f473085cbe818ea38fdcdfdad65e527ce3fc7d3ecd3fb1,2026-08-05T12:11:50+00:00
+DASH,0001792789,submissions,data/raw/sec/CIK0001792789/submissions.json.gz,https://data.sec.gov/submissions/CIK0001792789.json,aaab930014ef4af50c0dd5aaede795ef2d07a5827883f6506e68af2a05e0589e,2026-08-05T12:11:50+00:00
+EBAY,0001065088,companyfacts,data/raw/sec/CIK0001065088/companyfacts.json.gz,https://data.sec.gov/api/xbrl/companyfacts/CIK0001065088.json,3f5ee3dcafa9ee11afc180caeaf3fbf396b9d439ece45a5970c97065fbec2d63,2026-08-05T12:11:50+00:00
+EBAY,0001065088,submissions,data/raw/sec/CIK0001065088/submissions.json.gz,https://data.sec.gov/submissions/CIK0001065088.json,0b953628f45cb05478bebbd7a0bbdfa9acc9565f66b3d47209f5f08599cc453b,2026-08-05T12:11:50+00:00
+ETSY,0001370637,companyfacts,data/raw/sec/CIK0001370637/companyfacts.json.gz,https://data.sec.gov/api/xbrl/companyfacts/CIK0001370637.json,a16a4f336e9c8cf7db849d53c38285f0dd32bcf48608a073be5d3f87afb27e61,2026-08-05T12:11:50+00:00
+ETSY,0001370637,submissions,data/raw/sec/CIK0001370637/submissions.json.gz,https://data.sec.gov/submissions/CIK0001370637.json,c2a25f9283c248b8264e9bd70591b502d6f6aa66e0358de509a73209f9595e75,2026-08-05T12:11:50+00:00

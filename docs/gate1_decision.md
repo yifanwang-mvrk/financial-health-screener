@@ -41,8 +41,19 @@ The current release uses `manual_verified_latest_comparative_filing` as its sour
 
 - Expand to FY2018-FY2024 or later.
 - Add more companies according to the original sample design.
-- Build raw SEC JSON and accession-level restatement history.
 - Re-evaluate H1 after sufficient next-year outcomes exist.
 - Validate Q2/Q3 distress-event work under their own gates.
 
 Deferred items are not represented as completed in this release.
+
+## Post-Freeze Evidence Closure
+
+Completed on 2026-08-05 without changing the frozen Q1 analytical mart:
+
+- Added the company and event census required by A1.
+- Cached official SEC companyfacts and submissions JSON for the six release companies.
+- Added accession-level normalized annual facts, deterministic cutoff-based latest-restated selection, and automatic conflict logging.
+- Reconciled selected SEC facts to the manually verified Q1 release; mapping differences remain explicit review items.
+- Completed A3 coverage reporting and retained H1 Evidence Tier C.
+
+The frozen six-company/FY2021-FY2023 analytical conclusions remain unchanged.

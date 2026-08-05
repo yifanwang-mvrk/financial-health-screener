@@ -57,6 +57,13 @@ class Q1V3PipelineTests(unittest.TestCase):
     def test_latest_restated_selection(self) -> None:
         self.assertFalse(self.latest.duplicated(["ticker", "fiscal_year"]).any())
         self.assertTrue(self.latest["is_latest_restated"].all())
+        sorted_keys = self.latest[["ticker", "fiscal_year"]].sort_values(
+            ["ticker", "fiscal_year"]
+        )
+        self.assertEqual(
+            list(map(tuple, self.latest[["ticker", "fiscal_year"]].to_numpy())),
+            list(map(tuple, sorted_keys.to_numpy())),
+        )
         chewy = self.latest[self.latest["ticker"] == "CHWY"]
         self.assertTrue(
             chewy["source_selection_note"].str.contains("restated", case=False).all()

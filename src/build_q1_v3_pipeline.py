@@ -39,6 +39,17 @@ TABLE_EXPORTS = [
     "q1_company_vs_peer",
     "q1_powerbi_mart",
 ]
+EXPORT_ORDER = {
+    "q1_latest_restated": "ticker, fiscal_year",
+    "q1_annual_company_metrics": "ticker, fiscal_year",
+    "q1_dupont_contributions": "ticker, fiscal_year",
+    "q1_driver_persistence": "ticker, fiscal_year",
+    "q1_h1_sample_audit": "ticker, fiscal_year",
+    "q1_h1_exclusion_waterfall": "transition_count desc, h1_sample_status",
+    "q1_peer_summary": "analysis_peer_group, fiscal_year",
+    "q1_company_vs_peer": "ticker, fiscal_year",
+    "q1_powerbi_mart": "ticker, fiscal_year",
+}
 
 NUMERIC_COLUMNS = [
     "revenue",
@@ -160,8 +171,13 @@ def execute_sql_pipeline(
         table_counts: dict[str, int] = {}
         for table_name in TABLE_EXPORTS:
             output_path = PROCESSED_DIR / f"{table_name}.csv"
+            order_clause = (
+                f" order by {EXPORT_ORDER[table_name]}"
+                if table_name in EXPORT_ORDER
+                else ""
+            )
             output = connection.execute(
-                f"select * from {table_name}"
+                f"select * from {table_name}{order_clause}"
             ).fetchdf()
             output.to_csv(output_path, index=False)
             table_counts[table_name] = len(output)

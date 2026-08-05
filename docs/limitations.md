@@ -1,6 +1,6 @@
 # Limitations and Evidence Boundary
 
-Last updated: 2026-08-03
+Last updated: 2026-08-05
 
 ## Sample and Time Coverage
 
@@ -14,9 +14,9 @@ The results are company-specific and descriptive. They are not estimates of the 
 
 ## Source Architecture
 
-- The release uses manually verified wide financial facts and company-specific source mappings.
-- It does not include a complete raw SEC JSON fact store or filing accession history.
-- `latest_restated` indicates the manually selected latest comparative series, not point-in-time information available to investors on the original fiscal-year end.
+- The evidence layer caches official SEC companyfacts and submissions JSON for the six release companies and retains accession-level annual fact versions.
+- Automated latest-restated selection is frozen to filings available by 2024-04-30; it is not point-in-time information available at each historical fiscal-year end.
+- The analytical mart remains based on the manually verified company mapping. Seven automated comparisons are retained as review items and do not silently overwrite it.
 - CHWY comparative values incorporate the documented latest restated series.
 
 ## Accounting Comparability
@@ -49,3 +49,4 @@ The current release is Evidence Tier C with zero eligible transitions. It report
 - No black-box financial health score.
 - No inference that a quality warning implies imminent distress.
 - Power BI is a presentation layer for SQL outputs, not an independent research engine.
+- Gate 2 is Tier C / No-Go, so no Q2 event model, Q3 current-risk screen, Company Deep Dive risk page, or Risk Drivers page is part of this release.

@@ -455,18 +455,30 @@ def make_notebook(title: str, purpose: str, cells: list[object], filename: str) 
 def build_notebooks() -> None:
     make_notebook(
         "Q1 Source Probe",
-        "Audits the current manually verified filing compatibility path, company scope, canonical concepts, and documented conflicts.",
+        "Audits the official SEC evidence layer, accession-level facts, concept mapping, latest-restated selection, and reconciliation to the frozen analytical release.",
         [
             nbf.v4.new_code_cell(
-                "scope = pd.read_csv(ROOT / 'data/reference/q1_analysis_scope.csv')\n"
+                "universe = pd.read_csv(ROOT / 'data/reference/company_universe.csv')\n"
+                "events = pd.read_csv(ROOT / 'data/reference/events.csv')\n"
                 "concept_map = pd.read_csv(ROOT / 'data/reference/concept_map.csv')\n"
-                "conflicts = pd.read_csv(ROOT / 'data/reference/concept_conflicts.csv')\n"
-                "display(scope)\n"
-                "display(concept_map[['standard_field', 'source_policy', 'sign_policy', 'required_for_q1']])\n"
-                "display(conflicts[['conflict_id', 'ticker', 'standard_field', 'severity', 'status', 'analytical_effect']])"
+                "facts = pd.read_csv(ROOT / 'data/normalized/financial_facts.csv')\n"
+                "latest = pd.read_csv(ROOT / 'data/processed/sec_latest_restated_long.csv')\n"
+                "reconciliation = pd.read_csv(ROOT / 'data/processed/sec_manual_reconciliation.csv')\n"
+                "display(universe[['ticker', 'status_group', 'analysis_scope_group', 'q1_release_included', 'q2_event_candidate']])\n"
+                "display(events[['event_id', 'company_id', 'event_type', 'event_date', 'qualifies_for_q2']])\n"
+                "display(concept_map[['canonical_field', 'source_tag', 'sign_multiplier', 'required_for_q1']])"
+            ),
+            nbf.v4.new_code_cell(
+                "probe = pd.DataFrame({\n"
+                "    'normalized_facts': facts.groupby('ticker').size(),\n"
+                "    'latest_canonical_facts': latest.groupby('ticker').size(),\n"
+                "    'manual_matches': reconciliation.query(\"reconciliation_status == 'match'\").groupby('ticker').size(),\n"
+                "    'mapping_reviews': reconciliation.query(\"reconciliation_status == 'review_company_mapping'\").groupby('ticker').size(),\n"
+                "}).fillna(0).astype(int)\n"
+                "display(probe)"
             ),
             nbf.v4.new_markdown_cell(
-                "The current release uses a manually verified wide source dataset and detailed company filing mappings. It does not claim filing-version history or automated XBRL conflict resolution."
+                "Official SEC companyfacts and submissions JSON are cached for all six release companies. Accession and filing-date history is retained in the normalized layer. Mapping differences remain explicit review items and do not silently overwrite the manually reconciled Q1 analytical mart."
             ),
         ],
         "01_source_probe.ipynb",

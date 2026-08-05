@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-08-05 - Phase A Evidence and Q1 Portfolio Release v1.0
+
+- Added a 26-company universe and five-event census with explicit scope and Gate 2 fields.
+- Cached official SEC companyfacts and submissions JSON for all six Q1 release companies with SHA-256 manifests.
+- Added 599 accession-level normalized facts, deterministic latest-restated selection, automatic conflict logging, and SEC-to-manual reconciliation.
+- Added A2 source-probe, A3 coverage, Gate 2 No-Go, project-status, and release-closure documentation.
+- Loaded Phase A evidence tables into DuckDB and added manual step entry points plus one-command release orchestration.
+- Expanded the automated suite from 8 to 16 passing tests.
+- Confirmed the existing one-page Power BI Executive Overview as the final display layer; Q2/Q3 risk pages are excluded by Gate 2.
+
 ## 2026-08-03 - Q1 B4 Analytical Release
 
 - Restored the original v3 Q1 research scope while retaining the six-company current dataset.

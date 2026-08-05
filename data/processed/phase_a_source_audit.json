@@ -1,0 +1,16 @@
+{
+  "generated_on": "2026-08-05",
+  "source_cutoff": "2024-04-30",
+  "universe_company_count": 26,
+  "q1_release_company_count": 6,
+  "event_candidate_count": 5,
+  "cached_raw_artifact_count": 12,
+  "normalized_financial_fact_count": 599,
+  "latest_canonical_fact_count": 222,
+  "auto_conflict_count": 28,
+  "required_company_field_complete_count": 48,
+  "required_company_field_total_count": 48,
+  "manual_match_count": 215,
+  "manual_review_mapping_count": 7,
+  "gate2_decision": "Tier C / No-Go"
+}
