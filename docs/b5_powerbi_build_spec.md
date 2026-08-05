@@ -1,6 +1,13 @@
 # B5 Power BI Build Spec — Executive Overview (Formal)
 
-Status: **Spec ready; live Power BI Service authoring not yet performed.**
+Status: **Complete (2026-08-05).** The live report was built via an authenticated
+Power BI Service session (connected through the `claude-in-chrome` browser
+extension after the user logged in). Section 5's reconciliation checklist was
+verified against the live page; see `powerbi/README.md` for the executed
+checklist and final field mapping — two fields differed from this spec's
+placeholder names in practice (`h1_exclusion_reason` was used in place of a
+single combined "sample status" field, matching the actual mart schema more
+directly). This document is retained as the build record.
 
 This is a mechanical, click-by-click spec for rebuilding the single-page Executive
 Overview against the frozen formal mart. It replaces the six-company B1 Pilot page

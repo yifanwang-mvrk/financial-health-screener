@@ -863,7 +863,7 @@ def write_recruiter_pitch(summary: dict[str, Any]) -> None:
 
 ## CV Bullet
 
-Built a reproducible Python-DuckDB financial-quality screener for 21 U.S.-listed e-commerce companies; normalized filing-level XBRL facts through explicit mapping and restatement rules, decomposed ROE changes with exact Shapley attribution, and examined Tier B descriptive persistence patterns across leverage- and operating-driven improvements.
+Built a reproducible Python-DuckDB-Power BI financial-quality screener for 21 U.S.-listed e-commerce companies; normalized filing-level XBRL facts through explicit mapping and restatement rules, decomposed ROE changes with exact Shapley attribution, and examined Tier B descriptive persistence patterns across leverage- and operating-driven improvements.
 
 ## 30-Second Introduction
 
@@ -877,15 +877,18 @@ I built a reproducible financial-quality screener for 21 U.S.-listed e-commerce 
 4. **Q1-A result.** ABNB and LOVE both generated roughly 36% FY2022 ROE, but ABNB relied on margin while LOVE relied much more on turnover. BKNG shows why near-zero equity can make correct ROE economically unstable.
 5. **H1 result.** The frozen sample has {summary['eligible_transition_count']} eligible transitions across {summary['eligible_unique_company_count']} companies, but only four leverage-driven transitions across three companies. The leverage group median peer-relative next-year outcome is {summary['leverage_median_outcome']:.1%}, versus {summary['operating_median_outcome']:.1%} for the operating group, so the observed direction does not support H1.
 6. **Limits.** This is Tier B descriptive evidence. Years are imbalanced, latest-restated is not point-in-time, company-years are not independent companies, and no investment or distress-prediction claim is made.
-7. **Product boundary.** B4 is a complete standalone analytical release. B5 adds the single-page Power BI presentation without moving research logic into DAX.
+7. **Product boundary.** B4 is a complete standalone analytical release. B5 adds the single-page Power BI presentation, published in Power BI Service and reconciled against the frozen mart, without moving research logic into DAX.
 
 ## Interview Checks
 
-- The independent unit is the company because annual transitions repeat within issuers.
-- Exact Shapley attribution handles the multiplicative DuPont identity and reconciles exactly.
-- Negative-base-ROE turnarounds remain visible but outside the main H1 sample.
+- The independent unit is the company because annual transitions repeat within issuers; the audit reports both {summary['eligible_transition_count']} transitions and {summary['eligible_unique_company_count']} unique companies, and Tier A (not reached) would additionally require company-clustered bootstrap rather than treating transitions as i.i.d.
+- The A3 sample audit applied Gate 1's pre-frozen thresholds (Tier A: >=15 unique companies, >=40 transitions, >=8 per driver group): the scan returned {summary['eligible_unique_company_count']} companies with the leverage group at 3-4, short of Tier A on unique-company count, landing in the Tier B band.
+- Margin and turnover are combined into "operating-driven" because both represent execution inside the business (pricing/cost control, asset efficiency) as opposed to a capital-structure change; this keeps the primary test binary while margin-only and turnover-only splits stay available as secondary description.
+- Exact Shapley attribution handles the multiplicative DuPont identity and reconciles exactly because ROE is a product of three factors, not a sum, and naive per-factor deltas leave an unallocated interaction term.
+- Negative-base-ROE turnarounds remain visible but outside the main H1 sample; they are flagged `turnaround_from_loss` for case-level description only.
+- XBRL tag conflicts and restatements go through an explicit concept map with frozen tag priority; every disagreement is logged with winning/discarded value and relative difference, with severity thresholds frozen at Gate 1. Version selection always takes the latest *valid* restated filing, not just the most recent filing date.
 - Peer-relative change is primary because it reduces common-year shocks, though it cannot remove year-composition risk.
-- A larger, balanced sample showing leverage outcomes at least as persistent as operating outcomes would fail to support H1.
+- A larger, balanced sample showing leverage outcomes at least as persistent as operating outcomes would fail to support H1 — and the project's actual Tier B result already points that way ({summary['leverage_median_outcome']:.1%} leverage vs. {summary['operating_median_outcome']:.1%} operating), which is why it is reported as a counter-pattern rather than reframed as support.
 """
     (DOCS / "recruiter_pitch.md").write_text(content, encoding="utf-8")
 

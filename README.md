@@ -14,7 +14,7 @@ The project does not provide investment recommendations, target prices, return p
 
 ## Current Status
 
-Status: **B4 Analytical Release is complete and is the CV-ready minimum deliverable. B5 Power BI Product Release is next; Gate 2 remains pending after B5.**
+Status: **B4 Analytical Release is complete and is the CV-ready minimum deliverable. B5 Power BI Product Release is complete — Q1 Portfolio Release v1.0 is published. Gate 2 remains pending.**
 
 Data as of: **2026-08-05**
 
@@ -35,9 +35,9 @@ The repository currently contains:
 - A completed B2 expansion that applies the unchanged Gate1-v1.0 rules to all 21 formal companies for FY2018-FY2024, with FY2017 loaded only for opening balances.
 - A completed B3 analytical layer with all seven formal SQL marts, 137 formal company-years, exact DuPont/Shapley reconciliation, frozen-rule H1 Tier B results, and an exact 60-field Power BI mart.
 - A completed B4 standalone analytical release with formal quality EDA, eight static charts, two executed notebooks, two-company filing reconciliation, a Tier B research conclusion, CV bullet, and interview narrative.
-- A retained FY2021-FY2023 Pilot visualization prototype, which remains separate from the future B5 formal release.
+- A completed B5 Power BI Executive Overview rebuilt on the frozen 137-row, 60-field formal mart, reconciled, saved in Power BI Service, and exported as `.pbix` and screenshot. The retained FY2021-FY2023 Pilot prototype is superseded and survives only in git history.
 
-The formal B4 release is now independently presentable and may be used on a CV. The six-company Power BI artifact remains Pilot evidence and is not the B5 Portfolio Release v1.0.
+The formal B4 release is independently presentable and may be used on a CV. B5 completes Q1 Portfolio Release v1.0.
 
 ## Pilot Scope
 
@@ -59,8 +59,8 @@ The six-company peer comparisons are descriptive examples only. The Pilot has ze
 - **B2: passed.** The formal layer rebuilds 42 SEC artifacts into 4,780 filing-level facts and 1,959 latest/derived facts; all 21 companies are covered and no required company-year field is missing.
 - **B3: passed.** Seven formal marts rebuild 137 company-years; DuPont and Shapley gaps remain below `1e-10`, H1 matches the frozen 21-transition/10-company Tier B audit, and the Power BI mart matches all 60 contracted fields.
 - **B4: passed.** Formal analytical inputs are checksummed; quality EDA, Q1-A profiles, Tier B persistence analysis, company cases, eight static charts, two executed notebooks, two-company filing reconciliation, and release narrative are complete.
-- **B5: next.** Refresh the single-page Power BI Executive Overview from the frozen 137-row mart, reconcile every visual, save the Service report and reference PBIX, and publish Q1 Portfolio Release v1.0.
-- **Gate 2: pending after B5.** A3 recommends Tier A feasibility from 12 qualified events, but no Q2 work is authorized until the formal Gate 2 decision.
+- **B5: passed.** The single-page Power BI Executive Overview was rebuilt on the frozen 137-row mart, every visual reconciled against the mart, and the Service report saved and exported as reference `.pbix` and screenshot. Q1 Portfolio Release v1.0 is published.
+- **Gate 2: pending.** A3 recommends Tier A feasibility from 12 qualified events, but no Q2 work is authorized until the formal Gate 2 decision is made.
 
 ## Method
 
@@ -92,17 +92,17 @@ Formal analysis: [`docs/q1_analysis_report.md`](docs/q1_analysis_report.md)
 
 ![Tier B persistence outcomes](docs/assets/q1/05_h1_peer_relative_outcomes.png)
 
-## Power BI Pilot Prototype
+## Power BI Executive Overview (B5)
 
-The existing one-page Executive Overview was built from the earlier six-company Pilot snapshot of `q1_powerbi_mart`. It demonstrates the required B5 interaction pattern but has not yet been refreshed from the current 137-row formal mart and is not the formal B5 release.
+The one-page Executive Overview is built on the frozen 137-row, 60-field formal `q1_powerbi_mart` — the same 21-company sample as the rest of Q1, not the earlier six-company Pilot snapshot.
 
-The page includes company, peer-group, and fiscal-year slicers; four DuPont KPIs; company versus peer-median ROE trend; Shapley change contributions; selected-year interpretation; and quality/comparability notes.
+The page includes company, peer-group (`formal_peer_group`), and fiscal-year slicers; four DuPont KPIs; company versus peer-median ROE trend; Shapley change contributions; selected-year interpretation (H1 Evidence Tier, dominant driver, exclusion reason); and quality/comparability notes. All research logic (DuPont, peer medians, Shapley, driver labels, H1 outcomes) is computed in SQL; Power BI only presents and filters it. See [`powerbi/README.md`](powerbi/README.md) for the full field mapping and reconciliation checklist.
 
-![Q1 Power BI Pilot Executive Overview](powerbi/financial_health_screener_q1_powerbi.jpg)
+![Q1 Power BI Executive Overview](powerbi/financial_health_screener_q1_powerbi.jpg)
 
-Reference Pilot export: [`powerbi/Financial_Health_Screener_Q1_Executive_Overview.pbix`](powerbi/Financial_Health_Screener_Q1_Executive_Overview.pbix)
+Reference export: [`powerbi/Financial_Health_Screener_Q1_Executive_Overview.pbix`](powerbi/Financial_Health_Screener_Q1_Executive_Overview.pbix)
 
-Power BI Service Pilot report: [Financial Health Screener Q1 Executive Overview](https://app.powerbi.com/groups/me/reports/fb9d94b1-fc87-484a-9282-2895f48b80fa/4ffbaf6ac660aec51266?experience=power-bi)
+Power BI Service report: [Financial Health Screener Q1 Executive Overview](https://app.powerbi.com/groups/me/reports/fb9d94b1-fc87-484a-9282-2895f48b80fa/4ffbaf6ac660aec51266?experience=power-bi)
 
 ## Repository Guide
 
@@ -160,7 +160,7 @@ Power BI Service Pilot report: [Financial Health Screener Q1 Executive Overview]
 | `src/build_q1_analysis_outputs.py` | Formal EDA, charts, notebooks, reports, reconciliation, and B4 audit |
 | `sql/01_core_tables.sql` to `sql/07_q1_powerbi_mart.sql` | Formal implementation of the frozen analytical method |
 | `tests/` | Pilot, formal data, accounting, evidence, and method contracts |
-| `powerbi/` | Pilot report export, screenshot, notes, and reconciliation |
+| `powerbi/` | Formal B5 report export, screenshot, notes, and reconciliation |
 
 Legacy composite risk-ranking files remain labelled learning artifacts and are not part of the v3 method.
 
@@ -185,7 +185,7 @@ Legacy composite risk-ranking files remain labelled learning artifacts and are n
 ## Formal Completion Criteria
 
 - **B4 minimum CV deliverable:** achieved. The formal analysis, QA, static outputs, executed notebooks, reconciliation, README, CV bullet, and interview narrative are complete.
-- **B5 Portfolio Release v1.0:** formal B4 plus the reconciled single-page Power BI report, frozen PBIX reference, screenshot, README, CV bullet, and five-minute narrative.
+- **B5 Portfolio Release v1.0:** achieved. Formal B4 plus the reconciled single-page Power BI report, frozen PBIX reference, screenshot, README, CV bullet, and five-minute narrative are complete.
 - **Q2/Q3:** conditional; their existence and form are determined only by Gate 2 and Gate 3 evidence.
 
 See [`docs/project_status.md`](docs/project_status.md), [`docs/release_closure_audit.md`](docs/release_closure_audit.md), and [`docs/limitations.md`](docs/limitations.md) for the current execution boundary.

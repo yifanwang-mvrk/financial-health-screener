@@ -15,8 +15,8 @@ This audit restores the repository to the exact phase meanings in Execution Char
 | B2 | Expand unchanged rules to frozen formal sample | Done | All 21 companies and three groups of seven rebuild from 42 raw artifacts; required company-year coverage is complete and frozen Gate 1 hashes match |
 | B3 | Formal seven-mart analytical layer | Done | Seven marts rebuild 137 company-years; H1 matches the frozen 21-transition/10-company Tier B audit; 60-field mart contract and identity checks pass |
 | B4 | Formal analytical release and minimum CV deliverable | Done | Frozen input manifest, formal EDA, Q1-A/H1 analysis, counterexample, eight charts, two executed notebooks, two-company reconciliation, tests, README, and CV narrative are complete |
-| B5 | Formal single-page Portfolio Release v1.0 | Next | Frozen 137-row, 60-field Power BI mart and Pilot page pattern are ready |
-| Gate 2 | Evidence-based Q2 Tier A/B/C | Pending after B5 | A3 recommends Tier A from 12 qualified events; formal authorization remains pending |
+| B5 | Formal single-page Portfolio Release v1.0 | Done | Report rebuilt on the frozen 137-row/60-field mart, two Pilot-schema field references fixed, reconciled against six ground-truth mart rows, saved in Power BI Service, and exported as `.pbix` + screenshot |
+| Gate 2 | Evidence-based Q2 Tier A/B/C | Pending | A3 recommends Tier A from 12 qualified events; B5 completion unblocks Gate 2 but the formal authorization decision itself has not been made |
 | Q2/Q3 | Conditional work only after their gates | Not determined | No valid cancellation or authorization decision yet |
 
 ## Restoration Decision
@@ -25,4 +25,4 @@ The commits that labelled the six-company work as a complete Phase A/Q1 release 
 
 ## Minimum CV Deliverable
 
-The project's formal minimum CV deliverable is achieved at B4 on the Gate 1 frozen sample. The current Power BI artifact remains a Pilot until B5 is completed.
+The project's formal minimum CV deliverable is achieved at B4 on the Gate 1 frozen sample. B5 is now complete: the Power BI artifact reflects the formal 21-company mart and constitutes Q1 Portfolio Release v1.0.

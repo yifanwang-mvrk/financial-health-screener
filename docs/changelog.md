@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-08-05 - Complete B5 Power BI Product Release
+
+- Connected an authenticated Power BI Service session via the `claude-in-chrome` browser extension (the user logged in directly; no credentials were handled by the agent) and confirmed the Power BI data source had already been repointed at the formal `data/processed/q1_powerbi_mart.csv` (137 rows, 21 companies, 60 fields), superseding the six-company Pilot table.
+- Found two visuals still bound to retired Pilot-schema fields after the data swap: the peer-group slicer referenced a deleted `analysis_peer_group` field, and the Selected Company-Year Interpretation table referenced deleted `dominant_change_driver` and `h1_sample_status` fields. Remapped the slicer to `formal_peer_group` and the table to `dominant_driver` plus `h1_exclusion_reason`; confirmed the DuPont Shapley chart's apparent emptiness was expected (no transition exists for a company's first panel year, e.g. AMZN FY2018), not a binding error.
+- Corrected the header subtitle from the stale "FY2021-FY2023 | 6 companies" to "FY2018-FY2024 | 21 companies" and verified the company slicer lists all 21 formal companies (including `BYON` displayed as "Bed Bath & Beyond Inc", matching `company_name` in the frozen mart).
+- Reconciled the live report against six ground-truth rows pulled directly from the mart: AMZN FY2023 (17.5%/5.3%/1.16/2.85), AMZN FY2018 (blank driver/reason at the panel's first year), BKNG FY2023 (extreme 22,573.7% ROE and 1.31K equity multiplier rendered unclamped, with the near-zero-equity warning), BKNG FY2019 (an eligible leverage-driven transition), ETSY FY2023 (ROE and equity multiplier blank rather than 0), and FIGS FY2024 (`mixed_or_ambiguous` / `no_roe_improvement`). All matched exactly. Verified the constant H1 headline fields (21 transitions / 10 companies / 4 leverage / 17 operating / +35.2% vs -11.9%) stay fixed across every slicer selection.
+- Saved the report in Power BI Service, exported `.pbix` and PDF (both required the user to confirm a native macOS save dialog outside the browser extension's reach), and converted the PDF to `powerbi/financial_health_screener_q1_powerbi.jpg` locally via Quick Look and a whitespace-cropping script. Replaced `powerbi/Financial_Health_Screener_Q1_Executive_Overview.pbix`.
+- Rewrote `powerbi/README.md` for the formal report and its executed reconciliation checklist; promoted the CV bullet in `docs/recruiter_pitch.md` to include Power BI; updated `README.md`, `docs/project_status.md`, and `docs/release_closure_audit.md` from "B5 next/pending" to "B5 done"; noted in `docs/gate2_decision.md` that B5 completing unblocks but does not itself decide Gate 2.
+- Q1 Portfolio Release v1.0 is published. Gate 2 (Q2 Tier A/B/C go/no-go) remains an open, separate decision.
+
 ## 2026-08-05 - Prepare B5 Power BI Build Spec and Recruiter Materials
 
 - Verified `data/processed/q1_powerbi_mart.csv` is the frozen formal mart (137 rows, 21 companies, 60 fields, `data_as_of` 2026-08-05), not the six-company Pilot CSV.

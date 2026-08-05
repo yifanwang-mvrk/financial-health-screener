@@ -4,20 +4,23 @@ Last updated: 2026-08-05
 
 ## Current Position
 
-Current milestone: **B4 Analytical Release passed; B5 Power BI Product Release is in progress — spec and materials ready, live Service authoring pending.**
+Current milestone: **B4 Analytical Release passed; B5 Power BI Product Release passed. Q1 Portfolio Release v1.0 is published. Gate 2 remains pending.**
 
-The formal minimum CV deliverable is complete. The six-company Power BI work remains a **Pilot snapshot** until B5 refreshes the page from the frozen 137-row, 60-field formal mart.
+The formal minimum CV deliverable was reached at B4. B5 rebuilt the Power BI Service report on the frozen 137-row, 60-field formal mart, replacing the six-company Pilot page.
 
-B5 preparation is done: `docs/b5_powerbi_build_spec.md` gives a field-by-field,
-DAX-verbatim build spec plus a reconciliation checklist populated with real values
-from the formal mart, and `docs/recruiter_pitch.md` (extended this session with a
-fuller Interview Checks section and a pending Power BI CV-bullet update) carries
-the Tier B CV bullet, 30-second intro, 5-minute narrative, and anticipated Q&A.
-What remains is
-the live Power BI Service session itself: Power BI Service is browser/login-gated
-(no Power BI Desktop on macOS) and no authenticated session is currently reachable
-by either browser tool, so the visual/DAX authoring, Service save, `.pbix` export,
-and screenshot capture have not been performed yet.
+B5 was completed by connecting an authenticated Power BI Service session (via the
+`claude-in-chrome` browser extension, logged in by the user) to the report already
+saved in Power BI Service. Two visuals still referenced fields from the retired
+Pilot schema (`analysis_peer_group`, `dominant_change_driver`, `h1_sample_status`)
+after the underlying data source had already been repointed at the formal mart;
+both were remapped to the frozen field names (`formal_peer_group`, `dominant_driver`,
+plus `h1_exclusion_reason` in place of the retired status field), the header
+subtitle was corrected from "FY2021-FY2023 | 6 companies" to
+"FY2018-FY2024 | 21 companies", and the page was reconciled against six ground-truth
+rows pulled directly from `data/processed/q1_powerbi_mart.csv` (see
+`powerbi/README.md` for the full checklist). The report was saved in Power BI
+Service, exported as `.pbix`, and a fresh screenshot was captured via a PDF export
+converted locally to `powerbi/financial_health_screener_q1_powerbi.jpg`.
 
 ```text
 A0E PASSED
@@ -29,8 +32,8 @@ A0E PASSED
     -> B2 DONE: unchanged pipeline expanded to 21 frozen companies and FY2018-FY2024
     -> B3 DONE: seven formal SQL marts, Tier B audit, and 60-field Power BI mart
     -> B4 DONE: standalone analytical release and CV-ready minimum deliverable
-    -> B5 IN PROGRESS: build spec and recruiter materials ready; live Power BI
-       Service authoring, reconciliation, Service save, and .pbix export pending
+    -> B5 DONE: formal single-page Power BI report rebuilt on the frozen mart,
+       reconciled, saved in Power BI Service, and exported as .pbix + screenshot
     -> Gate 2 PENDING
 ```
 
@@ -52,23 +55,16 @@ A0E PASSED
 - B4 freezes analytical inputs with checksums and provides 14 formal EDA/research tables, eight reviewed static charts, two executed notebooks, eight AMZN/CHWY filing checks, a formal analysis report, CV bullet, and five-minute narrative.
 - The Tier B descriptive result does not support the expected H1 direction: leverage-driven median peer-relative next-year change is +35.2 percentage points versus -11.9 points for operating-driven improvements.
 - Six-company SEC cache, accession-level facts, latest-restated selection, conflicts, and reconciliation.
-- Six-company FY2021-FY2023 DuPont, Shapley, peer, H1-audit, notebook, chart, test, and Power BI artifacts.
-- A saved one-page Power BI Pilot prototype and PBIX reference snapshot.
+- Six-company FY2021-FY2023 DuPont, Shapley, peer, H1-audit, notebook, chart, test, and Power BI artifacts, retained as B1 Pilot evidence.
+- B5 rebuilt the Power BI Service report on the formal 137-row/60-field mart: fixed the peer-group slicer and the Selected Company-Year Interpretation table (both had referenced fields retired from the Pilot schema), corrected the header subtitle, and reconciled AMZN FY2023/FY2018, BKNG FY2023/FY2019, ETSY FY2023, and FIGS FY2024 against the mart. Saved in Power BI Service; exported as `.pbix` (`powerbi/Financial_Health_Screener_Q1_Executive_Overview.pbix`) and screenshot (`powerbi/financial_health_screener_q1_powerbi.jpg`).
 
 ## Remaining Exit Conditions
 
-- B5: build spec (`docs/b5_powerbi_build_spec.md`) and recruiter materials
-  (`docs/recruiter_pitch.md`) are ready. Still open: live Power BI Service
-  visual/DAX authoring against the formal mart, visual reconciliation against the
-  Section 5 checklist, Service save, PBIX reference export, screenshot refresh, and
-  `powerbi/README.md` rewrite — blocked on an authenticated Power BI Service
-  session (see Correct Interpretation below).
-- Gate 2: refresh and formally decide Tier A/B/C after B5.
+- Gate 2: formally decide Tier A/B/C now that B5 is complete. A3 recommended Tier A feasibility from 12 qualified events; the actual go/no-go call has not been made and is a separate scope decision from finishing Q1's presentation layer.
 
 ## Correct Interpretation
 
 - Zero eligible H1 transitions in the six-company Pilot is a Pilot result; Gate 1 independently freezes formal H1 Tier B at 21 transitions across 10 companies.
-- Gate 1 freezes Q2 Tier A feasibility, but formal Gate 2 still occurs after B5 and no Q2 technology is authorized yet.
+- Gate 1 freezes Q2 Tier A feasibility, but the formal Gate 2 decision is a distinct step that has not been made — B5 completing unblocks it but does not decide it.
 - Company Deep Dive and Risk Drivers are not current Q1 requirements. Their exact form is determined only if Gate 2 and Gate 3 authorize Q2/Q3.
-- The formal minimum CV deliverable has been reached at B4. The existing Power BI report remains a Pilot and must not be described as the formal portfolio release until B5 passes.
-- B5's remaining work is a live, authenticated Power BI Service session (visual and DAX authoring, Service save, `.pbix` export). This cannot be completed by file/terminal automation or by an unauthenticated browser, and credentials must never be entered on the user's behalf. Treat `docs/b5_powerbi_build_spec.md` as the authoritative to-do list for whoever holds that session, and do not mark B5 Done until its Section 5 reconciliation checklist has actually been verified against the live report.
+- The formal minimum CV deliverable was reached at B4. B5 is now complete: the Power BI report reflects the formal 21-company mart and is the Q1 Portfolio Release v1.0, not the six-company Pilot.
