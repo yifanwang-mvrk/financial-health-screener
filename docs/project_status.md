@@ -10,8 +10,10 @@ The formal minimum CV deliverable is complete. The six-company Power BI work rem
 
 B5 preparation is done: `docs/b5_powerbi_build_spec.md` gives a field-by-field,
 DAX-verbatim build spec plus a reconciliation checklist populated with real values
-from the formal mart, and `docs/b5_recruiter_materials.md` gives the Tier B CV
-bullet, 30-second intro, 5-minute narrative, and anticipated Q&A. What remains is
+from the formal mart, and `docs/recruiter_pitch.md` (extended this session with a
+fuller Interview Checks section and a pending Power BI CV-bullet update) carries
+the Tier B CV bullet, 30-second intro, 5-minute narrative, and anticipated Q&A.
+What remains is
 the live Power BI Service session itself: Power BI Service is browser/login-gated
 (no Power BI Desktop on macOS) and no authenticated session is currently reachable
 by either browser tool, so the visual/DAX authoring, Service save, `.pbix` export,
@@ -56,7 +58,7 @@ A0E PASSED
 ## Remaining Exit Conditions
 
 - B5: build spec (`docs/b5_powerbi_build_spec.md`) and recruiter materials
-  (`docs/b5_recruiter_materials.md`) are ready. Still open: live Power BI Service
+  (`docs/recruiter_pitch.md`) are ready. Still open: live Power BI Service
   visual/DAX authoring against the formal mart, visual reconciliation against the
   Section 5 checklist, Service save, PBIX reference export, screenshot refresh, and
   `powerbi/README.md` rewrite — blocked on an authenticated Power BI Service

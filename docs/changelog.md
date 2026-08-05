@@ -4,7 +4,7 @@
 
 - Verified `data/processed/q1_powerbi_mart.csv` is the frozen formal mart (137 rows, 21 companies, 60 fields, `data_as_of` 2026-08-05), not the six-company Pilot CSV.
 - Added `docs/b5_powerbi_build_spec.md`: field-by-field slicer/visual/DAX spec for the formal Executive Overview page, with a reconciliation checklist populated from real mart values (AMZN FY2024, BKNG FY2023/FY2019, ETSY FY2023, FIGS FY2024, and the fixed H1 headline panel).
-- Added `docs/b5_recruiter_materials.md`: Tier B CV bullet, 30-second intro, five-minute narrative, and answers to the charter's anticipated interview questions, all drawn from the frozen B4 numbers.
+- Extended the existing `docs/recruiter_pitch.md` (written during B4) rather than duplicating it: added missing anticipated-question coverage (Tier A/B thresholds, why margin+turnover combine into operating-driven, XBRL conflict/restatement handling) to Interview Checks, and appended a pending Power BI CV-bullet update to promote once B5's live report is verified. An initial standalone `docs/b5_recruiter_materials.md` was written first, found to duplicate `recruiter_pitch.md`, and removed in favor of this single-file approach.
 - Confirmed Power BI Service requires an authenticated login that is not reachable from either available browser tool (in-app browser is unauthenticated; no Chrome extension is connected); live visual/DAX authoring, Service save, `.pbix` export, and screenshot capture were not attempted and remain the open B5 work.
 - Updated `docs/project_status.md` to reflect B5 as in progress (spec and materials ready, live authoring pending) rather than marking it Done.
 
