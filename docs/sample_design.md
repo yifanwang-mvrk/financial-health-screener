@@ -28,7 +28,7 @@ The Pilot is retained to test the common data path, accounting identities, Shapl
 
 ## Formal Sample Selection
 
-A3 must first scan all A1 candidates for FY2018-FY2024 annual coverage, prior balances, tag conflicts, latest-restated feasibility, and override cost. Gate 1 will then select:
+A3 has scanned all A1 candidates for FY2018-FY2024 annual coverage, prior balances, tag conflicts, latest-restated feasibility, and override cost. It recommends Path A because 31 companies are coverage-viable and the proposed Marketplace / Inventory-led / DTC groups contain 12 / 7 / 12 viable candidates after merging viable Hybrid issuers into Inventory-led. Gate 1 will now select:
 
 - Path A when coverage is high and mappings are reusable: approximately 18-24 companies, approximately 6-8 per retained group.
 - Path B when tags are heterogeneous and manual review cost is high: approximately 12 companies, approximately 4 per retained group.
@@ -39,6 +39,6 @@ Data Path and H1 Evidence Tier are separate decisions.
 
 Events are stored separately from companies. `event_date` is the first public availability date of qualifying distress evidence; `event_effective_date` separately records legal or transaction effectiveness.
 
-During A1, `estimated_pre_event_quarters` is only a theoretical listing-to-event upper bound. `coverage_verified` remains false, `verified_pre_event_quarters` remains blank, and Q2 qualification remains provisional until A3.
+During A1, `estimated_pre_event_quarters` was only a theoretical listing-to-event upper bound. A3 has now filled `coverage_verified`, real `verified_pre_event_quarters`, and provisional Q2 qualification for every event.
 
-No Gate 2 tier can be inferred from the 14 A1 event candidates until A3 verifies their real quarterly and point-in-time coverage.
+A3 recommends Tier A feasibility from 12 qualified events. This does not authorize Q2; formal Gate 2 remains after B5.

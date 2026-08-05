@@ -18,4 +18,4 @@ This snapshot caches official SEC JSON for the six Pilot companies, retains acce
 - Missing or mismatched SEC facts do not overwrite manually reconciled analytical values.
 - Mapping reviews are explicit evidence tasks, not silent pipeline failures.
 - The six-company Pilot has zero eligible H1 transitions; this does not determine the formal H1 Evidence Tier.
-- Formal H1 Tier and Data Path remain pending the A3 scan across all A1 candidates.
+- A3 recommends H1 Tier B and Path A; Gate 1 must still freeze the formal contract.

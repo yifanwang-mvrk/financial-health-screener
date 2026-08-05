@@ -39,6 +39,8 @@ PILOT_COVERAGE_PATH = PROCESSED_DIR / "b1_pilot_coverage.csv"
 PILOT_AUDIT_SUMMARY_PATH = PROCESSED_DIR / "b1_pilot_source_audit.json"
 A2_PROBE_MANIFEST_PATH = RAW_SEC_DIR / "a2_probe_manifest.csv"
 A2_EXTRACTION_ERRORS_PATH = PROCESSED_DIR / "a2_sec_extraction_errors.csv"
+A3_MANIFEST_PATH = RAW_SEC_DIR / "a3_candidate_manifest.csv"
+A3_EXTRACTION_ERRORS_PATH = PROCESSED_DIR / "a3_sec_extraction_errors.csv"
 
 TICKER_MAP_URL = "https://www.sec.gov/files/company_tickers_exchange.json"
 COMPANYFACTS_URL = "https://data.sec.gov/api/xbrl/companyfacts/CIK{cik:010d}.json"
@@ -473,6 +475,23 @@ def extract_a2_probe(refresh: bool = False) -> pd.DataFrame:
     )
 
 
+def extract_a3_candidates(refresh: bool = False) -> pd.DataFrame:
+    universe = (
+        pd.read_csv(UNIVERSE_PATH, dtype={"cik": str}, keep_default_na=False)
+        if UNIVERSE_PATH.exists()
+        else build_company_universe(refresh=refresh)
+    )
+    selected = universe[universe["include_q1_candidate"].eq(1)].copy()
+    if len(selected) < 30:
+        raise ValueError("A3 requires the completed A1 Q1 candidate pool")
+    return _extract_sec_selection(
+        selected,
+        A3_MANIFEST_PATH,
+        refresh=refresh,
+        error_path=A3_EXTRACTION_ERRORS_PATH,
+    )
+
+
 def normalize_annual_facts() -> pd.DataFrame:
     universe = pd.read_csv(UNIVERSE_PATH, dtype={"cik": str}, keep_default_na=False)
     concepts = pd.read_csv(CONCEPT_MAP_PATH, keep_default_na=False)
@@ -834,6 +853,7 @@ def build_pilot_coverage(
     manifest = pd.read_csv(RAW_SEC_DIR / "manifest.csv", keep_default_na=False)
     events = pd.read_csv(EVENTS_PATH, keep_default_na=False)
     universe = pd.read_csv(UNIVERSE_PATH, keep_default_na=False)
+    a3_complete = (PROCESSED_DIR / "a3_stage_audit.json").exists()
     summary = {
         "generated_on": generated_on,
         "source_cutoff": SOURCE_CUTOFF.date().isoformat(),
@@ -854,8 +874,16 @@ def build_pilot_coverage(
         "manual_review_mapping_count": int(
             (reconciliation["reconciliation_status"] == "review_company_mapping").sum()
         ),
-        "gate1_status": "Pending A3 and formal Gate 1 decision",
-        "gate2_status": "Pending A3 event verification",
+        "gate1_status": (
+            "Pending formal Gate 1 decision"
+            if a3_complete
+            else "Pending A3 and formal Gate 1 decision"
+        ),
+        "gate2_status": (
+            "Pending formal Gate 2 after B5"
+            if a3_complete
+            else "Pending A3 event verification"
+        ),
     }
     PILOT_AUDIT_SUMMARY_PATH.write_text(
         json.dumps(summary, indent=2, ensure_ascii=True) + "\n", encoding="utf-8"
@@ -888,35 +916,40 @@ def build_pilot_coverage(
             "- Missing or mismatched SEC facts do not overwrite manually reconciled analytical values.",
             "- Mapping reviews are explicit evidence tasks, not silent pipeline failures.",
             "- The six-company Pilot has zero eligible H1 transitions; this does not determine the formal H1 Evidence Tier.",
-            "- Formal H1 Tier and Data Path remain pending the A3 scan across all A1 candidates.",
+            (
+                "- A3 recommends H1 Tier B and Path A; Gate 1 must still freeze the formal contract."
+                if a3_complete
+                else "- Formal H1 Tier and Data Path remain pending the A3 scan across all A1 candidates."
+            ),
         ]
     )
     (DOCS_DIR / "b1_pilot_coverage_report.md").write_text(
         "\n".join(coverage_lines) + "\n", encoding="utf-8"
     )
 
-    gate2_lines = [
-        "# Gate 2 Status",
-        "",
-        f"Status date: {generated_on}",
-        "",
-        "## Current Status",
-        "",
-        "**Pending. No Tier A/B/C decision is valid until A3 verifies the full event candidate pool.**",
-        "",
-        "## Why the Earlier No-Go Is Withdrawn",
-        "",
-        f"- A1 now contains {len(events)} event candidates across {events['company_id'].nunique()} companies, within the required stopping range of approximately 10-15.",
-        "- Blank or unverified quarterly coverage is missing evidence, not proof that point-in-time coverage is infeasible.",
-        "- A3 has not yet checked real pre-event quarters, three-statement coverage, filing dates, PIT feasibility, YTD cash-flow reconstruction, peer availability, or manual cost for the full event pool.",
-        "",
-        "## Required Next Step",
-        "",
-        "Complete A2, perform the A3 event feasibility scan, and then apply the frozen Gate 2 thresholds. Q2 and Q3 remain unbuilt while the decision is pending.",
-    ]
-    (DOCS_DIR / "gate2_decision.md").write_text(
-        "\n".join(gate2_lines) + "\n", encoding="utf-8"
-    )
+    if not a3_complete:
+        gate2_lines = [
+            "# Gate 2 Status",
+            "",
+            f"Status date: {generated_on}",
+            "",
+            "## Current Status",
+            "",
+            "**Pending. No Tier A/B/C decision is valid until A3 verifies the full event candidate pool.**",
+            "",
+            "## Why the Earlier No-Go Is Withdrawn",
+            "",
+            f"- A1 now contains {len(events)} event candidates across {events['company_id'].nunique()} companies, within the required stopping range of approximately 10-15.",
+            "- Blank or unverified quarterly coverage is missing evidence, not proof that point-in-time coverage is infeasible.",
+            "- A3 has not yet checked real pre-event quarters, three-statement coverage, filing dates, PIT feasibility, YTD cash-flow reconstruction, peer availability, or manual cost for the full event pool.",
+            "",
+            "## Required Next Step",
+            "",
+            "Complete A2, perform the A3 event feasibility scan, and then apply the frozen Gate 2 thresholds. Q2 and Q3 remain unbuilt while the decision is pending.",
+        ]
+        (DOCS_DIR / "gate2_decision.md").write_text(
+            "\n".join(gate2_lines) + "\n", encoding="utf-8"
+        )
     if not (PROCESSED_DIR / "a2_source_probe_audit.json").exists():
         _write_source_probe_report(facts, latest, reconciliation)
     return coverage
@@ -968,7 +1001,10 @@ def build_b1_pilot_evidence(refresh: bool = False) -> dict[str, int]:
     print("Six-company Pilot evidence layer rebuilt.")
     for key, value in result.items():
         print(f"{key}: {value}")
-    print("Gate 1: pending A1/A3; Gate 2: pending A3 event verification")
+    if (PROCESSED_DIR / "a3_stage_audit.json").exists():
+        print("Gate 1: pending formal freeze; Gate 2: pending after B5")
+    else:
+        print("Gate 1: pending A1/A3; Gate 2: pending A3 event verification")
     return result
 
 

@@ -4,7 +4,7 @@ Last updated: 2026-08-05
 
 | Risk | Severity | Current control | Residual effect |
 | --- | --- | --- | --- |
-| Insufficient independent companies for H1 | High | Complete A1/A3 and apply the frozen Evidence Tier gate without relaxing eligibility | Formal H1 remains undetermined |
+| Insufficient independent companies for H1 | High | Freeze A3 Tier B at Gate 1 without relaxing eligibility; emphasize four leverage-driven transitions across three companies | A3 recommendation available; Gate 1 pending |
 | Missing FY2020 opening balances | High | FY2021 average-balance metrics invalidated | Only FY2022-FY2023 levels are usable |
 | Missing FY2024 outcomes | High | H1 next-year-observable rule | FY2023 improvements cannot be tested for persistence |
 | Near-zero or negative equity | High | ROE validity rule and near-zero-equity warning | Ratios may be null or mechanically unstable |
@@ -15,4 +15,4 @@ Last updated: 2026-08-05
 | Missing optional gross profit or inventory | Medium | Preserve nulls and expose missingness flags | Some margin and quick-ratio comparisons unavailable |
 | Power BI logic drift | Medium | Single frozen mart and SQL-owned research logic | DAX must remain presentation-only |
 | Legacy MVP risk score confusion | Low | README labels legacy files as non-v3 artifacts | Users may still open old outputs without reading status |
-| Unsupported Q2/Q3 expansion | High | Keep Q2/Q3 unbuilt until A3 and Gate 2 determine their form | Gate 2 remains pending |
+| Unsupported Q2/Q3 expansion | High | Keep Q2/Q3 unbuilt until formal Gate 2 authorizes the A3 Tier A recommendation | Gate 2 remains pending after B5 |

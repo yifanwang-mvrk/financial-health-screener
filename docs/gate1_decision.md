@@ -4,18 +4,16 @@ Status date: 2026-08-05
 
 ## Current Status
 
-**Pending. No formal Gate 1 freeze is currently valid.**
+**Pending. A3 evidence is complete; the formal freeze is the next required action.**
 
-The earlier six-company/FY2021-FY2023 decision is withdrawn as a formal Gate 1 decision because it was made without the required A1 stopping-rule census and A3 all-candidate evidence.
+The earlier six-company/FY2021-FY2023 decision remains withdrawn as a formal Gate 1 decision. A3 now provides the missing evidence, but its recommendations do not become frozen decisions until Gate 1 is executed.
 
-## Why the Earlier Decision Was Invalid
+## A3 Evidence Available
 
-- The company census had not reached approximately 30-40 Q1 candidates.
-- The event census had not reached approximately 10-15 candidates.
-- Annual coverage, prior balances, conflicts, and latest-restated feasibility had not been scanned across all Q1 candidates.
-- The real H1 transition population, year distribution, peer distribution, and company concentration were unknown.
-- Event-quarter coverage, filing dates, PIT feasibility, YTD reconstruction, peer availability, and manual cost were unverified.
-- Therefore Data Path, formal sample, H1 Tier, and Q2 feasibility could not be frozen from evidence.
+- Path A recommended from 31 coverage-viable candidates and proposed group counts of 12 Marketplace / 7 Inventory-led / 12 DTC.
+- H1 Tier B recommended from 22 eligible transitions across 11 companies, with only four leverage-driven transitions across three companies and a material year/driver imbalance.
+- Q2 Tier A feasibility recommended from 12 qualified events; formal Gate 2 remains after B5.
+- FY2018-FY2024 annual coverage, prior balances, latest-restated winners, conflicts, override needs, manual cost, event-quarter coverage, PIT metadata, YTD reconstruction, and peer controls are now documented.
 
 ## Retained Pilot Evidence
 
@@ -23,7 +21,7 @@ The six companies AMZN, BKNG, CHWY, DASH, EBAY, and ETSY and FY2021-FY2023 are r
 
 ## Gate 1 Exit Contract
 
-Gate 1 will be completed only after A3 can freeze all of the following:
+Gate 1 will be completed only after the following are explicitly frozen from A3 evidence:
 
 - Data Path A or B and evidence.
 - Formal company list and annual window.
@@ -35,4 +33,4 @@ Gate 1 will be completed only after A3 can freeze all of the following:
 - Power BI mart fields and calculations forbidden in DAX.
 - Q2 feasibility recommendation and limitations.
 
-Until then, B2 formal expansion must not begin.
+Until then, B1 revalidation and B2 formal expansion must not begin.

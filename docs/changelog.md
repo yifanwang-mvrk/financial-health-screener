@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-08-05 - Complete A3 Coverage and H1 Sample Audit
+
+- Cached complete Companyfacts and submissions JSON for all 40 Q1 candidates with an 80-row checksum manifest and zero extraction errors.
+- Scanned FY2018-FY2024 core annual coverage using 4,823 filing-level versions, 1,046 latest-restated winners, and 945 explicit winner/discarded differences.
+- Audited 200 potential H1 transitions without relaxing eligibility; 22 transitions across 11 companies support a Tier B recommendation, with a material driver/year imbalance.
+- Verified all 14 event candidates; 12 satisfy the provisional Tier A metadata criteria, while BOXD and FTCH have specific quarterly/PIT coverage exclusions.
+- Recommended Path A after merging viable Hybrid issuers into Inventory-led, producing viable group pools of 12 Marketplace / 7 Inventory-led / 12 DTC.
+- Preserved Gate 1 and formal Gate 2 as pending decisions; no Q2 signal panel or current screen was built.
+
 ## 2026-08-05 - Complete A2 SEC Source Probe
 
 - Selected CHWY as the Inventory-led probe and EBAY as the Marketplace / Platform probe through one SEC extraction entry.

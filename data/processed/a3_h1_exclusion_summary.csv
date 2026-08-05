@@ -1,0 +1,7 @@
+exclusion_reason,transition_count,unique_company_count
+invalid_dupont_transition,96,31
+turnaround_from_loss,30,25
+nonpositive_prior_roe,27,18
+no_roe_improvement,24,16
+eligible,22,11
+next_year_not_observable,1,1

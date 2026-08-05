@@ -84,10 +84,27 @@ class PhaseAEvidenceTests(unittest.TestCase):
             .str.startswith("https://www.sec.gov/")
             .all()
         )
-        self.assertEqual(set(self.events["coverage_verified"]), {0})
-        self.assertTrue(self.events["verified_pre_event_quarters"].eq("").all())
-        self.assertTrue(self.events["qualifies_for_q2"].eq("").all())
-        self.assertTrue(self.events["exclusion_reason"].eq("").all())
+        a3_audit = PROCESSED / "a3_stage_audit.json"
+        if a3_audit.exists():
+            self.assertEqual(set(self.events["coverage_verified"]), {1})
+            self.assertTrue(
+                self.events["verified_pre_event_quarters"]
+                .astype(str)
+                .str.len()
+                .gt(0)
+                .all()
+            )
+            self.assertTrue(set(self.events["qualifies_for_q2"]).issubset({0, 1}))
+            self.assertTrue(
+                self.events.loc[
+                    self.events["qualifies_for_q2"].eq(0), "exclusion_reason"
+                ].str.len().gt(0).all()
+            )
+        else:
+            self.assertEqual(set(self.events["coverage_verified"]), {0})
+            self.assertTrue(self.events["verified_pre_event_quarters"].eq("").all())
+            self.assertTrue(self.events["qualifies_for_q2"].eq("").all())
+            self.assertTrue(self.events["exclusion_reason"].eq("").all())
 
     def test_raw_manifest_and_checksums(self) -> None:
         self.assertEqual(len(self.manifest), 12)

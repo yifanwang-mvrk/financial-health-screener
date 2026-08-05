@@ -1,0 +1,58 @@
+{
+  "generated_on": "2026-08-05",
+  "stage": "A3 Coverage Verification + H1 Sample Audit",
+  "status": "Done",
+  "candidate_count": 40,
+  "annual_fact_version_rows": 4823,
+  "latest_core_fact_rows": 1046,
+  "core_conflict_rows": 945,
+  "formal_sample_viable_company_count": 31,
+  "h1": {
+    "eligible_transition_count": 22,
+    "eligible_unique_company_count": 11,
+    "leverage_driven_transition_count": 4,
+    "leverage_driven_unique_company_count": 3,
+    "operating_driven_transition_count": 18,
+    "operating_driven_unique_company_count": 11,
+    "maximum_company_transition_share": 0.13636363636363635,
+    "over_concentration_flag": false,
+    "fy2020_2021_transition_share": 0.5,
+    "driver_year_max_shares": {
+      "leverage_driven": 0.75,
+      "operating_driven": 0.2777777777777778
+    },
+    "driver_year_imbalance_flag": true,
+    "year_effect_risk_flag": true,
+    "evidence_tier_recommendation": "B",
+    "permitted_language": "descriptive persistence patterns only"
+  },
+  "q2": {
+    "verified_event_count": 14,
+    "qualified_event_count": 12,
+    "unqualified_event_count": 2,
+    "provisional_gate2_tier_recommendation": "A",
+    "conditional_output": "Exploratory early-warning validation may be authorized at Gate 2",
+    "formal_gate2_status": "pending_after_b5"
+  },
+  "data_path_recommendation": "A",
+  "checks": {
+    "a1_candidate_count_preserved": true,
+    "raw_manifest_complete": true,
+    "raw_manifest_checksums_valid": true,
+    "extraction_error_log_clear": true,
+    "coverage_detail_complete": true,
+    "coverage_verified_for_all_candidates": true,
+    "latest_restated_unique": true,
+    "h1_all_candidate_years_audited": true,
+    "h1_rules_not_relaxed": true,
+    "shapley_reconciles": true,
+    "event_scan_complete": true,
+    "event_coverage_verified": true,
+    "event_decisions_filled": true,
+    "recommendations_complete": true,
+    "reports_written": true,
+    "gate1_not_preempted": true,
+    "gate2_not_preempted": true
+  },
+  "next_stage": "Gate 1 Freeze"
+}

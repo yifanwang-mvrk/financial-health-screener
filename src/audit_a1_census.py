@@ -12,6 +12,7 @@ UNIVERSE_PATH = ROOT / "data/reference/company_universe.csv"
 EVENTS_PATH = ROOT / "data/reference/events.csv"
 AUDIT_PATH = ROOT / "data/processed/a1_census_audit.json"
 REPORT_PATH = ROOT / "docs/a1_census_report.md"
+A3_AUDIT_PATH = ROOT / "data/processed/a3_stage_audit.json"
 
 COMPANY_REQUIRED_COLUMNS = {
     "company_id",
@@ -138,11 +139,29 @@ def audit_a1_census() -> dict[str, object]:
         if abs(int(event.estimated_pre_event_quarters) - expected_quarters) > 1:
             quarter_estimate_errors.append(event.event_id)
 
-    provisional_fields_valid = (
-        events["coverage_verified"].astype(str).eq("0").all()
-        and events["verified_pre_event_quarters"].eq("").all()
-        and events["qualifies_for_q2"].eq("").all()
-    )
+    a3_complete = False
+    if A3_AUDIT_PATH.exists():
+        a3_complete = (
+            json.loads(A3_AUDIT_PATH.read_text(encoding="utf-8")).get("status")
+            == "Done"
+        )
+    if a3_complete:
+        a3_fields_valid = (
+            events["coverage_verified"].astype(str).eq("1").all()
+            and events["verified_pre_event_quarters"].astype(str).str.len().gt(0).all()
+            and events["qualifies_for_q2"].astype(str).isin({"0", "1"}).all()
+            and events.loc[
+                events["qualifies_for_q2"].astype(str).eq("0"), "exclusion_reason"
+            ].str.len().gt(0).all()
+        )
+        a3_check_name = "a3_fields_verified"
+    else:
+        a3_fields_valid = (
+            events["coverage_verified"].astype(str).eq("0").all()
+            and events["verified_pre_event_quarters"].eq("").all()
+            and events["qualifies_for_q2"].eq("").all()
+        )
+        a3_check_name = "a3_fields_remain_provisional"
     listing_dates_valid = pd.to_datetime(
         universe["listing_date"], errors="coerce"
     ).notna().all()
@@ -166,7 +185,7 @@ def audit_a1_census() -> dict[str, object]:
         "event_dates_valid": not date_errors,
         "event_sources_present": events["event_source"].str.len().gt(0).all(),
         "theoretical_quarters_plausible": not quarter_estimate_errors,
-        "a3_fields_remain_provisional": bool(provisional_fields_valid),
+        a3_check_name: bool(a3_fields_valid),
     }
     checks = {name: bool(passed) for name, passed in checks.items()}
     if not all(checks.values()):
@@ -204,7 +223,9 @@ def audit_a1_census() -> dict[str, object]:
         "missing_fiscal_year_end_candidates": missing_fiscal_year_end,
         "missing_listing_date_companies": missing_listing_date,
         "checks": checks,
-        "next_stage": "A2 Two-company Source Probe revalidation",
+        "next_stage": (
+            "Gate 1 Freeze" if a3_complete else "A2 Two-company Source Probe revalidation"
+        ),
     }
     AUDIT_PATH.parent.mkdir(parents=True, exist_ok=True)
     AUDIT_PATH.write_text(
@@ -243,7 +264,12 @@ def audit_a1_census() -> dict[str, object]:
             f"- Missing fiscal-year end among Q1 candidates: {', '.join(missing_fiscal_year_end) or 'None'}",
             f"- Missing listing date: {', '.join(missing_listing_date) or 'None'}",
             "",
-            "CIK and fiscal-year-end gaps are allowed at A1 and are explicitly carried into A2/A3. Listing dates and theoretical pre-event quarters remain provisional until verified.",
+            (
+                "CIK and fiscal-year-end gaps were allowed at A1. A3 has now verified "
+                "the event coverage fields; listing dates remain census provenance fields."
+                if a3_complete
+                else "CIK and fiscal-year-end gaps are allowed at A1 and are explicitly carried into A2/A3. Listing dates and theoretical pre-event quarters remain provisional until verified."
+            ),
             "",
             "## DoD Result",
             "",
@@ -256,7 +282,7 @@ def audit_a1_census() -> dict[str, object]:
     lines.extend(
         [
             "",
-            "A1 stops here. No Companyfacts mapping, real quarterly coverage, or formal sample decision was performed in this stage.",
+            "A1 itself performed no Companyfacts mapping, real quarterly coverage, or formal sample decision. Later-stage fields are preserved when the audit is rerun.",
         ]
     )
     REPORT_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")

@@ -1,0 +1,41 @@
+company_id,ticker,company_name,peer_group,status_group,listing_date,coverage_verified,expected_years,complete_annual_years,complete_annual_year_count,revenue_year_count,net_income_year_count,assets_year_count,equity_year_count,expected_core_coverage_rate,prior_balance_year_count,latest_restated_selectable,core_conflict_count,high_conflict_count,company_override_required,estimated_manual_review_minutes,primary_failure_reason,formal_sample_viable
+abnb,ABNB,Airbnb Inc,marketplace_platform,active,2020-12-10,1,2020|2021|2022|2023|2024,2020|2021|2022|2023|2024,5,6,6,5,6,1.0,4,1,16,0,0,30,none,1
+aka,AKA,a.k.a. Brands Holding Corp,dtc_brand,active,2021-09-22,1,2021|2022|2023|2024,2020|2021|2022|2023|2024,5,6,6,5,6,1.0,4,1,9,0,0,30,short_public_history,1
+amzn,AMZN,Amazon.com Inc,hybrid,active,1997-05-15,1,2018|2019|2020|2021|2022|2023|2024,2018|2019|2020|2021|2022|2023|2024,7,7,7,7,7,1.0,7,1,0,0,0,20,none,1
+aprn,APRN,Blue Apron Holdings Inc,inventory_led_ecommerce,acquired,2017-06-29,1,2018|2019|2020|2021|2022|2023|2024,2018|2019|2020|2021|2022,5,5,5,5,5,0.7142857142857143,5,1,0,0,1,60,mapped_core_field_gaps_require_review,0
+bark,BARK,BARK Inc,dtc_brand,active,2021-06-02,1,2021|2022|2023|2024,2021|2022|2023|2024,4,5,5,4,5,1.0,3,1,6,4,0,60,short_public_history,0
+bbby,BBBY,Bed Bath & Beyond Inc,inventory_led_ecommerce,bankrupt,1992-06-04,1,2018|2019|2020|2021|2022|2023|2024,2018|2019|2020|2021|2022,5,5,5,5,5,0.7142857142857143,5,1,0,0,1,60,mapped_core_field_gaps_require_review,0
+bird,BIRD,Allbirds Inc,dtc_brand,active,2021-11-03,1,2021|2022|2023|2024,2020|2021|2022|2023|2024,5,6,6,5,6,1.0,4,1,0,0,0,30,short_public_history,1
+bkng,BKNG,Booking Holdings Inc,marketplace_platform,active,1999-03-30,1,2018|2019|2020|2021|2022|2023|2024,2018|2019|2020|2021|2022|2023|2024,7,7,7,7,7,1.0,7,1,8,0,0,20,none,1
+boxd,BOXD,Boxed Inc,inventory_led_ecommerce,bankrupt,2021-12-09,1,2021|2022|2023|2024,2020|2021,2,3,3,2,3,0.25,1,1,3,0,1,60,core_field_coverage_below_50pct,0
+byon,BYON,Bed Bath & Beyond Inc,hybrid,active,2002-05-30,1,2018|2019|2020|2021|2022|2023|2024,2018|2019|2020|2021|2022|2023|2024,7,7,7,7,7,1.0,7,1,67,21,0,60,high_value_conflicts_require_review,1
+carg,CARG,CarGurus Inc,marketplace_platform,active,2017-10-12,1,2018|2019|2020|2021|2022|2023|2024,2018|2019|2020|2021|2022|2023|2024,7,7,7,7,7,1.0,7,1,34,21,0,60,high_value_conflicts_require_review,1
+cars,CARS,Cars.com Inc,marketplace_platform,active,2017-06-01,1,2018|2019|2020|2021|2022|2023|2024,2018|2019|2020|2021|2022|2023|2024,7,7,7,7,7,1.0,7,1,10,4,0,60,high_value_conflicts_require_review,1
+chwy,CHWY,Chewy Inc,inventory_led_ecommerce,active,2019-06-14,1,2019|2020|2021|2022|2023|2024,2018|2019|2020|2021|2022|2023|2024,7,7,7,7,7,1.0,6,1,29,7,0,60,high_value_conflicts_require_review,1
+cvna,CVNA,Carvana Co,inventory_led_ecommerce,active,2017-04-28,1,2018|2019|2020|2021|2022|2023|2024,2018|2019|2020|2021|2022|2023|2024,7,7,7,7,7,1.0,7,1,103,43,0,60,high_value_conflicts_require_review,1
+dash,DASH,DoorDash Inc,marketplace_platform,active,2020-12-09,1,2020|2021|2022|2023|2024,2019|2020|2021|2022|2023|2024,6,7,7,6,7,1.0,5,1,21,0,0,30,none,1
+ebay,EBAY,eBay Inc,marketplace_platform,active,1998-09-24,1,2018|2019|2020|2021|2022|2023|2024,2018|2019|2020|2021|2022|2023|2024,7,7,7,7,7,1.0,7,1,13,5,0,60,high_value_conflicts_require_review,1
+etsy,ETSY,Etsy Inc,marketplace_platform,active,2015-04-16,1,2018|2019|2020|2021|2022|2023|2024,2018|2019|2020|2021|2022|2023|2024,7,7,7,7,7,1.0,7,1,10,0,0,20,none,1
+expe,EXPE,Expedia Group Inc,marketplace_platform,active,1999-11-10,1,2018|2019|2020|2021|2022|2023|2024,2018|2019|2020|2021|2022|2023|2024,7,7,7,7,7,1.0,7,1,90,25,0,60,high_value_conflicts_require_review,1
+figs,FIGS,FIGS Inc,dtc_brand,active,2021-05-27,1,2021|2022|2023|2024,2020|2021|2022|2023|2024,5,6,6,5,6,1.0,4,1,0,0,0,30,short_public_history,1
+ftch,FTCH,Farfetch Ltd,marketplace_platform,delisted,2018-09-21,1,2018|2019|2020|2021|2022|2023|2024,,0,0,0,0,0,0.0,0,1,0,0,1,60,core_field_coverage_below_50pct,0
+grov,GROV,Grove Collaborative Holdings Inc,hybrid,active,2022-06-17,1,2022|2023|2024,2021|2022|2023|2024,4,5,5,4,5,1.0,3,1,12,3,0,60,short_public_history,0
+grpn,GRPN,Groupon Inc,marketplace_platform,active,2011-11-04,1,2018|2019|2020|2021|2022|2023|2024,2018|2019|2020|2021|2022|2023|2024,7,7,7,7,7,1.0,7,1,80,9,0,60,high_value_conflicts_require_review,1
+hnst,HNST,Honest Company Inc,dtc_brand,active,2021-05-05,1,2021|2022|2023|2024,2020|2021|2022|2023|2024,5,6,6,5,6,1.0,4,1,5,3,0,60,short_public_history,1
+love,LOVE,Lovesac Company,dtc_brand,active,2018-06-27,1,2018|2019|2020|2021|2022|2023|2024,2018|2019|2020|2021|2022|2023|2024,7,7,7,7,7,1.0,6,1,95,5,0,60,high_value_conflicts_require_review,1
+me,ME,23andMe Holding Co,dtc_brand,bankrupt,2021-06-17,1,2021|2022|2023|2024,2021|2022|2023|2024,4,5,5,4,5,1.0,3,1,6,0,0,30,short_public_history,0
+posh,POSH,Poshmark Inc,marketplace_platform,acquired,2021-01-14,1,2021|2022|2023|2024,2019|2020|2021,3,4,4,3,4,0.25,2,1,16,4,1,60,core_field_coverage_below_50pct,0
+prpl,PRPL,Purple Innovation Inc,dtc_brand,active,2018-02-05,1,2018|2019|2020|2021|2022|2023|2024,2018|2019|2020|2021|2022|2023|2024,7,7,7,7,7,1.0,7,1,92,36,0,60,high_value_conflicts_require_review,1
+pton,PTON,Peloton Interactive Inc,dtc_brand,active,2019-09-26,1,2019|2020|2021|2022|2023|2024,2019|2020|2021|2022|2023|2024,6,7,7,6,7,1.0,5,1,3,2,0,60,high_value_conflicts_require_review,1
+qvcga,QVCGA,QVC Group Inc,inventory_led_ecommerce,bankrupt,2006-05-10,1,2018|2019|2020|2021|2022|2023|2024,2018|2019|2020|2021|2022|2023|2024,7,7,7,7,7,1.0,7,1,76,20,0,60,high_value_conflicts_require_review,1
+real,REAL,The RealReal Inc,marketplace_platform,active,2019-06-28,1,2019|2020|2021|2022|2023|2024,2018|2019|2020|2021|2022|2023|2024,7,7,7,7,7,1.0,6,1,21,2,0,60,high_value_conflicts_require_review,1
+rent,RENT,Rent the Runway Inc,dtc_brand,active,2021-10-27,1,2021|2022|2023|2024,2020|2021|2022|2023|2024,5,6,6,5,6,1.0,4,1,22,14,0,60,short_public_history,1
+rvlv,RVLV,Revolve Group Inc,dtc_brand,active,2019-06-07,1,2019|2020|2021|2022|2023|2024,2018|2019|2020|2021|2022|2023|2024,7,7,7,7,7,1.0,6,1,18,4,0,60,high_value_conflicts_require_review,1
+sdc,SDC,SmileDirectClub Inc,dtc_brand,bankrupt,2019-09-12,1,2019|2020|2021|2022|2023|2024,2018|2019|2020|2021|2022,5,5,5,5,5,0.6666666666666666,4,1,21,9,1,60,mapped_core_field_gaps_require_review,0
+sfix,SFIX,Stitch Fix Inc,dtc_brand,active,2017-11-17,1,2018|2019|2020|2021|2022|2023|2024,2018|2019|2020|2021|2022|2023|2024,7,7,7,7,7,1.0,7,1,14,3,0,60,high_value_conflicts_require_review,1
+snbr,SNBR,Sleep Number Corp,dtc_brand,bankrupt,1998-12-04,1,2018|2019|2020|2021|2022|2023|2024,2018|2019|2020|2021|2022|2023|2024,7,7,7,7,7,1.0,7,1,0,0,0,20,none,1
+tdup,TDUP,ThredUp Inc,marketplace_platform,active,2021-03-26,1,2021|2022|2023|2024,2020|2021|2022|2023|2024,5,6,6,5,6,1.0,4,1,1,1,0,60,short_public_history,1
+vrm,VRM,Vroom Inc,inventory_led_ecommerce,active,2020-06-09,1,2020|2021|2022|2023|2024,2019|2020|2021|2022|2023,5,6,7,6,7,0.95,4,1,17,6,0,60,high_value_conflicts_require_review,1
+w,W,Wayfair Inc,inventory_led_ecommerce,active,2014-10-02,1,2018|2019|2020|2021|2022|2023|2024,2018|2019|2020|2021|2022|2023|2024,7,7,7,7,7,1.0,7,1,18,0,0,20,none,1
+wish,WISH,ContextLogic Inc,marketplace_platform,delisted,2020-12-16,1,2020|2021|2022|2023|2024,2019|2020|2021|2022|2023|2024,6,7,7,6,7,1.0,5,1,3,2,0,60,high_value_conflicts_require_review,1
+wrby,WRBY,Warby Parker Inc,dtc_brand,active,2021-09-29,1,2021|2022|2023|2024,2020|2021|2022|2023|2024,5,6,6,5,6,1.0,4,1,6,4,0,60,short_public_history,1

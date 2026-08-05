@@ -42,7 +42,7 @@ Status: **Done**
 - Missing fiscal-year end among Q1 candidates: ABNB, AKA, APRN, BARK, BBBY, BIRD, BOXD, BYON, CARG, CARS, CVNA, EXPE, FIGS, FTCH, GROV, GRPN, HNST, LOVE, ME, POSH, PRPL, PTON, QVCGA, REAL, RENT, RVLV, SDC, SFIX, SNBR, TDUP, VRM, W, WISH, WRBY
 - Missing listing date: None
 
-CIK and fiscal-year-end gaps are allowed at A1 and are explicitly carried into A2/A3. Listing dates and theoretical pre-event quarters remain provisional until verified.
+CIK and fiscal-year-end gaps were allowed at A1. A3 has now verified the event coverage fields; listing dates remain census provenance fields.
 
 ## DoD Result
 
@@ -63,6 +63,6 @@ CIK and fiscal-year-end gaps are allowed at A1 and are explicitly carried into A
 - [x] event_dates_valid
 - [x] event_sources_present
 - [x] theoretical_quarters_plausible
-- [x] a3_fields_remain_provisional
+- [x] a3_fields_verified
 
-A1 stops here. No Companyfacts mapping, real quarterly coverage, or formal sample decision was performed in this stage.
+A1 itself performed no Companyfacts mapping, real quarterly coverage, or formal sample decision. Later-stage fields are preserved when the audit is rerun.

@@ -12,6 +12,6 @@
   "required_company_field_total_count": 48,
   "manual_match_count": 215,
   "manual_review_mapping_count": 7,
-  "gate1_status": "Pending A3 and formal Gate 1 decision",
-  "gate2_status": "Pending A3 event verification"
+  "gate1_status": "Pending formal Gate 1 decision",
+  "gate2_status": "Pending formal Gate 2 after B5"
 }

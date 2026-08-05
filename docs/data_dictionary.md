@@ -14,7 +14,7 @@ Contains the active A1 census, stable company ID, SEC CIK where available, provi
 
 Grain: one candidate event.
 
-Contains the first-public event date, date basis, effective date, source, confidence, theoretical and verified pre-event coverage, Q2 qualification, and exclusion reason. The 14 records complete the A1 event census. Their unverified quarterly coverage leaves Gate 2 pending until A3.
+Contains the first-public event date, date basis, effective date, source, confidence, theoretical and verified pre-event coverage, provisional Q2 qualification, and exclusion reason. A3 has verified all 14 records; formal Gate 2 remains pending after B5.
 
 ### `data/raw/sec/`
 
@@ -49,6 +49,30 @@ Selects the latest valid annual filing available at the A2 run date after unit a
 Grain: one discarded probe fact value.
 
 Records the winner and discarded tags, values, accessions, filing dates, relative difference, and resolution rule. A2 severity labels are exploratory; Gate 1 has not frozen a materiality threshold.
+
+### `data/processed/a3_coverage_company_field_year.csv`
+
+Grain: one A1 Q1 candidate x fiscal year x core field.
+
+Records FY2018-FY2024 availability, winner metadata, version count, conflict count, and latest-restated selectability for Revenue, Net Income, Assets, and Equity.
+
+### `data/processed/a3_company_coverage_summary.csv`
+
+Grain: one A1 Q1 candidate.
+
+Summarizes complete annual years, expected-listing-window coverage, prior balances, conflicts, override need, manual review cost, failure reason, and Gate 1 sampling viability.
+
+### `data/processed/a3_h1_transition_audit.csv`
+
+Grain: one company x transition center year for FY2019-FY2023.
+
+Contains the frozen H1 eligibility components, exact Shapley contributions, driver label, leverage contribution share, forward outcomes, eligibility, and exclusion reason. A3 recommends Tier B; Gate 1 has not yet frozen it.
+
+### `data/processed/a3_q2_feasibility_scan.csv`
+
+Grain: one A1 event candidate.
+
+Records real pre-event quarter counts, three-statement metadata coverage, filing-date/PIT feasibility, YTD reconstruction need, eligible peer controls, manual cost, provisional qualification, and specific exclusions.
 
 ### `data/normalized/financial_facts.csv`
 

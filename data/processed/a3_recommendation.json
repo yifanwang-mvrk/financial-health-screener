@@ -1,0 +1,88 @@
+{
+  "generated_on": "2026-08-05",
+  "stage": "A3 Coverage Verification + H1 Sample Audit",
+  "data_path_recommendation": "A",
+  "data_path_basis": {
+    "formal_sample_viable_company_count": 31,
+    "viable_company_counts_by_peer_group": {
+      "dtc_brand": 12,
+      "hybrid": 2,
+      "inventory_led_ecommerce": 5,
+      "marketplace_platform": 12
+    },
+    "proposed_counts_after_hybrid_merge": {
+      "marketplace_platform": 12,
+      "inventory_led_ecommerce": 7,
+      "dtc_brand": 12
+    },
+    "path_a_retained_group_candidates": [
+      "marketplace_platform",
+      "inventory_led_ecommerce",
+      "dtc_brand"
+    ]
+  },
+  "peer_group_recommendation": {
+    "retain": [
+      "marketplace_platform",
+      "inventory_led_ecommerce",
+      "dtc_brand"
+    ],
+    "hybrid": "Merge viable AMZN and BYON into Inventory-led E-commerce based on inventory ownership; retain GROV as a short-history boundary case"
+  },
+  "h1": {
+    "eligible_transition_count": 22,
+    "eligible_unique_company_count": 11,
+    "leverage_driven_transition_count": 4,
+    "leverage_driven_unique_company_count": 3,
+    "operating_driven_transition_count": 18,
+    "operating_driven_unique_company_count": 11,
+    "maximum_company_transition_share": 0.13636363636363635,
+    "over_concentration_flag": false,
+    "fy2020_2021_transition_share": 0.5,
+    "driver_year_max_shares": {
+      "leverage_driven": 0.75,
+      "operating_driven": 0.2777777777777778
+    },
+    "driver_year_imbalance_flag": true,
+    "year_effect_risk_flag": true,
+    "evidence_tier_recommendation": "B",
+    "permitted_language": "descriptive persistence patterns only"
+  },
+  "q2": {
+    "verified_event_count": 14,
+    "qualified_event_count": 12,
+    "unqualified_event_count": 2,
+    "provisional_gate2_tier_recommendation": "A",
+    "conditional_output": "Exploratory early-warning validation may be authorized at Gate 2",
+    "formal_gate2_status": "pending_after_b5"
+  },
+  "canonical_field_recommendation": {
+    "retain_core": [
+      "revenue",
+      "net_income",
+      "total_assets",
+      "total_equity"
+    ],
+    "retain_quality_fields": [
+      "operating_income",
+      "total_liabilities",
+      "current_assets",
+      "current_liabilities",
+      "cash_and_equivalents",
+      "inventory",
+      "total_debt",
+      "operating_cash_flow",
+      "capital_expenditure"
+    ],
+    "derived": [
+      "free_cash_flow"
+    ],
+    "noncore_candidates_do_not_delete_before_gate1": [
+      "gross_profit",
+      "long_term_debt",
+      "shares_outstanding"
+    ]
+  },
+  "gate1_status": "pending_formal_freeze",
+  "gate2_status": "pending_after_b5"
+}

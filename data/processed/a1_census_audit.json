@@ -80,7 +80,7 @@
     "event_dates_valid": true,
     "event_sources_present": true,
     "theoretical_quarters_plausible": true,
-    "a3_fields_remain_provisional": true
+    "a3_fields_verified": true
   },
-  "next_stage": "A2 Two-company Source Probe revalidation"
+  "next_stage": "Gate 1 Freeze"
 }

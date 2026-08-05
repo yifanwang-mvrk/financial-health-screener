@@ -1,7 +1,7 @@
 {
   "status": "superseded",
   "reason": "Six-company Pilot evidence was incorrectly labelled as complete Phase A evidence.",
-  "active_stage": "A3 coverage verification and H1 sample audit",
+  "active_stage": "Gate 1 formal freeze",
   "gate1_status": "pending",
   "gate2_status": "pending"
 }

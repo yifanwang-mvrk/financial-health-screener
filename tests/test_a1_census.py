@@ -52,9 +52,27 @@ class A1CensusTests(unittest.TestCase):
         self.assertTrue(
             set(self.events["company_id"]).issubset(set(self.universe["company_id"]))
         )
-        self.assertTrue(self.events["coverage_verified"].astype(str).eq("0").all())
-        self.assertTrue(self.events["verified_pre_event_quarters"].eq("").all())
-        self.assertTrue(self.events["qualifies_for_q2"].eq("").all())
+        a3_audit = ROOT / "data/processed/a3_stage_audit.json"
+        if a3_audit.exists():
+            self.assertTrue(
+                self.events["coverage_verified"].astype(str).eq("1").all()
+            )
+            self.assertTrue(
+                self.events["verified_pre_event_quarters"]
+                .astype(str)
+                .str.len()
+                .gt(0)
+                .all()
+            )
+            self.assertTrue(
+                self.events["qualifies_for_q2"].astype(str).isin({"0", "1"}).all()
+            )
+        else:
+            self.assertTrue(
+                self.events["coverage_verified"].astype(str).eq("0").all()
+            )
+            self.assertTrue(self.events["verified_pre_event_quarters"].eq("").all())
+            self.assertTrue(self.events["qualifies_for_q2"].eq("").all())
 
 
 if __name__ == "__main__":

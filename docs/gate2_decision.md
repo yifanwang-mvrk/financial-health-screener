@@ -4,14 +4,10 @@ Status date: 2026-08-05
 
 ## Current Status
 
-**Pending. No Tier A/B/C decision is valid until A3 verifies the full event candidate pool.**
+**Pending. A3 provides a Tier A feasibility recommendation; the formal Gate 2 decision occurs only after B5.**
 
-## Why the Earlier No-Go Is Withdrawn
+A3 verified all 14 candidates and found 12 that meet the event-count, eight-quarter, three-statement metadata, peer-control, PIT, and manual-cost criteria.
 
-- A1 now contains 14 event candidates across 14 companies, within the required stopping range of approximately 10-15.
-- Blank or unverified quarterly coverage is missing evidence, not proof that point-in-time coverage is infeasible.
-- A3 has not yet checked real pre-event quarters, three-statement coverage, filing dates, PIT feasibility, YTD cash-flow reconstruction, peer availability, or manual cost for the full event pool.
+BOXD and FTCH remain excluded for specific documented coverage reasons. Blank coverage is no longer used as evidence, and no Q2 signal panel or current screen has been built.
 
-## Required Next Step
-
-Complete A2, perform the A3 event feasibility scan, and then apply the frozen Gate 2 thresholds. Q2 and Q3 remain unbuilt while the decision is pending.
+Required next sequence: Gate 1 -> B1 -> B2 -> B3 -> B4 -> B5 -> formal Gate 2.
