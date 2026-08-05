@@ -1,5 +1,6 @@
-metric_flag,flagged_company_years,unique_companies
-near_zero_average_equity_flag,2,2
-one_off_net_income_warning_flag,3,1
-structural_break_flag,1,1
-cash_scope_warning_flag,6,2
+flag_code,severity,flagged_company_years,unique_companies
+source_conflict,high,139,15
+non_positive_average_equity,high,24,8
+missing_prior_balance,high,15,9
+source_conflict,medium,63,13
+insufficient_forward_year,medium,21,21

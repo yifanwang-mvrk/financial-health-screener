@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-08-05 - Complete B4 Analytical Release
+
+- Froze the formal analytical inputs with SHA-256 hashes and recorded an analytical data-as-of date of 2026-08-05.
+- Generated formal coverage, missingness, conflict, latest-selection, metric-flag, H1 exclusion, company concentration, peer distribution, fiscal-year distribution, peer metric, case, and research-finding outputs.
+- Produced and visually reviewed eight static charts covering formal coverage, peer DuPont distributions, similar-ROE/different-driver cases, H1 exclusions, Tier B outcomes, quality warnings, year imbalance, and denominator instability.
+- Executed and saved the formal data-quality and Q1 analysis notebooks with embedded outputs.
+- Completed eight AMZN/CHWY filing reconciliation checks across Revenue, Net Income, Assets, and Equity; all match within tolerance and no processed value was manually edited.
+- Documented that the Tier B pattern does not support H1: leverage-driven median next-year peer-relative change is +35.2 percentage points versus -11.9 points for operating-driven improvements, with material sample and year limitations.
+- Completed the CV bullet, 30-second introduction, five-minute narrative, formal README, limitations, and release audit. B4 is now the CV-ready minimum deliverable; B5 is next.
+
 ## 2026-08-05 - Build Q1 Analytical SQL Marts
 
 - Replaced the legacy six-company/manual-wide-table SQL with the formal 21-company B2 fact layer and `company_id`-based joins and windows.

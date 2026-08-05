@@ -1,32 +1,27 @@
-# Recruiter and Interview Pitch
+# Q1 Recruiter and Interview Narrative
 
 ## CV Bullet
 
-Built a reproducible six-company Pilot for an SEC-Python-DuckDB-Power BI financial research pipeline, retaining accession-level evidence and implementing average-balance DuPont metrics, exact Shapley ROE decomposition, peer benchmarks, quality flags, and automated tests; formal sample expansion is in progress under a pre-specified gate process.
+Built a reproducible Python-DuckDB financial-quality screener for 21 U.S.-listed e-commerce companies; normalized filing-level XBRL facts through explicit mapping and restatement rules, decomposed ROE changes with exact Shapley attribution, and examined Tier B descriptive persistence patterns across leverage- and operating-driven improvements.
 
 ## 30-Second Introduction
 
-I built a six-company Pilot for a financial quality screener that shows why the same ROE can mean different things across e-commerce business models. The pipeline caches official SEC evidence and keeps accession history, Python validates and orchestrates it, and DuckDB SQL calculates average-balance DuPont metrics and exact Shapley contributions. Amazon and Chewy have broadly similar 2023 ROE but very different operating profiles. The Pilot has no eligible H1 transitions, so I do not force a persistence result. The next stage expands and audits the formal candidate pool before the portfolio release is claimed.
+I built a reproducible financial-quality screener for 21 U.S.-listed e-commerce companies. It converts SEC filing facts into average-balance DuPont metrics, peer benchmarks, and exact Shapley explanations of ROE changes. The project also tests a pre-registered persistence idea. The available panel reached Tier B rather than a validation sample, and the descriptive result did not support the expected leverage-is-less-persistent direction. That evidence boundary is part of the product, not something hidden after the analysis.
 
-## Five-Minute Story
+## Five-Minute Narrative
 
-1. **Business problem:** Headline ROE can hide whether returns come from operating economics, asset efficiency, or a thin equity base.
-2. **Data judgment:** I cached official SEC companyfacts and submissions JSON, retained accession-level annual facts, and reconciled them to six companies' issuer-specific filing mappings.
-3. **Engineering:** Python handles extraction, normalization, reconciliation, and validation; seven ordered SQL files build frozen DuckDB marts; tests protect source and analytical contracts.
-4. **Analysis:** I use average assets and equity, exact three-factor Shapley decomposition, peer medians, and explicit denominator warnings.
-5. **Result:** Amazon and Chewy illustrate similar ROE from different drivers. Booking is the counterexample where extreme ROE is mainly a near-zero-equity warning.
-6. **Research discipline:** H1 has zero eligible transitions under the pre-set rules, so the release is Tier C and reports no group comparison.
-7. **Product prototype:** A single Power BI mart keeps research logic out of DAX and supports the Pilot one-page Executive Overview.
-8. **Scope discipline:** Gate 2 remains pending because point-in-time quarterly coverage has not yet been verified; no unsupported risk model is presented.
+1. **Question.** Similar ROE can come from margin, asset efficiency, or leverage, so I wanted a product that separates those drivers and tests whether leverage-led improvements fade faster.
+2. **Data discipline.** I began with 40 Q1 candidates, probed two issuers, audited full coverage, and froze a 21-company Path A sample before engineering the formal release.
+3. **Engineering.** The pipeline retains filing-level accessions, explicit concept conflicts, latest-valid restatements, sign rules, nulls, metric flags, and accession-backed exceptions. Seven ordered DuckDB SQL files produce the analytical marts.
+4. **Q1-A result.** ABNB and LOVE both generated roughly 36% FY2022 ROE, but ABNB relied on margin while LOVE relied much more on turnover. BKNG shows why near-zero equity can make correct ROE economically unstable.
+5. **H1 result.** The frozen sample has 21 eligible transitions across 10 companies, but only four leverage-driven transitions across three companies. The leverage group median peer-relative next-year outcome is 35.2%, versus -11.9% for the operating group, so the observed direction does not support H1.
+6. **Limits.** This is Tier B descriptive evidence. Years are imbalanced, latest-restated is not point-in-time, company-years are not independent companies, and no investment or distress-prediction claim is made.
+7. **Product boundary.** B4 is a complete standalone analytical release. B5 adds the single-page Power BI presentation without moving research logic into DAX.
 
-## Questions to Be Ready For
+## Interview Checks
 
-- Why average equity instead of year-end equity?
-- Why Shapley rather than changing one factor at a time?
-- Why is company the independent unit for H1?
-- Why is BKNG's large ROE a warning?
-- Why are FY2021 DuPont metrics unavailable?
-- Why does the six-company Pilot not determine the formal H1 Tier?
-- Why is latest-restated not point-in-time?
-- Why does Power BI consume one mart instead of recreating logic in DAX?
-- What evidence must A3 collect before Gate 2 can decide Q2/Q3?
+- The independent unit is the company because annual transitions repeat within issuers.
+- Exact Shapley attribution handles the multiplicative DuPont identity and reconciles exactly.
+- Negative-base-ROE turnarounds remain visible but outside the main H1 sample.
+- Peer-relative change is primary because it reduces common-year shocks, though it cannot remove year-composition risk.
+- A larger, balanced sample showing leverage outcomes at least as persistent as operating outcomes would fail to support H1.

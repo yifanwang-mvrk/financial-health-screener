@@ -333,10 +333,35 @@ Purpose: records SQL execution order, row counts, H1 frozen-rule reconciliation,
 
 ## EDA Outputs
 
-- `q1_coverage_summary.csv`
-- `q1_missingness_summary.csv`
-- `q1_metric_flag_summary.csv`
-- `q1_research_findings.csv`
-- `b1_pilot_summary.json`
+- `q1_coverage_summary.csv`: one formal company; available years, valid DuPont years, transition counts, and warning totals.
+- `q1_missingness_summary.csv`: one formal canonical field; missing row count and rate.
+- `q1_conflict_summary.csv`: one conflict severity x resolution status.
+- `q1_latest_selection_summary.csv`: one selection method x canonical field.
+- `q1_metric_flag_summary.csv`: one metric flag code x severity.
+- `q1_h1_company_concentration.csv`: one eligible company; transition count, driver counts, and share.
+- `q1_h1_peer_distribution.csv`: one formal peer group x H1 driver group.
+- `q1_h1_year_distribution.csv`: one transition-ending fiscal year x H1 driver group.
+- `q1_h1_group_summary.csv`: one eligible H1 driver group; companies, transitions, medians, and reversal rate.
+- `q1_peer_metric_summary.csv`: one formal peer group; valid-panel median DuPont profile.
+- `q1_company_cases.csv`: one selected formal company-year case.
+- `q1_research_findings.csv`: one formal research finding with explicit evidence boundary.
 
-These retained files summarize the earlier Pilot snapshot. B4 will regenerate formal EDA and research outputs from the B3 SQL marts, which are now the formal analytical source of truth.
+### `data/processed/b4_filing_reconciliation.csv`
+
+Grain: one selected company x fiscal year x reconciled canonical field.
+
+Purpose: compares the latest-valid SEC value with the manually transcribed filing value for AMZN and CHWY Revenue, Net Income, Assets, and Equity. It retains accession, form, filing date, period, unit, gap, tolerance result, and status.
+
+### `data/processed/b4_release_manifest.csv`
+
+Grain: one frozen B4 analytical input file.
+
+Purpose: records path, SHA-256 hash, byte size, row count, analytical data-as-of date, and freeze date for the formal sample, contracts, seven marts, and B3 audit.
+
+### `data/processed/b4_stage_audit.json`
+
+Grain: one B4 rebuild.
+
+Purpose: records formal scope, evidence tier, static charts, executed notebooks, filing reconciliation, narrative outputs, and B4 DoD checks.
+
+The B3 SQL marts remain the formal analytical source of truth. B4 outputs summarize and present them without directly editing mart data.

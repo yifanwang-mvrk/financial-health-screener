@@ -1,0 +1,40 @@
+{
+  "generated_on": "2026-08-05",
+  "stage": "B4 Analytical Release",
+  "status": "Done",
+  "analytical_data_as_of": "2026-08-05",
+  "source_stage": "B3 SQL Analytical Marts",
+  "formal_company_count": 21,
+  "formal_company_year_count": 137,
+  "valid_dupont_company_year_count": 104,
+  "h1_evidence_tier": "B",
+  "h1_eligible_transition_count": 21,
+  "h1_unique_company_count": 10,
+  "static_chart_files": [
+    "01_coverage_and_dupont_validity.png",
+    "02_peer_group_dupont_distributions.png",
+    "03_similar_roe_different_drivers.png",
+    "04_h1_exclusion_waterfall.png",
+    "05_h1_peer_relative_outcomes.png",
+    "06_quality_warning_matrix.png",
+    "07_h1_year_distribution.png",
+    "08_bkng_denominator_warning.png"
+  ],
+  "executed_notebooks": [
+    "notebooks/02_data_quality.ipynb",
+    "notebooks/03_q1_analysis.ipynb"
+  ],
+  "minimum_test_command": ".venv/bin/python -m unittest discover -s tests -v",
+  "checks": {
+    "b3_source_is_done": true,
+    "formal_scope_21_companies": true,
+    "h1_tier_b_frozen_counts": true,
+    "all_quality_eda_outputs_written": true,
+    "eight_static_charts_written": true,
+    "executed_notebooks_pass": true,
+    "two_company_filing_reconciliation": true,
+    "release_manifest_complete": true,
+    "analysis_report_complete": true,
+    "cv_and_interview_narrative_complete": true
+  }
+}

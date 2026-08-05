@@ -14,7 +14,9 @@ The project does not provide investment recommendations, target prices, return p
 
 ## Current Status
 
-Status: **Gate 1 and B1-B3 passed. B4 Analytical Release is next; Gate 2 remains pending after B5.**
+Status: **B4 Analytical Release is complete and is the CV-ready minimum deliverable. B5 Power BI Product Release is next; Gate 2 remains pending after B5.**
+
+Data as of: **2026-08-05**
 
 The frozen execution order is:
 
@@ -32,9 +34,10 @@ The repository currently contains:
 - A revalidated six-company B1 pipeline that rebuilds SEC raw JSON through normalized facts, explicit conflicts/overrides, latest-restated values, metric flags, DuckDB, and Pilot marts.
 - A completed B2 expansion that applies the unchanged Gate1-v1.0 rules to all 21 formal companies for FY2018-FY2024, with FY2017 loaded only for opening balances.
 - A completed B3 analytical layer with all seven formal SQL marts, 137 formal company-years, exact DuPont/Shapley reconciliation, frozen-rule H1 Tier B results, and an exact 60-field Power BI mart.
+- A completed B4 standalone analytical release with formal quality EDA, eight static charts, two executed notebooks, two-company filing reconciliation, a Tier B research conclusion, CV bullet, and interview narrative.
 - A retained FY2021-FY2023 Pilot visualization prototype, which remains separate from the future B5 formal release.
 
-The six-company analytical artifacts are retained as Pilot evidence. They are not the formal B4 minimum CV deliverable or the B5 Portfolio Release v1.0.
+The formal B4 release is now independently presentable and may be used on a CV. The six-company Power BI artifact remains Pilot evidence and is not the B5 Portfolio Release v1.0.
 
 ## Pilot Scope
 
@@ -55,7 +58,8 @@ The six-company peer comparisons are descriptive examples only. The Pilot has ze
 - **B1: passed.** All six companies run through one SEC-to-DuckDB entry; DASH/ETSY CapEx overrides are filing-backed, error logs are clear, and DuPont/Shapley reconcile.
 - **B2: passed.** The formal layer rebuilds 42 SEC artifacts into 4,780 filing-level facts and 1,959 latest/derived facts; all 21 companies are covered and no required company-year field is missing.
 - **B3: passed.** Seven formal marts rebuild 137 company-years; DuPont and Shapley gaps remain below `1e-10`, H1 matches the frozen 21-transition/10-company Tier B audit, and the Power BI mart matches all 60 contracted fields.
-- **B4: next.** Freeze the analytical inputs, complete quality EDA, Q1-A profiles, Tier B persistence analysis, company cases, reconciliation, static charts, notebook, and CV-ready README.
+- **B4: passed.** Formal analytical inputs are checksummed; quality EDA, Q1-A profiles, Tier B persistence analysis, company cases, eight static charts, two executed notebooks, two-company filing reconciliation, and release narrative are complete.
+- **B5: next.** Refresh the single-page Power BI Executive Overview from the frozen 137-row mart, reconcile every visual, save the Service report and reference PBIX, and publish Q1 Portfolio Release v1.0.
 - **Gate 2: pending after B5.** A3 recommends Tier A feasibility from 12 qualified events, but no Q2 work is authorized until the formal Gate 2 decision.
 
 ## Method
@@ -73,17 +77,20 @@ Average assets and equity use consecutive fiscal-year-end balances. Metrics are 
 
 Exact three-factor Shapley decomposition attributes each valid annual ROE change to margin, asset turnover, and equity multiplier. The contributions reconcile exactly to the observed change. H1 eligibility retains the frozen positive-equity, positive-base-ROE, positive-improvement, valid-components, and observable-forward-year rules.
 
-## Pilot Findings
+## Formal Findings
 
-- 11 of 18 Pilot company-years have valid average-balance DuPont metrics.
-- Five Pilot transitions have valid Shapley decompositions.
-- AMZN and CHWY illustrate that similar ROE can come from very different margin, turnover, and leverage profiles.
-- BKNG illustrates why near-zero average equity can make ROE mechanically extreme and economically unstable.
-- The Pilot cannot test H1 because it has zero eligible forward transitions.
+- 104 of 137 formal company-years have valid average-balance DuPont metrics.
+- ABNB and LOVE both produced roughly 36% FY2022 ROE, but ABNB relied on a 22.5% margin and 0.56x turnover while LOVE relied on a 9.5% margin and 1.84x turnover.
+- BKNG shows why positive but near-zero average equity can make mathematically correct ROE mechanically extreme and economically unstable.
+- H1 remains Tier B: 21 eligible transitions across 10 companies, including only four leverage-driven transitions across three companies.
+- The descriptive direction does **not support H1**. Median next-year peer-relative ROE change is +35.2 percentage points for leverage-driven improvements versus -11.9 points for operating-driven improvements.
+- This is not validation or a balanced-panel rejection: FY2020-FY2021 contain 47.6% of eligible transitions, and leverage cases occur only in FY2019 and FY2021.
 
-Pilot analysis: [`docs/q1_analysis_report.md`](docs/q1_analysis_report.md)
+Formal analysis: [`docs/q1_analysis_report.md`](docs/q1_analysis_report.md)
 
-![Pilot DuPont profiles](docs/assets/q1/02_2023_dupont_profiles.png)
+![Formal peer-group DuPont distributions](docs/assets/q1/02_peer_group_dupont_distributions.png)
+
+![Tier B persistence outcomes](docs/assets/q1/05_h1_peer_relative_outcomes.png)
 
 ## Power BI Pilot Prototype
 
@@ -137,6 +144,10 @@ Power BI Service Pilot report: [Financial Health Screener Q1 Executive Overview]
 | `data/processed/q1_company_vs_peer.csv` | Formal company positions relative to peer benchmarks |
 | `data/processed/q1_powerbi_mart.csv` | Formal 137-row, 60-field B5 consumption table |
 | `data/processed/b3_mart_schema.csv` | Field-level grain, type, and description for B3 outputs |
+| `data/processed/b4_release_manifest.csv` | Checksummed frozen inputs for the analytical release |
+| `data/processed/b4_stage_audit.json` | B4 DoD, chart, notebook, reconciliation, and narrative audit |
+| `data/processed/q1_research_findings.csv` | Formal Q1-A, H1, counterexample, and falsification findings |
+| `data/processed/b4_filing_reconciliation.csv` | AMZN/CHWY filing-to-pipeline reconciliation evidence |
 | `data/reference/company_overrides.csv` | Filing-backed exceptions used only when the shared concept map fails |
 | `src/build_b1_pilot.py` | Rebuilds the current six-company Pilot evidence layer |
 | `src/build_b2_formal_sample.py` | Rebuilds the frozen 21-company B2 data layer |
@@ -145,18 +156,21 @@ Power BI Service Pilot report: [Financial Health Screener Q1 Executive Overview]
 | `src/phase_a_evidence.py` | Retained A1-A3 and earlier Pilot evidence helpers |
 | `src/build_b3_analytical_marts.py` | Rebuilds B2 and all formal B3 SQL marts in frozen order |
 | `src/build_q1_v3_pipeline.py` | Formal B3 orchestration, export, schema dictionary, and DoD audit |
+| `src/build_b4_analytical_release.py` | Rebuilds the complete standalone analytical release |
+| `src/build_q1_analysis_outputs.py` | Formal EDA, charts, notebooks, reports, reconciliation, and B4 audit |
 | `sql/01_core_tables.sql` to `sql/07_q1_powerbi_mart.sql` | Formal implementation of the frozen analytical method |
 | `tests/` | Pilot, formal data, accounting, evidence, and method contracts |
 | `powerbi/` | Pilot report export, screenshot, notes, and reconciliation |
 
 Legacy composite risk-ranking files remain labelled learning artifacts and are not part of the v3 method.
 
-## Rebuild B1-B3
+## Rebuild B1-B4
 
 ```bash
 .venv/bin/python src/build_b1_pilot.py
 .venv/bin/python src/build_b2_formal_sample.py
 .venv/bin/python src/build_b3_analytical_marts.py
+.venv/bin/python src/build_b4_analytical_release.py
 .venv/bin/python -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
@@ -170,7 +184,7 @@ Legacy composite risk-ranking files remain labelled learning artifacts and are n
 
 ## Formal Completion Criteria
 
-- **B4 minimum CV deliverable:** B2 and B3 are complete; B4 analysis, QA, static outputs, notebook, and release documentation remain.
+- **B4 minimum CV deliverable:** achieved. The formal analysis, QA, static outputs, executed notebooks, reconciliation, README, CV bullet, and interview narrative are complete.
 - **B5 Portfolio Release v1.0:** formal B4 plus the reconciled single-page Power BI report, frozen PBIX reference, screenshot, README, CV bullet, and five-minute narrative.
 - **Q2/Q3:** conditional; their existence and form are determined only by Gate 2 and Gate 3 evidence.
 

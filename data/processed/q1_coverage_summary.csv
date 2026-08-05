@@ -1,7 +1,22 @@
-ticker,company_name,analysis_peer_group,first_fiscal_year,last_fiscal_year,company_year_rows,valid_dupont_company_years,quality_warning_count,valid_dupont_transitions
-AMZN,Amazon.com Inc,Inventory-led E-commerce,2021,2023,3,2,1,1
-BKNG,Booking Holdings Inc,Marketplace / Platform,2021,2023,3,2,8,1
-CHWY,Chewy Inc,Inventory-led E-commerce,2021,2023,3,2,6,1
-DASH,DoorDash Inc,Marketplace / Platform,2021,2023,3,2,11,1
-EBAY,eBay Inc,Marketplace / Platform,2021,2023,3,2,7,1
-ETSY,Etsy Inc,Marketplace / Platform,2021,2023,3,1,6,0
+company_id,ticker,company_name,formal_peer_group,first_fiscal_year,last_fiscal_year,company_year_rows,valid_dupont_company_years,metric_flag_count,unresolved_conflict_count,valid_dupont_transitions
+bird,BIRD,Allbirds Inc,dtc_brand,2020,2024,5,4,2,0,3
+figs,FIGS,FIGS Inc,dtc_brand,2020,2024,5,4,2,0,3
+love,LOVE,Lovesac Company,dtc_brand,2018,2024,7,6,20,0,5
+pton,PTON,Peloton Interactive Inc,dtc_brand,2019,2024,6,4,7,0,3
+rvlv,RVLV,Revolve Group Inc,dtc_brand,2018,2024,7,6,6,0,5
+sfix,SFIX,Stitch Fix Inc,dtc_brand,2018,2024,7,7,12,0,6
+snbr,SNBR,Sleep Number Corp,dtc_brand,2018,2024,7,0,8,0,0
+amzn,AMZN,Amazon.com Inc,inventory_led_ecommerce,2018,2024,7,7,1,0,6
+byon,BYON,Bed Bath & Beyond Inc,inventory_led_ecommerce,2018,2024,7,7,22,0,6
+chwy,CHWY,Chewy Inc,inventory_led_ecommerce,2018,2024,7,3,15,0,2
+cvna,CVNA,Carvana Co,inventory_led_ecommerce,2018,2024,7,5,25,0,3
+qvcga,QVCGA,QVC Group Inc,inventory_led_ecommerce,2018,2024,7,6,24,0,5
+vrm,VRM,Vroom Inc,inventory_led_ecommerce,2019,2023,5,4,7,0,3
+w,W,Wayfair Inc,inventory_led_ecommerce,2018,2024,7,0,8,0,0
+abnb,ABNB,Airbnb Inc,marketplace_platform,2020,2024,5,4,6,0,3
+bkng,BKNG,Booking Holdings Inc,marketplace_platform,2018,2024,7,6,2,0,5
+cars,CARS,Cars.com Inc,marketplace_platform,2018,2024,7,7,8,0,6
+dash,DASH,DoorDash Inc,marketplace_platform,2019,2024,6,5,18,0,4
+ebay,EBAY,eBay Inc,marketplace_platform,2018,2024,7,7,17,0,6
+etsy,ETSY,Etsy Inc,marketplace_platform,2018,2024,7,5,17,0,4
+expe,EXPE,Expedia Group Inc,marketplace_platform,2018,2024,7,7,23,0,6

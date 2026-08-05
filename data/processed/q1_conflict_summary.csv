@@ -1,0 +1,7 @@
+conflict_severity,resolution_status,conflict_count,companies
+high,resolved_latest_restated,176,15
+high,resolved_tag_priority,53,13
+low,resolved_latest_restated,482,18
+low,resolved_tag_priority,29,10
+medium,resolved_latest_restated,115,15
+medium,resolved_tag_priority,20,6
