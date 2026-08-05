@@ -12,7 +12,7 @@ This release does not produce an investment recommendation or a black-box risk s
 
 ## Current Release
 
-Status: **B4 Analytical Release**
+Status: **B5 Interactive Q1 Release**
 
 Data scope:
 
@@ -28,6 +28,8 @@ Analysis peer groups:
 - Marketplace / Platform: BKNG, DASH, EBAY, ETSY
 
 The peer groups are analytical operating-model categories. With only six companies, peer comparisons are descriptive rather than industry estimates.
+
+Release verification: the isolated rebuild completes successfully and all 8 automated tests pass.
 
 ## Method
 
@@ -64,6 +66,33 @@ Full findings: [`docs/q1_analysis_report.md`](docs/q1_analysis_report.md)
 
 ![2023 DuPont profiles](docs/assets/q1/02_2023_dupont_profiles.png)
 
+## Power BI Executive Overview
+
+The B5 release adds a single-page interactive report built from `data/processed/q1_powerbi_mart.csv` only. Power BI is used for presentation and filtering; it does not recalculate the SQL-owned financial definitions.
+
+The page includes:
+
+- company, peer-group, and fiscal-year slicers
+- ROE, net margin, asset turnover, and equity multiplier KPIs
+- company ROE versus peer-median trend
+- exact Shapley DuPont contributions, with `0.10 = 10 percentage points`
+- dominant ROE driver, H1 Evidence Tier, and H1 sample status
+- permitted-inference, quality-warning, and comparability notes
+
+The page was reconciled to the mart for the default AMZN FY2023 view and tested against two edge cases: BKNG FY2023 exposes the near-zero-equity warning, while ETSY FY2023 keeps invalid ROE blank rather than displaying zero.
+
+![Q1 Power BI Executive Overview](powerbi/financial_health_screener_q1_powerbi.jpg)
+
+Reference export: [`powerbi/Financial_Health_Screener_Q1_Executive_Overview.pbix`](powerbi/Financial_Health_Screener_Q1_Executive_Overview.pbix)
+
+Power BI Service report: [Financial Health Screener Q1 Executive Overview](https://app.powerbi.com/groups/me/reports/fb9d94b1-fc87-484a-9282-2895f48b80fa/4ffbaf6ac660aec51266?experience=power-bi)
+
+The operating-profile scatter and other cohort views remain available as reproducible static charts under `docs/assets/q1/`; the interactive page intentionally stays focused on the selected company-year decision path.
+
+## CV-Ready Summary
+
+> Built a reproducible Python-DuckDB financial research pipeline and interactive Power BI report for six public e-commerce companies and 18 company-years, engineering average-balance DuPont metrics, exact Shapley ROE decomposition, peer benchmarks, evidence-tier controls, quality flags, and automated tests.
+
 ## Architecture
 
 ```text
@@ -93,6 +122,7 @@ Python orchestrates file loading, validation, database execution, exports, EDA, 
 | `notebooks/` | Executed source, quality, and Q1 analysis notebooks |
 | `tests/test_q1_v3_pipeline.py` | Minimum accounting and research-logic test suite |
 | `docs/` | Research design, data dictionary, limitations, analysis report, and reconciliation |
+| `powerbi/` | B5 report export, final screenshot, build notes, and reconciliation record |
 
 The earlier `financial_health_screener_mvp.sql`, `build_mvp_pipeline.py`, and risk-ranking outputs are retained as legacy learning artifacts. They are not the v3 research product.
 

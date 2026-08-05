@@ -1,62 +1,64 @@
 # Q1 Power BI Executive Overview
 
+## Build Status
+
+Status: **Complete for the B5 interactive Q1 release**
+
+The Power BI Service report is saved, the final `.pbix` reference export is frozen in this directory, and the final page screenshot is stored as `financial_health_screener_q1_powerbi.jpg`.
+
 ## Input Boundary
 
-Power BI must consume only:
+Power BI consumes only:
 
 ```text
 data/processed/q1_powerbi_mart.csv
 ```
 
-DuPont metrics, peer medians, Shapley contributions, driver labels, H1 outcomes, Evidence Tier, and quality warnings are already calculated in DuckDB SQL. DAX must not recreate or override those definitions.
+DuPont metrics, peer medians, Shapley contributions, driver labels, H1 outcomes, Evidence Tier, and quality warnings are calculated in DuckDB SQL. Power BI is restricted to presentation and filtering and does not recreate those definitions in DAX.
 
 ## Single-Page Layout
 
-### Header and Filters
+### Header, Filters, and KPIs
 
 - Title: Financial Quality and ROE Drivers
-- Company slicer: `ticker` or `company_name`
+- Company slicer: `company_name`
 - Peer-group slicer: `analysis_peer_group`
 - Fiscal-year slicer: `fiscal_year`
-- Evidence badge: `h1_evidence_tier`
-
-### KPI Row
-
 - ROE: `roe`
 - Net Margin: `net_margin`
 - Asset Turnover: `asset_turnover`
 - Equity Multiplier: `equity_multiplier`
 
-Each KPI must show blank rather than zero when the SQL mart returns null. A warning icon or conditional label should appear when `roe_valid_flag` is false or `near_zero_average_equity_flag` is true.
+Null SQL values remain blank. This is verified with ETSY FY2023, where ROE and equity multiplier display `--` rather than zero.
 
 ### Main Visuals
 
-1. **ROE Driver Contribution**
-   - Stacked or clustered bar.
-   - Values: `contribution_margin`, `contribution_turnover`, `contribution_multiplier`.
-   - Category: company or fiscal year, depending on slicer context.
+1. **ROE Trend: Company vs Peer Median**
+   - Axis: `fiscal_year`
+   - Values: `roe`, `peer_median_roe`
+   - The company line retains historical context through the selected fiscal year.
 
-2. **Company vs Peer**
-   - Dot or variance bars for `roe_vs_peer_median`, `net_margin_vs_peer_median`, `asset_turnover_vs_peer_median`, and `equity_multiplier_vs_peer_median`.
+2. **DuPont ROE Change Drivers**
+   - Axis: `fiscal_year`
+   - Values: `contribution_margin`, `contribution_turnover`, `contribution_multiplier`
+   - Data labels are visible.
+   - Contributions are stored as decimals; the title states `0.10 = 10 pp`.
 
-3. **Operating Profile**
-   - Scatter: x = `net_margin`, y = `asset_turnover`, bubble size = capped/log presentation of `equity_multiplier`, color = `analysis_peer_group`.
+3. **Selected Company-Year Interpretation**
+   - `dominant_change_driver`
+   - `h1_evidence_tier`
+   - `h1_sample_status`
 
-4. **H1 Status**
-   - Text value for `h1_sample_status` and `h1_permitted_inference`.
-   - The current release must visibly state Tier C and no group test.
+4. **Evidence, Quality & Comparability Notes**
+   - `h1_permitted_inference`
+   - `quality_warnings`
+   - `comparability_note`
 
-### Warning Area
+The interactive page prioritizes the selected-company decision path. The cohort operating-profile scatter remains available as the reproducible static chart `docs/assets/q1/05_2023_operating_profile.png`.
 
-- `quality_warnings`
-- `comparability_note`
-- `source_selection_note`
+## Presentation Measures
 
-Do not hide the warning area when a KPI is visually strong.
-
-## Basic Measures
-
-Presentation-only examples:
+Power BI uses presentation-only measures or direct column aggregation. Financial definitions remain SQL-owned.
 
 ```DAX
 Selected ROE = MAX(q1_powerbi_mart[roe])
@@ -74,14 +76,15 @@ Recommended formats:
 
 ## Reconciliation Checklist
 
-- Selected company-year KPIs match the CSV exactly.
-- Peer medians match the CSV exactly.
-- Dominant driver and H1 group match the CSV exactly.
-- Null ROE remains blank.
-- BKNG FY2023 displays the near-zero-equity warning.
-- ETSY FY2023 displays invalid ROE rather than zero.
-- Slicer combinations do not silently aggregate incompatible company-years.
+Completed on 2026-08-05:
 
-## Build Status
+- [x] AMZN FY2023 KPIs match the mart: ROE 17.5%, net margin 5.3%, asset turnover 1.16, and equity multiplier 2.85.
+- [x] Company ROE and peer-median trend reconcile to the mart.
+- [x] Shapley contribution bars reconcile to the mart and expose units in the title.
+- [x] Dominant driver, Evidence Tier, and H1 sample status respond to slicers.
+- [x] BKNG FY2023 displays the near-zero-average-equity warning and mechanically unstable ROE note.
+- [x] ETSY FY2023 displays invalid ROE as blank rather than zero.
+- [x] H1 remains Evidence Tier C and explicitly forbids group-level inference.
+- [x] The report is saved in Power BI Service and exported as a `.pbix` reference file.
 
-The analytical mart and design specification are complete. The interactive Power BI page and `.pbix` reference export are the next collaborative B5 step.
+Power BI Service report: [Financial Health Screener Q1 Executive Overview](https://app.powerbi.com/groups/me/reports/fb9d94b1-fc87-484a-9282-2895f48b80fa/4ffbaf6ac660aec51266?experience=power-bi)
