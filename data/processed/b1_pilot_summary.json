@@ -1,0 +1,30 @@
+{
+  "data_as_of": "2024-01-28",
+  "source_company_count": 6,
+  "source_company_year_count": 18,
+  "valid_dupont_company_year_count": 11,
+  "valid_dupont_transition_count": 5,
+  "h1_evidence": {
+    "eligible_transition_count": 0,
+    "eligible_unique_company_count": 0,
+    "leverage_driven_unique_company_count": 0,
+    "operating_driven_unique_company_count": 0,
+    "max_transitions_from_one_company": 0,
+    "maximum_company_transition_share": 0.0,
+    "over_concentration_flag": false,
+    "evidence_tier": "C",
+    "permitted_inference": "Evidence insufficient for group testing; illustrative cases only"
+  },
+  "exported_table_rows": {
+    "q1_latest_restated": 18,
+    "q1_annual_company_metrics": 18,
+    "q1_dupont_contributions": 12,
+    "q1_driver_persistence": 12,
+    "q1_h1_sample_audit": 12,
+    "q1_h1_exclusion_waterfall": 4,
+    "q1_h1_evidence_summary": 1,
+    "q1_peer_summary": 6,
+    "q1_company_vs_peer": 18,
+    "q1_powerbi_mart": 18
+  }
+}

@@ -4,50 +4,40 @@ Last updated: 2026-08-05
 
 ## Current Position
 
-Current milestone: **Phase A and Q1 Portfolio Release v1.0 complete. Gate 2 is Tier C / No-Go.**
+Current milestone: **A1 Unified Company & Event Census in progress.**
+
+The six-company analytical and Power BI work is formally restored to a **B1 Pilot snapshot**. It is retained as useful engineering evidence but does not satisfy the formal release sequence because A1, A3, and Gate 1 have not been completed.
 
 ```text
-A1 company and event census
-    -> A2 official SEC source probe
-    -> A3 coverage and H1 sample audit
-    -> Gate 1 frozen six-company release
-    -> B1-B4 reproducible Q1 analytical product
-    -> B5 single-page Power BI Executive Overview
-    -> Gate 2 Tier C / No-Go
-    -> project closes with Q1; Q2/Q3 are not built
+A0E PASSED
+    -> A1 IN PROGRESS
+    -> A2 reusable probe evidence exists; formal closure waits for A1
+    -> A3 NOT STARTED across all candidates/events
+    -> Gate 1 PENDING
+    -> B1 six-company Pilot snapshot exists; formal revalidation pending
+    -> B2-B5 formal releases PENDING
+    -> Gate 2 PENDING
 ```
 
-The No-Go decision is a valid completion state under both project guides. It prevents latest-restated annual data from being misrepresented as a point-in-time distress model.
+## Evidence Retained
 
-## Completed Scope
+- Preliminary 26-company universe with 13 Q1 candidates.
+- Preliminary five-event table.
+- Six-company SEC cache, accession-level facts, latest-restated selection, conflicts, and reconciliation.
+- Six-company FY2021-FY2023 DuPont, Shapley, peer, H1-audit, notebook, chart, test, and Power BI artifacts.
+- A saved one-page Power BI Pilot prototype and PBIX reference snapshot.
 
-- A 26-company census with stable IDs, listing status, provisional listing dates, operating-model fields, Q1 scope, and event flags.
-- A five-record event census with first-public dates, primary SEC sources, confidence, coverage status, and exclusion reasons.
-- Twelve cached SEC companyfacts/submissions artifacts for the six release companies, each with a manifest checksum.
-- 599 normalized annual filing facts retaining accession, filing date, source tag, unit, duration, and source URL.
-- 222 latest-restated canonical facts available by the frozen 2024-04-30 source cutoff.
-- Explicit automated concept conflicts and reconciliation against the manually verified analytical table.
-- 18 company-year Q1 rows for AMZN, BKNG, CHWY, DASH, EBAY, and ETSY across FY2021-FY2023.
-- Average-balance DuPont metrics, exact Shapley attribution, peer comparisons, H1 eligibility, and Evidence Tier logic.
-- Six static charts, three executed notebooks, analytical report, data dictionary, limitations, risk register, and interview pitch.
-- A tested single-page Power BI report, saved in Power BI Service and exported as a reference `.pbix`.
-- Sixteen passing automated tests covering the SEC evidence layer and Q1 analytical contracts.
+## Missing Exit Conditions
 
-## Findings
+- A1: approximately 30-40 Q1 candidates and 10-15 event candidates, with complete census audits.
+- A3: all-candidate annual coverage, real H1 transition audit, and event-level quarterly/PIT feasibility verification.
+- Gate 1: evidence-backed Data Path, formal company sample, years, peer groups, H1 Tier, schema, version rules, and Power BI mart freeze.
+- B2-B5: formal-sample data, marts, analysis, and Power BI release.
+- Gate 2: evidence-based Tier A/B/C decision after A3.
 
-- 11 company-years have valid average-balance DuPont metrics.
-- Five annual transitions have valid exact Shapley decompositions.
-- AMZN and CHWY demonstrate that broadly similar ROE can come from very different margin, turnover, and leverage profiles.
-- BKNG demonstrates why an extreme ROE can be a near-zero-equity denominator warning.
-- H1 is Evidence Tier C with zero eligible persistence transitions.
-- Gate 2 is Tier C / No-Go because no event candidate has verified point-in-time quarterly coverage.
+## Correct Interpretation
 
-## Display Layer
-
-The final display product is the one-page `Executive Overview` required by B5. It includes three slicers, four KPI cards, company-versus-peer ROE trend, DuPont change contributions, selected-year interpretation, and evidence/quality/comparability notes.
-
-Company Deep Dive and Risk Drivers pages are not missing deliverables. The framework makes them optional only after Q2/Q3 evidence gates; Gate 2 prevents them in this release.
-
-## Release Boundary
-
-The old composite risk-ranking files remain as labelled legacy learning artifacts. They are not the methodology, input, or display layer of the v3 release.
+- Zero eligible H1 transitions in the six-company Pilot is a Pilot result, not the formal H1 Tier.
+- Five unverified events do not establish Gate 2 Tier C. Unverified coverage means A3 work remains.
+- Company Deep Dive and Risk Drivers are not current Q1 requirements. Their exact form is determined only if Gate 2 and Gate 3 authorize Q2/Q3.
+- The formal minimum CV deliverable has not yet been reached; the existing Pilot is a strong prototype, not the completed portfolio release.

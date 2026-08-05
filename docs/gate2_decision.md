@@ -1,20 +1,17 @@
-# Gate 2 Decision: Q2 Go / No-Go
+# Gate 2 Status
 
-Decision date: 2026-08-05
+Status date: 2026-08-05
 
-## Decision
+## Current Status
 
-**Tier C / No-Go. Do not start Q2 or Q3 in this release.**
+**Pending. No Tier A/B/C decision is valid until A3 verifies the full event candidate pool.**
 
-## Evidence
+## Why the Earlier No-Go Is Withdrawn
 
-- The event census contains 5 candidate records across 5 companies.
-- None has a verified point-in-time pre-event quarterly panel under the frozen event rules.
-- The project does not yet contain standalone-quarter reconstruction, matched controls, or false-positive analysis.
-- Q1 uses latest-restated annual data and therefore cannot be repurposed as a retrospective bankruptcy-prediction dataset.
+- The current event table contains only 5 records across 5 companies, below the A1 stopping range of approximately 10-15 candidates.
+- Blank or unverified quarterly coverage is missing evidence, not proof that point-in-time coverage is infeasible.
+- A3 has not yet checked real pre-event quarters, three-statement coverage, filing dates, PIT feasibility, YTD cash-flow reconstruction, peer availability, or manual cost for the full event pool.
 
-## Consequence
+## Required Next Step
 
-Per the v3 downgrade rule, Q2/Q3 stop here without affecting Q1 success. No current risk ranking, composite 0-100 score, Company Deep Dive risk page, or Risk Drivers page will be presented as a validated product.
-
-The next valid expansion would require a separate Q2 execution plan for point-in-time quarterly facts and event-time validation.
+Complete A1 to approximately 10-15 event candidates, perform the A3 event feasibility scan, and then apply the frozen Gate 2 thresholds. Q2 and Q3 remain unbuilt while the decision is pending.

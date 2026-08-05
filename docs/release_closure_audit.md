@@ -1,27 +1,28 @@
-# Release Closure Audit
+# Execution Compliance Audit
 
 Audit date: 2026-08-05
 
-This matrix reconciles the v3 project framework and the Phase A/Q1 master execution checklist to the repository's final release state.
+This audit restores the repository to the exact phase meanings in Execution Charter v3.0 and the Phase A/Q1 Master Execution Checklist.
 
-| Stage | Required evidence | Final status | Repository evidence |
+| Stage | Required evidence | Correct status | Existing evidence / gap |
 | --- | --- | --- | --- |
-| A0E | Power BI environment and `.pbix` export | Passed | `powerbi/README.md`, reference `.pbix` |
-| A1 | Unified company and event census | Complete | `company_universe.csv`, `events.csv`, `sample_design.md` |
-| A2 | Two-company SEC probe, raw JSON, concept map, conflict rule | Complete | `data/raw/sec/`, `concept_map.csv`, `source_probe_report.md` |
-| A3 | Coverage verification and H1 sample audit | Complete | `phase_a_coverage.csv`, `phase_a_coverage_report.md`, Q1 H1 marts |
-| Gate 1 | Freeze scope, path, years, and evidence language | Complete | `gate1_decision.md`, `q1_analysis_scope.csv` |
-| B1-B2 | Rebuildable Python, DuckDB, and SQL data path | Complete | `build_q1_release.py`, `src/`, `sql/`, DuckDB exports |
-| B3 | Pilot validation and company-level reconciliation | Complete | SEC/manual reconciliation, concept conflicts, metric flags, tests |
-| B4 | Analysis, QA, notebooks, charts, report, README | Complete | `docs/`, `notebooks/`, `tests/`, processed marts |
-| B5 | Single-page interactive Power BI product | Complete | saved Service report, screenshot, reference `.pbix` |
-| Gate 2 | Evidence-based Q2 decision | Complete: Tier C / No-Go | `events.csv`, `gate2_decision.md` |
-| Q2-Q3 | Conditional distress model and current screen | Not applicable | Correctly cancelled by Gate 2 |
+| A0E | Power BI environment and PBIX export | Passed | Environment was verified on 2026-07-22 |
+| A1 | Approximately 30-40 Q1 candidates and 10-15 event candidates plus census audits | In progress | 26 total companies, 13 Q1 candidates, 5 event records |
+| A2 | Two-company shared SEC probe and A3 scan rules | Reusable evidence exists | AMZN/EBAY probe exists; formal closure follows completed A1 |
+| A3 | All-candidate annual/H1 scan and event PIT feasibility scan | Not complete | Only six-company Pilot annual evidence exists; event-quarter verification absent |
+| Gate 1 | Freeze Path, formal sample, years, groups, H1 Tier, data rules, mart, and Q2 feasibility | Pending | Prior six-company decision is withdrawn as a formal Gate 1 decision |
+| B1 | Reproducible 4-6 company Pilot after Gate 1 | Provisional snapshot exists | Six-company pipeline is retained and must be revalidated after Gate 1 |
+| B2 | Expand unchanged rules to frozen formal sample | Not started | No formal Gate 1 sample exists |
+| B3 | Formal seven-mart analytical layer | Not started formally | Pilot mart implementations exist |
+| B4 | Formal analytical release and minimum CV deliverable | Not reached | Pilot analysis artifacts exist |
+| B5 | Formal single-page Portfolio Release v1.0 | Not reached | Pilot Power BI prototype exists |
+| Gate 2 | Evidence-based Q2 Tier A/B/C | Pending | A3 event verification has not occurred |
+| Q2/Q3 | Conditional work only after their gates | Not determined | No valid cancellation or authorization decision yet |
+
+## Restoration Decision
+
+The commits that labelled the six-company work as a complete Phase A/Q1 release remain in Git history for auditability, but those labels are superseded. Active files, generated outputs, tests, and tags must describe the work as a Pilot until the formal sequence is completed.
 
 ## Minimum CV Deliverable
 
-The minimum CV deliverable was reached at B4. The repository now exceeds it with the B5 interactive report and a strict Phase A evidence trail.
-
-## Final Product Boundary
-
-The deliverable is a financial-quality and ROE-driver analysis, not a bankruptcy predictor or investment recommendation. No composite 0-100 risk score is used. The single-page Executive Overview is the complete display layer for this release; additional risk pages would contradict the Gate 2 decision.
+The project's formal minimum CV deliverable is B4 on the Gate 1 frozen sample. The current Pilot may be discussed as work in progress, but it is not the final CV release specified by the two guides.

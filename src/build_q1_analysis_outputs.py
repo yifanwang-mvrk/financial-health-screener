@@ -330,7 +330,7 @@ def save_h1_waterfall(waterfall: pd.DataFrame) -> None:
     fig.text(
         0.5,
         0.01,
-        "Evidence Tier C. The exclusion rules are applied as designed; no group test is reported.",
+        "Six-company Pilot only: zero eligible transitions; no formal H1 Tier or group test is reported.",
         ha="center",
         fontsize=9,
         color="#555555",
@@ -455,7 +455,7 @@ def make_notebook(title: str, purpose: str, cells: list[object], filename: str) 
 def build_notebooks() -> None:
     make_notebook(
         "Q1 Source Probe",
-        "Audits the official SEC evidence layer, accession-level facts, concept mapping, latest-restated selection, and reconciliation to the frozen analytical release.",
+        "Audits the six-company Pilot SEC evidence layer, accession-level facts, concept mapping, latest-restated selection, and reconciliation.",
         [
             nbf.v4.new_code_cell(
                 "universe = pd.read_csv(ROOT / 'data/reference/company_universe.csv')\n"
@@ -464,7 +464,7 @@ def build_notebooks() -> None:
                 "facts = pd.read_csv(ROOT / 'data/normalized/financial_facts.csv')\n"
                 "latest = pd.read_csv(ROOT / 'data/processed/sec_latest_restated_long.csv')\n"
                 "reconciliation = pd.read_csv(ROOT / 'data/processed/sec_manual_reconciliation.csv')\n"
-                "display(universe[['ticker', 'status_group', 'analysis_scope_group', 'q1_release_included', 'q2_event_candidate']])\n"
+                "display(universe[['ticker', 'status_group', 'analysis_scope_group', 'b1_pilot_included', 'q2_event_candidate']])\n"
                 "display(events[['event_id', 'company_id', 'event_type', 'event_date', 'qualifies_for_q2']])\n"
                 "display(concept_map[['canonical_field', 'source_tag', 'sign_multiplier', 'required_for_q1']])"
             ),
@@ -478,7 +478,7 @@ def build_notebooks() -> None:
                 "display(probe)"
             ),
             nbf.v4.new_markdown_cell(
-                "Official SEC companyfacts and submissions JSON are cached for all six release companies. Accession and filing-date history is retained in the normalized layer. Mapping differences remain explicit review items and do not silently overwrite the manually reconciled Q1 analytical mart."
+                "Official SEC companyfacts and submissions JSON are cached for all six Pilot companies. Accession and filing-date history is retained in the normalized layer. Mapping differences remain explicit review items and do not silently overwrite the manually reconciled Pilot analytical mart."
             ),
         ],
         "01_source_probe.ipynb",
@@ -524,7 +524,7 @@ def build_notebooks() -> None:
                 "display(Image(filename=ROOT / 'docs/assets/q1/05_2023_company_peer_map.png'))"
             ),
             nbf.v4.new_markdown_cell(
-                "**H1 conclusion:** Evidence Tier C. There are no eligible transitions, so the release reports illustrative decomposition cases only and does not compare persistence groups."
+                "**Pilot H1 conclusion:** There are no eligible transitions in the six-company snapshot. This does not determine the formal H1 Tier; the Pilot reports illustrative decomposition cases only."
             ),
         ],
         "03_q1_analysis.ipynb",

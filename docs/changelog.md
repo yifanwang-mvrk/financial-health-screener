@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-08-05 - Restore Six-Company Work to B1 Pilot
+
+- Re-read Execution Charter v3.0 and the Phase A/Q1 Master Execution Checklist as the sole execution contract.
+- Withdrew the prior formal Gate 1 and Gate 2 labels because A1 stopping rules and A3 all-candidate verification had not been completed.
+- Restored AMZN, BKNG, CHWY, DASH, EBAY, and ETSY to a six-company B1 Pilot snapshot.
+- Renamed the active inclusion flag to `b1_pilot_included` and separated Pilot coverage outputs from the future A3 report.
+- Set the active stage to A1: expand to approximately 30-40 Q1 candidates and 10-15 event candidates before proceeding.
+- Preserved the existing SEC cache, analytical marts, notebooks, tests, Power BI prototype, and Git history as Pilot evidence.
+
 ## 2026-08-05 - Phase A Evidence and Q1 Portfolio Release v1.0
 
 - Added a 26-company universe and five-event census with explicit scope and Gate 2 fields.

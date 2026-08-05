@@ -2,5 +2,4 @@ from phase_a_evidence import build_b1_pilot_evidence
 
 
 if __name__ == "__main__":
-    print("Deprecated name: this script rebuilds the six-company Pilot, not Phase A.")
     build_b1_pilot_evidence()

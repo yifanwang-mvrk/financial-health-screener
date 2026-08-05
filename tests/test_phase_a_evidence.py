@@ -22,7 +22,7 @@ class PhaseAEvidenceTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         subprocess.run(
-            [str(ROOT / ".venv/bin/python"), "src/build_phase_a_release.py"],
+            [str(ROOT / ".venv/bin/python"), "src/build_b1_pilot.py"],
             cwd=ROOT,
             check=True,
             capture_output=True,
@@ -45,7 +45,7 @@ class PhaseAEvidenceTests(unittest.TestCase):
             PROCESSED / "sec_manual_reconciliation.csv", keep_default_na=False
         )
         cls.coverage = pd.read_csv(
-            PROCESSED / "phase_a_coverage.csv", keep_default_na=False
+            PROCESSED / "b1_pilot_coverage.csv", keep_default_na=False
         )
 
     def test_company_universe_contract(self) -> None:
@@ -63,11 +63,11 @@ class PhaseAEvidenceTests(unittest.TestCase):
                 {"active", "acquired", "delisted", "bankrupt", "other"}
             )
         )
-        release = self.universe[self.universe["q1_release_included"] == 1]
-        self.assertEqual(set(release["ticker"]), {"AMZN", "BKNG", "CHWY", "DASH", "EBAY", "ETSY"})
-        self.assertTrue(release["cik"].str.fullmatch(r"\d{10}").all())
+        pilot = self.universe[self.universe["b1_pilot_included"] == 1]
+        self.assertEqual(set(pilot["ticker"]), {"AMZN", "BKNG", "CHWY", "DASH", "EBAY", "ETSY"})
+        self.assertTrue(pilot["cik"].str.fullmatch(r"\d{10}").all())
 
-    def test_event_census_has_sources_and_stops_q2(self) -> None:
+    def test_event_census_has_sources_and_leaves_gate2_pending(self) -> None:
         self.assertGreaterEqual(len(self.events), 3)
         self.assertTrue(
             set(self.events["company_id"]).issubset(
@@ -133,7 +133,7 @@ class PhaseAEvidenceTests(unittest.TestCase):
         )
         self.assertTrue(self.reconciliation["source_tag"].str.len().gt(0).all())
 
-    def test_coverage_and_gate2_contract(self) -> None:
+    def test_pilot_coverage_and_gate2_pending_contract(self) -> None:
         self.assertGreater(len(self.coverage), 0)
         self.assertEqual(set(self.coverage["ticker"]), {"AMZN", "BKNG", "CHWY", "DASH", "EBAY", "ETSY"})
         self.assertTrue(self.coverage["coverage_complete_flag"].eq(1).all())
@@ -146,8 +146,8 @@ class PhaseAEvidenceTests(unittest.TestCase):
             {"derived:Assets-StockholdersEquity"},
         )
         gate2 = (ROOT / "docs/gate2_decision.md").read_text(encoding="utf-8")
-        self.assertIn("Tier C / No-Go", gate2)
-        self.assertIn("Do not start Q2 or Q3", gate2)
+        self.assertIn("Pending", gate2)
+        self.assertIn("A3", gate2)
 
     def test_phase_a_tables_are_loaded(self) -> None:
         with duckdb.connect(str(ROOT / "db/financial_health_screener.duckdb"), read_only=True) as connection:
@@ -162,7 +162,7 @@ class PhaseAEvidenceTests(unittest.TestCase):
                 "financial_facts",
                 "sec_latest_restated_long",
                 "sec_concept_conflicts",
-                "phase_a_coverage",
+                "b1_pilot_coverage",
             }.issubset(tables)
         )
 

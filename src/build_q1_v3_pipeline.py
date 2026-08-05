@@ -91,7 +91,7 @@ def load_inputs() -> tuple[pd.DataFrame, ...]:
 
 
 def validate_inputs(financials: pd.DataFrame, scope: pd.DataFrame) -> None:
-    included_tickers = set(scope.loc[scope["scope_status"] == "included", "ticker"])
+    included_tickers = set(scope.loc[scope["scope_status"] == "pilot", "ticker"])
     observed_tickers = set(financials["ticker"])
     missing_tickers = sorted(included_tickers - observed_tickers)
     unexpected_tickers = sorted(observed_tickers - included_tickers)
@@ -212,20 +212,20 @@ def main() -> None:
     validate_inputs(financials, scope)
     summary = execute_sql_pipeline(*inputs)
 
-    summary_path = PROCESSED_DIR / "q1_release_summary.json"
+    summary_path = PROCESSED_DIR / "b1_pilot_summary.json"
     summary_path.write_text(
         json.dumps(summary, indent=2, ensure_ascii=True), encoding="utf-8"
     )
 
     evidence = summary["h1_evidence"]
-    print("Q1 v3 analytical pipeline complete.")
+    print("Q1 v3 six-company Pilot analytical pipeline complete.")
     print(f"Rows loaded: {summary['source_company_year_count']}")
     print(f"Valid DuPont company-years: {summary['valid_dupont_company_year_count']}")
     print(f"Valid DuPont transitions: {summary['valid_dupont_transition_count']}")
     print(f"H1 Evidence Tier: {evidence['evidence_tier']}")
     print(f"H1 permitted inference: {evidence['permitted_inference']}")
     print(f"Power BI mart: {PROCESSED_DIR / 'q1_powerbi_mart.csv'}")
-    print(f"Release summary: {summary_path}")
+    print(f"Pilot summary: {summary_path}")
 
 
 if __name__ == "__main__":

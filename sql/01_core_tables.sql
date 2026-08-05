@@ -49,6 +49,6 @@ select
 from financial_statements f
 inner join q1_analysis_scope s
     on f.ticker = s.ticker
-   and s.scope_status = 'included'
+   and s.scope_status = 'pilot'
 left join company_master m
     on f.ticker = m.ticker;

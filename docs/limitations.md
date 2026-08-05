@@ -2,51 +2,35 @@
 
 Last updated: 2026-08-05
 
-## Sample and Time Coverage
+## Current Stage Boundary
 
-- The current sample contains six companies and 18 company-years.
-- The two analytical peer groups contain only two and four companies.
-- Fiscal years 2021-2023 do not represent a full business cycle.
-- FY2021 lacks FY2020 opening balances, so its average-balance DuPont metrics are unavailable.
-- FY2023 lacks FY2024 outcomes, preventing a one-year persistence test for 2023 improvements.
+- The active census contains 26 companies but only 13 current Q1 candidates; A1 is not complete.
+- The event table contains five preliminary records; A1 requires approximately 10-15 candidates before the event pool stops expanding.
+- The six-company, 18-company-year dataset is a Pilot snapshot, not the formal sample.
+- Formal Data Path, peer groups, year window, H1 Tier, and Q2 Tier remain pending A3 and Gate 1.
 
-The results are company-specific and descriptive. They are not estimates of the e-commerce industry.
+## Pilot Time and Sample Coverage
 
-## Source Architecture
+- The two Pilot peer groups contain only two and four companies.
+- FY2021-FY2023 does not represent a full business cycle.
+- FY2021 lacks FY2020 opening balances for average-balance DuPont metrics.
+- FY2023 lacks FY2024 outcomes for one-year persistence.
+- The Pilot has zero eligible H1 transitions. This is not the formal H1 Evidence Tier.
 
-- The evidence layer caches official SEC companyfacts and submissions JSON for the six release companies and retains accession-level annual fact versions.
-- Automated latest-restated selection is frozen to filings available by 2024-04-30; it is not point-in-time information available at each historical fiscal-year end.
-- The analytical mart remains based on the manually verified company mapping. Seven automated comparisons are retained as review items and do not silently overwrite it.
-- CHWY comparative values incorporate the documented latest restated series.
+The Pilot results are company-specific and descriptive, not estimates of the e-commerce industry.
 
-## Accounting Comparability
+## Source and Accounting Boundary
 
-- Revenue represents different economics across first-party retailers and platforms.
-- Gross profit is unavailable for BKNG and currently missing from the raw DASH rows.
-- Inventory blanks for platform companies do not mean zero.
-- Cash and equivalents exclude material marketable securities for some issuers.
-- Lease liabilities are not automatically classified as long-term debt.
-- EBAY net income includes non-operating and one-off effects.
-- DASH's Wolt acquisition creates a structural break.
-- BKNG and ETSY have thin or negative equity periods that destabilize or invalidate ROE.
-- Fiscal calendars differ, especially CHWY's 52/53-week year.
-
-## Metric Interpretation
-
-- A mathematically valid ratio can still be economically unstable when its denominator is close to zero.
-- ROE is null when average equity is nonpositive, but a separate near-zero-equity flag is needed before the denominator becomes negative.
-- Peer medians can move materially when only a few valid companies are available.
+- Official SEC companyfacts and submissions are cached for the six Pilot companies only.
+- Automated latest-restated selection uses a 2024-04-30 cutoff and is not historical point-in-time investor information.
+- The Pilot mart remains based on manually verified company mappings; review differences do not silently overwrite it.
+- Revenue recognition, fiscal calendars, acquisitions, buybacks, non-operating gains, thin or negative equity, and issuer-specific definitions limit direct comparability.
+- A mathematically valid ratio may be economically unstable when its denominator is close to zero.
 - Shapley decomposition explains arithmetic attribution, not causality.
 
-## H1 Boundary
+## Event and Product Boundary
 
-The current release is Evidence Tier C with zero eligible transitions. It reports no group test, p-value, bootstrap interval, or validated persistence claim. Illustrative driver cases do not support H1.
-
-## Product Boundary
-
-- No investment recommendation.
-- No bankruptcy prediction claim.
-- No black-box financial health score.
-- No inference that a quality warning implies imminent distress.
+- Unverified pre-event quarters are missing evidence, not a Gate 2 failure.
+- Q2 point-in-time snapshots, standalone quarters, TTM, YTD cash-flow reconstruction, controls, and false-positive analysis must not be built before Gate 2 authorizes their form.
+- No investment recommendation, bankruptcy prediction claim, black-box score, or claim that a quality warning implies imminent distress.
 - Power BI is a presentation layer for SQL outputs, not an independent research engine.
-- Gate 2 is Tier C / No-Go, so no Q2 event model, Q3 current-risk screen, Company Deep Dive risk page, or Risk Drivers page is part of this release.

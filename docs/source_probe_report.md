@@ -13,9 +13,9 @@ The probe uses Amazon (inventory-led/hybrid) and eBay (marketplace) to test the 
 
 ## Interpretation
 
-- SEC raw JSON is cached without replacing the manually reconciled Q1 mart.
+- SEC raw JSON is cached without replacing the manually reconciled Pilot mart.
 - Comparative annual facts retain accession and filing date, so restatements are visible rather than silently overwritten.
-- Differences are routed to `sec_manual_reconciliation.csv`; they are not auto-forced into the analytical release.
-- The frozen Q1 source cutoff is 2024-04-30, matching the filing vintage used for the FY2021-FY2023 release.
+- Differences are routed to `sec_manual_reconciliation.csv`; they are not auto-forced into the Pilot mart.
+- The Pilot source cutoff is 2024-04-30, matching the filing vintage used for the FY2021-FY2023 snapshot.
 
-This closes A2 for the frozen six-company Q1 path while preserving explicit company-level accounting mappings.
+This is reusable A2 probe evidence. A2 is formally closed only after A1 reaches its stopping rules and the probe is revalidated against that candidate pool.

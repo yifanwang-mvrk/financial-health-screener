@@ -1,7 +1,7 @@
 # Q1 Analysis Report
 
 Analytical data as of: 2024-01-28
-Release date: 2026-08-03
+Pilot snapshot date: 2026-08-03
 
 ## Executive Summary
 
@@ -78,9 +78,9 @@ No leverage-versus-operating persistence test is reported. BKNG's leverage-drive
 
 ## Interpretation
 
-The release supports the narrower, decision-useful statement that ROE needs a driver and denominator diagnosis before it is compared across business models. It does not support the broader persistence hypothesis with the current sample.
+The Pilot supports the narrower, decision-useful statement that ROE needs a driver and denominator diagnosis before it is compared across business models. It does not support the broader persistence hypothesis with the current sample and does not determine the formal H1 Evidence Tier.
 
-That distinction is intentional. A complete analytical product can conclude that evidence is insufficient while still providing reproducible metrics, auditable exclusions, useful company cases, and a clear next-data requirement.
+That distinction is intentional. The Pilot provides reproducible metrics, auditable exclusions, useful company cases, and a clear next-data requirement while the formal A1-A3 sequence remains in progress.
 
 ## Limitations
 

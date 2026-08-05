@@ -2,9 +2,9 @@
 
 ## Build Status
 
-Status: **Complete for the B5 interactive Q1 release**
+Status: **Complete as a six-company B1 Pilot display prototype; formal B5 is pending**
 
-The Power BI Service report is saved, the final `.pbix` reference export is frozen in this directory, and the final page screenshot is stored as `financial_health_screener_q1_powerbi.jpg`.
+The Power BI Service Pilot report is saved, a `.pbix` Pilot reference export is stored in this directory, and the page screenshot is stored as `financial_health_screener_q1_powerbi.jpg`. The formal B5 report must be rebuilt and reconciled after Gate 1, B2, B3, and B4 are complete.
 
 ## Input Boundary
 
@@ -14,7 +14,7 @@ Power BI consumes only:
 data/processed/q1_powerbi_mart.csv
 ```
 
-DuPont metrics, peer medians, Shapley contributions, driver labels, H1 outcomes, Evidence Tier, and quality warnings are calculated in DuckDB SQL. Power BI is restricted to presentation and filtering and does not recreate those definitions in DAX.
+Pilot DuPont metrics, peer medians, Shapley contributions, driver labels, H1 outcomes, evidence status, and quality warnings are calculated in DuckDB SQL. Power BI is restricted to presentation and filtering and does not recreate those definitions in DAX.
 
 ## Single-Page Layout
 
@@ -76,7 +76,7 @@ Recommended formats:
 
 ## Reconciliation Checklist
 
-Completed on 2026-08-05:
+Pilot reconciliation completed on 2026-08-05:
 
 - [x] AMZN FY2023 KPIs match the mart: ROE 17.5%, net margin 5.3%, asset turnover 1.16, and equity multiplier 2.85.
 - [x] Company ROE and peer-median trend reconcile to the mart.
@@ -84,7 +84,9 @@ Completed on 2026-08-05:
 - [x] Dominant driver, Evidence Tier, and H1 sample status respond to slicers.
 - [x] BKNG FY2023 displays the near-zero-average-equity warning and mechanically unstable ROE note.
 - [x] ETSY FY2023 displays invalid ROE as blank rather than zero.
-- [x] H1 remains Evidence Tier C and explicitly forbids group-level inference.
-- [x] The report is saved in Power BI Service and exported as a `.pbix` reference file.
+- [x] The Pilot has zero eligible H1 transitions and explicitly forbids group-level inference.
+- [x] The Pilot report is saved in Power BI Service and exported as a `.pbix` reference file.
+
+These checks validate the Pilot page only. They do not constitute the formal B5 DoD.
 
 Power BI Service report: [Financial Health Screener Q1 Executive Overview](https://app.powerbi.com/groups/me/reports/fb9d94b1-fc87-484a-9282-2895f48b80fa/4ffbaf6ac660aec51266?experience=power-bi)

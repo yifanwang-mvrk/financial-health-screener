@@ -1,59 +1,38 @@
-# Gate 1 Decision
+# Gate 1 Status
 
-Decision date: 2026-08-03
+Status date: 2026-08-05
 
-## Decision
+## Current Status
 
-Proceed with a complete Q1 B4 Analytical Release on the current verified six-company, FY2021-FY2023 dataset. Preserve the full v3 analytical method, but do not claim that the current repository contains a complete automated SEC XBRL filing-history pipeline.
+**Pending. No formal Gate 1 freeze is currently valid.**
 
-## Why This Is the Correct Deadline Decision
+The earlier six-company/FY2021-FY2023 decision is withdrawn as a formal Gate 1 decision because it was made without the required A1 stopping-rule census and A3 all-candidate evidence.
 
-The current data layer contains:
+## Why the Earlier Decision Was Invalid
 
-- 18 manually verified company-year rows.
-- Detailed company-specific filing mappings.
-- Source URLs and accounting notes.
-- Reconciled free cash flow and balance-sheet relationships.
-- Six companies spanning two broad operating-model peer groups.
+- The company census had not reached approximately 30-40 Q1 candidates.
+- The event census had not reached approximately 10-15 candidates.
+- Annual coverage, prior balances, conflicts, and latest-restated feasibility had not been scanned across all Q1 candidates.
+- The real H1 transition population, year distribution, peer distribution, and company concentration were unknown.
+- Event-quarter coverage, filing dates, PIT feasibility, YTD reconstruction, peer availability, and manual cost were unverified.
+- Therefore Data Path, formal sample, H1 Tier, and Q2 feasibility could not be frozen from evidence.
 
-It does not contain:
+## Retained Pilot Evidence
 
-- FY2020 opening balances needed to calculate average-balance FY2021 DuPont metrics.
-- FY2024 outcomes needed to evaluate persistence after FY2023 improvements.
-- Filing accession-level version history or a raw SEC JSON fact store.
-- Enough independent companies or transitions for Tier A or Tier B H1 evidence.
+The six companies AMZN, BKNG, CHWY, DASH, EBAY, and ETSY and FY2021-FY2023 are retained as a B1 Pilot snapshot. The existing pipeline, marts, notebooks, tests, and Power BI page may be reused after Gate 1, but they do not constrain the formal sample or year window.
 
-The v3 framework explicitly permits Tier C and defines B4 as a complete analytical product before Power BI. The correct response is therefore to finish Q1-A, keep H1 rules intact, expose the evidence shortfall, and deliver a Power BI-ready mart.
+## Gate 1 Exit Contract
 
-## Compatibility Path
+Gate 1 will be completed only after A3 can freeze all of the following:
 
-The current release uses `manual_verified_latest_comparative_filing` as its source-selection method. It relies on the existing company source-mapping document and conflict register. It does not label the dataset point-in-time and does not infer inaccessible filing-version history.
+- Data Path A or B and evidence.
+- Formal company list and annual window.
+- Retained, merged, added, or cancelled peer groups.
+- H1 Evidence Tier and permitted language.
+- H1 outcomes, Shapley driver rules, and continuous leverage share.
+- Canonical fields, source/fallback, latest-restated, sign, duration, and conflict rules.
+- Override conditions and physical schema.
+- Power BI mart fields and calculations forbidden in DAX.
+- Q2 feasibility recommendation and limitations.
 
-## Frozen Scope for This Release
-
-- Companies: AMZN, BKNG, CHWY, DASH, EBAY, ETSY.
-- Years: FY2021-FY2023.
-- Research product: Q1-A plus H1 eligibility and Evidence Tier audit.
-- B4 deliverables: SQL marts, tests, EDA, notebooks, static charts, analysis report, data dictionary, and README.
-- B5 preparation: frozen `q1_powerbi_mart` plus an Executive Overview specification.
-
-## Deferred Work
-
-- Expand to FY2018-FY2024 or later.
-- Add more companies according to the original sample design.
-- Re-evaluate H1 after sufficient next-year outcomes exist.
-- Validate Q2/Q3 distress-event work under their own gates.
-
-Deferred items are not represented as completed in this release.
-
-## Post-Freeze Evidence Closure
-
-Completed on 2026-08-05 without changing the frozen Q1 analytical mart:
-
-- Added the company and event census required by A1.
-- Cached official SEC companyfacts and submissions JSON for the six release companies.
-- Added accession-level normalized annual facts, deterministic cutoff-based latest-restated selection, and automatic conflict logging.
-- Reconciled selected SEC facts to the manually verified Q1 release; mapping differences remain explicit review items.
-- Completed A3 coverage reporting and retained H1 Evidence Tier C.
-
-The frozen six-company/FY2021-FY2023 analytical conclusions remain unchanged.
+Until then, B2 formal expansion must not begin.

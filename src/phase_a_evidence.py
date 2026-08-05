@@ -33,8 +33,8 @@ FINANCIAL_FACTS_PATH = NORMALIZED_DIR / "financial_facts.csv"
 LATEST_LONG_PATH = PROCESSED_DIR / "sec_latest_restated_long.csv"
 AUTO_CONFLICTS_PATH = PROCESSED_DIR / "sec_concept_conflicts.csv"
 RECONCILIATION_PATH = PROCESSED_DIR / "sec_manual_reconciliation.csv"
-COVERAGE_PATH = PROCESSED_DIR / "phase_a_coverage.csv"
-AUDIT_SUMMARY_PATH = PROCESSED_DIR / "phase_a_source_audit.json"
+PILOT_COVERAGE_PATH = PROCESSED_DIR / "b1_pilot_coverage.csv"
+PILOT_AUDIT_SUMMARY_PATH = PROCESSED_DIR / "b1_pilot_source_audit.json"
 
 TICKER_MAP_URL = "https://www.sec.gov/files/company_tickers_exchange.json"
 COMPANYFACTS_URL = "https://data.sec.gov/api/xbrl/companyfacts/CIK{cik:010d}.json"
@@ -198,7 +198,7 @@ def build_company_universe(refresh: bool = False) -> pd.DataFrame:
     scope = pd.read_csv(SCOPE_PATH, keep_default_na=False)
     events = pd.read_csv(EVENTS_PATH, keep_default_na=False)
     ticker_map = _ticker_map(refresh=refresh)
-    release_tickers = set(scope.loc[scope["scope_status"] == "included", "ticker"])
+    pilot_tickers = set(scope.loc[scope["scope_status"] == "pilot", "ticker"])
     event_tickers = {company_id.upper() for company_id in events["company_id"]}
 
     rows: list[dict[str, Any]] = []
@@ -208,7 +208,7 @@ def build_company_universe(refresh: bool = False) -> pd.DataFrame:
         cik_value = sec_item.get("cik")
         fiscal_year_end = ""
         sec_entity_name = ""
-        if cik_value and ticker in release_tickers:
+        if cik_value and ticker in pilot_tickers:
             cik = int(cik_value)
             _, submissions_path = _sec_paths(cik)
             submissions = _cached_json(
@@ -217,9 +217,9 @@ def build_company_universe(refresh: bool = False) -> pd.DataFrame:
             fiscal_year_end = str(submissions.get("fiscalYearEnd") or "")
             sec_entity_name = str(submissions.get("name", ""))
 
-        if ticker in release_tickers:
+        if ticker in pilot_tickers:
             confidence = "high"
-            analysis_scope_group = "q1_release"
+            analysis_scope_group = "b1_pilot"
         elif int(source["include_in_core_sample"]) == 1:
             confidence = "medium"
             analysis_scope_group = "q1_candidate"
@@ -246,7 +246,7 @@ def build_company_universe(refresh: bool = False) -> pd.DataFrame:
                 "listing_date": PROVISIONAL_LISTING_DATES[ticker],
                 "listing_date_source_note": (
                     "Provisional public-listing date from the project census; "
-                    "reverify before expanding beyond the frozen Q1 release"
+                    "reverify during A1 before A3 coverage verification"
                 ),
                 "peer_group": source["peer_group"],
                 "classification_confidence": confidence,
@@ -257,13 +257,13 @@ def build_company_universe(refresh: bool = False) -> pd.DataFrame:
                 "revenue_recognition_model": _revenue_model(source),
                 "fiscal_year_end": fiscal_year_end,
                 "include_q1_candidate": int(source["include_in_core_sample"]),
-                "q1_release_included": int(ticker in release_tickers),
+                "b1_pilot_included": int(ticker in pilot_tickers),
                 "q2_event_candidate": int(ticker in event_tickers),
                 "exclusion_reason": source["exclude_reason"],
                 "sec_entity_name": sec_entity_name,
                 "source_note": (
                     "SEC ticker map and submissions metadata; project classification"
-                    if ticker in release_tickers
+                    if ticker in pilot_tickers
                     else "SEC ticker map where current; project census classification"
                 ),
             }
@@ -283,7 +283,7 @@ def extract_sec(refresh: bool = False) -> pd.DataFrame:
         if UNIVERSE_PATH.exists()
         else build_company_universe(refresh=refresh)
     )
-    selected = universe[universe["q1_release_included"] == 1].copy()
+    selected = universe[universe["b1_pilot_included"] == 1].copy()
     manifest_rows: list[dict[str, Any]] = []
     fetched_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
@@ -349,9 +349,9 @@ def normalize_annual_facts() -> pd.DataFrame:
     )
 
     rows: list[dict[str, Any]] = []
-    release = universe[universe["q1_release_included"] == 1]
+    pilot = universe[universe["b1_pilot_included"] == 1]
     mapped_concepts = concepts[concepts["taxonomy"].isin(["us-gaap", "dei"])]
-    for _, company in release.sort_values("ticker").iterrows():
+    for _, company in pilot.sort_values("ticker").iterrows():
         ticker = company["ticker"]
         cik = int(company["cik"])
         facts_path, _ = _sec_paths(cik)
@@ -632,12 +632,12 @@ def _write_source_probe_report(
             "",
             "## Interpretation",
             "",
-            "- SEC raw JSON is cached without replacing the manually reconciled Q1 mart.",
+            "- SEC raw JSON is cached without replacing the manually reconciled Pilot mart.",
             "- Comparative annual facts retain accession and filing date, so restatements are visible rather than silently overwritten.",
-            "- Differences are routed to `sec_manual_reconciliation.csv`; they are not auto-forced into the analytical release.",
-            "- The frozen Q1 source cutoff is 2024-04-30, matching the filing vintage used for the FY2021-FY2023 release.",
+            "- Differences are routed to `sec_manual_reconciliation.csv`; they are not auto-forced into the Pilot mart.",
+            "- The Pilot source cutoff is 2024-04-30, matching the filing vintage used for the FY2021-FY2023 snapshot.",
             "",
-            "This closes A2 for the frozen six-company Q1 path while preserving explicit company-level accounting mappings.",
+            "This is reusable A2 probe evidence. A2 is formally closed only after A1 reaches its stopping rules and the probe is revalidated against that candidate pool.",
         ]
     )
     (DOCS_DIR / "source_probe_report.md").write_text(
@@ -645,7 +645,7 @@ def _write_source_probe_report(
     )
 
 
-def build_coverage_and_gate2(
+def build_pilot_coverage(
     facts: pd.DataFrame, latest: pd.DataFrame, conflicts: pd.DataFrame, reconciliation: pd.DataFrame
 ) -> pd.DataFrame:
     generated_on = date.today().isoformat()
@@ -653,11 +653,11 @@ def build_coverage_and_gate2(
     required = set(
         concepts.loc[concepts["required_for_q1"] == 1, "canonical_field"]
     ) - {"free_cash_flow"}
-    release = pd.read_csv(SCOPE_PATH, keep_default_na=False).query(
-        "scope_status == 'included'"
+    pilot = pd.read_csv(SCOPE_PATH, keep_default_na=False).query(
+        "scope_status == 'pilot'"
     )
     rows: list[dict[str, Any]] = []
-    for ticker in sorted(release["ticker"]):
+    for ticker in sorted(pilot["ticker"]):
         for field in sorted(required):
             selected = latest[
                 (latest["ticker"] == ticker) & (latest["canonical_field"] == field)
@@ -688,7 +688,7 @@ def build_coverage_and_gate2(
                 }
             )
     coverage = pd.DataFrame(rows)
-    coverage.to_csv(COVERAGE_PATH, index=False)
+    coverage.to_csv(PILOT_COVERAGE_PATH, index=False)
 
     manifest = pd.read_csv(RAW_SEC_DIR / "manifest.csv", keep_default_na=False)
     events = pd.read_csv(EVENTS_PATH, keep_default_na=False)
@@ -697,7 +697,7 @@ def build_coverage_and_gate2(
         "generated_on": generated_on,
         "source_cutoff": SOURCE_CUTOFF.date().isoformat(),
         "universe_company_count": int(len(universe)),
-        "q1_release_company_count": int(universe["q1_release_included"].sum()),
+        "b1_pilot_company_count": int(universe["b1_pilot_included"].sum()),
         "event_candidate_count": int(events["company_id"].nunique()),
         "cached_raw_artifact_count": int(len(manifest)),
         "normalized_financial_fact_count": int(len(facts)),
@@ -713,9 +713,10 @@ def build_coverage_and_gate2(
         "manual_review_mapping_count": int(
             (reconciliation["reconciliation_status"] == "review_company_mapping").sum()
         ),
-        "gate2_decision": "Tier C / No-Go",
+        "gate1_status": "Pending A1 and A3",
+        "gate2_status": "Pending A3 event verification",
     }
-    AUDIT_SUMMARY_PATH.write_text(
+    PILOT_AUDIT_SUMMARY_PATH.write_text(
         json.dumps(summary, indent=2, ensure_ascii=True) + "\n", encoding="utf-8"
     )
 
@@ -725,11 +726,11 @@ def build_coverage_and_gate2(
         review_mappings=("review_mapping_count", "sum"),
     )
     coverage_lines = [
-        "# Phase A Coverage Verification",
+        "# B1 Pilot Coverage Snapshot",
         "",
         f"Generated: {generated_on}",
         "",
-        "The strict evidence layer caches official SEC JSON for the six frozen Q1 companies, retains accession-level annual facts, and compares latest-restated canonical selections with the manually reconciled release table.",
+        "This snapshot caches official SEC JSON for the six Pilot companies, retains accession-level annual facts, and compares latest-restated canonical selections with the manually reconciled Pilot table. It is not the A3 all-candidate coverage report.",
         "",
         "| Ticker | Complete required fields | Required fields | Review mappings |",
         "| --- | ---: | ---: | ---: |",
@@ -745,34 +746,32 @@ def build_coverage_and_gate2(
             "",
             "- Missing or mismatched SEC facts do not overwrite manually reconciled analytical values.",
             "- Mapping reviews are explicit evidence tasks, not silent pipeline failures.",
-            "- H1 remains Tier C because the annual window still has no eligible forward transitions.",
+            "- The six-company Pilot has zero eligible H1 transitions; this does not determine the formal H1 Evidence Tier.",
+            "- Formal H1 Tier and Data Path remain pending the A3 scan across all A1 candidates.",
         ]
     )
-    (DOCS_DIR / "phase_a_coverage_report.md").write_text(
+    (DOCS_DIR / "b1_pilot_coverage_report.md").write_text(
         "\n".join(coverage_lines) + "\n", encoding="utf-8"
     )
 
     gate2_lines = [
-        "# Gate 2 Decision: Q2 Go / No-Go",
+        "# Gate 2 Status",
         "",
-        f"Decision date: {generated_on}",
+        f"Status date: {generated_on}",
         "",
-        "## Decision",
+        "## Current Status",
         "",
-        "**Tier C / No-Go. Do not start Q2 or Q3 in this release.**",
+        "**Pending. No Tier A/B/C decision is valid until A3 verifies the full event candidate pool.**",
         "",
-        "## Evidence",
+        "## Why the Earlier No-Go Is Withdrawn",
         "",
-        f"- The event census contains {len(events)} candidate records across {events['company_id'].nunique()} companies.",
-        "- None has a verified point-in-time pre-event quarterly panel under the frozen event rules.",
-        "- The project does not yet contain standalone-quarter reconstruction, matched controls, or false-positive analysis.",
-        "- Q1 uses latest-restated annual data and therefore cannot be repurposed as a retrospective bankruptcy-prediction dataset.",
+        f"- The current event table contains only {len(events)} records across {events['company_id'].nunique()} companies, below the A1 stopping range of approximately 10-15 candidates.",
+        "- Blank or unverified quarterly coverage is missing evidence, not proof that point-in-time coverage is infeasible.",
+        "- A3 has not yet checked real pre-event quarters, three-statement coverage, filing dates, PIT feasibility, YTD cash-flow reconstruction, peer availability, or manual cost for the full event pool.",
         "",
-        "## Consequence",
+        "## Required Next Step",
         "",
-        "Per the v3 downgrade rule, Q2/Q3 stop here without affecting Q1 success. No current risk ranking, composite 0-100 score, Company Deep Dive risk page, or Risk Drivers page will be presented as a validated product.",
-        "",
-        "The next valid expansion would require a separate Q2 execution plan for point-in-time quarterly facts and event-time validation.",
+        "Complete A1 to approximately 10-15 event candidates, perform the A3 event feasibility scan, and then apply the frozen Gate 2 thresholds. Q2 and Q3 remain unbuilt while the decision is pending.",
     ]
     (DOCS_DIR / "gate2_decision.md").write_text(
         "\n".join(gate2_lines) + "\n", encoding="utf-8"
@@ -797,7 +796,7 @@ def load_phase_a_tables(
             "financial_facts": facts,
             "sec_latest_restated_long": latest,
             "sec_concept_conflicts": conflicts,
-            "phase_a_coverage": coverage,
+            "b1_pilot_coverage": coverage,
         }
         for table_name, frame in tables.items():
             connection.register(f"{table_name}_input", frame)
@@ -807,12 +806,12 @@ def load_phase_a_tables(
             )
 
 
-def build_phase_a_evidence(refresh: bool = False) -> dict[str, int]:
+def build_b1_pilot_evidence(refresh: bool = False) -> dict[str, int]:
     universe = build_company_universe(refresh=refresh)
     manifest = extract_sec(refresh=refresh)
     facts = normalize_annual_facts()
     latest, conflicts, reconciliation = select_latest_restated()
-    coverage = build_coverage_and_gate2(
+    coverage = build_pilot_coverage(
         facts, latest, conflicts, reconciliation
     )
     load_phase_a_tables(universe, facts, latest, conflicts, coverage)
@@ -824,12 +823,12 @@ def build_phase_a_evidence(refresh: bool = False) -> dict[str, int]:
         "conflicts": len(conflicts),
         "coverage_rows": len(coverage),
     }
-    print("Phase A evidence layer complete.")
+    print("Six-company Pilot evidence layer rebuilt.")
     for key, value in result.items():
         print(f"{key}: {value}")
-    print("Gate 2: Tier C / No-Go")
+    print("Gate 1: pending A1/A3; Gate 2: pending A3 event verification")
     return result
 
 
 if __name__ == "__main__":
-    build_phase_a_evidence()
+    build_b1_pilot_evidence()

@@ -1,4 +1,4 @@
-# Q1 Analytical Data Dictionary
+# Q1 Pilot Analytical Data Dictionary
 
 Last updated: 2026-08-05
 
@@ -8,17 +8,17 @@ Last updated: 2026-08-05
 
 Grain: one company.
 
-Contains the 26-company census, stable company ID, SEC CIK where available, provisional listing date, company status, operating-model classification, Q1 candidate/release flags, Q2 event flag, and explicit exclusion rationale. `status_group` describes issuer status; `analysis_scope_group` separately describes the project's use of the company.
+Contains the active A1 census, stable company ID, SEC CIK where available, provisional listing date, company status, operating-model classification, Q1 candidate and B1 Pilot flags, Q2 event flag, and explicit exclusion rationale. `status_group` describes issuer status; `analysis_scope_group` separately describes the project's current use of the company.
 
 ### `data/reference/events.csv`
 
 Grain: one candidate event.
 
-Contains the first-public event date, date basis, effective date, official SEC source, confidence, theoretical and verified pre-event coverage, Q2 qualification, and exclusion reason. The current five records all fail Gate 2 because point-in-time quarterly coverage is unverified.
+Contains the first-public event date, date basis, effective date, source, confidence, theoretical and verified pre-event coverage, Q2 qualification, and exclusion reason. The current five records are preliminary A1 candidates. Their unverified quarterly coverage leaves Gate 2 pending.
 
 ### `data/raw/sec/`
 
-Contains gzip-compressed official SEC `companyfacts` and `submissions` JSON for the six Q1 release companies. `manifest.csv` records ticker, CIK, artifact type, source URL, SHA-256 checksum, and fetch time.
+Contains gzip-compressed official SEC `companyfacts` and `submissions` JSON for the six Pilot companies. `manifest.csv` records ticker, CIK, artifact type, source URL, SHA-256 checksum, and fetch time.
 
 ### `data/normalized/financial_facts.csv`
 
@@ -40,7 +40,7 @@ Contains issuer identity, detailed business-model classification, scope flags, a
 
 ### `data/reference/q1_analysis_scope.csv`
 
-Grain: one included Q1 company.
+Grain: one B1 Pilot company.
 
 Adds the broader `analysis_peer_group` used for descriptive Q1 peer comparisons and records the comparability boundary.
 
@@ -72,13 +72,13 @@ Records the winning and discarded tags/versions, values, relative difference, se
 
 Grain: one selected SEC canonical fact.
 
-Compares the SEC selection with the frozen manually verified analytical value and labels each row `match`, `review_company_mapping`, or `manual_value_unavailable`. Review rows do not overwrite the Q1 mart.
+Compares the SEC selection with the manually verified Pilot analytical value and labels each row `match`, `review_company_mapping`, or `manual_value_unavailable`. Review rows do not overwrite the Pilot mart.
 
-### `data/processed/phase_a_coverage.csv`
+### `data/processed/b1_pilot_coverage.csv`
 
-Grain: one release company x required canonical field.
+Grain: one Pilot company x required canonical field.
 
-Records FY2021-FY2023 year coverage and reconciliation counts used in the A3 coverage report.
+Records FY2021-FY2023 Pilot year coverage and reconciliation counts. It is not the A3 all-candidate coverage report.
 
 ## SQL Marts
 
@@ -159,7 +159,7 @@ Purpose: counts transitions and unique companies by final eligibility or exclusi
 
 ### `q1_h1_evidence_summary`
 
-Grain: one release.
+Grain: one Pilot snapshot.
 
 Purpose: calculates eligible transition and company counts, group counts, concentration, Evidence Tier, and permitted inference.
 
@@ -179,7 +179,7 @@ Purpose: joins company metrics to peer medians and calculates differences and RO
 
 Grain: one company x fiscal year.
 
-Purpose: frozen single-table input for the Executive Overview. It contains research outputs already calculated in SQL so Power BI does not become a second financial-logic layer.
+Purpose: Pilot single-table input for the Executive Overview prototype. It contains research outputs already calculated in SQL so Power BI does not become a second financial-logic layer.
 
 ## EDA Outputs
 
@@ -187,6 +187,6 @@ Purpose: frozen single-table input for the Executive Overview. It contains resea
 - `q1_missingness_summary.csv`
 - `q1_metric_flag_summary.csv`
 - `q1_research_findings.csv`
-- `q1_release_summary.json`
+- `b1_pilot_summary.json`
 
-These files summarize the release; the SQL marts remain the source of analytical truth.
+These files summarize the Pilot snapshot; the SQL marts remain the source of analytical truth for that snapshot.

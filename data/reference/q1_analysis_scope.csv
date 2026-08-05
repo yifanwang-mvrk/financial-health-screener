@@ -1,7 +1,7 @@
 ticker,analysis_peer_group,scope_status,scope_basis,comparability_note
-AMZN,Inventory-led E-commerce,included,Current verified pilot,"Hybrid retail and marketplace; comparisons are descriptive because the sample is small"
-CHWY,Inventory-led E-commerce,included,Current verified pilot,"First-party retailer with a 52/53-week fiscal year"
-EBAY,Marketplace / Platform,included,Current verified pilot,"Asset-light marketplace; reported revenue is platform monetization"
-ETSY,Marketplace / Platform,included,Current verified pilot,"Asset-light marketplace; negative equity affects ROE validity"
-DASH,Marketplace / Platform,included,Current verified pilot,"Local-commerce platform; Wolt acquisition affects year-over-year comparability"
-BKNG,Marketplace / Platform,included,Current verified pilot,"Travel platform; merchant bookings and buybacks affect cash flow and equity"
+AMZN,Inventory-led E-commerce,pilot,B1 Pilot snapshot,"Hybrid retail and marketplace; comparisons are descriptive because the sample is small"
+CHWY,Inventory-led E-commerce,pilot,B1 Pilot snapshot,"First-party retailer with a 52/53-week fiscal year"
+EBAY,Marketplace / Platform,pilot,B1 Pilot snapshot,"Asset-light marketplace; reported revenue is platform monetization"
+ETSY,Marketplace / Platform,pilot,B1 Pilot snapshot,"Asset-light marketplace; negative equity affects ROE validity"
+DASH,Marketplace / Platform,pilot,B1 Pilot snapshot,"Local-commerce platform; Wolt acquisition affects year-over-year comparability"
+BKNG,Marketplace / Platform,pilot,B1 Pilot snapshot,"Travel platform; merchant bookings and buybacks affect cash flow and equity"
