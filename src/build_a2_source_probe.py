@@ -344,6 +344,8 @@ def _write_notebook() -> None:
             "The probe keeps every filing-level version, validates expected units and flow durations before winner selection, and logs discarded values. Raw `fy` identifies the filing context for comparative facts, so the project fiscal year is mapped from the period end and issuer fiscal calendar. No third distress case is added at A2; event-quarter feasibility is measured across the full event pool in A3."
         ),
     ]
+    for index, cell in enumerate(notebook["cells"], start=1):
+        cell["id"] = f"a2-probe-{index:02d}"
     nbf.write(notebook, NOTEBOOK_PATH)
 
 
@@ -356,6 +358,8 @@ def _execute_notebook() -> None:
         resources={"metadata": {"path": str(ROOT)}},
     )
     client.execute()
+    for cell in notebook["cells"]:
+        cell.get("metadata", {}).pop("execution", None)
     nbf.write(notebook, NOTEBOOK_PATH)
 
 

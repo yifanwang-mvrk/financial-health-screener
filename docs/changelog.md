@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-08-05 - Build Reproducible Q1 Pilot Pipeline
+
+- Revalidated AMZN, BKNG, CHWY, DASH, EBAY, and ETSY as the six-company B1 Pilot after Gate 1; all six remain members of the formal sample but do not define it.
+- Implemented the required Extract -> Normalize -> Map & Sign -> Conflicts -> Latest-restated -> Validate -> DuckDB -> Pilot marts sequence behind one entry.
+- Rebuilt 12 cached SEC artifacts into 570 mapped filing-level facts, 225 latest/derived facts, 76 explicit conflict records, 39 metric flags, and 18 Pilot company-year mart rows.
+- Added filing-backed CapEx aggregation overrides for DASH and ETSY after reconciliation proved that the shared single-tag rule omitted capitalized software cash outflows.
+- Reduced manual reconciliation reviews to one explicit CHWY comparative-equity restatement; no processed value is manually overwritten.
+- Added dedicated extraction, candidate-rejection, and validation error logs; extraction and validation logs are clear and no source conflict remains unresolved.
+- Reconciled DuPont and exact Shapley identities below `1e-10`, generated the Pilot H1 audit, and retained the formal H1 Tier B conclusion as independent Gate 1 evidence.
+- Marked B1 Done and B2 as the next mandatory stage. No formal sample expansion, Power BI release, or Q2 technology was performed in B1.
+
 ## 2026-08-05 - Freeze Gate 1 Scope and Evidence Tiers
 
 Decision version: Gate1-v1.0

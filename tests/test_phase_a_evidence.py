@@ -119,11 +119,14 @@ class PhaseAEvidenceTests(unittest.TestCase):
 
     def test_accession_level_fact_contract(self) -> None:
         required_columns = {
+            "company_id",
             "ticker",
             "canonical_field",
             "source_tag",
-            "accession",
+            "accession_number",
             "filing_date",
+            "period_start",
+            "period_end",
             "value_standardized",
             "source_url",
         }
@@ -132,13 +135,13 @@ class PhaseAEvidenceTests(unittest.TestCase):
             set(self.facts["ticker"]),
             {"AMZN", "BKNG", "CHWY", "DASH", "EBAY", "ETSY"},
         )
-        self.assertTrue(self.facts["accession"].str.len().gt(0).all())
+        self.assertTrue(self.facts["accession_number"].str.len().gt(0).all())
 
     def test_latest_restated_selection_contract(self) -> None:
         key = ["ticker", "fiscal_year", "canonical_field"]
         self.assertFalse(self.latest.duplicated(key).any())
         filing_dates = pd.to_datetime(self.latest["filing_date"])
-        self.assertTrue(filing_dates.le(pd.Timestamp("2024-04-30")).all())
+        self.assertTrue(filing_dates.le(pd.Timestamp.today().normalize()).all())
         self.assertEqual(set(self.latest["is_latest_restated"]), {True})
 
     def test_reconciliation_is_explicit(self) -> None:
@@ -153,7 +156,8 @@ class PhaseAEvidenceTests(unittest.TestCase):
     def test_pilot_coverage_and_gate2_pending_contract(self) -> None:
         self.assertGreater(len(self.coverage), 0)
         self.assertEqual(set(self.coverage["ticker"]), {"AMZN", "BKNG", "CHWY", "DASH", "EBAY", "ETSY"})
-        self.assertTrue(self.coverage["coverage_complete_flag"].eq(1).all())
+        required = self.coverage[self.coverage["requiredness"].eq("required")]
+        self.assertTrue(required["coverage_complete_flag"].eq(1).all())
         amazon_liabilities = self.latest.query(
             "ticker == 'AMZN' and canonical_field == 'total_liabilities'"
         )

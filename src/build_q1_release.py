@@ -1,13 +1,12 @@
-from build_q1_analysis_outputs import main as build_analysis_outputs
-from build_q1_v3_pipeline import main as build_sql_marts
-from phase_a_evidence import build_b1_pilot_evidence
+from q1_annual_pipeline import build_b1_pilot
 
 
 def main() -> None:
-    build_b1_pilot_evidence()
-    build_sql_marts()
-    build_analysis_outputs()
-    print("Six-company B1 Pilot analytical and display snapshot rebuilt successfully.")
+    build_b1_pilot()
+    print(
+        "B1 Pilot rebuilt. The formal Q1 release remains pending B2-B5; "
+        "this command does not publish an early release."
+    )
 
 
 if __name__ == "__main__":

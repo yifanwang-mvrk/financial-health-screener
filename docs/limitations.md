@@ -23,8 +23,8 @@ The Pilot results are company-specific and descriptive, not estimates of the e-c
 ## Source and Accounting Boundary
 
 - Official SEC companyfacts and submissions are cached for all 40 A3 candidates; the B1 analytical mart still uses only six Pilot companies.
-- The Pilot uses a 2024-04-30 cutoff. The formal layer will use the latest valid restated value as of its run date; neither is historical point-in-time investor information.
-- The Pilot mart remains based on manually verified company mappings; review differences do not silently overwrite it.
+- The revalidated B1 layer uses the latest valid restated value as of its run date; it is not historical point-in-time investor information.
+- DASH and ETSY require filing-backed CapEx aggregation overrides; CHWY retains one explicit later-restatement reconciliation difference. None silently overwrite a processed value.
 - Revenue recognition, fiscal calendars, acquisitions, buybacks, non-operating gains, thin or negative equity, and issuer-specific definitions limit direct comparability.
 - A mathematically valid ratio may be economically unstable when its denominator is close to zero.
 - Shapley decomposition explains arithmetic attribution, not causality.

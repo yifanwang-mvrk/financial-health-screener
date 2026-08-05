@@ -14,7 +14,7 @@ The project does not provide investment recommendations, target prices, return p
 
 ## Current Status
 
-Status: **Gate 1 passed. The six-company B1 Pilot is now being revalidated against the frozen 21-company Path A contract; Gate 2 remains pending after B5.**
+Status: **Gate 1 and B1 passed. B2 formal expansion to the frozen 21-company Path A sample is next; Gate 2 remains pending after B5.**
 
 The frozen execution order is:
 
@@ -29,7 +29,8 @@ The repository currently contains:
 - A completed CHWY/EBAY SEC source probe and a separate six-company accession-level Pilot cache.
 - A completed 40-company FY2018-FY2024 coverage scan, 200-row H1 transition audit, and 14-event quarterly/PIT feasibility scan.
 - A passed Gate 1 contract with 21 formal companies, FY2018-FY2024, three groups of seven, H1 Tier B, frozen source/version rules, and a 60-field Power BI mart contract.
-- A reproducible six-company, FY2021-FY2023 analytical Pilot with SQL marts, tests, notebooks, charts, and a one-page Power BI prototype.
+- A revalidated six-company B1 pipeline that rebuilds SEC raw JSON through normalized facts, explicit conflicts/overrides, latest-restated values, metric flags, DuckDB, and Pilot marts.
+- A retained FY2021-FY2023 Pilot visualization prototype, which remains separate from the future B5 formal release.
 
 The six-company analytical artifacts are retained as Pilot evidence. They are not the formal B4 minimum CV deliverable or the B5 Portfolio Release v1.0.
 
@@ -49,7 +50,8 @@ The six-company peer comparisons are descriptive examples only. The Pilot has ze
 ## Gate Status
 
 - **Gate 1: passed.** Path A is frozen at 21 companies, FY2018-FY2024, seven companies per retained group, H1 Tier B, and the versioned data/schema/Power BI contracts.
-- **B1: in progress.** The six-company Pilot must be rebuilt and checked against Gate1-v1.0 before B2 expands to all 21 companies.
+- **B1: passed.** All six companies run through one SEC-to-DuckDB entry; DASH/ETSY CapEx overrides are filing-backed, error logs are clear, and DuPont/Shapley reconcile.
+- **B2: next.** Apply the unchanged Gate1-v1.0 rules to the frozen 21-company FY2018-FY2024 sample.
 - **Gate 2: pending after B5.** A3 recommends Tier A feasibility from 12 qualified events, but no Q2 work is authorized until the formal Gate 2 decision.
 
 ## Method
@@ -114,8 +116,12 @@ Power BI Service Pilot report: [Financial Health Screener Q1 Executive Overview]
 | `data/processed/a3_q2_feasibility_scan.csv` | Event-quarter, cash-flow, PIT, control, cost, and qualification evidence |
 | `data/processed/a3_recommendation.json` | A3 evidence input retained beneath the formal Gate 1 decision |
 | `data/processed/b1_pilot_coverage.csv` | Six-company coverage snapshot; not the A3 full-candidate report |
+| `data/processed/b1_metric_flags.csv` | Scripted Pilot metric-quality flags |
+| `data/processed/b1_pilot_*` | SEC-derived Pilot metrics, peer, Shapley, H1, and stage audit outputs |
+| `data/reference/company_overrides.csv` | Filing-backed exceptions used only when the shared concept map fails |
 | `src/build_b1_pilot.py` | Rebuilds the current six-company Pilot evidence layer |
-| `src/phase_a_evidence.py` | Pilot evidence and reusable A2 probe logic |
+| `src/q1_annual_pipeline.py` | Gate 1-compliant staged SEC annual pipeline used by B1 and B2 |
+| `src/phase_a_evidence.py` | Retained A1-A3 and earlier Pilot evidence helpers |
 | `src/build_q1_v3_pipeline.py` | Rebuilds Pilot SQL marts |
 | `sql/01_core_tables.sql` to `sql/07_q1_powerbi_mart.sql` | Pilot implementation of the frozen analytical method |
 | `tests/` | Pilot accounting, evidence, and method contracts |
@@ -126,8 +132,7 @@ Legacy composite risk-ranking files remain labelled learning artifacts and are n
 ## Rebuild the Pilot
 
 ```bash
-.venv/bin/python src/check_financial_statements.py
-.venv/bin/python src/build_q1_release.py
+.venv/bin/python src/build_b1_pilot.py
 .venv/bin/python -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
@@ -141,7 +146,7 @@ Legacy composite risk-ranking files remain labelled learning artifacts and are n
 
 ## Formal Completion Criteria
 
-- **B4 minimum CV deliverable:** only after the current B1 revalidation, B2 formal expansion, and B3 formal marts pass their documented DoD.
+- **B4 minimum CV deliverable:** only after B2 formal expansion and B3 formal marts pass their documented DoD.
 - **B5 Portfolio Release v1.0:** formal B4 plus the reconciled single-page Power BI report, frozen PBIX reference, screenshot, README, CV bullet, and five-minute narrative.
 - **Q2/Q3:** conditional; their existence and form are determined only by Gate 2 and Gate 3 evidence.
 

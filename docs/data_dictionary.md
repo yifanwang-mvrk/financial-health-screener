@@ -100,9 +100,39 @@ Records real pre-event quarter counts, three-statement metadata coverage, filing
 
 ### `data/normalized/financial_facts.csv`
 
-Grain: one company x canonical field x reported annual fact version.
+Grain: one Pilot company x accession x reporting period x canonical field x source tag x unit.
 
-Retains taxonomy, source tag, priority, accession, filing date, form, period, duration, reported value, standardized value, unit, source URL, and load timestamp. Historical versions are retained; this table is not the analytical mart.
+Retains the Gate 1 physical schema including accession number, form, filing date, period start/end, fiscal year/period, duration, canonical field, source tag, raw and standardized values, unit, source URL, and load timestamp. B1 excludes the three frozen noncore fields. Historical versions are retained; this table is not the analytical mart.
+
+### `data/normalized/b1_annual_facts_unmapped.csv`
+
+Grain: one Pilot company x raw XBRL tag x annual filing version.
+
+Stores the normalized pre-mapping stage so concept mapping and sign handling are independently reproducible.
+
+### `data/reference/company_overrides.csv`
+
+Grain: one company x fiscal year x canonical field override.
+
+Contains only observed, filing-backed exceptions to the shared map. B1 has two unique rules: DASH and ETSY CapEx each aggregate PP&E purchases and software-development cash outflows.
+
+### `data/processed/b1_candidate_rejections.csv`
+
+Grain: one rejected annual fact candidate.
+
+Records unit, annual-duration, or domain failures before latest-restated selection.
+
+### `data/processed/b1_metric_flags.csv`
+
+Grain: one company x fiscal year x metric x flag code.
+
+Stores scripted missing-prior, nonpositive-equity, zero-denominator, forward-year, source-conflict, unit, and sign/domain flags.
+
+### `data/processed/b1_pilot_annual_company_metrics.csv` and related B1 marts
+
+Grain: one Pilot company x fiscal year, except peer summaries and the one-row evidence summary.
+
+These SEC-derived marts provide Pilot DuPont metrics, peer context, exact Shapley contributions, frozen H1 eligibility, and Evidence Tier output. They prove the pipeline path only; B3 will build the formal seven marts on the 21-company B2 layer.
 
 ### `data/raw/financial_statements_raw.csv`
 

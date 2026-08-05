@@ -1,0 +1,40 @@
+company_id,fiscal_year,metric_name,flag_code,flag_value,severity,reason,source_fields,generated_at
+amzn,2021,dupont,missing_prior_balance,True,high,Consecutive prior-year assets/equity are unavailable,total_assets|total_equity,2026-08-05T17:46:00+00:00
+amzn,2023,h1_outcome,insufficient_forward_year,True,medium,No t+1 year exists inside the B1 Pilot window,roe,2026-08-05T17:46:00+00:00
+bkng,2021,dupont,missing_prior_balance,True,high,Consecutive prior-year assets/equity are unavailable,total_assets|total_equity,2026-08-05T17:46:00+00:00
+bkng,2023,h1_outcome,insufficient_forward_year,True,medium,No t+1 year exists inside the B1 Pilot window,roe,2026-08-05T17:46:00+00:00
+chwy,2021,dupont,missing_prior_balance,True,high,Consecutive prior-year assets/equity are unavailable,total_assets|total_equity,2026-08-05T17:46:00+00:00
+chwy,2023,h1_outcome,insufficient_forward_year,True,medium,No t+1 year exists inside the B1 Pilot window,roe,2026-08-05T17:46:00+00:00
+dash,2021,dupont,missing_prior_balance,True,high,Consecutive prior-year assets/equity are unavailable,total_assets|total_equity,2026-08-05T17:46:00+00:00
+dash,2023,h1_outcome,insufficient_forward_year,True,medium,No t+1 year exists inside the B1 Pilot window,roe,2026-08-05T17:46:00+00:00
+ebay,2021,dupont,missing_prior_balance,True,high,Consecutive prior-year assets/equity are unavailable,total_assets|total_equity,2026-08-05T17:46:00+00:00
+ebay,2023,h1_outcome,insufficient_forward_year,True,medium,No t+1 year exists inside the B1 Pilot window,roe,2026-08-05T17:46:00+00:00
+etsy,2021,dupont,missing_prior_balance,True,high,Consecutive prior-year assets/equity are unavailable,total_assets|total_equity,2026-08-05T17:46:00+00:00
+etsy,2023,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T17:46:00+00:00
+etsy,2023,h1_outcome,insufficient_forward_year,True,medium,No t+1 year exists inside the B1 Pilot window,roe,2026-08-05T17:46:00+00:00
+chwy,2021,net_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T17:46:00+00:00
+chwy,2021,operating_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,operating_income,2026-08-05T17:46:00+00:00
+chwy,2021,revenue,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,revenue,2026-08-05T17:46:00+00:00
+chwy,2021,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T17:46:00+00:00
+chwy,2022,current_liabilities,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,current_liabilities,2026-08-05T17:46:00+00:00
+chwy,2022,net_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T17:46:00+00:00
+chwy,2022,operating_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,operating_income,2026-08-05T17:46:00+00:00
+chwy,2022,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T17:46:00+00:00
+chwy,2022,total_liabilities,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,total_liabilities,2026-08-05T17:46:00+00:00
+dash,2021,capital_expenditure,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,capital_expenditure,2026-08-05T17:46:00+00:00
+dash,2021,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T17:46:00+00:00
+dash,2022,capital_expenditure,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,capital_expenditure,2026-08-05T17:46:00+00:00
+dash,2022,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T17:46:00+00:00
+dash,2023,capital_expenditure,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,capital_expenditure,2026-08-05T17:46:00+00:00
+dash,2023,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T17:46:00+00:00
+dash,2023,net_income,source_conflict,True,medium,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T17:46:00+00:00
+dash,2023,net_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T17:46:00+00:00
+ebay,2022,total_debt,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,total_debt,2026-08-05T17:46:00+00:00
+ebay,2023,total_debt,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,total_debt,2026-08-05T17:46:00+00:00
+ebay,2023,total_debt,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_debt,2026-08-05T17:46:00+00:00
+etsy,2021,capital_expenditure,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,capital_expenditure,2026-08-05T17:46:00+00:00
+etsy,2021,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T17:46:00+00:00
+etsy,2022,capital_expenditure,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,capital_expenditure,2026-08-05T17:46:00+00:00
+etsy,2022,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T17:46:00+00:00
+etsy,2023,capital_expenditure,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,capital_expenditure,2026-08-05T17:46:00+00:00
+etsy,2023,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T17:46:00+00:00

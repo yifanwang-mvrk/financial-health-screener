@@ -8,7 +8,7 @@ Last updated: 2026-08-05
 | Missing opening balances | High | Load FY2017 only for FY2018 opening balances and invalidate any ratio without a consecutive prior balance | Unbalanced-company entry years may remain unusable for average-balance ratios |
 | Missing forward outcomes | High | Frozen H1 next-year-observable rule | Final observed improvements cannot be tested for persistence |
 | Near-zero or negative equity | High | ROE validity rule and near-zero-equity warning | Ratios may be null or mechanically unstable |
-| SEC-to-manual mapping differences | Medium | Accession history, automatic conflict log, and explicit reconciliation status | Seven facts still require issuer-specific mapping judgment |
+| SEC-to-manual mapping differences | Medium | Accession history, automatic conflict log, filing-backed overrides, and explicit reconciliation status | CHWY retains one later-restatement review difference |
 | Latest-restated hindsight | High | Retain all versions and label latest-restated annual analysis as non-PIT | Cannot support historical prediction claims |
 | Business-model comparability | Medium | Broad peer groups plus detailed business-model field | Peer statistics remain descriptive |
 | Issuer-specific one-off items | Medium | Company flags and source notes | Net margin and ROE still require qualitative interpretation |

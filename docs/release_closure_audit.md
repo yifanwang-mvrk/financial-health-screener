@@ -11,8 +11,8 @@ This audit restores the repository to the exact phase meanings in Execution Char
 | A2 | Two-company shared SEC probe and A3 scan rules | Done | CHWY/EBAY use one extractor; raw manifests, 155 annual facts, 38 conflict records, field audit, report, notebook, and A3 scan requirements pass |
 | A3 | All-candidate annual/H1 scan and event PIT feasibility scan | Done | 40 candidates, 4,823 core fact versions, 200 H1 transition rows, and 14 verified events; Path A / H1 B / Q2 A recommended |
 | Gate 1 | Freeze Path, formal sample, years, groups, H1 Tier, data rules, mart, and Q2 feasibility | Passed | Gate1-v1.0 freezes Path A, 21 companies, FY2018-FY2024, H1 Tier B, data rules, schema, mart, and Q2 Tier A feasibility |
-| B1 | Reproducible 4-6 company Pilot after Gate 1 | In progress | Six-company pipeline is retained and must now be revalidated against Gate1-v1.0 |
-| B2 | Expand unchanged rules to frozen formal sample | Not started | Formal 21-company sample exists; B2 remains blocked by B1 DoD |
+| B1 | Reproducible 4-6 company Pilot after Gate 1 | Done | Six companies use one scripted raw-to-DuckDB path; explicit overrides, conflicts, flags, H1 audit, filing reconciliation, and identity tests pass |
+| B2 | Expand unchanged rules to frozen formal sample | Next | Formal 21-company sample exists and B1 DoD is passed |
 | B3 | Formal seven-mart analytical layer | Not started formally | Pilot mart implementations exist |
 | B4 | Formal analytical release and minimum CV deliverable | Not reached | Pilot analysis artifacts exist |
 | B5 | Formal single-page Portfolio Release v1.0 | Not reached | Pilot Power BI prototype exists |
