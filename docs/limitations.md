@@ -6,7 +6,7 @@ Last updated: 2026-08-05
 
 - A1 is complete with 50 companies, 40 Q1 candidates, and 14 event candidates.
 - A3 verified all 14 event candidates; 12 meet the provisional Tier A metadata criteria, while BOXD and FTCH have specific coverage exclusions.
-- B2 is complete for the frozen 21-company FY2018-FY2024 sample, with FY2017 used only for opening balances. B3 formal analytical marts have not yet been built.
+- B2 and B3 are complete for the frozen 21-company FY2018-FY2024 sample, with FY2017 used only for opening balances. B4 analytical packaging has not yet been completed.
 - The six-company, 18-company-year dataset and its Power BI page remain Pilot artifacts and do not replace the formal B2 layer.
 - Gate 1 freezes Path A, H1 Tier B, and Q2 Tier A feasibility. Q2 itself remains unauthorized until the later formal Gate 2.
 
@@ -16,10 +16,10 @@ Last updated: 2026-08-05
 - FY2021-FY2023 does not represent a full business cycle.
 - FY2021 lacks FY2020 opening balances for average-balance DuPont metrics.
 - FY2023 lacks FY2024 outcomes for one-year persistence.
-- The Pilot has zero eligible H1 transitions. The frozen formal sample has 21 eligible transitions across 10 companies, but only four leverage-driven transitions across three companies; this supports descriptive Tier B language, not validation.
+- The Pilot has zero eligible H1 transitions. The formal B3 layer has 21 eligible transitions across 10 companies, but only four leverage-driven transitions across three companies; this supports descriptive Tier B language, not validation.
 - One company contributes 50% of leverage-driven transitions and FY2019 contributes 75%; FY2020-FY2021 contain 47.6% of all eligible transitions.
 
-The Pilot results are company-specific and descriptive, not estimates of the e-commerce industry.
+The formal peer results are descriptive benchmarks for the frozen sample, not estimates of the e-commerce industry.
 
 ## Source and Accounting Boundary
 

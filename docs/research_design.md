@@ -61,7 +61,7 @@ Turnover and multiplier contributions use the corresponding symmetric formula. T
 delta_ROE = phi_M + phi_T + phi_L
 ```
 
-`dominant_change_driver` identifies the largest absolute contribution for descriptive analysis.
+`dominant_driver` identifies the largest absolute contribution for descriptive analysis.
 
 For a positive ROE change:
 

@@ -4,9 +4,9 @@ Last updated: 2026-08-05
 
 ## Current Position
 
-Current milestone: **B2 passed; B3 formal analytical SQL marts are next.**
+Current milestone: **B3 passed; B4 Analytical Release is next.**
 
-The six-company analytical and Power BI work remains a **B1 Pilot snapshot**. The formal B2 data layer now covers the frozen 21-company sample under the same Gate1-v1.0 rules. Formal analytical marts and presentation artifacts do not exist until B3-B5 are completed.
+The six-company Power BI work remains a **Pilot snapshot**. The formal B2 data layer and B3 analytical marts now cover the frozen 21-company sample under the same Gate1-v1.0 rules. The minimum CV deliverable is reached only after B4 packages and documents the formal analysis.
 
 ```text
 A0E PASSED
@@ -16,8 +16,9 @@ A0E PASSED
     -> Gate 1 PASSED: Path A, 21 companies, FY2018-FY2024, H1 Tier B, rules, and mart contract frozen
     -> B1 DONE: six-company raw-to-DuckDB pipeline and Pilot marts revalidated
     -> B2 DONE: unchanged pipeline expanded to 21 frozen companies and FY2018-FY2024
-    -> B3 NEXT: build the seven formal analytical SQL marts
-    -> B4-B5 formal releases PENDING
+    -> B3 DONE: seven formal SQL marts, Tier B audit, and 60-field Power BI mart
+    -> B4 NEXT: complete the standalone analytical release
+    -> B5 formal Power BI release PENDING
     -> Gate 2 PENDING
 ```
 
@@ -33,13 +34,16 @@ A0E PASSED
 - B1 has no unresolved source conflict; DuPont and Shapley maximum reconciliation gaps are below `1e-10`.
 - B2 uses 42 cached SEC artifacts, 4,780 filing-level mapped facts, 1,959 latest/derived facts, 875 explicit conflict records, and 262 metric flags.
 - B2 covers all 21 frozen companies with seven companies per peer group and no missing required company-year field. All conflicts are resolved or logged, and every active exception is accession-backed.
+- B3 produces 137 formal company-years, 116 candidate transition rows, 21 peer-year summaries, and a 137-row Power BI mart with exactly 60 frozen fields.
+- B3 reproduces Gate 1 H1 Tier B: 21 eligible transitions across 10 companies, with 4 leverage-driven and 17 operating-driven transitions. Maximum company share is 14.3%; FY2020-FY2021 account for 47.6%.
+- Maximum absolute DuPont and Shapley reconciliation gaps are `2.842e-14` and `5.684e-14`.
 - Six-company SEC cache, accession-level facts, latest-restated selection, conflicts, and reconciliation.
 - Six-company FY2021-FY2023 DuPont, Shapley, peer, H1-audit, notebook, chart, test, and Power BI artifacts.
 - A saved one-page Power BI Pilot prototype and PBIX reference snapshot.
 
 ## Remaining Exit Conditions
 
-- B3-B5: formal marts, analysis, and Power BI release.
+- B4-B5: formal analysis packaging and Power BI release.
 - Gate 2: refresh and formally decide Tier A/B/C after B5.
 
 ## Correct Interpretation
@@ -47,4 +51,4 @@ A0E PASSED
 - Zero eligible H1 transitions in the six-company Pilot is a Pilot result; Gate 1 independently freezes formal H1 Tier B at 21 transitions across 10 companies.
 - Gate 1 freezes Q2 Tier A feasibility, but formal Gate 2 still occurs after B5 and no Q2 technology is authorized yet.
 - Company Deep Dive and Risk Drivers are not current Q1 requirements. Their exact form is determined only if Gate 2 and Gate 3 authorize Q2/Q3.
-- The formal minimum CV deliverable has not yet been reached; B2 is the completed formal data layer, while B3 and B4 remain required before the CV release.
+- The formal minimum CV deliverable has not yet been reached; B2 and B3 are complete, while B4 analysis and release packaging remain required.

@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-08-05 - Build Q1 Analytical SQL Marts
+
+- Replaced the legacy six-company/manual-wide-table SQL with the formal 21-company B2 fact layer and `company_id`-based joins and windows.
+- Rebuilt all seven mandatory marts in the frozen `01` through `07` order, producing 137 formal company-years, 116 candidate transition rows, and 21 peer-year summaries.
+- Implemented latest-valid restated selection, consecutive-year average balances, valid-observation peer medians/quartiles/sample sizes, exact three-factor Shapley attribution, and LEAD-based persistence outcomes.
+- Reproduced the Gate 1 H1 Tier B audit exactly: 21 eligible transitions across 10 companies, including four leverage-driven and 17 operating-driven transitions.
+- Added company and fiscal-year concentration fields, enforced the frozen 20% Tier A company threshold, and retained peer-relative change as the primary persistence outcome.
+- Matched the Power BI mart to all 60 Gate1-v1.0 fields with no DAX-owned research logic and exported a field-level schema dictionary with grain and descriptions.
+- Reconciled maximum absolute DuPont and Shapley gaps to `2.842e-14` and `5.684e-14`; B4 is the next mandatory stage.
+
 ## 2026-08-05 - Expand Q1 Pipeline to Frozen Sample
 
 - Applied the unchanged Gate1-v1.0 field, source, version, sign, duration, peer-group, and year rules to all 21 formal companies, with FY2017 retained only for opening balances.

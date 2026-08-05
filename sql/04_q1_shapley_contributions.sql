@@ -1,9 +1,10 @@
 create or replace table q1_dupont_contributions as
 with transitions as (
     select
+        company_id,
         ticker,
         company_name,
-        analysis_peer_group,
+        formal_peer_group,
         fiscal_year,
         fiscal_year - 1 as prior_fiscal_year,
         net_margin,
@@ -12,13 +13,19 @@ with transitions as (
         roe,
         average_equity,
         dupont_valid_flag,
-        lag(fiscal_year) over (partition by ticker order by fiscal_year) as observed_prior_fiscal_year,
-        lag(net_margin) over (partition by ticker order by fiscal_year) as prior_net_margin,
-        lag(asset_turnover) over (partition by ticker order by fiscal_year) as prior_asset_turnover,
-        lag(equity_multiplier) over (partition by ticker order by fiscal_year) as prior_equity_multiplier,
-        lag(roe) over (partition by ticker order by fiscal_year) as prior_roe,
-        lag(average_equity) over (partition by ticker order by fiscal_year) as prior_average_equity,
-        lag(dupont_valid_flag) over (partition by ticker order by fiscal_year) as prior_dupont_valid_flag
+        lag(fiscal_year) over (partition by company_id order by fiscal_year)
+            as observed_prior_fiscal_year,
+        lag(net_margin) over (partition by company_id order by fiscal_year)
+            as prior_net_margin,
+        lag(asset_turnover) over (partition by company_id order by fiscal_year)
+            as prior_asset_turnover,
+        lag(equity_multiplier) over (partition by company_id order by fiscal_year)
+            as prior_equity_multiplier,
+        lag(roe) over (partition by company_id order by fiscal_year) as prior_roe,
+        lag(average_equity) over (partition by company_id order by fiscal_year)
+            as prior_average_equity,
+        lag(dupont_valid_flag) over (partition by company_id order by fiscal_year)
+            as prior_dupont_valid_flag
     from q1_annual_company_metrics
 ),
 validity as (
@@ -27,7 +34,9 @@ validity as (
         dupont_valid_flag
             and coalesce(prior_dupont_valid_flag, false)
             and observed_prior_fiscal_year = fiscal_year - 1 as transition_valid_flag,
-        roe - prior_roe as roe_change
+        case when observed_prior_fiscal_year = fiscal_year - 1
+            then roe - prior_roe
+        end as roe_change
     from transitions
 ),
 shapley as (
@@ -62,7 +71,8 @@ shapley as (
 classified as (
     select
         *,
-        contribution_margin + contribution_turnover + contribution_multiplier as contribution_sum,
+        contribution_margin + contribution_turnover + contribution_multiplier
+            as contribution_sum,
         case
             when not transition_valid_flag then 'not_available'
             when abs(contribution_margin) >= abs(contribution_turnover)
@@ -70,9 +80,10 @@ classified as (
             when abs(contribution_turnover) >= abs(contribution_margin)
              and abs(contribution_turnover) >= abs(contribution_multiplier) then 'turnover'
             else 'multiplier'
-        end as dominant_change_driver,
+        end as dominant_driver,
         case
-            when not transition_valid_flag or roe_change <= 0 then 'not_improvement'
+            when not transition_valid_flag then 'not_available'
+            when roe_change <= 0 then 'mixed_or_ambiguous'
             when contribution_multiplier > 0
              and contribution_multiplier > contribution_margin
              and contribution_multiplier > contribution_turnover then 'leverage_driven'
@@ -96,7 +107,8 @@ classified as (
 )
 select
     *,
-    case when transition_valid_flag then roe_change - contribution_sum end as shapley_reconciliation_gap
+    case when transition_valid_flag then roe_change - contribution_sum end
+        as shapley_reconciliation_gap
 from classified
-where fiscal_year > (select min(fiscal_year) from q1_annual_company_metrics)
-order by ticker, fiscal_year;
+where observed_prior_fiscal_year is not null
+order by company_id, fiscal_year;

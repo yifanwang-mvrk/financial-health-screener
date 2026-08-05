@@ -1,54 +1,59 @@
-create or replace table financial_statements as
+create or replace table q1_formal_company_dim as
 select
-    trim(ticker)::varchar as ticker,
-    fiscal_year::integer as fiscal_year,
-    period_end_date::date as period_end_date,
-    trim(currency)::varchar as currency,
-    revenue::double as revenue,
-    gross_profit::double as gross_profit,
-    operating_income::double as operating_income,
-    net_income::double as net_income,
-    total_assets::double as total_assets,
-    total_liabilities::double as total_liabilities,
-    total_equity::double as total_equity,
-    current_assets::double as current_assets,
-    current_liabilities::double as current_liabilities,
-    cash_and_equivalents::double as cash_and_equivalents,
-    inventory::double as inventory,
-    long_term_debt::double as long_term_debt,
-    operating_cash_flow::double as operating_cash_flow,
-    capital_expenditure::double as capital_expenditure,
-    free_cash_flow::double as free_cash_flow,
-    shares_outstanding::double as shares_outstanding,
-    source::varchar as source,
-    source_url::varchar as source_url,
-    notes::varchar as notes
-from financial_statements_input;
+    s.sample_version,
+    s.formal_sample_order,
+    s.company_id,
+    s.ticker,
+    s.company_name,
+    s.formal_peer_group,
+    s.frozen_window_start,
+    s.frozen_window_end,
+    s.a3_available_fiscal_years,
+    s.b1_pilot_member,
+    s.selection_basis,
+    u.status_group,
+    u.classification_confidence,
+    u.inventory_ownership_flag,
+    u.revenue_recognition_model,
+    u.fiscal_year_end,
+    'formal_included'::varchar as formal_sample_status,
+    case s.formal_peer_group
+        when 'marketplace_platform' then
+            'Marketplace revenue recognition and asset intensity differ; interpret margin and turnover together.'
+        when 'inventory_led_ecommerce' then
+            'Inventory ownership, fulfillment intensity, and hybrid business exposure differ within this peer group.'
+        when 'dtc_brand' then
+            'Channel mix, fiscal calendars, and inventory intensity differ within this peer group.'
+    end as comparability_note
+from q1_formal_sample s
+inner join company_universe u using (company_id);
 
-create or replace table company_master as
-select * from company_master_input;
-
-create or replace table q1_analysis_scope as
-select * from q1_scope_input;
-
-create or replace table concept_map as
-select * from concept_map_input;
-
-create or replace table concept_conflicts as
-select * from concept_conflicts_input;
-
-create or replace table q1_core_financials as
+create or replace table q1_formal_years as
 select
-    f.*,
-    m.company_name,
-    m.primary_business_model,
-    m.peer_group as detailed_peer_group,
-    s.analysis_peer_group,
-    s.comparability_note,
-    count(*) over (partition by f.ticker, f.fiscal_year) as ticker_year_version_count
-from financial_statements f
-inner join q1_analysis_scope s
-    on f.ticker = s.ticker
-   and s.scope_status = 'pilot'
-left join company_master m
-    on f.ticker = m.ticker;
+    s.company_id,
+    cast(y.fiscal_year_text as integer) as fiscal_year
+from q1_formal_sample s
+cross join unnest(string_split(s.a3_available_fiscal_years, '|')) as y(fiscal_year_text)
+where cast(y.fiscal_year_text as integer)
+    between s.frozen_window_start and s.frozen_window_end;
+
+create or replace table q1_metric_flag_summary as
+select
+    company_id,
+    fiscal_year,
+    count(*) filter (where flag_value) as metric_flag_count,
+    string_agg(distinct reason, '; ' order by reason)
+        filter (where flag_value) as metric_flag_warnings
+from metric_flags
+group by company_id, fiscal_year;
+
+create or replace table q1_conflict_summary as
+select
+    company_id,
+    fiscal_year,
+    count(*) as conflict_count,
+    count(*) filter (where resolution_status = 'requires_review')
+        as unresolved_conflict_count,
+    count(*) filter (where conflict_severity = 'high') as high_conflict_count
+from concept_conflicts
+group by company_id, fiscal_year;

@@ -222,15 +222,15 @@ Records FY2021-FY2023 Pilot year coverage and reconciliation counts. It is not t
 
 ### `q1_latest_restated`
 
-Grain: one company x fiscal year.
+Grain: one formal company x fiscal year x canonical field.
 
-Purpose: selects the single manually verified latest comparative source row and documents the selection method. In this release, there is only one input version per company-year.
+Purpose: applies the frozen latest-valid filing, source-priority, and accession tie-break rules to the B2 filing-level facts. Free cash flow is derived from the selected operating cash flow and positive CapEx outflow. Every row retains filing metadata and a human-readable selection note.
 
 ### `q1_annual_company_metrics`
 
-Grain: one company x fiscal year.
+Grain: one formal company x available fiscal year.
 
-Purpose: calculates average balances, DuPont components, profitability, liquidity, leverage, cash-flow metrics, growth, validity flags, and quality warnings.
+Purpose: calculates average balances, DuPont components, profitability, liquidity, leverage, cash-flow metrics, growth, validity flags, and quality warnings for the 137 frozen formal company-years.
 
 Key fields:
 
@@ -255,7 +255,7 @@ Key fields:
 
 ### `q1_dupont_contributions`
 
-Grain: one company x transition-ending fiscal year.
+Grain: one formal company x consecutive annual transition-ending fiscal year.
 
 Purpose: calculates exact three-factor Shapley contributions and driver labels.
 
@@ -269,55 +269,67 @@ Key fields:
 | `contribution_multiplier` | Exact Shapley attribution to equity-multiplier change |
 | `contribution_sum` | Sum of the three Shapley contributions |
 | `shapley_reconciliation_gap` | ROE change less contribution sum; expected near zero |
-| `dominant_change_driver` | Largest absolute contribution for descriptive use |
+| `dominant_driver` | Largest absolute contribution for descriptive use |
 | `h1_driver_group` | `leverage_driven`, `operating_driven`, `mixed_or_ambiguous`, or `not_improvement` |
 | `leverage_contribution_share` | Positive multiplier contribution divided by total positive contributions |
 
 ### `q1_driver_persistence`
 
-Grain: one company x transition-ending fiscal year.
+Grain: one formal company x consecutive annual transition-ending fiscal year.
 
 Purpose: joins the current driver classification to next-year absolute and peer-relative outcomes.
 
-Key fields: `next_year_roe_change`, `next_year_peer_relative_change`, `roe_reversal_flag`, and `rank_retention`.
+Key fields: `next_year_roe_change`, `next_year_peer_relative_change`, `roe_reversal_flag`, and `rank_retention`. `rank_retention` stores the next-year peer ROE percentile, following the frozen research definition.
 
 ### `q1_h1_sample_audit`
 
-Grain: one company x candidate transition.
+Grain: one formal company x candidate H1 transition.
 
 Purpose: applies every H1 eligibility rule and retains one exclusion reason per transition.
 
-Key fields: `h1_eligible_flag`, `turnaround_from_loss`, `h1_sample_status`, prior/current/next average equity, prior/current/next ROE, and driver group.
+Key fields: `h1_eligible_flag`, `turnaround_from_loss`, `h1_exclusion_reason`, prior/current/next average equity, prior/current/next ROE, driver group, company transition share, fiscal-year transition share, and driver-year count.
 
 ### `q1_h1_exclusion_waterfall`
 
-Grain: one H1 sample status.
+Grain: one H1 eligibility or exclusion reason.
 
 Purpose: counts transitions and unique companies by final eligibility or exclusion reason.
 
 ### `q1_h1_evidence_summary`
 
-Grain: one Pilot snapshot.
+Grain: one frozen formal Q1 panel.
 
-Purpose: calculates eligible transition and company counts, group counts, concentration, Evidence Tier, and permitted inference.
+Purpose: calculates eligible transition and company counts, driver-group counts, concentration, year distribution, group outcomes, Evidence Tier, and permitted inference. B3 reports Tier B with 21 eligible transitions across 10 companies.
 
 ### `q1_peer_summary`
 
-Grain: one analysis peer group x fiscal year.
+Grain: one formal peer group x fiscal year.
 
-Purpose: supplies peer medians for ROE, DuPont components, profitability, liquidity, leverage, and free cash flow.
+Purpose: supplies valid-observation peer medians, quartiles, and sample sizes for ROE, DuPont components, liquidity, leverage, and free cash flow.
 
 ### `q1_company_vs_peer`
 
-Grain: one company x fiscal year.
+Grain: one formal company x available fiscal year.
 
 Purpose: joins company metrics to peer medians and calculates differences and ROE percentile position.
 
 ### `q1_powerbi_mart`
 
-Grain: one company x fiscal year.
+Grain: one formal company x available fiscal year.
 
-Purpose: Pilot single-table input for the Executive Overview prototype. It contains research outputs already calculated in SQL so Power BI does not become a second financial-logic layer.
+Purpose: exact 60-field Gate1-v1.0 single-table input for the future B5 Executive Overview. It contains all research outputs already calculated in SQL so Power BI does not become a second financial-logic layer. The current file has 137 rows; the existing PBIX still reflects the earlier Pilot snapshot until B5.
+
+### `data/processed/b3_mart_schema.csv`
+
+Grain: one B3 mart x output field.
+
+Purpose: records every exported mart field in ordinal order with table grain, DuckDB type, and field description.
+
+### `data/processed/b3_stage_audit.json`
+
+Grain: one B3 rebuild.
+
+Purpose: records SQL execution order, row counts, H1 frozen-rule reconciliation, Power BI contract matching, identity tolerances, and all B3 DoD checks.
 
 ## EDA Outputs
 
@@ -327,4 +339,4 @@ Purpose: Pilot single-table input for the Executive Overview prototype. It conta
 - `q1_research_findings.csv`
 - `b1_pilot_summary.json`
 
-These files summarize the Pilot snapshot; the SQL marts remain the source of analytical truth for that snapshot.
+These retained files summarize the earlier Pilot snapshot. B4 will regenerate formal EDA and research outputs from the B3 SQL marts, which are now the formal analytical source of truth.

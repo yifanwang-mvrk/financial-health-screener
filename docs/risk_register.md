@@ -4,9 +4,10 @@ Last updated: 2026-08-05
 
 | Risk | Severity | Current control | Residual effect |
 | --- | --- | --- | --- |
-| Insufficient independent companies for H1 | High | Gate 1 freezes Tier B without relaxing eligibility; emphasize four leverage-driven transitions across three companies | Descriptive patterns only |
+| Insufficient independent companies for H1 | High | B3 reproduces Gate 1 Tier B without relaxing eligibility; emphasize four leverage-driven transitions across three companies | Descriptive patterns only |
 | Missing opening balances | High | Load FY2017 only for FY2018 opening balances and invalidate any ratio without a consecutive prior balance | Unbalanced-company entry years may remain unusable for average-balance ratios |
 | Missing forward outcomes | High | Frozen H1 next-year-observable rule | Final observed improvements cannot be tested for persistence |
+| H1 year imbalance | High | Peer-relative primary outcome plus explicit fiscal-year audit; FY2020-FY2021 share is 47.6% | Common shocks and uneven driver-year composition remain |
 | Near-zero or negative equity | High | ROE validity rule and near-zero-equity warning | Ratios may be null or mechanically unstable |
 | SEC concept and subtotal differences | Medium | Accession history, 875 formal conflict records, explicit candidate rejections, and accession-backed overrides for observed exceptions | Issuer-specific table values and documented derivations still require review when new years are added |
 | Latest-restated hindsight | High | Retain all versions and label latest-restated annual analysis as non-PIT | Cannot support historical prediction claims |

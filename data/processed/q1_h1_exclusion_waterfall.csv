@@ -1,5 +1,7 @@
-h1_sample_status,transition_count,unique_company_count
-invalid_dupont_transition,7,6
-turnaround_from_loss,3,3
-next_year_not_observable,1,1
-no_roe_improvement,1,1
+h1_exclusion_reason,transition_count,unique_company_count
+invalid_dupont_transition,32,15
+no_roe_improvement,23,14
+eligible,21,10
+turnaround_from_loss,20,14
+nonpositive_prior_roe,15,9
+next_year_not_observable,5,5

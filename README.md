@@ -14,7 +14,7 @@ The project does not provide investment recommendations, target prices, return p
 
 ## Current Status
 
-Status: **Gate 1, B1, and B2 passed. B3 formal analytical SQL marts are next; Gate 2 remains pending after B5.**
+Status: **Gate 1 and B1-B3 passed. B4 Analytical Release is next; Gate 2 remains pending after B5.**
 
 The frozen execution order is:
 
@@ -31,6 +31,7 @@ The repository currently contains:
 - A passed Gate 1 contract with 21 formal companies, FY2018-FY2024, three groups of seven, H1 Tier B, frozen source/version rules, and a 60-field Power BI mart contract.
 - A revalidated six-company B1 pipeline that rebuilds SEC raw JSON through normalized facts, explicit conflicts/overrides, latest-restated values, metric flags, DuckDB, and Pilot marts.
 - A completed B2 expansion that applies the unchanged Gate1-v1.0 rules to all 21 formal companies for FY2018-FY2024, with FY2017 loaded only for opening balances.
+- A completed B3 analytical layer with all seven formal SQL marts, 137 formal company-years, exact DuPont/Shapley reconciliation, frozen-rule H1 Tier B results, and an exact 60-field Power BI mart.
 - A retained FY2021-FY2023 Pilot visualization prototype, which remains separate from the future B5 formal release.
 
 The six-company analytical artifacts are retained as Pilot evidence. They are not the formal B4 minimum CV deliverable or the B5 Portfolio Release v1.0.
@@ -53,7 +54,8 @@ The six-company peer comparisons are descriptive examples only. The Pilot has ze
 - **Gate 1: passed.** Path A is frozen at 21 companies, FY2018-FY2024, seven companies per retained group, H1 Tier B, and the versioned data/schema/Power BI contracts.
 - **B1: passed.** All six companies run through one SEC-to-DuckDB entry; DASH/ETSY CapEx overrides are filing-backed, error logs are clear, and DuPont/Shapley reconcile.
 - **B2: passed.** The formal layer rebuilds 42 SEC artifacts into 4,780 filing-level facts and 1,959 latest/derived facts; all 21 companies are covered and no required company-year field is missing.
-- **B3: next.** Build and validate the seven formal analytical SQL marts without changing the frozen H1, peer, source, or version rules.
+- **B3: passed.** Seven formal marts rebuild 137 company-years; DuPont and Shapley gaps remain below `1e-10`, H1 matches the frozen 21-transition/10-company Tier B audit, and the Power BI mart matches all 60 contracted fields.
+- **B4: next.** Freeze the analytical inputs, complete quality EDA, Q1-A profiles, Tier B persistence analysis, company cases, reconciliation, static charts, notebook, and CV-ready README.
 - **Gate 2: pending after B5.** A3 recommends Tier A feasibility from 12 qualified events, but no Q2 work is authorized until the formal Gate 2 decision.
 
 ## Method
@@ -85,7 +87,7 @@ Pilot analysis: [`docs/q1_analysis_report.md`](docs/q1_analysis_report.md)
 
 ## Power BI Pilot Prototype
 
-The existing one-page Executive Overview consumes only `data/processed/q1_powerbi_mart.csv`. It demonstrates the required B5 interaction pattern but is not the formal B5 release because it uses the Pilot sample.
+The existing one-page Executive Overview was built from the earlier six-company Pilot snapshot of `q1_powerbi_mart`. It demonstrates the required B5 interaction pattern but has not yet been refreshed from the current 137-row formal mart and is not the formal B5 release.
 
 The page includes company, peer-group, and fiscal-year slicers; four DuPont KPIs; company versus peer-median ROE trend; Shapley change contributions; selected-year interpretation; and quality/comparability notes.
 
@@ -127,24 +129,34 @@ Power BI Service Pilot report: [Financial Health Screener Q1 Executive Overview]
 | `data/processed/metric_flags.csv` | Formal B2 metric-quality flags |
 | `data/processed/b2_company_field_year_coverage.csv` | Formal company/field/year coverage and requiredness audit |
 | `data/processed/b2_failures.csv` | Formal required-field failure list; currently empty |
+| `data/processed/q1_annual_company_metrics.csv` | Formal 137-row annual DuPont and financial-quality mart |
+| `data/processed/q1_dupont_contributions.csv` | Formal exact Shapley transition mart |
+| `data/processed/q1_driver_persistence.csv` | Formal next-year raw and peer-relative outcome mart |
+| `data/processed/q1_h1_sample_audit.csv` | Frozen-rule eligibility, exclusion, year, and concentration audit |
+| `data/processed/q1_peer_summary.csv` | Formal peer-year medians, quartiles, and valid sample sizes |
+| `data/processed/q1_company_vs_peer.csv` | Formal company positions relative to peer benchmarks |
+| `data/processed/q1_powerbi_mart.csv` | Formal 137-row, 60-field B5 consumption table |
+| `data/processed/b3_mart_schema.csv` | Field-level grain, type, and description for B3 outputs |
 | `data/reference/company_overrides.csv` | Filing-backed exceptions used only when the shared concept map fails |
 | `src/build_b1_pilot.py` | Rebuilds the current six-company Pilot evidence layer |
 | `src/build_b2_formal_sample.py` | Rebuilds the frozen 21-company B2 data layer |
 | `src/q1_annual_pipeline.py` | Gate 1-compliant staged SEC annual pipeline used by B1 and B2 |
 | `src/q1_formal_pipeline.py` | B2 formal-sample orchestration, coverage, QA, and audit outputs |
 | `src/phase_a_evidence.py` | Retained A1-A3 and earlier Pilot evidence helpers |
-| `src/build_q1_v3_pipeline.py` | Rebuilds Pilot SQL marts |
-| `sql/01_core_tables.sql` to `sql/07_q1_powerbi_mart.sql` | Pilot implementation of the frozen analytical method |
-| `tests/` | Pilot accounting, evidence, and method contracts |
+| `src/build_b3_analytical_marts.py` | Rebuilds B2 and all formal B3 SQL marts in frozen order |
+| `src/build_q1_v3_pipeline.py` | Formal B3 orchestration, export, schema dictionary, and DoD audit |
+| `sql/01_core_tables.sql` to `sql/07_q1_powerbi_mart.sql` | Formal implementation of the frozen analytical method |
+| `tests/` | Pilot, formal data, accounting, evidence, and method contracts |
 | `powerbi/` | Pilot report export, screenshot, notes, and reconciliation |
 
 Legacy composite risk-ranking files remain labelled learning artifacts and are not part of the v3 method.
 
-## Rebuild B1 and B2
+## Rebuild B1-B3
 
 ```bash
 .venv/bin/python src/build_b1_pilot.py
 .venv/bin/python src/build_b2_formal_sample.py
+.venv/bin/python src/build_b3_analytical_marts.py
 .venv/bin/python -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
@@ -158,7 +170,7 @@ Legacy composite risk-ranking files remain labelled learning artifacts and are n
 
 ## Formal Completion Criteria
 
-- **B4 minimum CV deliverable:** only after the completed B2 formal expansion and the B3 formal marts pass their documented DoD.
+- **B4 minimum CV deliverable:** B2 and B3 are complete; B4 analysis, QA, static outputs, notebook, and release documentation remain.
 - **B5 Portfolio Release v1.0:** formal B4 plus the reconciled single-page Power BI report, frozen PBIX reference, screenshot, README, CV bullet, and five-minute narrative.
 - **Q2/Q3:** conditional; their existence and form are determined only by Gate 2 and Gate 3 evidence.
 

@@ -1,0 +1,388 @@
+mart_name,grain,field_ordinal,field_name,data_type,description
+q1_latest_restated,one formal company x fiscal year x canonical field,1,company_id,VARCHAR,Stable issuer identifier used for every join and window partition.
+q1_latest_restated,one formal company x fiscal year x canonical field,2,ticker,VARCHAR,Display ticker for the selected issuer and period.
+q1_latest_restated,one formal company x fiscal year x canonical field,3,accession_number,VARCHAR,Accession number produced by q1_latest_restated; inherited fields retain source-mart meaning.
+q1_latest_restated,one formal company x fiscal year x canonical field,4,form,VARCHAR,Form produced by q1_latest_restated; inherited fields retain source-mart meaning.
+q1_latest_restated,one formal company x fiscal year x canonical field,5,filing_date,VARCHAR,Filing date produced by q1_latest_restated; inherited fields retain source-mart meaning.
+q1_latest_restated,one formal company x fiscal year x canonical field,6,period_start,VARCHAR,Period start produced by q1_latest_restated; inherited fields retain source-mart meaning.
+q1_latest_restated,one formal company x fiscal year x canonical field,7,period_end,VARCHAR,Period end produced by q1_latest_restated; inherited fields retain source-mart meaning.
+q1_latest_restated,one formal company x fiscal year x canonical field,8,fiscal_year,BIGINT,Issuer fiscal year assigned by the verified annual period map.
+q1_latest_restated,one formal company x fiscal year x canonical field,9,fiscal_period,VARCHAR,Fiscal period produced by q1_latest_restated; inherited fields retain source-mart meaning.
+q1_latest_restated,one formal company x fiscal year x canonical field,10,duration_days,VARCHAR,Duration days produced by q1_latest_restated; inherited fields retain source-mart meaning.
+q1_latest_restated,one formal company x fiscal year x canonical field,11,canonical_field,VARCHAR,Gate 1 canonical financial concept.
+q1_latest_restated,one formal company x fiscal year x canonical field,12,taxonomy,VARCHAR,Taxonomy produced by q1_latest_restated; inherited fields retain source-mart meaning.
+q1_latest_restated,one formal company x fiscal year x canonical field,13,source_tag,VARCHAR,Source tag produced by q1_latest_restated; inherited fields retain source-mart meaning.
+q1_latest_restated,one formal company x fiscal year x canonical field,14,value_raw,DOUBLE,Value raw produced by q1_latest_restated; inherited fields retain source-mart meaning.
+q1_latest_restated,one formal company x fiscal year x canonical field,15,value_standardized,DOUBLE,Selected value after canonical sign and unit standardization.
+q1_latest_restated,one formal company x fiscal year x canonical field,16,unit,VARCHAR,Unit produced by q1_latest_restated; inherited fields retain source-mart meaning.
+q1_latest_restated,one formal company x fiscal year x canonical field,17,flow_or_stock,VARCHAR,Flow or stock produced by q1_latest_restated; inherited fields retain source-mart meaning.
+q1_latest_restated,one formal company x fiscal year x canonical field,18,source_priority,BIGINT,Source priority produced by q1_latest_restated; inherited fields retain source-mart meaning.
+q1_latest_restated,one formal company x fiscal year x canonical field,19,source_url,VARCHAR,Source url produced by q1_latest_restated; inherited fields retain source-mart meaning.
+q1_latest_restated,one formal company x fiscal year x canonical field,20,loaded_at,VARCHAR,Loaded at produced by q1_latest_restated; inherited fields retain source-mart meaning.
+q1_latest_restated,one formal company x fiscal year x canonical field,21,cik,VARCHAR,Cik produced by q1_latest_restated; inherited fields retain source-mart meaning.
+q1_latest_restated,one formal company x fiscal year x canonical field,22,source_unit,VARCHAR,Source unit produced by q1_latest_restated; inherited fields retain source-mart meaning.
+q1_latest_restated,one formal company x fiscal year x canonical field,23,reported_fiscal_year,BIGINT,Reported fiscal year produced by q1_latest_restated; inherited fields retain source-mart meaning.
+q1_latest_restated,one formal company x fiscal year x canonical field,24,frame,VARCHAR,Frame produced by q1_latest_restated; inherited fields retain source-mart meaning.
+q1_latest_restated,one formal company x fiscal year x canonical field,25,is_latest_restated,BOOLEAN,Is latest restated produced by q1_latest_restated; inherited fields retain source-mart meaning.
+q1_latest_restated,one formal company x fiscal year x canonical field,26,source_selection_method,VARCHAR,Deterministic latest-valid or derived-component selection method.
+q1_latest_restated,one formal company x fiscal year x canonical field,27,source_selection_note,VARCHAR,Human-readable explanation of the source/version choice.
+q1_annual_company_metrics,one formal company x available fiscal year,1,company_id,VARCHAR,Stable issuer identifier used for every join and window partition.
+q1_annual_company_metrics,one formal company x available fiscal year,2,ticker,VARCHAR,Display ticker for the selected issuer and period.
+q1_annual_company_metrics,one formal company x available fiscal year,3,fiscal_year,BIGINT,Issuer fiscal year assigned by the verified annual period map.
+q1_annual_company_metrics,one formal company x available fiscal year,4,period_end_date,DATE,Fiscal-year end date of the selected annual facts.
+q1_annual_company_metrics,one formal company x available fiscal year,5,revenue,DOUBLE,Revenue produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,6,operating_income,DOUBLE,Operating income produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,7,net_income,DOUBLE,Net income produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,8,total_assets,DOUBLE,Total assets produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,9,total_liabilities,DOUBLE,Total liabilities produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,10,total_equity,DOUBLE,Total equity produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,11,current_assets,DOUBLE,Current assets produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,12,current_liabilities,DOUBLE,Current liabilities produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,13,cash_and_equivalents,DOUBLE,Cash and equivalents produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,14,inventory,DOUBLE,Inventory produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,15,total_debt,DOUBLE,Total debt produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,16,operating_cash_flow,DOUBLE,Operating cash flow produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,17,capital_expenditure,DOUBLE,Capital expenditure produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,18,free_cash_flow,DOUBLE,Free cash flow produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,19,row_data_as_of,DATE,Row data as of produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,20,prior_fiscal_year,BIGINT,Prior consecutive fiscal-year fiscal year.
+q1_annual_company_metrics,one formal company x available fiscal year,21,prior_total_assets,DOUBLE,Prior consecutive fiscal-year total assets.
+q1_annual_company_metrics,one formal company x available fiscal year,22,prior_total_equity,DOUBLE,Prior consecutive fiscal-year total equity.
+q1_annual_company_metrics,one formal company x available fiscal year,23,prior_revenue,DOUBLE,Prior consecutive fiscal-year revenue.
+q1_annual_company_metrics,one formal company x available fiscal year,24,company_name,VARCHAR,Issuer display name from the frozen formal sample.
+q1_annual_company_metrics,one formal company x available fiscal year,25,formal_peer_group,VARCHAR,Gate1-v1.0 peer group used for descriptive benchmarks.
+q1_annual_company_metrics,one formal company x available fiscal year,26,status_group,VARCHAR,Status group produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,27,formal_sample_status,VARCHAR,Formal sample status produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,28,comparability_note,VARCHAR,Comparability note produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,29,data_as_of,DATE,Data as of produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,30,average_assets,DOUBLE,Mean of consecutive prior and current fiscal-year-end total assets.
+q1_annual_company_metrics,one formal company x available fiscal year,31,average_equity,DOUBLE,Mean of consecutive prior and current fiscal-year-end total equity.
+q1_annual_company_metrics,one formal company x available fiscal year,32,net_margin,DOUBLE,Net income divided by revenue with zero-denominator protection.
+q1_annual_company_metrics,one formal company x available fiscal year,33,operating_margin,DOUBLE,Operating margin produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,34,current_ratio,DOUBLE,Current ratio produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,35,quick_ratio,DOUBLE,Quick ratio produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,36,cash_ratio,DOUBLE,Cash ratio produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,37,liabilities_to_assets,DOUBLE,Liabilities to assets produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,38,total_debt_to_assets,DOUBLE,Total debt to assets produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,39,operating_cash_flow_margin,DOUBLE,Operating cash flow margin produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,40,free_cash_flow_margin,DOUBLE,Free cash flow margin produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,41,capital_expenditure_intensity,DOUBLE,Capital expenditure intensity produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,42,free_cash_flow_conversion,DOUBLE,Free cash flow conversion produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,43,revenue_growth,DOUBLE,Revenue growth produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,44,average_balance_available_flag,BOOLEAN,Boolean indicator for average balance available.
+q1_annual_company_metrics,one formal company x available fiscal year,45,asset_turnover,DOUBLE,Revenue divided by average assets with zero-denominator protection.
+q1_annual_company_metrics,one formal company x available fiscal year,46,equity_multiplier,DOUBLE,Average assets divided by positive average equity.
+q1_annual_company_metrics,one formal company x available fiscal year,47,roe,DOUBLE,Net income divided by positive average equity; otherwise null.
+q1_annual_company_metrics,one formal company x available fiscal year,48,roa,DOUBLE,Roa produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,49,positive_average_equity_flag,BOOLEAN,Boolean indicator for positive average equity.
+q1_annual_company_metrics,one formal company x available fiscal year,50,dupont_roe,DOUBLE,Dupont roe produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,51,dupont_valid_flag,BOOLEAN,Boolean indicator for dupont valid.
+q1_annual_company_metrics,one formal company x available fiscal year,52,roe_valid_flag,BOOLEAN,Boolean indicator for roe valid.
+q1_annual_company_metrics,one formal company x available fiscal year,53,near_zero_average_equity_flag,BOOLEAN,Boolean indicator for near zero average equity.
+q1_annual_company_metrics,one formal company x available fiscal year,54,dupont_identity_gap,DOUBLE,ROE minus the product of the three DuPont components.
+q1_annual_company_metrics,one formal company x available fiscal year,55,dupont_validity_reason,VARCHAR,Dupont validity reason produced by q1_annual_company_metrics; inherited fields retain source-mart meaning.
+q1_annual_company_metrics,one formal company x available fiscal year,56,metric_flag_count,BIGINT,Count of metric flag at the table grain.
+q1_annual_company_metrics,one formal company x available fiscal year,57,unresolved_conflict_count,BIGINT,Count of unresolved conflict at the table grain.
+q1_annual_company_metrics,one formal company x available fiscal year,58,quality_warning_count,BIGINT,Count of quality warning at the table grain.
+q1_annual_company_metrics,one formal company x available fiscal year,59,quality_warnings,VARCHAR,Semicolon-delimited automated metric and comparability warnings.
+q1_annual_company_metrics,one formal company x available fiscal year,60,source_selection_method,VARCHAR,Deterministic latest-valid or derived-component selection method.
+q1_annual_company_metrics,one formal company x available fiscal year,61,source_selection_note,VARCHAR,Human-readable explanation of the source/version choice.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,1,company_id,VARCHAR,Stable issuer identifier used for every join and window partition.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,2,ticker,VARCHAR,Display ticker for the selected issuer and period.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,3,company_name,VARCHAR,Issuer display name from the frozen formal sample.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,4,formal_peer_group,VARCHAR,Gate1-v1.0 peer group used for descriptive benchmarks.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,5,fiscal_year,BIGINT,Issuer fiscal year assigned by the verified annual period map.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,6,prior_fiscal_year,BIGINT,Prior consecutive fiscal-year fiscal year.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,7,net_margin,DOUBLE,Net income divided by revenue with zero-denominator protection.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,8,asset_turnover,DOUBLE,Revenue divided by average assets with zero-denominator protection.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,9,equity_multiplier,DOUBLE,Average assets divided by positive average equity.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,10,roe,DOUBLE,Net income divided by positive average equity; otherwise null.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,11,average_equity,DOUBLE,Mean of consecutive prior and current fiscal-year-end total equity.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,12,dupont_valid_flag,BOOLEAN,Boolean indicator for dupont valid.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,13,observed_prior_fiscal_year,BIGINT,Observed prior fiscal year produced by q1_dupont_contributions; inherited fields retain source-mart meaning.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,14,prior_net_margin,DOUBLE,Prior consecutive fiscal-year net margin.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,15,prior_asset_turnover,DOUBLE,Prior consecutive fiscal-year asset turnover.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,16,prior_equity_multiplier,DOUBLE,Prior consecutive fiscal-year equity multiplier.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,17,prior_roe,DOUBLE,Prior consecutive fiscal-year roe.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,18,prior_average_equity,DOUBLE,Prior consecutive fiscal-year average equity.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,19,prior_dupont_valid_flag,BOOLEAN,Prior consecutive fiscal-year dupont valid flag.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,20,transition_valid_flag,BOOLEAN,Boolean indicator for transition valid.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,21,roe_change,DOUBLE,Current valid ROE minus prior consecutive-year valid ROE.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,22,contribution_margin,DOUBLE,Exact Shapley contribution of the net-margin change to ROE change.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,23,contribution_turnover,DOUBLE,Exact Shapley contribution of the asset-turnover change to ROE change.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,24,contribution_multiplier,DOUBLE,Exact Shapley contribution of the equity-multiplier change to ROE change.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,25,contribution_sum,DOUBLE,Sum of the three exact Shapley contributions.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,26,dominant_driver,VARCHAR,"Largest absolute valid Shapley factor: margin, turnover, or multiplier."
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,27,h1_driver_group,VARCHAR,"Frozen leverage-driven, operating-driven, mixed, or unavailable classification."
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,28,leverage_contribution_share,DOUBLE,Positive multiplier contribution divided by all positive contributions.
+q1_dupont_contributions,one formal company x consecutive annual transition ending year,29,shapley_reconciliation_gap,DOUBLE,ROE change minus the Shapley contribution sum.
+q1_peer_summary,one formal peer group x fiscal year,1,formal_peer_group,VARCHAR,Gate1-v1.0 peer group used for descriptive benchmarks.
+q1_peer_summary,one formal peer group x fiscal year,2,fiscal_year,BIGINT,Issuer fiscal year assigned by the verified annual period map.
+q1_peer_summary,one formal peer group x fiscal year,3,company_count,BIGINT,Count of company at the table grain.
+q1_peer_summary,one formal peer group x fiscal year,4,valid_roe_company_count,BIGINT,Count of valid roe company at the table grain.
+q1_peer_summary,one formal peer group x fiscal year,5,peer_median_roe,DOUBLE,Valid-observation peer-year median roe.
+q1_peer_summary,one formal peer group x fiscal year,6,peer_q25_roe,DOUBLE,Valid-observation peer-year 25th percentile roe.
+q1_peer_summary,one formal peer group x fiscal year,7,peer_q75_roe,DOUBLE,Valid-observation peer-year 75th percentile roe.
+q1_peer_summary,one formal peer group x fiscal year,8,valid_net_margin_company_count,BIGINT,Count of valid net margin company at the table grain.
+q1_peer_summary,one formal peer group x fiscal year,9,peer_median_net_margin,DOUBLE,Valid-observation peer-year median net margin.
+q1_peer_summary,one formal peer group x fiscal year,10,peer_q25_net_margin,DOUBLE,Valid-observation peer-year 25th percentile net margin.
+q1_peer_summary,one formal peer group x fiscal year,11,peer_q75_net_margin,DOUBLE,Valid-observation peer-year 75th percentile net margin.
+q1_peer_summary,one formal peer group x fiscal year,12,valid_asset_turnover_company_count,BIGINT,Count of valid asset turnover company at the table grain.
+q1_peer_summary,one formal peer group x fiscal year,13,peer_median_asset_turnover,DOUBLE,Valid-observation peer-year median asset turnover.
+q1_peer_summary,one formal peer group x fiscal year,14,peer_q25_asset_turnover,DOUBLE,Valid-observation peer-year 25th percentile asset turnover.
+q1_peer_summary,one formal peer group x fiscal year,15,peer_q75_asset_turnover,DOUBLE,Valid-observation peer-year 75th percentile asset turnover.
+q1_peer_summary,one formal peer group x fiscal year,16,valid_equity_multiplier_company_count,BIGINT,Count of valid equity multiplier company at the table grain.
+q1_peer_summary,one formal peer group x fiscal year,17,peer_median_equity_multiplier,DOUBLE,Valid-observation peer-year median equity multiplier.
+q1_peer_summary,one formal peer group x fiscal year,18,peer_q25_equity_multiplier,DOUBLE,Valid-observation peer-year 25th percentile equity multiplier.
+q1_peer_summary,one formal peer group x fiscal year,19,peer_q75_equity_multiplier,DOUBLE,Valid-observation peer-year 75th percentile equity multiplier.
+q1_peer_summary,one formal peer group x fiscal year,20,valid_current_ratio_company_count,BIGINT,Count of valid current ratio company at the table grain.
+q1_peer_summary,one formal peer group x fiscal year,21,peer_median_current_ratio,DOUBLE,Valid-observation peer-year median current ratio.
+q1_peer_summary,one formal peer group x fiscal year,22,valid_total_debt_to_assets_company_count,BIGINT,Count of valid total debt to assets company at the table grain.
+q1_peer_summary,one formal peer group x fiscal year,23,peer_median_total_debt_to_assets,DOUBLE,Valid-observation peer-year median total debt to assets.
+q1_peer_summary,one formal peer group x fiscal year,24,valid_fcf_margin_company_count,BIGINT,Count of valid fcf margin company at the table grain.
+q1_peer_summary,one formal peer group x fiscal year,25,peer_median_free_cash_flow_margin,DOUBLE,Valid-observation peer-year median free cash flow margin.
+q1_company_vs_peer,one formal company x available fiscal year,1,company_id,VARCHAR,Stable issuer identifier used for every join and window partition.
+q1_company_vs_peer,one formal company x available fiscal year,2,ticker,VARCHAR,Display ticker for the selected issuer and period.
+q1_company_vs_peer,one formal company x available fiscal year,3,fiscal_year,BIGINT,Issuer fiscal year assigned by the verified annual period map.
+q1_company_vs_peer,one formal company x available fiscal year,4,period_end_date,DATE,Fiscal-year end date of the selected annual facts.
+q1_company_vs_peer,one formal company x available fiscal year,5,revenue,DOUBLE,Revenue produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,6,operating_income,DOUBLE,Operating income produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,7,net_income,DOUBLE,Net income produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,8,total_assets,DOUBLE,Total assets produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,9,total_liabilities,DOUBLE,Total liabilities produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,10,total_equity,DOUBLE,Total equity produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,11,current_assets,DOUBLE,Current assets produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,12,current_liabilities,DOUBLE,Current liabilities produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,13,cash_and_equivalents,DOUBLE,Cash and equivalents produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,14,inventory,DOUBLE,Inventory produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,15,total_debt,DOUBLE,Total debt produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,16,operating_cash_flow,DOUBLE,Operating cash flow produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,17,capital_expenditure,DOUBLE,Capital expenditure produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,18,free_cash_flow,DOUBLE,Free cash flow produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,19,row_data_as_of,DATE,Row data as of produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,20,prior_fiscal_year,BIGINT,Prior consecutive fiscal-year fiscal year.
+q1_company_vs_peer,one formal company x available fiscal year,21,prior_total_assets,DOUBLE,Prior consecutive fiscal-year total assets.
+q1_company_vs_peer,one formal company x available fiscal year,22,prior_total_equity,DOUBLE,Prior consecutive fiscal-year total equity.
+q1_company_vs_peer,one formal company x available fiscal year,23,prior_revenue,DOUBLE,Prior consecutive fiscal-year revenue.
+q1_company_vs_peer,one formal company x available fiscal year,24,company_name,VARCHAR,Issuer display name from the frozen formal sample.
+q1_company_vs_peer,one formal company x available fiscal year,25,formal_peer_group,VARCHAR,Gate1-v1.0 peer group used for descriptive benchmarks.
+q1_company_vs_peer,one formal company x available fiscal year,26,status_group,VARCHAR,Status group produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,27,formal_sample_status,VARCHAR,Formal sample status produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,28,comparability_note,VARCHAR,Comparability note produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,29,data_as_of,DATE,Data as of produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,30,average_assets,DOUBLE,Mean of consecutive prior and current fiscal-year-end total assets.
+q1_company_vs_peer,one formal company x available fiscal year,31,average_equity,DOUBLE,Mean of consecutive prior and current fiscal-year-end total equity.
+q1_company_vs_peer,one formal company x available fiscal year,32,net_margin,DOUBLE,Net income divided by revenue with zero-denominator protection.
+q1_company_vs_peer,one formal company x available fiscal year,33,operating_margin,DOUBLE,Operating margin produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,34,current_ratio,DOUBLE,Current ratio produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,35,quick_ratio,DOUBLE,Quick ratio produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,36,cash_ratio,DOUBLE,Cash ratio produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,37,liabilities_to_assets,DOUBLE,Liabilities to assets produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,38,total_debt_to_assets,DOUBLE,Total debt to assets produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,39,operating_cash_flow_margin,DOUBLE,Operating cash flow margin produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,40,free_cash_flow_margin,DOUBLE,Free cash flow margin produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,41,capital_expenditure_intensity,DOUBLE,Capital expenditure intensity produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,42,free_cash_flow_conversion,DOUBLE,Free cash flow conversion produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,43,revenue_growth,DOUBLE,Revenue growth produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,44,average_balance_available_flag,BOOLEAN,Boolean indicator for average balance available.
+q1_company_vs_peer,one formal company x available fiscal year,45,asset_turnover,DOUBLE,Revenue divided by average assets with zero-denominator protection.
+q1_company_vs_peer,one formal company x available fiscal year,46,equity_multiplier,DOUBLE,Average assets divided by positive average equity.
+q1_company_vs_peer,one formal company x available fiscal year,47,roe,DOUBLE,Net income divided by positive average equity; otherwise null.
+q1_company_vs_peer,one formal company x available fiscal year,48,roa,DOUBLE,Roa produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,49,positive_average_equity_flag,BOOLEAN,Boolean indicator for positive average equity.
+q1_company_vs_peer,one formal company x available fiscal year,50,dupont_roe,DOUBLE,Dupont roe produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,51,dupont_valid_flag,BOOLEAN,Boolean indicator for dupont valid.
+q1_company_vs_peer,one formal company x available fiscal year,52,roe_valid_flag,BOOLEAN,Boolean indicator for roe valid.
+q1_company_vs_peer,one formal company x available fiscal year,53,near_zero_average_equity_flag,BOOLEAN,Boolean indicator for near zero average equity.
+q1_company_vs_peer,one formal company x available fiscal year,54,dupont_identity_gap,DOUBLE,ROE minus the product of the three DuPont components.
+q1_company_vs_peer,one formal company x available fiscal year,55,dupont_validity_reason,VARCHAR,Dupont validity reason produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,56,metric_flag_count,BIGINT,Count of metric flag at the table grain.
+q1_company_vs_peer,one formal company x available fiscal year,57,unresolved_conflict_count,BIGINT,Count of unresolved conflict at the table grain.
+q1_company_vs_peer,one formal company x available fiscal year,58,quality_warning_count,BIGINT,Count of quality warning at the table grain.
+q1_company_vs_peer,one formal company x available fiscal year,59,quality_warnings,VARCHAR,Semicolon-delimited automated metric and comparability warnings.
+q1_company_vs_peer,one formal company x available fiscal year,60,source_selection_method,VARCHAR,Deterministic latest-valid or derived-component selection method.
+q1_company_vs_peer,one formal company x available fiscal year,61,source_selection_note,VARCHAR,Human-readable explanation of the source/version choice.
+q1_company_vs_peer,one formal company x available fiscal year,62,peer_company_count,BIGINT,Count of peer company at the table grain.
+q1_company_vs_peer,one formal company x available fiscal year,63,valid_peer_roe_count,BIGINT,Count of valid peer roe at the table grain.
+q1_company_vs_peer,one formal company x available fiscal year,64,peer_median_roe,DOUBLE,Valid-observation peer-year median roe.
+q1_company_vs_peer,one formal company x available fiscal year,65,peer_q25_roe,DOUBLE,Valid-observation peer-year 25th percentile roe.
+q1_company_vs_peer,one formal company x available fiscal year,66,peer_q75_roe,DOUBLE,Valid-observation peer-year 75th percentile roe.
+q1_company_vs_peer,one formal company x available fiscal year,67,peer_median_net_margin,DOUBLE,Valid-observation peer-year median net margin.
+q1_company_vs_peer,one formal company x available fiscal year,68,peer_median_asset_turnover,DOUBLE,Valid-observation peer-year median asset turnover.
+q1_company_vs_peer,one formal company x available fiscal year,69,peer_median_equity_multiplier,DOUBLE,Valid-observation peer-year median equity multiplier.
+q1_company_vs_peer,one formal company x available fiscal year,70,peer_median_current_ratio,DOUBLE,Valid-observation peer-year median current ratio.
+q1_company_vs_peer,one formal company x available fiscal year,71,peer_median_total_debt_to_assets,DOUBLE,Valid-observation peer-year median total debt to assets.
+q1_company_vs_peer,one formal company x available fiscal year,72,peer_median_free_cash_flow_margin,DOUBLE,Valid-observation peer-year median free cash flow margin.
+q1_company_vs_peer,one formal company x available fiscal year,73,roe_vs_peer_median,DOUBLE,Roe vs peer median produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,74,net_margin_vs_peer_median,DOUBLE,Net margin vs peer median produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,75,asset_turnover_vs_peer_median,DOUBLE,Asset turnover vs peer median produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,76,equity_multiplier_vs_peer_median,DOUBLE,Equity multiplier vs peer median produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,77,fcf_margin_vs_peer_median,DOUBLE,Fcf margin vs peer median produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_company_vs_peer,one formal company x available fiscal year,78,roe_peer_percentile,DOUBLE,Roe peer percentile produced by q1_company_vs_peer; inherited fields retain source-mart meaning.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,1,company_id,VARCHAR,Stable issuer identifier used for every join and window partition.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,2,ticker,VARCHAR,Display ticker for the selected issuer and period.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,3,company_name,VARCHAR,Issuer display name from the frozen formal sample.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,4,formal_peer_group,VARCHAR,Gate1-v1.0 peer group used for descriptive benchmarks.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,5,fiscal_year,BIGINT,Issuer fiscal year assigned by the verified annual period map.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,6,prior_fiscal_year,BIGINT,Prior consecutive fiscal-year fiscal year.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,7,net_margin,DOUBLE,Net income divided by revenue with zero-denominator protection.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,8,asset_turnover,DOUBLE,Revenue divided by average assets with zero-denominator protection.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,9,equity_multiplier,DOUBLE,Average assets divided by positive average equity.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,10,roe,DOUBLE,Net income divided by positive average equity; otherwise null.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,11,average_equity,DOUBLE,Mean of consecutive prior and current fiscal-year-end total equity.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,12,dupont_valid_flag,BOOLEAN,Boolean indicator for dupont valid.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,13,observed_prior_fiscal_year,BIGINT,Observed prior fiscal year produced by q1_driver_persistence; inherited fields retain source-mart meaning.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,14,prior_net_margin,DOUBLE,Prior consecutive fiscal-year net margin.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,15,prior_asset_turnover,DOUBLE,Prior consecutive fiscal-year asset turnover.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,16,prior_equity_multiplier,DOUBLE,Prior consecutive fiscal-year equity multiplier.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,17,prior_roe,DOUBLE,Prior consecutive fiscal-year roe.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,18,prior_average_equity,DOUBLE,Prior consecutive fiscal-year average equity.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,19,prior_dupont_valid_flag,BOOLEAN,Prior consecutive fiscal-year dupont valid flag.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,20,transition_valid_flag,BOOLEAN,Boolean indicator for transition valid.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,21,roe_change,DOUBLE,Current valid ROE minus prior consecutive-year valid ROE.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,22,contribution_margin,DOUBLE,Exact Shapley contribution of the net-margin change to ROE change.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,23,contribution_turnover,DOUBLE,Exact Shapley contribution of the asset-turnover change to ROE change.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,24,contribution_multiplier,DOUBLE,Exact Shapley contribution of the equity-multiplier change to ROE change.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,25,contribution_sum,DOUBLE,Sum of the three exact Shapley contributions.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,26,dominant_driver,VARCHAR,"Largest absolute valid Shapley factor: margin, turnover, or multiplier."
+q1_driver_persistence,one formal company x consecutive annual transition ending year,27,h1_driver_group,VARCHAR,"Frozen leverage-driven, operating-driven, mixed, or unavailable classification."
+q1_driver_persistence,one formal company x consecutive annual transition ending year,28,leverage_contribution_share,DOUBLE,Positive multiplier contribution divided by all positive contributions.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,29,shapley_reconciliation_gap,DOUBLE,ROE change minus the Shapley contribution sum.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,30,current_peer_relative_roe,DOUBLE,Current peer relative roe produced by q1_driver_persistence; inherited fields retain source-mart meaning.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,31,current_peer_percentile,DOUBLE,Current peer percentile produced by q1_driver_persistence; inherited fields retain source-mart meaning.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,32,next_fiscal_year,BIGINT,Observable next consecutive fiscal-year fiscal year.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,33,next_year_roe,DOUBLE,Observable next consecutive fiscal-year year roe.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,34,next_year_peer_relative_roe,DOUBLE,Observable next consecutive fiscal-year year peer relative roe.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,35,next_year_peer_percentile,DOUBLE,Observable next consecutive fiscal-year year peer percentile.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,36,next_year_roe_change,DOUBLE,Secondary outcome: next-year raw ROE minus current ROE.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,37,next_year_peer_relative_change,DOUBLE,Primary outcome: next-year change in ROE minus peer median ROE.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,38,roe_reversal_flag,BOOLEAN,True when observable next-year raw ROE change is negative.
+q1_driver_persistence,one formal company x consecutive annual transition ending year,39,rank_retention,DOUBLE,Issuer next-year ROE percentile within its formal peer group.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,1,company_id,VARCHAR,Stable issuer identifier used for every join and window partition.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,2,ticker,VARCHAR,Display ticker for the selected issuer and period.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,3,company_name,VARCHAR,Issuer display name from the frozen formal sample.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,4,formal_peer_group,VARCHAR,Gate1-v1.0 peer group used for descriptive benchmarks.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,5,fiscal_year,BIGINT,Issuer fiscal year assigned by the verified annual period map.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,6,prior_fiscal_year,BIGINT,Prior consecutive fiscal-year fiscal year.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,7,net_margin,DOUBLE,Net income divided by revenue with zero-denominator protection.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,8,asset_turnover,DOUBLE,Revenue divided by average assets with zero-denominator protection.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,9,equity_multiplier,DOUBLE,Average assets divided by positive average equity.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,10,roe,DOUBLE,Net income divided by positive average equity; otherwise null.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,11,average_equity,DOUBLE,Mean of consecutive prior and current fiscal-year-end total equity.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,12,dupont_valid_flag,BOOLEAN,Boolean indicator for dupont valid.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,13,observed_prior_fiscal_year,BIGINT,Observed prior fiscal year produced by q1_h1_sample_audit; inherited fields retain source-mart meaning.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,14,prior_net_margin,DOUBLE,Prior consecutive fiscal-year net margin.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,15,prior_asset_turnover,DOUBLE,Prior consecutive fiscal-year asset turnover.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,16,prior_equity_multiplier,DOUBLE,Prior consecutive fiscal-year equity multiplier.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,17,prior_roe,DOUBLE,Prior consecutive fiscal-year roe.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,18,prior_average_equity,DOUBLE,Prior consecutive fiscal-year average equity.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,19,prior_dupont_valid_flag,BOOLEAN,Prior consecutive fiscal-year dupont valid flag.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,20,transition_valid_flag,BOOLEAN,Boolean indicator for transition valid.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,21,roe_change,DOUBLE,Current valid ROE minus prior consecutive-year valid ROE.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,22,contribution_margin,DOUBLE,Exact Shapley contribution of the net-margin change to ROE change.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,23,contribution_turnover,DOUBLE,Exact Shapley contribution of the asset-turnover change to ROE change.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,24,contribution_multiplier,DOUBLE,Exact Shapley contribution of the equity-multiplier change to ROE change.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,25,contribution_sum,DOUBLE,Sum of the three exact Shapley contributions.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,26,dominant_driver,VARCHAR,"Largest absolute valid Shapley factor: margin, turnover, or multiplier."
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,27,h1_driver_group,VARCHAR,"Frozen leverage-driven, operating-driven, mixed, or unavailable classification."
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,28,leverage_contribution_share,DOUBLE,Positive multiplier contribution divided by all positive contributions.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,29,shapley_reconciliation_gap,DOUBLE,ROE change minus the Shapley contribution sum.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,30,current_peer_relative_roe,DOUBLE,Current peer relative roe produced by q1_h1_sample_audit; inherited fields retain source-mart meaning.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,31,current_peer_percentile,DOUBLE,Current peer percentile produced by q1_h1_sample_audit; inherited fields retain source-mart meaning.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,32,next_fiscal_year,BIGINT,Observable next consecutive fiscal-year fiscal year.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,33,next_year_roe,DOUBLE,Observable next consecutive fiscal-year year roe.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,34,next_year_peer_relative_roe,DOUBLE,Observable next consecutive fiscal-year year peer relative roe.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,35,next_year_peer_percentile,DOUBLE,Observable next consecutive fiscal-year year peer percentile.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,36,next_year_roe_change,DOUBLE,Secondary outcome: next-year raw ROE minus current ROE.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,37,next_year_peer_relative_change,DOUBLE,Primary outcome: next-year change in ROE minus peer median ROE.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,38,roe_reversal_flag,BOOLEAN,True when observable next-year raw ROE change is negative.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,39,rank_retention,DOUBLE,Issuer next-year ROE percentile within its formal peer group.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,40,next_average_equity,DOUBLE,Observable next consecutive fiscal-year average equity.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,41,turnaround_from_loss,BOOLEAN,Turnaround from loss produced by q1_h1_sample_audit; inherited fields retain source-mart meaning.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,42,h1_eligible_flag,BOOLEAN,"Frozen positive-equity, positive-base, positive-change, valid-component, and forward-year eligibility result."
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,43,h1_exclusion_reason,VARCHAR,"First applicable frozen H1 exclusion reason, or eligible."
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,44,company_eligible_transition_count,BIGINT,Count of company eligible transition at the table grain.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,45,company_transition_share,DOUBLE,Share measuring company transition at the table grain.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,46,fiscal_year_eligible_transition_count,BIGINT,Count of fiscal year eligible transition at the table grain.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,47,fiscal_year_transition_share,DOUBLE,Share measuring fiscal year transition at the table grain.
+q1_h1_sample_audit,one formal company x candidate H1 transition ending year,48,driver_year_eligible_transition_count,BIGINT,Count of driver year eligible transition at the table grain.
+q1_h1_exclusion_waterfall,one final H1 eligibility or exclusion reason,1,h1_exclusion_reason,VARCHAR,"First applicable frozen H1 exclusion reason, or eligible."
+q1_h1_exclusion_waterfall,one final H1 eligibility or exclusion reason,2,transition_count,BIGINT,Count of transition at the table grain.
+q1_h1_exclusion_waterfall,one final H1 eligibility or exclusion reason,3,unique_company_count,BIGINT,Count of unique company at the table grain.
+q1_h1_evidence_summary,one frozen formal Q1 panel,1,eligible_transition_count,BIGINT,Count of eligible transition at the table grain.
+q1_h1_evidence_summary,one frozen formal Q1 panel,2,eligible_unique_company_count,BIGINT,Count of eligible unique company at the table grain.
+q1_h1_evidence_summary,one frozen formal Q1 panel,3,leverage_driven_transition_count,BIGINT,Count of leverage driven transition at the table grain.
+q1_h1_evidence_summary,one frozen formal Q1 panel,4,operating_driven_transition_count,BIGINT,Count of operating driven transition at the table grain.
+q1_h1_evidence_summary,one frozen formal Q1 panel,5,leverage_driven_unique_company_count,BIGINT,Count of leverage driven unique company at the table grain.
+q1_h1_evidence_summary,one frozen formal Q1 panel,6,operating_driven_unique_company_count,BIGINT,Count of operating driven unique company at the table grain.
+q1_h1_evidence_summary,one frozen formal Q1 panel,7,maximum_company_transition_share,DOUBLE,Share measuring maximum company transition at the table grain.
+q1_h1_evidence_summary,one frozen formal Q1 panel,8,maximum_fiscal_year_transition_share,DOUBLE,Share measuring maximum fiscal year transition at the table grain.
+q1_h1_evidence_summary,one frozen formal Q1 panel,9,fy2020_2021_transition_share,DOUBLE,Share measuring fy2020 2021 transition at the table grain.
+q1_h1_evidence_summary,one frozen formal Q1 panel,10,leverage_group_median_outcome,DOUBLE,Leverage group median outcome produced by q1_h1_evidence_summary; inherited fields retain source-mart meaning.
+q1_h1_evidence_summary,one frozen formal Q1 panel,11,operating_group_median_outcome,DOUBLE,Operating group median outcome produced by q1_h1_evidence_summary; inherited fields retain source-mart meaning.
+q1_h1_evidence_summary,one frozen formal Q1 panel,12,leverage_group_reversal_rate,DOUBLE,Leverage group reversal rate produced by q1_h1_evidence_summary; inherited fields retain source-mart meaning.
+q1_h1_evidence_summary,one frozen formal Q1 panel,13,operating_group_reversal_rate,DOUBLE,Operating group reversal rate produced by q1_h1_evidence_summary; inherited fields retain source-mart meaning.
+q1_h1_evidence_summary,one frozen formal Q1 panel,14,group_median_difference,DOUBLE,Group median difference produced by q1_h1_evidence_summary; inherited fields retain source-mart meaning.
+q1_h1_evidence_summary,one frozen formal Q1 panel,15,over_concentration_flag,BOOLEAN,Boolean indicator for over concentration.
+q1_h1_evidence_summary,one frozen formal Q1 panel,16,evidence_tier,VARCHAR,Recomputed H1 Evidence Tier under the frozen A/B/C thresholds.
+q1_h1_evidence_summary,one frozen formal Q1 panel,17,permitted_inference,VARCHAR,Research wording permitted by the computed Evidence Tier.
+q1_powerbi_mart,one formal company x available fiscal year,1,company_id,VARCHAR,Stable issuer identifier used for every join and window partition.
+q1_powerbi_mart,one formal company x available fiscal year,2,ticker,VARCHAR,Display ticker for the selected issuer and period.
+q1_powerbi_mart,one formal company x available fiscal year,3,company_name,VARCHAR,Issuer display name from the frozen formal sample.
+q1_powerbi_mart,one formal company x available fiscal year,4,formal_peer_group,VARCHAR,Gate1-v1.0 peer group used for descriptive benchmarks.
+q1_powerbi_mart,one formal company x available fiscal year,5,fiscal_year,BIGINT,Issuer fiscal year assigned by the verified annual period map.
+q1_powerbi_mart,one formal company x available fiscal year,6,period_end_date,DATE,Fiscal-year end date of the selected annual facts.
+q1_powerbi_mart,one formal company x available fiscal year,7,status_group,VARCHAR,Status group produced by q1_powerbi_mart; inherited fields retain source-mart meaning.
+q1_powerbi_mart,one formal company x available fiscal year,8,formal_sample_status,VARCHAR,Formal sample status produced by q1_powerbi_mart; inherited fields retain source-mart meaning.
+q1_powerbi_mart,one formal company x available fiscal year,9,data_as_of,DATE,Data as of produced by q1_powerbi_mart; inherited fields retain source-mart meaning.
+q1_powerbi_mart,one formal company x available fiscal year,10,comparability_note,VARCHAR,Comparability note produced by q1_powerbi_mart; inherited fields retain source-mart meaning.
+q1_powerbi_mart,one formal company x available fiscal year,11,roe,DOUBLE,Net income divided by positive average equity; otherwise null.
+q1_powerbi_mart,one formal company x available fiscal year,12,net_margin,DOUBLE,Net income divided by revenue with zero-denominator protection.
+q1_powerbi_mart,one formal company x available fiscal year,13,asset_turnover,DOUBLE,Revenue divided by average assets with zero-denominator protection.
+q1_powerbi_mart,one formal company x available fiscal year,14,equity_multiplier,DOUBLE,Average assets divided by positive average equity.
+q1_powerbi_mart,one formal company x available fiscal year,15,roe_valid_flag,BOOLEAN,Boolean indicator for roe valid.
+q1_powerbi_mart,one formal company x available fiscal year,16,dupont_valid_flag,BOOLEAN,Boolean indicator for dupont valid.
+q1_powerbi_mart,one formal company x available fiscal year,17,dupont_validity_reason,VARCHAR,Dupont validity reason produced by q1_powerbi_mart; inherited fields retain source-mart meaning.
+q1_powerbi_mart,one formal company x available fiscal year,18,dupont_identity_gap,DOUBLE,ROE minus the product of the three DuPont components.
+q1_powerbi_mart,one formal company x available fiscal year,19,peer_median_roe,DOUBLE,Valid-observation peer-year median roe.
+q1_powerbi_mart,one formal company x available fiscal year,20,peer_median_net_margin,DOUBLE,Valid-observation peer-year median net margin.
+q1_powerbi_mart,one formal company x available fiscal year,21,peer_median_asset_turnover,DOUBLE,Valid-observation peer-year median asset turnover.
+q1_powerbi_mart,one formal company x available fiscal year,22,peer_median_equity_multiplier,DOUBLE,Valid-observation peer-year median equity multiplier.
+q1_powerbi_mart,one formal company x available fiscal year,23,roe_vs_peer_median,DOUBLE,Roe vs peer median produced by q1_powerbi_mart; inherited fields retain source-mart meaning.
+q1_powerbi_mart,one formal company x available fiscal year,24,net_margin_vs_peer_median,DOUBLE,Net margin vs peer median produced by q1_powerbi_mart; inherited fields retain source-mart meaning.
+q1_powerbi_mart,one formal company x available fiscal year,25,asset_turnover_vs_peer_median,DOUBLE,Asset turnover vs peer median produced by q1_powerbi_mart; inherited fields retain source-mart meaning.
+q1_powerbi_mart,one formal company x available fiscal year,26,equity_multiplier_vs_peer_median,DOUBLE,Equity multiplier vs peer median produced by q1_powerbi_mart; inherited fields retain source-mart meaning.
+q1_powerbi_mart,one formal company x available fiscal year,27,roe_peer_percentile,DOUBLE,Roe peer percentile produced by q1_powerbi_mart; inherited fields retain source-mart meaning.
+q1_powerbi_mart,one formal company x available fiscal year,28,valid_peer_roe_count,BIGINT,Count of valid peer roe at the table grain.
+q1_powerbi_mart,one formal company x available fiscal year,29,roe_change,DOUBLE,Current valid ROE minus prior consecutive-year valid ROE.
+q1_powerbi_mart,one formal company x available fiscal year,30,contribution_margin,DOUBLE,Exact Shapley contribution of the net-margin change to ROE change.
+q1_powerbi_mart,one formal company x available fiscal year,31,contribution_turnover,DOUBLE,Exact Shapley contribution of the asset-turnover change to ROE change.
+q1_powerbi_mart,one formal company x available fiscal year,32,contribution_multiplier,DOUBLE,Exact Shapley contribution of the equity-multiplier change to ROE change.
+q1_powerbi_mart,one formal company x available fiscal year,33,contribution_sum,DOUBLE,Sum of the three exact Shapley contributions.
+q1_powerbi_mart,one formal company x available fiscal year,34,shapley_reconciliation_gap,DOUBLE,ROE change minus the Shapley contribution sum.
+q1_powerbi_mart,one formal company x available fiscal year,35,dominant_driver,VARCHAR,"Largest absolute valid Shapley factor: margin, turnover, or multiplier."
+q1_powerbi_mart,one formal company x available fiscal year,36,h1_driver_group,VARCHAR,"Frozen leverage-driven, operating-driven, mixed, or unavailable classification."
+q1_powerbi_mart,one formal company x available fiscal year,37,leverage_contribution_share,DOUBLE,Positive multiplier contribution divided by all positive contributions.
+q1_powerbi_mart,one formal company x available fiscal year,38,h1_eligible_flag,BOOLEAN,"Frozen positive-equity, positive-base, positive-change, valid-component, and forward-year eligibility result."
+q1_powerbi_mart,one formal company x available fiscal year,39,h1_exclusion_reason,VARCHAR,"First applicable frozen H1 exclusion reason, or eligible."
+q1_powerbi_mart,one formal company x available fiscal year,40,next_year_peer_relative_change,DOUBLE,Primary outcome: next-year change in ROE minus peer median ROE.
+q1_powerbi_mart,one formal company x available fiscal year,41,next_year_roe_change,DOUBLE,Secondary outcome: next-year raw ROE minus current ROE.
+q1_powerbi_mart,one formal company x available fiscal year,42,roe_reversal_flag,BOOLEAN,True when observable next-year raw ROE change is negative.
+q1_powerbi_mart,one formal company x available fiscal year,43,rank_retention,DOUBLE,Issuer next-year ROE percentile within its formal peer group.
+q1_powerbi_mart,one formal company x available fiscal year,44,h1_evidence_tier,VARCHAR,H1 evidence tier produced by q1_powerbi_mart; inherited fields retain source-mart meaning.
+q1_powerbi_mart,one formal company x available fiscal year,45,h1_permitted_inference,VARCHAR,H1 permitted inference produced by q1_powerbi_mart; inherited fields retain source-mart meaning.
+q1_powerbi_mart,one formal company x available fiscal year,46,h1_eligible_transition_count,BIGINT,Count of h1 eligible transition at the table grain.
+q1_powerbi_mart,one formal company x available fiscal year,47,h1_unique_company_count,BIGINT,Count of h1 unique company at the table grain.
+q1_powerbi_mart,one formal company x available fiscal year,48,h1_leverage_transition_count,BIGINT,Count of h1 leverage transition at the table grain.
+q1_powerbi_mart,one formal company x available fiscal year,49,h1_operating_transition_count,BIGINT,Count of h1 operating transition at the table grain.
+q1_powerbi_mart,one formal company x available fiscal year,50,h1_leverage_group_median_outcome,DOUBLE,H1 leverage group median outcome produced by q1_powerbi_mart; inherited fields retain source-mart meaning.
+q1_powerbi_mart,one formal company x available fiscal year,51,h1_operating_group_median_outcome,DOUBLE,H1 operating group median outcome produced by q1_powerbi_mart; inherited fields retain source-mart meaning.
+q1_powerbi_mart,one formal company x available fiscal year,52,h1_group_median_difference,DOUBLE,H1 group median difference produced by q1_powerbi_mart; inherited fields retain source-mart meaning.
+q1_powerbi_mart,one formal company x available fiscal year,53,metric_flag_count,BIGINT,Count of metric flag at the table grain.
+q1_powerbi_mart,one formal company x available fiscal year,54,unresolved_conflict_count,BIGINT,Count of unresolved conflict at the table grain.
+q1_powerbi_mart,one formal company x available fiscal year,55,quality_warning_count,BIGINT,Count of quality warning at the table grain.
+q1_powerbi_mart,one formal company x available fiscal year,56,quality_warnings,VARCHAR,Semicolon-delimited automated metric and comparability warnings.
+q1_powerbi_mart,one formal company x available fiscal year,57,source_selection_method,VARCHAR,Deterministic latest-valid or derived-component selection method.
+q1_powerbi_mart,one formal company x available fiscal year,58,source_selection_note,VARCHAR,Human-readable explanation of the source/version choice.
+q1_powerbi_mart,one formal company x available fiscal year,59,interpretation_note,VARCHAR,SQL-generated row-level explanation for the presentation layer.
+q1_powerbi_mart,one formal company x available fiscal year,60,limitations_note,VARCHAR,SQL-generated evidence and non-PIT limitation for the presentation layer.
