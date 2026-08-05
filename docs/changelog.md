@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-08-05 - Prepare B5 Power BI Build Spec and Recruiter Materials
+
+- Verified `data/processed/q1_powerbi_mart.csv` is the frozen formal mart (137 rows, 21 companies, 60 fields, `data_as_of` 2026-08-05), not the six-company Pilot CSV.
+- Added `docs/b5_powerbi_build_spec.md`: field-by-field slicer/visual/DAX spec for the formal Executive Overview page, with a reconciliation checklist populated from real mart values (AMZN FY2024, BKNG FY2023/FY2019, ETSY FY2023, FIGS FY2024, and the fixed H1 headline panel).
+- Added `docs/b5_recruiter_materials.md`: Tier B CV bullet, 30-second intro, five-minute narrative, and answers to the charter's anticipated interview questions, all drawn from the frozen B4 numbers.
+- Confirmed Power BI Service requires an authenticated login that is not reachable from either available browser tool (in-app browser is unauthenticated; no Chrome extension is connected); live visual/DAX authoring, Service save, `.pbix` export, and screenshot capture were not attempted and remain the open B5 work.
+- Updated `docs/project_status.md` to reflect B5 as in progress (spec and materials ready, live authoring pending) rather than marking it Done.
+
 ## 2026-08-05 - Complete B4 Analytical Release
 
 - Froze the formal analytical inputs with SHA-256 hashes and recorded an analytical data-as-of date of 2026-08-05.

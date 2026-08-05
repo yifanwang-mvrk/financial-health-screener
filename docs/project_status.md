@@ -4,9 +4,18 @@ Last updated: 2026-08-05
 
 ## Current Position
 
-Current milestone: **B4 Analytical Release passed; B5 Power BI Product Release is next.**
+Current milestone: **B4 Analytical Release passed; B5 Power BI Product Release is in progress — spec and materials ready, live Service authoring pending.**
 
 The formal minimum CV deliverable is complete. The six-company Power BI work remains a **Pilot snapshot** until B5 refreshes the page from the frozen 137-row, 60-field formal mart.
+
+B5 preparation is done: `docs/b5_powerbi_build_spec.md` gives a field-by-field,
+DAX-verbatim build spec plus a reconciliation checklist populated with real values
+from the formal mart, and `docs/b5_recruiter_materials.md` gives the Tier B CV
+bullet, 30-second intro, 5-minute narrative, and anticipated Q&A. What remains is
+the live Power BI Service session itself: Power BI Service is browser/login-gated
+(no Power BI Desktop on macOS) and no authenticated session is currently reachable
+by either browser tool, so the visual/DAX authoring, Service save, `.pbix` export,
+and screenshot capture have not been performed yet.
 
 ```text
 A0E PASSED
@@ -18,7 +27,8 @@ A0E PASSED
     -> B2 DONE: unchanged pipeline expanded to 21 frozen companies and FY2018-FY2024
     -> B3 DONE: seven formal SQL marts, Tier B audit, and 60-field Power BI mart
     -> B4 DONE: standalone analytical release and CV-ready minimum deliverable
-    -> B5 NEXT: formal single-page Power BI Portfolio Release v1.0
+    -> B5 IN PROGRESS: build spec and recruiter materials ready; live Power BI
+       Service authoring, reconciliation, Service save, and .pbix export pending
     -> Gate 2 PENDING
 ```
 
@@ -45,7 +55,12 @@ A0E PASSED
 
 ## Remaining Exit Conditions
 
-- B5: formal Power BI refresh, visual reconciliation, Service save, PBIX reference export, screenshot, and Q1 Portfolio Release v1.0.
+- B5: build spec (`docs/b5_powerbi_build_spec.md`) and recruiter materials
+  (`docs/b5_recruiter_materials.md`) are ready. Still open: live Power BI Service
+  visual/DAX authoring against the formal mart, visual reconciliation against the
+  Section 5 checklist, Service save, PBIX reference export, screenshot refresh, and
+  `powerbi/README.md` rewrite — blocked on an authenticated Power BI Service
+  session (see Correct Interpretation below).
 - Gate 2: refresh and formally decide Tier A/B/C after B5.
 
 ## Correct Interpretation
@@ -54,3 +69,4 @@ A0E PASSED
 - Gate 1 freezes Q2 Tier A feasibility, but formal Gate 2 still occurs after B5 and no Q2 technology is authorized yet.
 - Company Deep Dive and Risk Drivers are not current Q1 requirements. Their exact form is determined only if Gate 2 and Gate 3 authorize Q2/Q3.
 - The formal minimum CV deliverable has been reached at B4. The existing Power BI report remains a Pilot and must not be described as the formal portfolio release until B5 passes.
+- B5's remaining work is a live, authenticated Power BI Service session (visual and DAX authoring, Service save, `.pbix` export). This cannot be completed by file/terminal automation or by an unauthenticated browser, and credentials must never be entered on the user's behalf. Treat `docs/b5_powerbi_build_spec.md` as the authoritative to-do list for whoever holds that session, and do not mark B5 Done until its Section 5 reconciliation checklist has actually been verified against the live report.
