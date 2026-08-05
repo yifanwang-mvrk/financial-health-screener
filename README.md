@@ -14,7 +14,7 @@ The project does not provide investment recommendations, target prices, return p
 
 ## Current Status
 
-Status: **A1 Unified Company & Event Census complete. A2 source-probe revalidation is next. Six-company work remains a B1 Pilot snapshot; Gate 1 and Gate 2 are pending.**
+Status: **A1 and A2 complete. A3 full-candidate coverage and H1 audit is next. Six-company work remains a B1 Pilot snapshot; Gate 1 and Gate 2 are pending.**
 
 The frozen execution order is:
 
@@ -26,7 +26,7 @@ The repository currently contains:
 
 - A completed 50-company A1 census with 40 Q1 candidates, satisfying the approximately 30-40 stopping range.
 - Fourteen sourced event candidates, satisfying the approximately 10-15 A1 stopping range while leaving A3 verification fields blank.
-- A reusable Amazon/eBay SEC source probe and a six-company accession-level evidence cache.
+- A completed CHWY/EBAY SEC source probe and a separate six-company accession-level Pilot cache.
 - A reproducible six-company, FY2021-FY2023 analytical Pilot with SQL marts, tests, notebooks, charts, and a one-page Power BI prototype.
 
 These artifacts are retained as Pilot evidence. They are not the Gate 1 formal sample, the formal B4 minimum CV deliverable, or the B5 Portfolio Release v1.0.
@@ -94,9 +94,14 @@ Power BI Service Pilot report: [Financial Health Screener Q1 Executive Overview]
 | --- | --- |
 | `data/reference/company_universe.csv` | Active A1 company census and Pilot flag |
 | `data/reference/events.csv` | Active A1 event candidate census |
+| `data/reference/a2_probe_scope.csv` | Formal CHWY/EBAY A2 probe selection and reasons |
+| `data/reference/a3_scan_requirements.csv` | Frozen A2 output describing the required A3 scan metrics |
 | `data/reference/q1_analysis_scope.csv` | Six-company B1 Pilot scope only |
 | `data/raw/sec/` | Cached SEC companyfacts/submissions JSON and manifest |
+| `data/normalized/a2_annual_financial_facts_sample.csv` | Formal A2 two-company filing-level annual facts sample |
 | `data/normalized/financial_facts.csv` | Pilot annual accession-level SEC fact history |
+| `data/processed/a2_field_probe.csv` | Formal A2 field/tag/unit/period/version audit |
+| `data/processed/a2_concept_conflicts_sample.csv` | Formal A2 winner/discarded conflict sample |
 | `data/processed/b1_pilot_coverage.csv` | Six-company coverage snapshot; not the A3 full-candidate report |
 | `src/build_b1_pilot.py` | Rebuilds the current six-company Pilot evidence layer |
 | `src/phase_a_evidence.py` | Pilot evidence and reusable A2 probe logic |
@@ -113,6 +118,13 @@ Legacy composite risk-ranking files remain labelled learning artifacts and are n
 .venv/bin/python src/check_financial_statements.py
 .venv/bin/python src/build_q1_release.py
 .venv/bin/python -m unittest discover -s tests -p 'test_*.py' -v
+```
+
+## Rebuild Completed Phase A Stages
+
+```bash
+.venv/bin/python src/build_a1_census.py
+.venv/bin/python src/build_a2_source_probe.py
 ```
 
 ## Formal Completion Criteria

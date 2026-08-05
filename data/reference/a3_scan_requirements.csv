@@ -1,0 +1,22 @@
+scan_area,metric,purpose
+annual,company_id,Stable link to the completed A1 census
+annual,fiscal_year,FY2018-FY2024 coverage by project fiscal year
+annual,core_field_coverage,Coverage for Gate 1 canonical field candidates
+annual,prior_balance_available,Opening assets and equity for average balances
+annual,unit_duration_valid,Expected units and flow/stock period rules
+annual,filing_version_count,Restatement and comparative-version visibility
+annual,tag_conflict_count,Winner/discarded conflicts by field and company
+annual,latest_restated_selectable,Valid explainable current winner
+annual,override_required,Company exception and review reason
+annual,manual_review_minutes,Observed incremental review cost
+h1,transition_eligibility,All frozen H1 eligibility components
+h1,driver_group,Leverage-driven versus operating-driven
+h1,next_year_observable,Forward-year outcome availability
+h1,company_concentration,Unique-company and group concentration
+event,verified_pre_event_quarters,"Real quarters, not listing-age estimate"
+event,three_statement_coverage,Quarterly IS/BS/CF availability
+event,filing_dates_available,Point-in-time public availability
+event,pit_feasible,No look-ahead in event-time features
+event,ytd_cashflow_reconstruction,Whether standalone quarters require reconstruction
+event,eligible_controls,Contemporaneous peer/control availability
+event,manual_review_cost,Per-event quarterly normalization burden

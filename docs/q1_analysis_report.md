@@ -80,7 +80,7 @@ No leverage-versus-operating persistence test is reported. BKNG's leverage-drive
 
 The Pilot supports the narrower, decision-useful statement that ROE needs a driver and denominator diagnosis before it is compared across business models. It does not support the broader persistence hypothesis with the current sample and does not determine the formal H1 Evidence Tier.
 
-That distinction is intentional. The Pilot provides reproducible metrics, auditable exclusions, useful company cases, and a clear next-data requirement while A2-A3 and the formal gates remain incomplete.
+That distinction is intentional. The Pilot provides reproducible metrics, auditable exclusions, useful company cases, and a clear next-data requirement while A3 and the formal gates remain incomplete.
 
 ## Limitations
 

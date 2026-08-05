@@ -1,0 +1,5 @@
+company_id,ticker,cik,artifact,relative_path,source_url,sha256,fetched_at
+chwy,CHWY,0001766502,companyfacts,data/raw/sec/CIK0001766502/companyfacts.json.gz,https://data.sec.gov/api/xbrl/companyfacts/CIK0001766502.json,64fb7b4c94e7fd40fe4953981110142cba7f27d841a0f0c8d4fb1a2ff813bf1d,2026-08-05T12:11:50+00:00
+chwy,CHWY,0001766502,submissions,data/raw/sec/CIK0001766502/submissions.json.gz,https://data.sec.gov/submissions/CIK0001766502.json,ec18f58bea7a48bb87f5da54af7bd3af9c45f8952dfe99e4bb9f6343f55400b4,2026-08-05T12:11:50+00:00
+ebay,EBAY,0001065088,companyfacts,data/raw/sec/CIK0001065088/companyfacts.json.gz,https://data.sec.gov/api/xbrl/companyfacts/CIK0001065088.json,3f5ee3dcafa9ee11afc180caeaf3fbf396b9d439ece45a5970c97065fbec2d63,2026-08-05T12:11:50+00:00
+ebay,EBAY,0001065088,submissions,data/raw/sec/CIK0001065088/submissions.json.gz,https://data.sec.gov/submissions/CIK0001065088.json,0b953628f45cb05478bebbd7a0bbdfa9acc9565f66b3d47209f5f08599cc453b,2026-08-05T12:11:50+00:00

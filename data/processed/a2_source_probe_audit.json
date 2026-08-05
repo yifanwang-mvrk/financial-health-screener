@@ -1,0 +1,37 @@
+{
+  "generated_on": "2026-08-05",
+  "stage": "A2 Two-company Source Probe",
+  "status": "Done",
+  "probe_companies": [
+    "CHWY",
+    "EBAY"
+  ],
+  "raw_artifact_count": 4,
+  "annual_fact_sample_rows": 155,
+  "latest_winner_rows": 60,
+  "conflict_rows": 38,
+  "field_probe_rows": 22,
+  "canonical_source_conclusion": "suitable_for_a3_with_validation",
+  "third_distress_case": "not_required",
+  "gate1_status": "pending_a3",
+  "checks": {
+    "probe_roles_exact": true,
+    "single_extraction_entry_exists": true,
+    "raw_manifest_complete": true,
+    "raw_checksums_valid": true,
+    "extraction_error_log_clear": true,
+    "concept_map_executable": true,
+    "all_first_round_fields_observed": true,
+    "filing_metadata_complete": true,
+    "annual_flow_durations_valid": true,
+    "latest_winners_unique": true,
+    "conflict_log_schema_complete": true,
+    "capex_sign_rule_explicit": true,
+    "ocf_sign_rule_explicit": true,
+    "a3_scan_design_written": true,
+    "probe_report_written": true,
+    "probe_notebook_written": true,
+    "third_case_not_added": true
+  },
+  "next_stage": "A3 Coverage Verification + H1 Sample Audit"
+}

@@ -1,0 +1,3 @@
+company_id,ticker,probe_role,selection_reason,third_case_required
+chwy,CHWY,Inventory-led E-commerce,"Inventory-owning retailer with a 52/53-week fiscal year, comparative restatements, and a distinct asset structure",0
+ebay,EBAY,Marketplace / Platform,"Asset-light marketplace with net revenue recognition, multiple annual filing versions, and a debt-bearing balance sheet",0

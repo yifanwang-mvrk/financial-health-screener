@@ -8,7 +8,7 @@ This audit restores the repository to the exact phase meanings in Execution Char
 | --- | --- | --- | --- |
 | A0E | Power BI environment and PBIX export | Passed | Environment was verified on 2026-07-22 |
 | A1 | Approximately 30-40 Q1 candidates and 10-15 event candidates plus census audits | Done | 50 total companies, 40 Q1 candidates, 14 event candidates; all A1 audit checks pass |
-| A2 | Two-company shared SEC probe and A3 scan rules | In progress | Reusable AMZN/EBAY probe exists; formal conclusions and rules require revalidation |
+| A2 | Two-company shared SEC probe and A3 scan rules | Done | CHWY/EBAY use one extractor; raw manifests, 155 annual facts, 38 conflict records, field audit, report, notebook, and A3 scan requirements pass |
 | A3 | All-candidate annual/H1 scan and event PIT feasibility scan | Not complete | Only six-company Pilot annual evidence exists; event-quarter verification absent |
 | Gate 1 | Freeze Path, formal sample, years, groups, H1 Tier, data rules, mart, and Q2 feasibility | Pending | Prior six-company decision is withdrawn as a formal Gate 1 decision |
 | B1 | Reproducible 4-6 company Pilot after Gate 1 | Provisional snapshot exists | Six-company pipeline is retained and must be revalidated after Gate 1 |

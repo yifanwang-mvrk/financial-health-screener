@@ -27,3 +27,6 @@ AUTO-00025,dash,DASH,2022-12-31,2022,net_income,NetIncomeLoss,ProfitLoss,-1365.0
 AUTO-00026,dash,DASH,2022-12-31,2022,net_income,NetIncomeLoss,NetIncomeLoss,-1365.0,-1365.0,0.0,latest filing then source-tag priority,low
 AUTO-00027,dash,DASH,2022-12-31,2022,net_income,NetIncomeLoss,ProfitLoss,-1365.0,-1368.0,0.002197802197802198,latest filing then source-tag priority,low
 AUTO-00028,dash,DASH,2023-12-31,2023,net_income,NetIncomeLoss,ProfitLoss,-558.0,-565.0,0.012544802867383513,latest filing then source-tag priority,medium
+AUTO-00029,ebay,EBAY,2022-12-31,2022,total_debt,DebtLongtermAndShorttermCombinedAmount,LongTermDebtAndCapitalLeaseObligations,8871.0,7721.0,0.12963589223311917,latest filing then source-tag priority,high
+AUTO-00030,ebay,EBAY,2022-12-31,2022,total_debt,DebtLongtermAndShorttermCombinedAmount,DebtLongtermAndShorttermCombinedAmount,8871.0,8871.0,0.0,latest filing then source-tag priority,low
+AUTO-00031,ebay,EBAY,2023-12-31,2023,total_debt,DebtLongtermAndShorttermCombinedAmount,LongTermDebtAndCapitalLeaseObligations,7723.0,6973.0,0.09711252104104623,latest filing then source-tag priority,high

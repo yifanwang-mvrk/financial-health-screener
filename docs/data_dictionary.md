@@ -20,6 +20,36 @@ Contains the first-public event date, date basis, effective date, source, confid
 
 Contains gzip-compressed official SEC `companyfacts` and `submissions` JSON for the six Pilot companies. `manifest.csv` records ticker, CIK, artifact type, source URL, SHA-256 checksum, and fetch time.
 
+### `data/reference/a2_probe_scope.csv`
+
+Grain: one formal A2 probe company.
+
+Records the CHWY and EBAY probe roles, evidence-based selection reasons, and the decision not to add a third distress case at A2.
+
+### `data/normalized/a2_annual_financial_facts_sample.csv`
+
+Grain: one probe company x canonical field x fiscal period x filing version.
+
+Contains the formal A2 annual sample with source tag, raw and standardized values, unit, period, duration, accession, filing date, fiscal metadata, and load timestamp.
+
+### `data/processed/a2_field_probe.csv`
+
+Grain: one probe company x A2 canonical field.
+
+Audits configured and observed tags, taxonomies, units, periods, filing versions, shared-map reuse, fiscal-year issues, and potential company exceptions.
+
+### `data/processed/a2_latest_restated_sample.csv`
+
+Grain: one probe company x fiscal year x canonical field.
+
+Selects the latest valid annual filing available at the A2 run date after unit and duration validation, with configured tag priority as the same-date tie-breaker.
+
+### `data/processed/a2_concept_conflicts_sample.csv`
+
+Grain: one discarded probe fact value.
+
+Records the winner and discarded tags, values, accessions, filing dates, relative difference, and resolution rule. A2 severity labels are exploratory; Gate 1 has not frozen a materiality threshold.
+
 ### `data/normalized/financial_facts.csv`
 
 Grain: one company x canonical field x reported annual fact version.

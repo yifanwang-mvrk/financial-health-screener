@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-08-05 - Complete A2 SEC Source Probe
+
+- Selected CHWY as the Inventory-led probe and EBAY as the Marketplace / Platform probe through one SEC extraction entry.
+- Added refresh-safe raw version retention, checksum manifests, and an explicit extraction error log.
+- Produced 155 filing-level annual facts, 60 latest-restated winners, 38 traceable discarded-value records, and a 22-row field audit.
+- Verified shared tag, unit, duration, sign, filing metadata, and fiscal-year rules; recorded Total Debt as a company-review boundary rather than assuming missing values are zero.
+- Rebuilt and executed the A2 notebook, documented incremental review cost, and wrote the full A3 scan requirements. Gate 1 remains pending A3.
+
 ## 2026-08-05 - Complete A1 Company and Event Census
 
 - Expanded the light-research universe to 50 companies and 40 Q1 candidates across four provisional peer groups.

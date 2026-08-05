@@ -4,6 +4,7 @@ import gzip
 import hashlib
 import json
 import os
+import shutil
 import time
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -27,6 +28,7 @@ SCOPE_PATH = REFERENCE_DIR / "q1_analysis_scope.csv"
 CONCEPT_MAP_PATH = REFERENCE_DIR / "concept_map.csv"
 EVENTS_PATH = REFERENCE_DIR / "events.csv"
 UNIVERSE_PATH = REFERENCE_DIR / "company_universe.csv"
+A2_PROBE_SCOPE_PATH = REFERENCE_DIR / "a2_probe_scope.csv"
 MANUAL_FINANCIALS_PATH = ROOT / "data/raw/financial_statements_raw.csv"
 
 FINANCIAL_FACTS_PATH = NORMALIZED_DIR / "financial_facts.csv"
@@ -35,6 +37,8 @@ AUTO_CONFLICTS_PATH = PROCESSED_DIR / "sec_concept_conflicts.csv"
 RECONCILIATION_PATH = PROCESSED_DIR / "sec_manual_reconciliation.csv"
 PILOT_COVERAGE_PATH = PROCESSED_DIR / "b1_pilot_coverage.csv"
 PILOT_AUDIT_SUMMARY_PATH = PROCESSED_DIR / "b1_pilot_source_audit.json"
+A2_PROBE_MANIFEST_PATH = RAW_SEC_DIR / "a2_probe_manifest.csv"
+A2_EXTRACTION_ERRORS_PATH = PROCESSED_DIR / "a2_sec_extraction_errors.csv"
 
 TICKER_MAP_URL = "https://www.sec.gov/files/company_tickers_exchange.json"
 COMPANYFACTS_URL = "https://data.sec.gov/api/xbrl/companyfacts/CIK{cik:010d}.json"
@@ -189,6 +193,15 @@ def _cached_json(url: str, path: Path, refresh: bool = False) -> dict[str, Any]:
     if path.exists() and not refresh:
         return _read_json_gz(path)
     payload = _request_json(url)
+    if path.exists():
+        previous = _read_json_gz(path)
+        if previous == payload:
+            return payload
+        timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+        history_dir = path.parent / "history"
+        history_dir.mkdir(parents=True, exist_ok=True)
+        archived_path = history_dir / f"{path.stem}.{timestamp}.{_sha256(path)[:12]}.json.gz"
+        shutil.copy2(path, archived_path)
     _write_json_gz(path, payload)
     time.sleep(0.15)
     return payload
@@ -331,6 +344,104 @@ def build_company_universe(refresh: bool = False) -> pd.DataFrame:
     return universe
 
 
+def _extract_sec_selection(
+    selected: pd.DataFrame,
+    manifest_path: Path,
+    refresh: bool = False,
+    error_path: Path | None = None,
+) -> pd.DataFrame:
+    manifest_rows: list[dict[str, Any]] = []
+    error_rows: list[dict[str, str]] = []
+    fetched_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    fetched_lookup: dict[tuple[str, str], str] = {}
+    for prior_manifest_path in [RAW_SEC_DIR / "manifest.csv", manifest_path]:
+        if not prior_manifest_path.exists():
+            continue
+        prior_manifest = pd.read_csv(prior_manifest_path, keep_default_na=False)
+        for row in prior_manifest.itertuples():
+            fetched_lookup.setdefault(
+                (row.ticker, row.artifact), str(row.fetched_at)
+            )
+
+    for _, company in selected.sort_values("ticker").iterrows():
+        if not str(company["cik"]).strip():
+            error_rows.append(
+                {
+                    "company_id": company["company_id"],
+                    "ticker": company["ticker"],
+                    "artifact": "companyfacts/submissions",
+                    "source_url": "",
+                    "error_type": "missing_cik",
+                    "error_message": "CIK is required before SEC extraction",
+                    "logged_at": fetched_at,
+                }
+            )
+            continue
+        cik = int(company["cik"])
+        facts_path, submissions_path = _sec_paths(cik)
+        artifacts = [
+            ("companyfacts", facts_path, COMPANYFACTS_URL.format(cik=cik)),
+            ("submissions", submissions_path, SUBMISSIONS_URL.format(cik=cik)),
+        ]
+        for artifact, artifact_path, source_url in artifacts:
+            try:
+                _cached_json(source_url, artifact_path, refresh=refresh)
+            except (requests.RequestException, ValueError, OSError) as error:
+                error_rows.append(
+                    {
+                        "company_id": company["company_id"],
+                        "ticker": company["ticker"],
+                        "artifact": artifact,
+                        "source_url": source_url,
+                        "error_type": type(error).__name__,
+                        "error_message": str(error),
+                        "logged_at": fetched_at,
+                    }
+                )
+                continue
+            manifest_rows.append(
+                {
+                    "company_id": company["company_id"],
+                    "ticker": company["ticker"],
+                    "cik": f"{cik:010d}",
+                    "artifact": artifact,
+                    "relative_path": str(artifact_path.relative_to(ROOT)),
+                    "source_url": source_url,
+                    "sha256": _sha256(artifact_path),
+                    "fetched_at": (
+                        fetched_at
+                        if refresh
+                        else fetched_lookup.get(
+                            (company["ticker"], artifact), fetched_at
+                        )
+                    ),
+                }
+            )
+
+    error_columns = [
+        "company_id",
+        "ticker",
+        "artifact",
+        "source_url",
+        "error_type",
+        "error_message",
+        "logged_at",
+    ]
+    if error_path is not None:
+        error_path.parent.mkdir(parents=True, exist_ok=True)
+        pd.DataFrame(error_rows, columns=error_columns).to_csv(error_path, index=False)
+    if error_rows:
+        raise RuntimeError(
+            f"SEC extraction produced {len(error_rows)} explicit error(s); "
+            f"see {error_path or 'the extraction log'}"
+        )
+
+    manifest = pd.DataFrame(manifest_rows).sort_values(["ticker", "artifact"])
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    manifest.to_csv(manifest_path, index=False)
+    return manifest
+
+
 def extract_sec(refresh: bool = False) -> pd.DataFrame:
     universe = (
         pd.read_csv(UNIVERSE_PATH, keep_default_na=False)
@@ -338,52 +449,28 @@ def extract_sec(refresh: bool = False) -> pd.DataFrame:
         else build_company_universe(refresh=refresh)
     )
     selected = universe[universe["b1_pilot_included"] == 1].copy()
-    manifest_rows: list[dict[str, Any]] = []
-    fetched_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    return _extract_sec_selection(
+        selected, RAW_SEC_DIR / "manifest.csv", refresh=refresh
+    )
 
-    for _, company in selected.sort_values("ticker").iterrows():
-        cik = int(company["cik"])
-        facts_path, submissions_path = _sec_paths(cik)
-        _cached_json(
-            COMPANYFACTS_URL.format(cik=cik), facts_path, refresh=refresh
-        )
-        _cached_json(
-            SUBMISSIONS_URL.format(cik=cik), submissions_path, refresh=refresh
-        )
-        manifest_rows.extend(
-            [
-                {
-                    "ticker": company["ticker"],
-                    "cik": f"{cik:010d}",
-                    "artifact": "companyfacts",
-                    "relative_path": str(facts_path.relative_to(ROOT)),
-                    "source_url": COMPANYFACTS_URL.format(cik=cik),
-                    "sha256": _sha256(facts_path),
-                    "fetched_at": fetched_at,
-                },
-                {
-                    "ticker": company["ticker"],
-                    "cik": f"{cik:010d}",
-                    "artifact": "submissions",
-                    "relative_path": str(submissions_path.relative_to(ROOT)),
-                    "source_url": SUBMISSIONS_URL.format(cik=cik),
-                    "sha256": _sha256(submissions_path),
-                    "fetched_at": fetched_at,
-                },
-            ]
-        )
 
-    manifest_path = RAW_SEC_DIR / "manifest.csv"
-    if manifest_path.exists() and not refresh:
-        existing = pd.read_csv(manifest_path, keep_default_na=False)
-        fetched_lookup = existing.set_index(["ticker", "artifact"])["fetched_at"].to_dict()
-        for row in manifest_rows:
-            row["fetched_at"] = fetched_lookup.get(
-                (row["ticker"], row["artifact"]), row["fetched_at"]
-            )
-    manifest = pd.DataFrame(manifest_rows).sort_values(["ticker", "artifact"])
-    manifest.to_csv(manifest_path, index=False)
-    return manifest
+def extract_a2_probe(refresh: bool = False) -> pd.DataFrame:
+    universe = (
+        pd.read_csv(UNIVERSE_PATH, dtype={"cik": str}, keep_default_na=False)
+        if UNIVERSE_PATH.exists()
+        else build_company_universe(refresh=refresh)
+    )
+    scope = pd.read_csv(A2_PROBE_SCOPE_PATH, keep_default_na=False)
+    selected = universe[universe["company_id"].isin(scope["company_id"])].copy()
+    missing = sorted(set(scope["company_id"]) - set(selected["company_id"]))
+    if missing:
+        raise ValueError(f"A2 probe companies are missing from the A1 census: {missing}")
+    return _extract_sec_selection(
+        selected,
+        A2_PROBE_MANIFEST_PATH,
+        refresh=refresh,
+        error_path=A2_EXTRACTION_ERRORS_PATH,
+    )
 
 
 def normalize_annual_facts() -> pd.DataFrame:
@@ -830,7 +917,8 @@ def build_pilot_coverage(
     (DOCS_DIR / "gate2_decision.md").write_text(
         "\n".join(gate2_lines) + "\n", encoding="utf-8"
     )
-    _write_source_probe_report(facts, latest, reconciliation)
+    if not (PROCESSED_DIR / "a2_source_probe_audit.json").exists():
+        _write_source_probe_report(facts, latest, reconciliation)
     return coverage
 
 
