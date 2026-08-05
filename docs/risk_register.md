@@ -4,15 +4,15 @@ Last updated: 2026-08-05
 
 | Risk | Severity | Current control | Residual effect |
 | --- | --- | --- | --- |
-| Insufficient independent companies for H1 | High | Freeze A3 Tier B at Gate 1 without relaxing eligibility; emphasize four leverage-driven transitions across three companies | A3 recommendation available; Gate 1 pending |
-| Missing FY2020 opening balances | High | FY2021 average-balance metrics invalidated | Only FY2022-FY2023 levels are usable |
-| Missing FY2024 outcomes | High | H1 next-year-observable rule | FY2023 improvements cannot be tested for persistence |
+| Insufficient independent companies for H1 | High | Gate 1 freezes Tier B without relaxing eligibility; emphasize four leverage-driven transitions across three companies | Descriptive patterns only |
+| Missing opening balances | High | Load FY2017 only for FY2018 opening balances and invalidate any ratio without a consecutive prior balance | Unbalanced-company entry years may remain unusable for average-balance ratios |
+| Missing forward outcomes | High | Frozen H1 next-year-observable rule | Final observed improvements cannot be tested for persistence |
 | Near-zero or negative equity | High | ROE validity rule and near-zero-equity warning | Ratios may be null or mechanically unstable |
 | SEC-to-manual mapping differences | Medium | Accession history, automatic conflict log, and explicit reconciliation status | Seven facts still require issuer-specific mapping judgment |
-| Latest-restated hindsight | High | Frozen 2024-04-30 source cutoff and explicit non-PIT label | Cannot support historical prediction claims |
+| Latest-restated hindsight | High | Retain all versions and label latest-restated annual analysis as non-PIT | Cannot support historical prediction claims |
 | Business-model comparability | Medium | Broad peer groups plus detailed business-model field | Peer statistics remain descriptive |
 | Issuer-specific one-off items | Medium | Company flags and source notes | Net margin and ROE still require qualitative interpretation |
-| Missing optional gross profit or inventory | Medium | Preserve nulls and expose missingness flags | Some margin and quick-ratio comparisons unavailable |
+| Missing conditional liquidity fields | Medium | Preserve nulls and expose missingness flags | Some quick-ratio or inventory comparisons remain unavailable |
 | Power BI logic drift | Medium | Single frozen mart and SQL-owned research logic | DAX must remain presentation-only |
 | Legacy MVP risk score confusion | Low | README labels legacy files as non-v3 artifacts | Users may still open old outputs without reading status |
 | Unsupported Q2/Q3 expansion | High | Keep Q2/Q3 unbuilt until formal Gate 2 authorizes the A3 Tier A recommendation | Gate 2 remains pending after B5 |

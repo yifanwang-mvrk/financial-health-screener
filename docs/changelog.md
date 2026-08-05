@@ -1,5 +1,30 @@
 # Changelog
 
+## 2026-08-05 - Freeze Gate 1 Scope and Evidence Tiers
+
+Decision version: Gate1-v1.0
+
+Owner: Yifan Wang
+
+Freeze date: 2026-08-05
+
+| Decision differing from or resolving a v3.0 provisional value | Frozen result | Evidence and data summary |
+| --- | --- | --- |
+| Data Path | Path A | A3 found 31 viable candidates; post-merge pools are 12 Marketplace / 7 Inventory-led / 12 DTC. |
+| Formal sample | 21 companies; FY2018-FY2024 unbalanced panel | Seven companies per retained group; all 40 candidate decisions are versioned. |
+| Peer groups | Retain Marketplace, Inventory-led, DTC; cancel standalone Hybrid | AMZN and BYON are viable and merge into Inventory-led; GROV remains a short-history boundary exclusion. |
+| Six-company scope | Retain only as B1 Pilot membership | All six remain in the formal 21-company sample, but the Pilot does not define formal sample size or period. |
+| H1 Tier | Tier B; descriptive patterns only | Formal sample has 21 eligible transitions across 10 companies; leverage group has 4 transitions across 3 companies. |
+| H1 outcomes and drivers | Peer-relative next-year change; exact Shapley; label plus continuous share | A3 eligibility and contribution reconciliation were retained without relaxation. |
+| Canonical fields | 13 extracted fields plus derived FCF; 3 noncore fields excluded from the formal analytical layer | A2/A3 coverage supports the DuPont core and directly used quality fields; prior rows remain for history. |
+| Source and version policy | SEC Companyfacts canonical; filing-level documented fallback; latest valid restated version | A2 produced 60 winners and 38 discarded records; A3 produced 1,046 winners and 945 differences. |
+| Conflict thresholds | Low <=0.5%; medium >0.5%-5%; high >5% | A2/A3 exploratory distribution is now frozen with mandatory reconciliation for high conflicts. |
+| Physical schemas and Power BI contract | Frozen in Gate 1 decision and versioned mart field contract | Research logic remains in SQL/DuckDB; DAX is display-only. |
+| Q2 feasibility | Tier A candidate only; formal authorization pending Gate 2 after B5 | A3 verified 12 of 14 event candidates; no quarterly signal panel was built. |
+| Limitations | Frozen descriptive, concentration, year-effect, unbalanced-panel, and non-PIT wording | Formal H1 has 47.6% of transitions in FY2020-FY2021 and 75% of leverage transitions in FY2019. |
+
+Gate 1 is passed. New Q1 ideas now go to backlog. The mandatory next stage is B1 revalidation, not B2, Power BI, or Q2.
+
 ## 2026-08-05 - Complete A3 Coverage and H1 Sample Audit
 
 - Cached complete Companyfacts and submissions JSON for all 40 Q1 candidates with an 80-row checksum manifest and zero extraction errors.

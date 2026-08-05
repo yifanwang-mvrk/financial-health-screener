@@ -1,0 +1,22 @@
+sample_version,formal_sample_order,company_id,ticker,company_name,formal_peer_group,frozen_window_start,frozen_window_end,a3_available_fiscal_years,b1_pilot_member,a3_high_conflict_count,a3_manual_review_minutes,selection_basis
+Gate1-v1.0,1,abnb,ABNB,Airbnb Inc,marketplace_platform,2018,2024,2020|2021|2022|2023|2024,0,0,30,Viable low-conflict platform issuer and preserves one eligible H1 transition
+Gate1-v1.0,2,bkng,BKNG,Booking Holdings Inc,marketplace_platform,2018,2024,2018|2019|2020|2021|2022|2023|2024,1,0,20,Clean seven-year platform coverage and three eligible H1 transitions
+Gate1-v1.0,3,cars,CARS,Cars.com Inc,marketplace_platform,2018,2024,2018|2019|2020|2021|2022|2023|2024,0,4,60,Seven-year platform coverage and two eligible H1 transitions
+Gate1-v1.0,4,dash,DASH,DoorDash Inc,marketplace_platform,2018,2024,2019|2020|2021|2022|2023|2024,1,0,30,Viable Pilot platform case with six annual years and no high conflicts
+Gate1-v1.0,5,ebay,EBAY,eBay Inc,marketplace_platform,2018,2024,2018|2019|2020|2021|2022|2023|2024,1,5,60,A2 probe and Pilot conflict case with three eligible H1 transitions
+Gate1-v1.0,6,etsy,ETSY,Etsy Inc,marketplace_platform,2018,2024,2018|2019|2020|2021|2022|2023|2024,1,0,20,Clean seven-year Pilot coverage and three eligible H1 transitions
+Gate1-v1.0,7,expe,EXPE,Expedia Group Inc,marketplace_platform,2018,2024,2018|2019|2020|2021|2022|2023|2024,0,25,60,Seven-year platform coverage and three eligible H1 transitions
+Gate1-v1.0,8,amzn,AMZN,Amazon.com Inc,inventory_led_ecommerce,2018,2024,2018|2019|2020|2021|2022|2023|2024,1,0,20,Clean seven-year Pilot and viable Hybrid merged into Inventory-led
+Gate1-v1.0,9,byon,BYON,Bed Bath & Beyond Inc,inventory_led_ecommerce,2018,2024,2018|2019|2020|2021|2022|2023|2024,0,21,60,Viable Hybrid merged into Inventory-led and preserves one eligible H1 transition
+Gate1-v1.0,10,chwy,CHWY,Chewy Inc,inventory_led_ecommerce,2018,2024,2018|2019|2020|2021|2022|2023|2024,1,7,60,A2 probe and Pilot with complex 52/53-week fiscal calendar
+Gate1-v1.0,11,cvna,CVNA,Carvana Co,inventory_led_ecommerce,2018,2024,2018|2019|2020|2021|2022|2023|2024,0,43,60,Viable seven-year inventory-led issuer and mandatory high-conflict reconciliation case
+Gate1-v1.0,12,qvcga,QVCGA,QVC Group Inc,inventory_led_ecommerce,2018,2024,2018|2019|2020|2021|2022|2023|2024,0,20,60,Viable seven-year inventory-led distress boundary case
+Gate1-v1.0,13,vrm,VRM,Vroom Inc,inventory_led_ecommerce,2018,2024,2019|2020|2021|2022|2023,0,6,60,Viable inventory-led event case within frozen unbalanced panel
+Gate1-v1.0,14,w,W,Wayfair Inc,inventory_led_ecommerce,2018,2024,2018|2019|2020|2021|2022|2023|2024,0,0,20,Clean seven-year inventory-led coverage
+Gate1-v1.0,15,bird,BIRD,Allbirds Inc,dtc_brand,2018,2024,2020|2021|2022|2023|2024,0,0,30,Viable low-conflict DTC issuer with five available annual years
+Gate1-v1.0,16,figs,FIGS,FIGS Inc,dtc_brand,2018,2024,2020|2021|2022|2023|2024,0,0,30,Viable low-conflict DTC issuer with five available annual years
+Gate1-v1.0,17,love,LOVE,Lovesac Company,dtc_brand,2018,2024,2018|2019|2020|2021|2022|2023|2024,0,5,60,Seven-year DTC coverage and one eligible H1 transition
+Gate1-v1.0,18,pton,PTON,Peloton Interactive Inc,dtc_brand,2018,2024,2019|2020|2021|2022|2023|2024,0,2,60,Viable mixed product-subscription DTC case with six annual years
+Gate1-v1.0,19,rvlv,RVLV,Revolve Group Inc,dtc_brand,2018,2024,2018|2019|2020|2021|2022|2023|2024,0,4,60,Seven-year DTC coverage and two eligible H1 transitions
+Gate1-v1.0,20,sfix,SFIX,Stitch Fix Inc,dtc_brand,2018,2024,2018|2019|2020|2021|2022|2023|2024,0,3,60,Seven-year DTC coverage and non-calendar fiscal-year case
+Gate1-v1.0,21,snbr,SNBR,Sleep Number Corp,dtc_brand,2018,2024,2018|2019|2020|2021|2022|2023|2024,0,0,20,Clean seven-year DTC coverage and distress boundary case

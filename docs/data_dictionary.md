@@ -16,6 +16,30 @@ Grain: one candidate event.
 
 Contains the first-public event date, date basis, effective date, source, confidence, theoretical and verified pre-event coverage, provisional Q2 qualification, and exclusion reason. A3 has verified all 14 records; formal Gate 2 remains pending after B5.
 
+### `data/reference/q1_formal_sample_v1.csv`
+
+Grain: one formal Q1 company.
+
+Contains the Gate1-v1.0 21-company Path A sample, frozen peer group, FY2018-FY2024 window, A3 available years, Pilot membership, conflict/review evidence, and selection basis.
+
+### `data/reference/q1_gate1_sample_decisions.csv`
+
+Grain: one A1 Q1 candidate.
+
+Records the inclusion or exclusion decision and A3 evidence basis for all 40 candidates.
+
+### `data/reference/q1_field_contract_v1.csv`
+
+Grain: one canonical field.
+
+Freezes formal-layer inclusion, field role, flow/stock behavior, sign, duration, and requiredness. Noncore fields remain in history but are not loaded into formal Q1 marts.
+
+### `data/reference/q1_powerbi_mart_contract_v1.csv`
+
+Grain: one frozen Power BI mart field.
+
+Defines the 60 required fields and assigns all research calculations to SQL; DAX recalculation is prohibited.
+
 ### `data/raw/sec/`
 
 Contains gzip-compressed official SEC `companyfacts` and `submissions` JSON for the six Pilot companies. `manifest.csv` records ticker, CIK, artifact type, source URL, SHA-256 checksum, and fetch time.
@@ -48,7 +72,7 @@ Selects the latest valid annual filing available at the A2 run date after unit a
 
 Grain: one discarded probe fact value.
 
-Records the winner and discarded tags, values, accessions, filing dates, relative difference, and resolution rule. A2 severity labels are exploratory; Gate 1 has not frozen a materiality threshold.
+Records the winner and discarded tags, values, accessions, filing dates, relative difference, and resolution rule. Gate 1 freezes low at no more than 0.5%, medium above 0.5% through 5%, and high above 5%.
 
 ### `data/processed/a3_coverage_company_field_year.csv`
 
@@ -66,7 +90,7 @@ Summarizes complete annual years, expected-listing-window coverage, prior balanc
 
 Grain: one company x transition center year for FY2019-FY2023.
 
-Contains the frozen H1 eligibility components, exact Shapley contributions, driver label, leverage contribution share, forward outcomes, eligibility, and exclusion reason. A3 recommends Tier B; Gate 1 has not yet frozen it.
+Contains the frozen H1 eligibility components, exact Shapley contributions, driver label, leverage contribution share, forward outcomes, eligibility, and exclusion reason. Gate 1 freezes Tier B on the 21-company formal sample.
 
 ### `data/processed/a3_q2_feasibility_scan.csv`
 

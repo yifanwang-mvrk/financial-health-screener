@@ -10,9 +10,9 @@ This audit restores the repository to the exact phase meanings in Execution Char
 | A1 | Approximately 30-40 Q1 candidates and 10-15 event candidates plus census audits | Done | 50 total companies, 40 Q1 candidates, 14 event candidates; all A1 audit checks pass |
 | A2 | Two-company shared SEC probe and A3 scan rules | Done | CHWY/EBAY use one extractor; raw manifests, 155 annual facts, 38 conflict records, field audit, report, notebook, and A3 scan requirements pass |
 | A3 | All-candidate annual/H1 scan and event PIT feasibility scan | Done | 40 candidates, 4,823 core fact versions, 200 H1 transition rows, and 14 verified events; Path A / H1 B / Q2 A recommended |
-| Gate 1 | Freeze Path, formal sample, years, groups, H1 Tier, data rules, mart, and Q2 feasibility | Next | A3 recommendations exist; exact formal contract is not yet frozen |
-| B1 | Reproducible 4-6 company Pilot after Gate 1 | Provisional snapshot exists | Six-company pipeline is retained and must be revalidated after Gate 1 |
-| B2 | Expand unchanged rules to frozen formal sample | Not started | No formal Gate 1 sample exists |
+| Gate 1 | Freeze Path, formal sample, years, groups, H1 Tier, data rules, mart, and Q2 feasibility | Passed | Gate1-v1.0 freezes Path A, 21 companies, FY2018-FY2024, H1 Tier B, data rules, schema, mart, and Q2 Tier A feasibility |
+| B1 | Reproducible 4-6 company Pilot after Gate 1 | In progress | Six-company pipeline is retained and must now be revalidated against Gate1-v1.0 |
+| B2 | Expand unchanged rules to frozen formal sample | Not started | Formal 21-company sample exists; B2 remains blocked by B1 DoD |
 | B3 | Formal seven-mart analytical layer | Not started formally | Pilot mart implementations exist |
 | B4 | Formal analytical release and minimum CV deliverable | Not reached | Pilot analysis artifacts exist |
 | B5 | Formal single-page Portfolio Release v1.0 | Not reached | Pilot Power BI prototype exists |

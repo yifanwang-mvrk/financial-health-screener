@@ -14,7 +14,7 @@ The project does not provide investment recommendations, target prices, return p
 
 ## Current Status
 
-Status: **A1-A3 complete. Gate 1 formal freeze is next. Six-company work remains a B1 Pilot snapshot; Gate 2 remains pending after B5.**
+Status: **Gate 1 passed. The six-company B1 Pilot is now being revalidated against the frozen 21-company Path A contract; Gate 2 remains pending after B5.**
 
 The frozen execution order is:
 
@@ -28,9 +28,10 @@ The repository currently contains:
 - Fourteen sourced event candidates, all verified in A3; 12 meet the provisional Tier A feasibility criteria and two have specific exclusions.
 - A completed CHWY/EBAY SEC source probe and a separate six-company accession-level Pilot cache.
 - A completed 40-company FY2018-FY2024 coverage scan, 200-row H1 transition audit, and 14-event quarterly/PIT feasibility scan.
+- A passed Gate 1 contract with 21 formal companies, FY2018-FY2024, three groups of seven, H1 Tier B, frozen source/version rules, and a 60-field Power BI mart contract.
 - A reproducible six-company, FY2021-FY2023 analytical Pilot with SQL marts, tests, notebooks, charts, and a one-page Power BI prototype.
 
-These artifacts are retained as Pilot evidence. They are not the Gate 1 formal sample, the formal B4 minimum CV deliverable, or the B5 Portfolio Release v1.0.
+The six-company analytical artifacts are retained as Pilot evidence. They are not the formal B4 minimum CV deliverable or the B5 Portfolio Release v1.0.
 
 ## Pilot Scope
 
@@ -43,11 +44,12 @@ These artifacts are retained as Pilot evidence. They are not the Gate 1 formal s
 - SEC cache: 12 companyfacts/submissions artifacts
 - Normalized evidence: 608 accession-level facts and 225 cutoff-eligible canonical selections
 
-The six-company peer comparisons are descriptive examples only. The Pilot has zero eligible H1 transitions; the completed A3 scan separately recommends H1 Tier B based on 22 eligible transitions across 11 companies. Gate 1 has not yet frozen that recommendation.
+The six-company peer comparisons are descriptive examples only. The Pilot has zero eligible H1 transitions. Gate 1 freezes H1 Tier B on the formal sample: 21 eligible transitions across 10 companies, including four leverage-driven transitions across three companies.
 
 ## Gate Status
 
-- **Gate 1: next.** A3 recommends Path A, three retained/merged peer groups, and H1 Tier B; Gate 1 must freeze the exact 18-24 company sample, years, fields, rules, and mart contract.
+- **Gate 1: passed.** Path A is frozen at 21 companies, FY2018-FY2024, seven companies per retained group, H1 Tier B, and the versioned data/schema/Power BI contracts.
+- **B1: in progress.** The six-company Pilot must be rebuilt and checked against Gate1-v1.0 before B2 expands to all 21 companies.
 - **Gate 2: pending after B5.** A3 recommends Tier A feasibility from 12 qualified events, but no Q2 work is authorized until the formal Gate 2 decision.
 
 ## Method
@@ -98,6 +100,10 @@ Power BI Service Pilot report: [Financial Health Screener Q1 Executive Overview]
 | `data/reference/a2_probe_scope.csv` | Formal CHWY/EBAY A2 probe selection and reasons |
 | `data/reference/a3_scan_requirements.csv` | Frozen A2 output describing the required A3 scan metrics |
 | `data/reference/q1_analysis_scope.csv` | Six-company B1 Pilot scope only |
+| `data/reference/q1_formal_sample_v1.csv` | Gate1-v1.0 formal 21-company sample and frozen FY2018-FY2024 window |
+| `data/reference/q1_gate1_sample_decisions.csv` | Inclusion/exclusion evidence for all 40 Q1 candidates |
+| `data/reference/q1_field_contract_v1.csv` | Frozen canonical and noncore field contract |
+| `data/reference/q1_powerbi_mart_contract_v1.csv` | Frozen one-page mart fields and SQL/DAX ownership |
 | `data/raw/sec/` | Cached SEC companyfacts/submissions JSON and manifest |
 | `data/normalized/a2_annual_financial_facts_sample.csv` | Formal A2 two-company filing-level annual facts sample |
 | `data/normalized/financial_facts.csv` | Pilot annual accession-level SEC fact history |
@@ -106,7 +112,7 @@ Power BI Service Pilot report: [Financial Health Screener Q1 Executive Overview]
 | `data/processed/a3_company_coverage_summary.csv` | All-candidate FY2018-FY2024 coverage, prior-balance, conflict, override, and cost summary |
 | `data/processed/a3_h1_transition_audit.csv` | Frozen-rule A3 H1 eligibility, Shapley, outcomes, and exclusions |
 | `data/processed/a3_q2_feasibility_scan.csv` | Event-quarter, cash-flow, PIT, control, cost, and qualification evidence |
-| `data/processed/a3_recommendation.json` | Evidence input for Gate 1; no decision is frozen here |
+| `data/processed/a3_recommendation.json` | A3 evidence input retained beneath the formal Gate 1 decision |
 | `data/processed/b1_pilot_coverage.csv` | Six-company coverage snapshot; not the A3 full-candidate report |
 | `src/build_b1_pilot.py` | Rebuilds the current six-company Pilot evidence layer |
 | `src/phase_a_evidence.py` | Pilot evidence and reusable A2 probe logic |
@@ -135,7 +141,7 @@ Legacy composite risk-ranking files remain labelled learning artifacts and are n
 
 ## Formal Completion Criteria
 
-- **B4 minimum CV deliverable:** only after A1, A2, A3, Gate 1, B1 revalidation, B2 formal expansion, and B3 formal marts pass their documented DoD.
+- **B4 minimum CV deliverable:** only after the current B1 revalidation, B2 formal expansion, and B3 formal marts pass their documented DoD.
 - **B5 Portfolio Release v1.0:** formal B4 plus the reconciled single-page Power BI report, frozen PBIX reference, screenshot, README, CV bullet, and five-minute narrative.
 - **Q2/Q3:** conditional; their existence and form are determined only by Gate 2 and Gate 3 evidence.
 

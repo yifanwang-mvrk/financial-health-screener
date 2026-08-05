@@ -1,0 +1,41 @@
+sample_version,company_id,ticker,provisional_peer_group,formal_peer_group,a3_formal_sample_viable,gate1_included,decision_reason,evidence_source
+Gate1-v1.0,abnb,ABNB,marketplace_platform,marketplace_platform,1,1,Low-conflict viable platform issuer and one H1 transition,A3 coverage and H1 audit
+Gate1-v1.0,aka,AKA,dtc_brand,dtc_brand,1,0,DTC group capped at seven; selected short-history cases have lower conflict cost or preserve H1 evidence,A3 coverage and H1 audit
+Gate1-v1.0,amzn,AMZN,hybrid,inventory_led_ecommerce,1,1,Viable Hybrid merged into Inventory-led; clean seven-year Pilot and two H1 transitions,A3 coverage and H1 audit
+Gate1-v1.0,aprn,APRN,inventory_led_ecommerce,inventory_led_ecommerce,0,0,Mapped core-field gaps require review and A3 viability failed,A3 coverage report
+Gate1-v1.0,bark,BARK,dtc_brand,dtc_brand,0,0,Only four complete annual years; A3 viability failed,A3 coverage report
+Gate1-v1.0,bbby,BBBY,inventory_led_ecommerce,inventory_led_ecommerce,0,0,Mapped core-field gaps require review and A3 viability failed,A3 coverage report
+Gate1-v1.0,bird,BIRD,dtc_brand,dtc_brand,1,1,Viable low-conflict DTC issuer with five annual years,A3 coverage report
+Gate1-v1.0,bkng,BKNG,marketplace_platform,marketplace_platform,1,1,Clean seven-year Pilot and three H1 transitions,A3 coverage and H1 audit
+Gate1-v1.0,boxd,BOXD,inventory_led_ecommerce,inventory_led_ecommerce,0,0,Core-field coverage below 50 percent,A3 coverage report
+Gate1-v1.0,byon,BYON,hybrid,inventory_led_ecommerce,1,1,Viable Hybrid merged into Inventory-led and one H1 transition,A3 coverage and H1 audit
+Gate1-v1.0,carg,CARG,marketplace_platform,marketplace_platform,1,0,Marketplace capped at seven; ABNB preserves the same H1 company count with zero versus 21 high conflicts,A3 coverage and H1 audit
+Gate1-v1.0,cars,CARS,marketplace_platform,marketplace_platform,1,1,Seven-year coverage and two H1 transitions,A3 coverage and H1 audit
+Gate1-v1.0,chwy,CHWY,inventory_led_ecommerce,inventory_led_ecommerce,1,1,A2 probe and Pilot with complex fiscal year,A2 probe and A3 coverage
+Gate1-v1.0,cvna,CVNA,inventory_led_ecommerce,inventory_led_ecommerce,1,1,Inventory-led viable pool contains exactly seven companies,A3 coverage report
+Gate1-v1.0,dash,DASH,marketplace_platform,marketplace_platform,1,1,Viable low-conflict Pilot platform with six annual years,A3 coverage report
+Gate1-v1.0,ebay,EBAY,marketplace_platform,marketplace_platform,1,1,A2 probe and Pilot conflict case with three H1 transitions,A2 probe and A3 H1 audit
+Gate1-v1.0,etsy,ETSY,marketplace_platform,marketplace_platform,1,1,Clean seven-year Pilot and three H1 transitions,A3 coverage and H1 audit
+Gate1-v1.0,expe,EXPE,marketplace_platform,marketplace_platform,1,1,Seven-year coverage and three H1 transitions,A3 coverage and H1 audit
+Gate1-v1.0,figs,FIGS,dtc_brand,dtc_brand,1,1,Viable low-conflict DTC issuer with five annual years,A3 coverage report
+Gate1-v1.0,ftch,FTCH,marketplace_platform,marketplace_platform,0,0,Core-field coverage below 50 percent,A3 coverage report
+Gate1-v1.0,grov,GROV,hybrid,inventory_led_ecommerce,0,0,Short-history Hybrid boundary case failed A3 viability,A3 coverage report
+Gate1-v1.0,grpn,GRPN,marketplace_platform,marketplace_platform,1,0,Marketplace capped at seven; no eligible H1 transition and higher conflict review cost than retained low-conflict case,A3 coverage and H1 audit
+Gate1-v1.0,hnst,HNST,dtc_brand,dtc_brand,1,0,DTC capped at seven; short history and no eligible H1 transition,A3 coverage and H1 audit
+Gate1-v1.0,love,LOVE,dtc_brand,dtc_brand,1,1,Seven-year DTC coverage and one H1 transition,A3 coverage and H1 audit
+Gate1-v1.0,me,ME,dtc_brand,dtc_brand,0,0,Only four complete annual years; A3 viability failed,A3 coverage report
+Gate1-v1.0,posh,POSH,marketplace_platform,marketplace_platform,0,0,Core-field coverage below 50 percent,A3 coverage report
+Gate1-v1.0,prpl,PRPL,dtc_brand,dtc_brand,1,0,DTC capped at seven; 36 high conflicts and no eligible H1 transition,A3 coverage and H1 audit
+Gate1-v1.0,pton,PTON,dtc_brand,dtc_brand,1,1,Viable six-year mixed product-subscription DTC case,A3 coverage report
+Gate1-v1.0,qvcga,QVCGA,inventory_led_ecommerce,inventory_led_ecommerce,1,1,Inventory-led viable pool contains exactly seven companies,A3 coverage report
+Gate1-v1.0,real,REAL,marketplace_platform,marketplace_platform,1,0,Marketplace capped at seven; no eligible H1 transition,A3 coverage and H1 audit
+Gate1-v1.0,rent,RENT,dtc_brand,dtc_brand,1,0,DTC capped at seven; short history and 14 high conflicts with no eligible H1 transition,A3 coverage and H1 audit
+Gate1-v1.0,rvlv,RVLV,dtc_brand,dtc_brand,1,1,Seven-year DTC coverage and two H1 transitions,A3 coverage and H1 audit
+Gate1-v1.0,sdc,SDC,dtc_brand,dtc_brand,0,0,Mapped core-field gaps require review and A3 viability failed,A3 coverage report
+Gate1-v1.0,sfix,SFIX,dtc_brand,dtc_brand,1,1,Seven-year DTC coverage and non-calendar fiscal year,A3 coverage report
+Gate1-v1.0,snbr,SNBR,dtc_brand,dtc_brand,1,1,Clean seven-year DTC coverage and distress boundary case,A3 coverage report
+Gate1-v1.0,tdup,TDUP,marketplace_platform,marketplace_platform,1,0,Marketplace capped at seven; short history and no eligible H1 transition,A3 coverage and H1 audit
+Gate1-v1.0,vrm,VRM,inventory_led_ecommerce,inventory_led_ecommerce,1,1,Inventory-led viable pool contains exactly seven companies,A3 coverage report
+Gate1-v1.0,w,W,inventory_led_ecommerce,inventory_led_ecommerce,1,1,Clean seven-year inventory-led coverage,A3 coverage report
+Gate1-v1.0,wish,WISH,marketplace_platform,marketplace_platform,1,0,Marketplace capped at seven; delisted status and no eligible H1 transition,A3 coverage and H1 audit
+Gate1-v1.0,wrby,WRBY,dtc_brand,dtc_brand,1,0,DTC capped at seven; short history and no eligible H1 transition,A3 coverage and H1 audit
