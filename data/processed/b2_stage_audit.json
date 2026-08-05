@@ -1,0 +1,49 @@
+{
+  "generated_on": "2026-08-05",
+  "stage": "B2 Q1 Sample Expansion",
+  "status": "Done",
+  "gate1_contract": "Gate1-v1.0",
+  "formal_company_count": 21,
+  "formal_peer_group_counts": {
+    "dtc_brand": 7,
+    "inventory_led_ecommerce": 7,
+    "marketplace_platform": 7
+  },
+  "frozen_window": "FY2018-FY2024",
+  "opening_balance_source_year": 2017,
+  "raw_artifact_count": 42,
+  "unmapped_fact_count": 5439,
+  "financial_fact_count": 4780,
+  "candidate_rejection_count": 212,
+  "latest_fact_count": 1959,
+  "conflict_count": 875,
+  "unresolved_conflict_count": 0,
+  "metric_flag_count": 262,
+  "missing_required_company_year_field_count": 0,
+  "processed_generation": "scripted_no_manual_processed_edits",
+  "quality_rules_checked": [
+    "null_not_sentinel",
+    "zero_denominator",
+    "non_positive_average_equity",
+    "missing_prior_balance",
+    "insufficient_forward_year",
+    "source_conflict",
+    "unit_mismatch",
+    "invalid_sign_or_domain"
+  ],
+  "gate1_sample_sha256": "d6a6f25bb5d3a0489cd479f1a30e21750667751fb534aabc45d0178b60b74164",
+  "gate1_field_contract_sha256": "0ce3ad51f5df0d53b90f7b669e5c94f02b045e53a10bd2e2e6ae879d8daa5f4a",
+  "checks": {
+    "formal_sample_exact": true,
+    "peer_groups_exact": true,
+    "raw_manifest_complete": true,
+    "extraction_error_log_clear": true,
+    "all_formal_companies_normalized": true,
+    "financial_facts_schema_complete": true,
+    "latest_unique": true,
+    "conflicts_resolved_or_logged": true,
+    "quality_outputs_written": true,
+    "required_field_coverage_complete": true,
+    "frozen_rules_unchanged": true
+  }
+}

@@ -14,7 +14,7 @@ The project does not provide investment recommendations, target prices, return p
 
 ## Current Status
 
-Status: **Gate 1 and B1 passed. B2 formal expansion to the frozen 21-company Path A sample is next; Gate 2 remains pending after B5.**
+Status: **Gate 1, B1, and B2 passed. B3 formal analytical SQL marts are next; Gate 2 remains pending after B5.**
 
 The frozen execution order is:
 
@@ -30,6 +30,7 @@ The repository currently contains:
 - A completed 40-company FY2018-FY2024 coverage scan, 200-row H1 transition audit, and 14-event quarterly/PIT feasibility scan.
 - A passed Gate 1 contract with 21 formal companies, FY2018-FY2024, three groups of seven, H1 Tier B, frozen source/version rules, and a 60-field Power BI mart contract.
 - A revalidated six-company B1 pipeline that rebuilds SEC raw JSON through normalized facts, explicit conflicts/overrides, latest-restated values, metric flags, DuckDB, and Pilot marts.
+- A completed B2 expansion that applies the unchanged Gate1-v1.0 rules to all 21 formal companies for FY2018-FY2024, with FY2017 loaded only for opening balances.
 - A retained FY2021-FY2023 Pilot visualization prototype, which remains separate from the future B5 formal release.
 
 The six-company analytical artifacts are retained as Pilot evidence. They are not the formal B4 minimum CV deliverable or the B5 Portfolio Release v1.0.
@@ -43,7 +44,7 @@ The six-company analytical artifacts are retained as Pilot evidence. They are no
   - Inventory-led E-commerce: AMZN, CHWY
   - Marketplace / Platform: BKNG, DASH, EBAY, ETSY
 - SEC cache: 12 companyfacts/submissions artifacts
-- Normalized evidence: 608 accession-level facts and 225 cutoff-eligible canonical selections
+- Normalized evidence: 570 mapped accession-level facts and 225 latest/derived canonical selections
 
 The six-company peer comparisons are descriptive examples only. The Pilot has zero eligible H1 transitions. Gate 1 freezes H1 Tier B on the formal sample: 21 eligible transitions across 10 companies, including four leverage-driven transitions across three companies.
 
@@ -51,7 +52,8 @@ The six-company peer comparisons are descriptive examples only. The Pilot has ze
 
 - **Gate 1: passed.** Path A is frozen at 21 companies, FY2018-FY2024, seven companies per retained group, H1 Tier B, and the versioned data/schema/Power BI contracts.
 - **B1: passed.** All six companies run through one SEC-to-DuckDB entry; DASH/ETSY CapEx overrides are filing-backed, error logs are clear, and DuPont/Shapley reconcile.
-- **B2: next.** Apply the unchanged Gate1-v1.0 rules to the frozen 21-company FY2018-FY2024 sample.
+- **B2: passed.** The formal layer rebuilds 42 SEC artifacts into 4,780 filing-level facts and 1,959 latest/derived facts; all 21 companies are covered and no required company-year field is missing.
+- **B3: next.** Build and validate the seven formal analytical SQL marts without changing the frozen H1, peer, source, or version rules.
 - **Gate 2: pending after B5.** A3 recommends Tier A feasibility from 12 qualified events, but no Q2 work is authorized until the formal Gate 2 decision.
 
 ## Method
@@ -106,9 +108,11 @@ Power BI Service Pilot report: [Financial Health Screener Q1 Executive Overview]
 | `data/reference/q1_gate1_sample_decisions.csv` | Inclusion/exclusion evidence for all 40 Q1 candidates |
 | `data/reference/q1_field_contract_v1.csv` | Frozen canonical and noncore field contract |
 | `data/reference/q1_powerbi_mart_contract_v1.csv` | Frozen one-page mart fields and SQL/DAX ownership |
-| `data/raw/sec/` | Cached SEC companyfacts/submissions JSON and manifest |
+| `data/raw/sec/` | Cached SEC companyfacts/submissions JSON |
+| `data/raw/sec/b2_formal_manifest.csv` | Checksummed 42-artifact manifest for the formal 21-company layer |
 | `data/normalized/a2_annual_financial_facts_sample.csv` | Formal A2 two-company filing-level annual facts sample |
-| `data/normalized/financial_facts.csv` | Pilot annual accession-level SEC fact history |
+| `data/normalized/b1_financial_facts.csv` | Frozen six-company Pilot filing-level fact snapshot |
+| `data/normalized/financial_facts.csv` | Formal B2 annual accession-level SEC fact history |
 | `data/processed/a2_field_probe.csv` | Formal A2 field/tag/unit/period/version audit |
 | `data/processed/a2_concept_conflicts_sample.csv` | Formal A2 winner/discarded conflict sample |
 | `data/processed/a3_company_coverage_summary.csv` | All-candidate FY2018-FY2024 coverage, prior-balance, conflict, override, and cost summary |
@@ -118,9 +122,16 @@ Power BI Service Pilot report: [Financial Health Screener Q1 Executive Overview]
 | `data/processed/b1_pilot_coverage.csv` | Six-company coverage snapshot; not the A3 full-candidate report |
 | `data/processed/b1_metric_flags.csv` | Scripted Pilot metric-quality flags |
 | `data/processed/b1_pilot_*` | SEC-derived Pilot metrics, peer, Shapley, H1, and stage audit outputs |
+| `data/processed/sec_latest_restated_long.csv` | Formal B2 latest-restated canonical facts |
+| `data/processed/sec_concept_conflicts.csv` | Formal B2 winner/discarded value evidence |
+| `data/processed/metric_flags.csv` | Formal B2 metric-quality flags |
+| `data/processed/b2_company_field_year_coverage.csv` | Formal company/field/year coverage and requiredness audit |
+| `data/processed/b2_failures.csv` | Formal required-field failure list; currently empty |
 | `data/reference/company_overrides.csv` | Filing-backed exceptions used only when the shared concept map fails |
 | `src/build_b1_pilot.py` | Rebuilds the current six-company Pilot evidence layer |
+| `src/build_b2_formal_sample.py` | Rebuilds the frozen 21-company B2 data layer |
 | `src/q1_annual_pipeline.py` | Gate 1-compliant staged SEC annual pipeline used by B1 and B2 |
+| `src/q1_formal_pipeline.py` | B2 formal-sample orchestration, coverage, QA, and audit outputs |
 | `src/phase_a_evidence.py` | Retained A1-A3 and earlier Pilot evidence helpers |
 | `src/build_q1_v3_pipeline.py` | Rebuilds Pilot SQL marts |
 | `sql/01_core_tables.sql` to `sql/07_q1_powerbi_mart.sql` | Pilot implementation of the frozen analytical method |
@@ -129,10 +140,11 @@ Power BI Service Pilot report: [Financial Health Screener Q1 Executive Overview]
 
 Legacy composite risk-ranking files remain labelled learning artifacts and are not part of the v3 method.
 
-## Rebuild the Pilot
+## Rebuild B1 and B2
 
 ```bash
 .venv/bin/python src/build_b1_pilot.py
+.venv/bin/python src/build_b2_formal_sample.py
 .venv/bin/python -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
@@ -146,7 +158,7 @@ Legacy composite risk-ranking files remain labelled learning artifacts and are n
 
 ## Formal Completion Criteria
 
-- **B4 minimum CV deliverable:** only after B2 formal expansion and B3 formal marts pass their documented DoD.
+- **B4 minimum CV deliverable:** only after the completed B2 formal expansion and the B3 formal marts pass their documented DoD.
 - **B5 Portfolio Release v1.0:** formal B4 plus the reconciled single-page Power BI report, frozen PBIX reference, screenshot, README, CV bullet, and five-minute narrative.
 - **Q2/Q3:** conditional; their existence and form are determined only by Gate 2 and Gate 3 evidence.
 

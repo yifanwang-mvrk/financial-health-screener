@@ -36,13 +36,13 @@ class PhaseAEvidenceTests(unittest.TestCase):
         cls.events = pd.read_csv(REFERENCE / "events.csv", keep_default_na=False)
         cls.manifest = pd.read_csv(RAW_SEC / "manifest.csv", keep_default_na=False)
         cls.facts = pd.read_csv(
-            NORMALIZED / "financial_facts.csv", keep_default_na=False
+            NORMALIZED / "b1_financial_facts.csv", keep_default_na=False
         )
         cls.latest = pd.read_csv(
-            PROCESSED / "sec_latest_restated_long.csv", keep_default_na=False
+            PROCESSED / "b1_latest_restated_long.csv", keep_default_na=False
         )
         cls.reconciliation = pd.read_csv(
-            PROCESSED / "sec_manual_reconciliation.csv", keep_default_na=False
+            PROCESSED / "b1_manual_reconciliation.csv", keep_default_na=False
         )
         cls.coverage = pd.read_csv(
             PROCESSED / "b1_pilot_coverage.csv", keep_default_na=False

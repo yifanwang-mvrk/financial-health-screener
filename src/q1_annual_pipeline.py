@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import json
-from datetime import date, datetime, timezone
+import re
+import shutil
+from datetime import date
 from pathlib import Path
 from typing import Any
 
@@ -46,6 +48,11 @@ COVERAGE_PATH = PROCESSED / "b1_pilot_coverage.csv"
 VALIDATION_ERRORS_PATH = PROCESSED / "b1_validation_errors.csv"
 AUDIT_PATH = PROCESSED / "b1_pilot_source_audit.json"
 PILOT_MART_SQL = ROOT / "sql" / "b1_pilot_marts.sql"
+
+B1_FINANCIAL_FACTS_SNAPSHOT = NORMALIZED / "b1_financial_facts.csv"
+B1_LATEST_SNAPSHOT = PROCESSED / "b1_latest_restated_long.csv"
+B1_CONFLICTS_SNAPSHOT = PROCESSED / "b1_concept_conflicts.csv"
+B1_RECONCILIATION_SNAPSHOT = PROCESSED / "b1_manual_reconciliation.csv"
 
 PILOT_YEARS = {2021, 2022, 2023}
 MART_EXPORTS = [
@@ -143,11 +150,14 @@ def normalize_annual_facts() -> pd.DataFrame:
         _field_map()[["taxonomy", "source_tag"]].itertuples(index=False, name=None)
     )
     overrides = _read_csv(OVERRIDES_PATH)
-    for formula in overrides.loc[
-        overrides["status"].eq("active"), "source_tag_or_formula"
-    ]:
+    formula_overrides = overrides[
+        overrides["status"].eq("active")
+        & ~overrides["override_type"].eq("filing_table_value")
+    ]
+    for formula in formula_overrides["source_tag_or_formula"]:
         for source_tag in str(formula).split("+"):
-            allowed_pairs.add(("us-gaap", source_tag.strip()))
+            for parsed_tag in re.findall(r"[A-Za-z][A-Za-z0-9_]*", source_tag):
+                allowed_pairs.add(("us-gaap", parsed_tag))
 
     rows: list[dict[str, Any]] = []
     for company in pilot.sort_values("ticker").itertuples(index=False):
@@ -240,8 +250,12 @@ def normalize_annual_facts() -> pd.DataFrame:
     return facts
 
 
-def map_concepts_and_signs() -> tuple[pd.DataFrame, pd.DataFrame]:
-    raw = _read_csv(UNMAPPED_PATH, dtype={"cik": str})
+def map_concepts_and_signs(
+    unmapped_path: Path = UNMAPPED_PATH,
+    financial_facts_path: Path = FINANCIAL_FACTS_PATH,
+    rejection_path: Path = CANDIDATE_REJECTIONS_PATH,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    raw = _read_csv(unmapped_path, dtype={"cik": str})
     mappings = _field_map()
     mapped = raw.merge(mappings, on=["taxonomy", "source_tag"], how="inner")
     mapped["duration_days"] = pd.to_numeric(
@@ -283,10 +297,52 @@ def map_concepts_and_signs() -> tuple[pd.DataFrame, pd.DataFrame]:
 
     overrides = _read_csv(OVERRIDES_PATH)
     override_rows: list[dict[str, Any]] = []
+    raw_company_years = set(
+        raw[["company_id", "fiscal_year"]].assign(
+            fiscal_year=lambda frame: frame["fiscal_year"].astype(int)
+        ).itertuples(index=False, name=None)
+    )
     for override in overrides[overrides["status"].eq("active")].itertuples(index=False):
-        component_tags = [
-            tag.strip() for tag in override.source_tag_or_formula.split("+")
-        ]
+        if (override.company_id, int(override.fiscal_year)) not in raw_company_years:
+            continue
+        if override.override_type == "filing_table_value":
+            base_rows = raw[
+                raw["company_id"].eq(override.company_id)
+                & raw["fiscal_year"].astype(int).eq(int(override.fiscal_year))
+                & raw["accession_number"].eq(override.accession_number)
+                & raw["source_unit"].eq("USD")
+            ]
+            if base_rows.empty:
+                raise ValueError(
+                    "Filing-table override lacks an accession-level base row for "
+                    f"{override.company_id} FY{override.fiscal_year}"
+                )
+            base = base_rows.iloc[0].to_dict()
+            value_standardized = float(override.override_value_standardized)
+            base.update(
+                {
+                    "canonical_field": override.canonical_field,
+                    "source_tag": "override:" + override.source_tag_or_formula,
+                    "source_priority": 0,
+                    "expected_unit": "USD",
+                    "flow_or_stock": "flow",
+                    "sign_multiplier": "abs",
+                    "expected_domain": "nonnegative",
+                    "rejection_reason": "",
+                    "value_raw": value_standardized * 1_000_000,
+                    "value_standardized": value_standardized,
+                    "unit": "USD_millions",
+                    "source_url": override.source_url,
+                }
+            )
+            override_rows.append(base)
+            continue
+
+        terms = re.findall(
+            r"([+-]?)\s*([A-Za-z][A-Za-z0-9_]*)",
+            override.source_tag_or_formula,
+        )
+        component_tags = [tag for _, tag in terms]
         components = raw[
             raw["company_id"].eq(override.company_id)
             & raw["fiscal_year"].astype(int).eq(int(override.fiscal_year))
@@ -307,11 +363,15 @@ def map_concepts_and_signs() -> tuple[pd.DataFrame, pd.DataFrame]:
                 f"{override.company_id} FY{override.fiscal_year}"
             )
         base = components.iloc[0].to_dict()
-        value_raw = float(components["value_raw"].sum())
+        value_by_tag = components.set_index("source_tag")["value_raw"].to_dict()
+        value_raw = sum(
+            (-1.0 if sign == "-" else 1.0) * float(value_by_tag[tag])
+            for sign, tag in terms
+        )
         base.update(
             {
                 "canonical_field": override.canonical_field,
-                "source_tag": "override:" + "+".join(component_tags),
+                "source_tag": "override:" + override.source_tag_or_formula.replace(" ", ""),
                 "source_priority": 0,
                 "expected_unit": "USD",
                 "flow_or_stock": "flow",
@@ -401,7 +461,7 @@ def map_concepts_and_signs() -> tuple[pd.DataFrame, pd.DataFrame]:
             "source_priority",
         ]
     )
-    facts.to_csv(FINANCIAL_FACTS_PATH, index=False)
+    facts.to_csv(financial_facts_path, index=False)
     rejection_columns = [
         "company_id",
         "ticker",
@@ -419,12 +479,17 @@ def map_concepts_and_signs() -> tuple[pd.DataFrame, pd.DataFrame]:
         "value_raw",
         "rejection_reason",
     ]
-    rejected[rejection_columns].to_csv(CANDIDATE_REJECTIONS_PATH, index=False)
+    rejected[rejection_columns].to_csv(rejection_path, index=False)
     return facts, rejected
 
 
-def select_latest_restated() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    facts = _read_csv(FINANCIAL_FACTS_PATH, dtype={"cik": str})
+def select_latest_restated(
+    financial_facts_path: Path = FINANCIAL_FACTS_PATH,
+    latest_path: Path = LATEST_PATH,
+    conflicts_path: Path = CONFLICTS_PATH,
+    reconciliation_path: Path = RECONCILIATION_PATH,
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    facts = _read_csv(financial_facts_path, dtype={"cik": str})
     facts["filing_date_parsed"] = pd.to_datetime(
         facts["filing_date"], errors="coerce"
     )
@@ -496,9 +561,7 @@ def select_latest_restated() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
                     ),
                     "resolution_status": resolution_status,
                     "review_note": review_note,
-                    "created_at": datetime.now(timezone.utc)
-                    .replace(microsecond=0)
-                    .isoformat(),
+                    "created_at": f"{date.today().isoformat()}T00:00:00+00:00",
                 }
             )
             conflict_number += 1
@@ -525,7 +588,7 @@ def select_latest_restated() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
         "created_at",
     ]
     conflicts = pd.DataFrame(conflict_rows, columns=conflict_columns)
-    conflicts.to_csv(CONFLICTS_PATH, index=False)
+    conflicts.to_csv(conflicts_path, index=False)
 
     winners["is_latest_restated"] = True
     winners["source_selection_method"] = "latest_valid_restated_sec_companyfacts"
@@ -560,7 +623,7 @@ def select_latest_restated() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     if derived_rows:
         winners = pd.concat([winners, pd.DataFrame(derived_rows)], ignore_index=True)
     winners = winners.sort_values(["ticker", "fiscal_year", "canonical_field"])
-    winners.to_csv(LATEST_PATH, index=False)
+    winners.to_csv(latest_path, index=False)
 
     manual = _read_csv(MANUAL_FINANCIALS_PATH)
     manual_fields = sorted(set(winners["canonical_field"]) & set(manual.columns))
@@ -595,7 +658,7 @@ def select_latest_restated() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
         else "review_company_mapping",
         axis=1,
     )
-    reconciliation.to_csv(RECONCILIATION_PATH, index=False)
+    reconciliation.to_csv(reconciliation_path, index=False)
     return winners, conflicts, reconciliation
 
 
@@ -715,9 +778,7 @@ def validate_pilot() -> tuple[pd.DataFrame, pd.DataFrame]:
                 "severity": severity,
                 "reason": reason,
                 "source_fields": source_fields,
-                "generated_at": datetime.now(timezone.utc)
-                .replace(microsecond=0)
-                .isoformat(),
+                "generated_at": f"{date.today().isoformat()}T00:00:00+00:00",
             }
         )
 
@@ -985,6 +1046,7 @@ def _write_coverage_report(
 
 
 def build_b1_pilot(refresh: bool = False) -> dict[str, Any]:
+    pilot_ids = set(_pilot_sample()["company_id"])
     manifest = extract_pilot_sec(refresh=refresh)
     unmapped = normalize_annual_facts()
     facts, rejected = map_concepts_and_signs()
@@ -994,6 +1056,13 @@ def build_b1_pilot(refresh: bool = False) -> dict[str, Any]:
     mart_counts = build_pilot_marts()
     _write_reconciliation_report(reconciliation)
     _write_coverage_report(coverage, conflicts, flags, reconciliation)
+    for source, destination in [
+        (FINANCIAL_FACTS_PATH, B1_FINANCIAL_FACTS_SNAPSHOT),
+        (LATEST_PATH, B1_LATEST_SNAPSHOT),
+        (CONFLICTS_PATH, B1_CONFLICTS_SNAPSHOT),
+        (RECONCILIATION_PATH, B1_RECONCILIATION_SNAPSHOT),
+    ]:
+        shutil.copyfile(source, destination)
 
     with duckdb.connect(str(DB_PATH), read_only=True) as connection:
         max_dupont_gap = connection.execute(
@@ -1041,7 +1110,7 @@ def build_b1_pilot(refresh: bool = False) -> dict[str, Any]:
         "processed_generation": "scripted_no_manual_processed_edits",
         "company_override_count": int(
             _read_csv(OVERRIDES_PATH)
-            .query("status == 'active'")[["company_id", "canonical_field"]]
+            .query("status == 'active' and company_id in @pilot_ids")[["company_id", "canonical_field"]]
             .drop_duplicates()
             .shape[0]
         ),

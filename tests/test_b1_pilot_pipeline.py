@@ -25,9 +25,9 @@ class B1PilotPipelineTests(unittest.TestCase):
             capture_output=True,
             text=True,
         )
-        cls.facts = pd.read_csv(NORMALIZED / "financial_facts.csv")
-        cls.latest = pd.read_csv(PROCESSED / "sec_latest_restated_long.csv")
-        cls.conflicts = pd.read_csv(PROCESSED / "sec_concept_conflicts.csv")
+        cls.facts = pd.read_csv(NORMALIZED / "b1_financial_facts.csv")
+        cls.latest = pd.read_csv(PROCESSED / "b1_latest_restated_long.csv")
+        cls.conflicts = pd.read_csv(PROCESSED / "b1_concept_conflicts.csv")
         cls.flags = pd.read_csv(PROCESSED / "b1_metric_flags.csv")
         cls.metrics = pd.read_csv(PROCESSED / "b1_pilot_annual_company_metrics.csv")
         cls.shapley = pd.read_csv(PROCESSED / "b1_pilot_dupont_contributions.csv")
@@ -77,7 +77,11 @@ class B1PilotPipelineTests(unittest.TestCase):
 
     def test_real_company_overrides_are_explicit_and_reconciled(self) -> None:
         overrides = pd.read_csv(REFERENCE / "company_overrides.csv")
-        active = overrides[overrides["status"].eq("active")]
+        active = overrides[
+            overrides["status"].eq("active")
+            & overrides["company_id"].isin({"dash", "etsy"})
+            & overrides["fiscal_year"].isin({2021, 2022, 2023})
+        ]
         self.assertEqual(
             set(active["company_id"]), {"dash", "etsy"}
         )
@@ -91,7 +95,7 @@ class B1PilotPipelineTests(unittest.TestCase):
         )
         self.assertEqual(len(selected), 6)
         self.assertTrue(selected["source_tag"].str.startswith("override:").all())
-        reconciliation = pd.read_csv(PROCESSED / "sec_manual_reconciliation.csv")
+        reconciliation = pd.read_csv(PROCESSED / "b1_manual_reconciliation.csv")
         capex = reconciliation.query(
             "company_id in ['dash', 'etsy'] and canonical_field == 'capital_expenditure'"
         )

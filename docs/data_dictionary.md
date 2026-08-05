@@ -1,4 +1,4 @@
-# Q1 Pilot Analytical Data Dictionary
+# Q1 Data and Analytical Dictionary
 
 Last updated: 2026-08-05
 
@@ -40,9 +40,9 @@ Grain: one frozen Power BI mart field.
 
 Defines the 60 required fields and assigns all research calculations to SQL; DAX recalculation is prohibited.
 
-### `data/raw/sec/`
+### `data/raw/sec/` and `data/raw/sec/b2_formal_manifest.csv`
 
-Contains gzip-compressed official SEC `companyfacts` and `submissions` JSON for the six Pilot companies. `manifest.csv` records ticker, CIK, artifact type, source URL, SHA-256 checksum, and fetch time.
+Contains gzip-compressed official SEC `companyfacts` and `submissions` JSON. The B2 formal manifest records ticker, CIK, artifact type, source URL, SHA-256 checksum, and fetch time for 42 artifacts covering all 21 frozen companies.
 
 ### `data/reference/a2_probe_scope.csv`
 
@@ -100,9 +100,15 @@ Records real pre-event quarter counts, three-statement metadata coverage, filing
 
 ### `data/normalized/financial_facts.csv`
 
+Grain: one formal company x accession x reporting period x canonical field x source tag x unit.
+
+Retains the Gate 1 physical schema for the 21-company B2 layer, including accession number, form, filing date, period start/end, fiscal year/period, duration, canonical field, source tag, raw and standardized values, unit, source URL, and load timestamp. The three frozen noncore fields are excluded. Historical versions are retained; this table is not the analytical mart.
+
+### `data/normalized/b1_financial_facts.csv`
+
 Grain: one Pilot company x accession x reporting period x canonical field x source tag x unit.
 
-Retains the Gate 1 physical schema including accession number, form, filing date, period start/end, fiscal year/period, duration, canonical field, source tag, raw and standardized values, unit, source URL, and load timestamp. B1 excludes the three frozen noncore fields. Historical versions are retained; this table is not the analytical mart.
+Freezes the six-company B1 filing-level snapshot separately from the formal B2 main table.
 
 ### `data/normalized/b1_annual_facts_unmapped.csv`
 
@@ -114,7 +120,31 @@ Stores the normalized pre-mapping stage so concept mapping and sign handling are
 
 Grain: one company x fiscal year x canonical field override.
 
-Contains only observed, filing-backed exceptions to the shared map. B1 has two unique rules: DASH and ETSY CapEx each aggregate PP&E purchases and software-development cash outflows.
+Contains only observed, accession-backed exceptions after the shared map is exhausted. The active B2 exceptions cover ABNB filing-table free cash flow values, CVNA documented operating-income derivations, and DASH/ETSY CapEx aggregations. B1 uses only its DASH/ETSY subset.
+
+### `data/processed/b2_candidate_rejections.csv`
+
+Grain: one rejected formal annual fact candidate.
+
+Records unit, annual-duration, or domain failures before latest-restated selection. Rejection never substitutes a sentinel value.
+
+### `data/processed/metric_flags.csv`
+
+Grain: one formal company x fiscal year x metric x flag code.
+
+Stores scripted null/sentinel, missing-prior, nonpositive-equity, zero-denominator, forward-year, source-conflict, unit, and sign/domain checks for B2.
+
+### `data/processed/b2_company_field_year_coverage.csv` and `data/processed/b2_failures.csv`
+
+Grain: one formal company x field x fiscal year for coverage; one failed required observation for failures.
+
+The coverage table makes inclusion, requiredness, and availability traceable. The failure table retains the formal schema even when empty; B2 has no missing required company-year field.
+
+### `data/processed/b2_stage_audit.json`
+
+Grain: one B2 rebuild.
+
+Records formal counts, quality rules, immutable Gate 1 contract hashes, scripted-generation status, and pass/fail checks.
 
 ### `data/processed/b1_candidate_rejections.csv`
 
@@ -166,21 +196,21 @@ Records severity, resolution status, and analytical effect for restatements, non
 
 ### `data/processed/sec_latest_restated_long.csv`
 
-Grain: one company x fiscal year x canonical field.
+Grain: one formal company x fiscal year x canonical field.
 
-Selects the latest annual filing available by 2024-04-30, with source-tag priority as the deterministic tie-breaker. It preserves the winning accession and source metadata.
+Selects the latest valid annual filing under the frozen version rule, with source-tag priority as the deterministic tie-breaker. It preserves the winning accession and source metadata.
 
 ### `data/processed/sec_concept_conflicts.csv`
 
-Grain: one automatically detected non-winning fact value.
+Grain: one automatically detected non-winning formal fact value.
 
 Records the winning and discarded tags/versions, values, relative difference, severity, and resolution rule. Different values are never silently discarded.
 
-### `data/processed/sec_manual_reconciliation.csv`
+### `data/processed/b2_sec_manual_reconciliation.csv`
 
 Grain: one selected SEC canonical fact.
 
-Compares the SEC selection with the manually verified Pilot analytical value and labels each row `match`, `review_company_mapping`, or `manual_value_unavailable`. Review rows do not overwrite the Pilot mart.
+Records the formal selected fact and any explicit mapping or exception review evidence. Review records do not silently overwrite analytical outputs.
 
 ### `data/processed/b1_pilot_coverage.csv`
 

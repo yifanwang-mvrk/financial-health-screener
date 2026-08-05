@@ -12,8 +12,8 @@ This audit restores the repository to the exact phase meanings in Execution Char
 | A3 | All-candidate annual/H1 scan and event PIT feasibility scan | Done | 40 candidates, 4,823 core fact versions, 200 H1 transition rows, and 14 verified events; Path A / H1 B / Q2 A recommended |
 | Gate 1 | Freeze Path, formal sample, years, groups, H1 Tier, data rules, mart, and Q2 feasibility | Passed | Gate1-v1.0 freezes Path A, 21 companies, FY2018-FY2024, H1 Tier B, data rules, schema, mart, and Q2 Tier A feasibility |
 | B1 | Reproducible 4-6 company Pilot after Gate 1 | Done | Six companies use one scripted raw-to-DuckDB path; explicit overrides, conflicts, flags, H1 audit, filing reconciliation, and identity tests pass |
-| B2 | Expand unchanged rules to frozen formal sample | Next | Formal 21-company sample exists and B1 DoD is passed |
-| B3 | Formal seven-mart analytical layer | Not started formally | Pilot mart implementations exist |
+| B2 | Expand unchanged rules to frozen formal sample | Done | All 21 companies and three groups of seven rebuild from 42 raw artifacts; required company-year coverage is complete and frozen Gate 1 hashes match |
+| B3 | Formal seven-mart analytical layer | Next | Formal B2 facts, latest-restated values, conflicts, flags, coverage, and DuckDB core tables are ready |
 | B4 | Formal analytical release and minimum CV deliverable | Not reached | Pilot analysis artifacts exist |
 | B5 | Formal single-page Portfolio Release v1.0 | Not reached | Pilot Power BI prototype exists |
 | Gate 2 | Evidence-based Q2 Tier A/B/C | Pending after B5 | A3 recommends Tier A from 12 qualified events; formal authorization remains pending |
@@ -25,4 +25,4 @@ The commits that labelled the six-company work as a complete Phase A/Q1 release 
 
 ## Minimum CV Deliverable
 
-The project's formal minimum CV deliverable is B4 on the Gate 1 frozen sample. The current Pilot may be discussed as work in progress, but it is not the final CV release specified by the two guides.
+The project's formal minimum CV deliverable is B4 on the Gate 1 frozen sample. B2 now supplies the formal data layer, but the current Power BI artifact remains a Pilot until B3-B5 are completed.

@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-08-05 - Expand Q1 Pipeline to Frozen Sample
+
+- Applied the unchanged Gate1-v1.0 field, source, version, sign, duration, peer-group, and year rules to all 21 formal companies, with FY2017 retained only for opening balances.
+- Rebuilt 42 checksummed SEC artifacts into 5,439 normalized pre-map records, 4,780 mapped filing-level facts, and 1,959 latest/derived canonical facts.
+- Recorded 212 rejected candidates, 875 explicit winner/discarded conflicts, and 262 metric-quality flags; no source conflict is unresolved.
+- Closed all required company-year coverage gaps without sentinels. The formal failure list is empty and the three frozen peer groups each contain seven companies.
+- Added accession-backed observed exceptions for ABNB free cash flow table values, CVNA operating-income derivations, and DASH/ETSY CapEx aggregations without changing the shared mapping rules.
+- Preserved the Gate 1 sample and field-contract hashes, added reproducible B2 stage auditing and tests, and marked B3 formal analytical marts as the next mandatory stage.
+
 ## 2026-08-05 - Build Reproducible Q1 Pilot Pipeline
 
 - Revalidated AMZN, BKNG, CHWY, DASH, EBAY, and ETSY as the six-company B1 Pilot after Gate 1; all six remain members of the formal sample but do not define it.

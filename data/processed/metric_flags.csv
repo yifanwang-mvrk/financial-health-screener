@@ -1,0 +1,263 @@
+company_id,fiscal_year,metric_name,flag_code,flag_value,severity,reason,source_fields,generated_at
+abnb,2019,dupont,missing_prior_balance,True,high,Consecutive prior-year assets/equity are unavailable,total_assets|total_equity,2026-08-05T00:00:00+00:00
+abnb,2020,dupont,missing_prior_balance,True,high,Consecutive prior-year assets/equity are unavailable,total_assets|total_equity,2026-08-05T00:00:00+00:00
+abnb,2024,h1_outcome,insufficient_forward_year,True,medium,No consecutive t+1 annual observation is available,roe,2026-08-05T00:00:00+00:00
+amzn,2024,h1_outcome,insufficient_forward_year,True,medium,No consecutive t+1 annual observation is available,roe,2026-08-05T00:00:00+00:00
+bird,2019,dupont,missing_prior_balance,True,high,Consecutive prior-year assets/equity are unavailable,total_assets|total_equity,2026-08-05T00:00:00+00:00
+bird,2020,dupont,missing_prior_balance,True,high,Consecutive prior-year assets/equity are unavailable,total_assets|total_equity,2026-08-05T00:00:00+00:00
+bird,2024,h1_outcome,insufficient_forward_year,True,medium,No consecutive t+1 annual observation is available,roe,2026-08-05T00:00:00+00:00
+bkng,2024,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+bkng,2024,h1_outcome,insufficient_forward_year,True,medium,No consecutive t+1 annual observation is available,roe,2026-08-05T00:00:00+00:00
+byon,2024,h1_outcome,insufficient_forward_year,True,medium,No consecutive t+1 annual observation is available,roe,2026-08-05T00:00:00+00:00
+cars,2024,h1_outcome,insufficient_forward_year,True,medium,No consecutive t+1 annual observation is available,roe,2026-08-05T00:00:00+00:00
+chwy,2018,dupont,missing_prior_balance,True,high,Consecutive prior-year assets/equity are unavailable,total_assets|total_equity,2026-08-05T00:00:00+00:00
+chwy,2019,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+chwy,2020,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+chwy,2021,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+chwy,2024,h1_outcome,insufficient_forward_year,True,medium,No consecutive t+1 annual observation is available,roe,2026-08-05T00:00:00+00:00
+cvna,2022,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+cvna,2023,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+cvna,2024,h1_outcome,insufficient_forward_year,True,medium,No consecutive t+1 annual observation is available,roe,2026-08-05T00:00:00+00:00
+dash,2018,dupont,missing_prior_balance,True,high,Consecutive prior-year assets/equity are unavailable,total_assets|total_equity,2026-08-05T00:00:00+00:00
+dash,2019,dupont,missing_prior_balance,True,high,Consecutive prior-year assets/equity are unavailable,total_assets|total_equity,2026-08-05T00:00:00+00:00
+dash,2024,h1_outcome,insufficient_forward_year,True,medium,No consecutive t+1 annual observation is available,roe,2026-08-05T00:00:00+00:00
+ebay,2024,h1_outcome,insufficient_forward_year,True,medium,No consecutive t+1 annual observation is available,roe,2026-08-05T00:00:00+00:00
+etsy,2023,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+etsy,2024,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+etsy,2024,h1_outcome,insufficient_forward_year,True,medium,No consecutive t+1 annual observation is available,roe,2026-08-05T00:00:00+00:00
+expe,2024,h1_outcome,insufficient_forward_year,True,medium,No consecutive t+1 annual observation is available,roe,2026-08-05T00:00:00+00:00
+figs,2019,dupont,missing_prior_balance,True,high,Consecutive prior-year assets/equity are unavailable,total_assets|total_equity,2026-08-05T00:00:00+00:00
+figs,2020,dupont,missing_prior_balance,True,high,Consecutive prior-year assets/equity are unavailable,total_assets|total_equity,2026-08-05T00:00:00+00:00
+figs,2024,h1_outcome,insufficient_forward_year,True,medium,No consecutive t+1 annual observation is available,roe,2026-08-05T00:00:00+00:00
+love,2018,dupont,missing_prior_balance,True,high,Consecutive prior-year assets/equity are unavailable,total_assets|total_equity,2026-08-05T00:00:00+00:00
+love,2024,h1_outcome,insufficient_forward_year,True,medium,No consecutive t+1 annual observation is available,roe,2026-08-05T00:00:00+00:00
+pton,2018,dupont,missing_prior_balance,True,high,Consecutive prior-year assets/equity are unavailable,total_assets|total_equity,2026-08-05T00:00:00+00:00
+pton,2019,dupont,missing_prior_balance,True,high,Consecutive prior-year assets/equity are unavailable,total_assets|total_equity,2026-08-05T00:00:00+00:00
+pton,2024,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+pton,2024,h1_outcome,insufficient_forward_year,True,medium,No consecutive t+1 annual observation is available,roe,2026-08-05T00:00:00+00:00
+qvcga,2024,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+qvcga,2024,h1_outcome,insufficient_forward_year,True,medium,No consecutive t+1 annual observation is available,roe,2026-08-05T00:00:00+00:00
+rvlv,2018,dupont,missing_prior_balance,True,high,Consecutive prior-year assets/equity are unavailable,total_assets|total_equity,2026-08-05T00:00:00+00:00
+rvlv,2024,h1_outcome,insufficient_forward_year,True,medium,No consecutive t+1 annual observation is available,roe,2026-08-05T00:00:00+00:00
+sfix,2024,h1_outcome,insufficient_forward_year,True,medium,No consecutive t+1 annual observation is available,roe,2026-08-05T00:00:00+00:00
+snbr,2018,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+snbr,2019,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+snbr,2020,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+snbr,2021,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+snbr,2022,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+snbr,2023,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+snbr,2024,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+snbr,2024,h1_outcome,insufficient_forward_year,True,medium,No consecutive t+1 annual observation is available,roe,2026-08-05T00:00:00+00:00
+vrm,2018,dupont,missing_prior_balance,True,high,Consecutive prior-year assets/equity are unavailable,total_assets|total_equity,2026-08-05T00:00:00+00:00
+vrm,2019,dupont,missing_prior_balance,True,high,Consecutive prior-year assets/equity are unavailable,total_assets|total_equity,2026-08-05T00:00:00+00:00
+vrm,2024,h1_outcome,insufficient_forward_year,True,medium,No consecutive t+1 annual observation is available,roe,2026-08-05T00:00:00+00:00
+w,2018,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+w,2019,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+w,2020,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+w,2021,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+w,2022,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+w,2023,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+w,2024,roe,non_positive_average_equity,True,high,Average equity is nonpositive; ROE is invalid,total_equity,2026-08-05T00:00:00+00:00
+w,2024,h1_outcome,insufficient_forward_year,True,medium,No consecutive t+1 annual observation is available,roe,2026-08-05T00:00:00+00:00
+abnb,2020,capital_expenditure,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+abnb,2020,operating_cash_flow,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,operating_cash_flow,2026-08-05T00:00:00+00:00
+abnb,2021,capital_expenditure,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+abnb,2021,operating_cash_flow,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,operating_cash_flow,2026-08-05T00:00:00+00:00
+byon,2018,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+byon,2018,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+byon,2018,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+byon,2019,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+byon,2019,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+byon,2019,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+byon,2019,operating_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,operating_income,2026-08-05T00:00:00+00:00
+byon,2019,revenue,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,revenue,2026-08-05T00:00:00+00:00
+byon,2019,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+byon,2020,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+byon,2020,cash_and_equivalents,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,cash_and_equivalents,2026-08-05T00:00:00+00:00
+byon,2020,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+byon,2020,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+byon,2020,operating_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,operating_income,2026-08-05T00:00:00+00:00
+byon,2020,revenue,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,revenue,2026-08-05T00:00:00+00:00
+byon,2020,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+byon,2021,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+byon,2021,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+byon,2022,net_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+byon,2023,operating_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,operating_income,2026-08-05T00:00:00+00:00
+byon,2024,operating_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,operating_income,2026-08-05T00:00:00+00:00
+cars,2020,net_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+cars,2020,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+cars,2021,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+cars,2021,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+cars,2021,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+cars,2021,total_liabilities,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_liabilities,2026-08-05T00:00:00+00:00
+cars,2022,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+chwy,2020,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+chwy,2021,net_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+chwy,2021,operating_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,operating_income,2026-08-05T00:00:00+00:00
+chwy,2021,revenue,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,revenue,2026-08-05T00:00:00+00:00
+chwy,2021,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+chwy,2022,current_liabilities,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,current_liabilities,2026-08-05T00:00:00+00:00
+chwy,2022,net_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+chwy,2022,operating_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,operating_income,2026-08-05T00:00:00+00:00
+chwy,2022,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+chwy,2022,total_liabilities,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,total_liabilities,2026-08-05T00:00:00+00:00
+cvna,2018,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+cvna,2018,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+cvna,2018,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+cvna,2019,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+cvna,2019,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+cvna,2019,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+cvna,2020,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+cvna,2020,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+cvna,2020,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+cvna,2021,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+cvna,2021,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+cvna,2021,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+cvna,2022,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+cvna,2022,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+cvna,2022,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+cvna,2023,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+cvna,2023,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+cvna,2023,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+cvna,2024,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+cvna,2024,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+cvna,2024,total_equity,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,total_equity,2026-08-05T00:00:00+00:00
+cvna,2024,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+dash,2018,capital_expenditure,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,capital_expenditure,2026-08-05T00:00:00+00:00
+dash,2018,net_income,source_conflict,True,medium,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+dash,2019,capital_expenditure,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,capital_expenditure,2026-08-05T00:00:00+00:00
+dash,2019,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+dash,2020,capital_expenditure,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,capital_expenditure,2026-08-05T00:00:00+00:00
+dash,2020,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+dash,2021,capital_expenditure,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,capital_expenditure,2026-08-05T00:00:00+00:00
+dash,2021,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+dash,2022,capital_expenditure,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,capital_expenditure,2026-08-05T00:00:00+00:00
+dash,2022,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+dash,2023,capital_expenditure,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,capital_expenditure,2026-08-05T00:00:00+00:00
+dash,2023,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+dash,2023,net_income,source_conflict,True,medium,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+dash,2023,net_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+dash,2024,capital_expenditure,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,capital_expenditure,2026-08-05T00:00:00+00:00
+dash,2024,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+dash,2024,net_income,source_conflict,True,medium,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+dash,2024,net_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+ebay,2018,capital_expenditure,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+ebay,2018,operating_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,operating_income,2026-08-05T00:00:00+00:00
+ebay,2018,revenue,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,revenue,2026-08-05T00:00:00+00:00
+ebay,2019,capital_expenditure,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+ebay,2019,cash_and_equivalents,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,cash_and_equivalents,2026-08-05T00:00:00+00:00
+ebay,2019,operating_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,operating_income,2026-08-05T00:00:00+00:00
+ebay,2019,revenue,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,revenue,2026-08-05T00:00:00+00:00
+ebay,2020,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+ebay,2020,cash_and_equivalents,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,cash_and_equivalents,2026-08-05T00:00:00+00:00
+ebay,2020,operating_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,operating_income,2026-08-05T00:00:00+00:00
+ebay,2020,revenue,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,revenue,2026-08-05T00:00:00+00:00
+ebay,2022,total_debt,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,total_debt,2026-08-05T00:00:00+00:00
+ebay,2023,total_debt,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,total_debt,2026-08-05T00:00:00+00:00
+ebay,2023,total_debt,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_debt,2026-08-05T00:00:00+00:00
+ebay,2024,total_debt,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,total_debt,2026-08-05T00:00:00+00:00
+ebay,2024,total_debt,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_debt,2026-08-05T00:00:00+00:00
+etsy,2018,capital_expenditure,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,capital_expenditure,2026-08-05T00:00:00+00:00
+etsy,2018,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+etsy,2019,capital_expenditure,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,capital_expenditure,2026-08-05T00:00:00+00:00
+etsy,2019,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+etsy,2020,capital_expenditure,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,capital_expenditure,2026-08-05T00:00:00+00:00
+etsy,2020,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+etsy,2021,capital_expenditure,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,capital_expenditure,2026-08-05T00:00:00+00:00
+etsy,2021,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+etsy,2022,capital_expenditure,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,capital_expenditure,2026-08-05T00:00:00+00:00
+etsy,2022,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+etsy,2023,capital_expenditure,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,capital_expenditure,2026-08-05T00:00:00+00:00
+etsy,2023,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+etsy,2024,capital_expenditure,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,capital_expenditure,2026-08-05T00:00:00+00:00
+etsy,2024,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+expe,2018,net_income,source_conflict,True,medium,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+expe,2018,net_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+expe,2018,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+expe,2019,net_income,source_conflict,True,medium,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+expe,2019,net_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+expe,2019,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+expe,2020,net_income,source_conflict,True,medium,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+expe,2020,net_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+expe,2020,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+expe,2021,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+expe,2021,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+expe,2021,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+expe,2022,net_income,source_conflict,True,medium,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+expe,2022,net_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+expe,2022,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+expe,2023,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+expe,2023,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+expe,2023,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+expe,2024,net_income,source_conflict,True,medium,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+expe,2024,net_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+expe,2024,total_equity,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,total_equity,2026-08-05T00:00:00+00:00
+expe,2024,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+love,2018,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+love,2019,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+love,2019,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+love,2022,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+love,2022,current_assets,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,current_assets,2026-08-05T00:00:00+00:00
+love,2022,current_liabilities,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,current_liabilities,2026-08-05T00:00:00+00:00
+love,2022,net_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+love,2022,operating_cash_flow,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,operating_cash_flow,2026-08-05T00:00:00+00:00
+love,2022,operating_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,operating_income,2026-08-05T00:00:00+00:00
+love,2022,total_assets,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,total_assets,2026-08-05T00:00:00+00:00
+love,2022,total_equity,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+love,2022,total_liabilities,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,total_liabilities,2026-08-05T00:00:00+00:00
+love,2023,current_assets,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,current_assets,2026-08-05T00:00:00+00:00
+love,2023,current_liabilities,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,current_liabilities,2026-08-05T00:00:00+00:00
+love,2023,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+love,2023,operating_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,operating_income,2026-08-05T00:00:00+00:00
+love,2023,total_assets,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,total_assets,2026-08-05T00:00:00+00:00
+love,2023,total_liabilities,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,total_liabilities,2026-08-05T00:00:00+00:00
+pton,2019,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+pton,2019,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+pton,2020,capital_expenditure,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+pton,2021,capital_expenditure,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+qvcga,2018,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+qvcga,2018,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+qvcga,2018,total_equity,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+qvcga,2019,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+qvcga,2019,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+qvcga,2019,total_equity,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+qvcga,2020,net_income,source_conflict,True,medium,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+qvcga,2020,net_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+qvcga,2020,total_equity,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+qvcga,2021,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+qvcga,2021,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+qvcga,2021,total_equity,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+qvcga,2022,net_income,source_conflict,True,medium,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+qvcga,2022,net_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+qvcga,2022,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+qvcga,2023,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+qvcga,2023,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+qvcga,2023,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+qvcga,2024,net_income,source_conflict,True,medium,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+qvcga,2024,net_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+qvcga,2024,total_equity,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,total_equity,2026-08-05T00:00:00+00:00
+qvcga,2024,total_equity,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+rvlv,2019,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+rvlv,2019,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+rvlv,2024,net_income,source_conflict,True,medium,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+rvlv,2024,net_income,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+sfix,2018,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+sfix,2018,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+sfix,2022,capital_expenditure,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+sfix,2022,operating_cash_flow,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,operating_cash_flow,2026-08-05T00:00:00+00:00
+sfix,2022,operating_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,operating_income,2026-08-05T00:00:00+00:00
+sfix,2022,revenue,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,revenue,2026-08-05T00:00:00+00:00
+sfix,2023,capital_expenditure,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+sfix,2023,inventory,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,inventory,2026-08-05T00:00:00+00:00
+sfix,2023,operating_cash_flow,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,operating_cash_flow,2026-08-05T00:00:00+00:00
+sfix,2023,operating_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,operating_income,2026-08-05T00:00:00+00:00
+sfix,2023,revenue,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,revenue,2026-08-05T00:00:00+00:00
+vrm,2018,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+vrm,2019,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+vrm,2019,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00
+vrm,2022,total_equity,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+vrm,2023,capital_expenditure,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,capital_expenditure,2026-08-05T00:00:00+00:00
+vrm,2023,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+vrm,2023,total_equity,source_conflict,True,medium,resolved_latest_restated: Later valid filing supplies the current comparative value,total_equity,2026-08-05T00:00:00+00:00
+vrm,2024,net_income,source_conflict,True,high,resolved_tag_priority: Configured canonical tag priority selects the concept-aligned value,net_income,2026-08-05T00:00:00+00:00
+vrm,2024,net_income,source_conflict,True,high,resolved_latest_restated: Later valid filing supplies the current comparative value,net_income,2026-08-05T00:00:00+00:00

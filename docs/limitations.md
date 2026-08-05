@@ -6,7 +6,8 @@ Last updated: 2026-08-05
 
 - A1 is complete with 50 companies, 40 Q1 candidates, and 14 event candidates.
 - A3 verified all 14 event candidates; 12 meet the provisional Tier A metadata criteria, while BOXD and FTCH have specific coverage exclusions.
-- The six-company, 18-company-year dataset is a Pilot snapshot, not the formal 21-company sample.
+- B2 is complete for the frozen 21-company FY2018-FY2024 sample, with FY2017 used only for opening balances. B3 formal analytical marts have not yet been built.
+- The six-company, 18-company-year dataset and its Power BI page remain Pilot artifacts and do not replace the formal B2 layer.
 - Gate 1 freezes Path A, H1 Tier B, and Q2 Tier A feasibility. Q2 itself remains unauthorized until the later formal Gate 2.
 
 ## Pilot Time and Sample Coverage
@@ -22,9 +23,9 @@ The Pilot results are company-specific and descriptive, not estimates of the e-c
 
 ## Source and Accounting Boundary
 
-- Official SEC companyfacts and submissions are cached for all 40 A3 candidates; the B1 analytical mart still uses only six Pilot companies.
-- The revalidated B1 layer uses the latest valid restated value as of its run date; it is not historical point-in-time investor information.
-- DASH and ETSY require filing-backed CapEx aggregation overrides; CHWY retains one explicit later-restatement reconciliation difference. None silently overwrite a processed value.
+- Official SEC companyfacts and submissions are cached for all 40 A3 candidates; B2 formally loads the frozen 21-company sample and B1 remains a separate six-company snapshot.
+- The B2 layer uses the latest valid restated annual value as of its run date; it is not historical point-in-time investor information.
+- ABNB, CVNA, DASH, and ETSY require accession-backed table-value, documented-derivation, or aggregation exceptions after the shared concept map is exhausted. None silently overwrite a processed value.
 - Revenue recognition, fiscal calendars, acquisitions, buybacks, non-operating gains, thin or negative equity, and issuer-specific definitions limit direct comparability.
 - A mathematically valid ratio may be economically unstable when its denominator is close to zero.
 - Shapley decomposition explains arithmetic attribution, not causality.
