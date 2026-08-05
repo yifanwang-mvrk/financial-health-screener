@@ -4,7 +4,7 @@ Last updated: 2026-08-05
 
 ## A1 Census Boundary
 
-The active stage is A1 Unified Company & Event Census. The provisional annual window is FY2018-FY2024 and is not frozen until Gate 1.
+A1 Unified Company & Event Census is complete. The provisional annual window is FY2018-FY2024 and is not frozen until Gate 1.
 
 Company eligibility starts with US-listed or historically US-listed businesses where online transactions, platform commissions, or DTC commerce are a core business engine. Each company must retain an explicit online-core judgment, inventory-risk judgment, revenue-recognition model, peer or boundary classification, confidence, status, and inclusion/exclusion rationale.
 
@@ -13,7 +13,7 @@ The A1 stopping ranges are:
 - Approximately 30-40 Q1 candidates, after the operating-model, boundary, delisted, and distress structures are adequately represented.
 - Approximately 10-15 event candidates, without deep SEC or quarterly verification at A1.
 
-The current tables are below both stopping ranges and therefore remain in progress.
+The current tables contain 40 Q1 candidates and 14 event candidates, so both A1 stopping ranges are satisfied.
 
 ## Six-Company Pilot Snapshot
 
@@ -41,4 +41,4 @@ Events are stored separately from companies. `event_date` is the first public av
 
 During A1, `estimated_pre_event_quarters` is only a theoretical listing-to-event upper bound. `coverage_verified` remains false, `verified_pre_event_quarters` remains blank, and Q2 qualification remains provisional until A3.
 
-No Gate 2 tier can be inferred from the current five preliminary event records.
+No Gate 2 tier can be inferred from the 14 A1 event candidates until A3 verifies their real quarterly and point-in-time coverage.

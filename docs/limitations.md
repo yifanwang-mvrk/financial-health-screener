@@ -4,10 +4,10 @@ Last updated: 2026-08-05
 
 ## Current Stage Boundary
 
-- The active census contains 26 companies but only 13 current Q1 candidates; A1 is not complete.
-- The event table contains five preliminary records; A1 requires approximately 10-15 candidates before the event pool stops expanding.
+- A1 is complete with 50 companies, 40 Q1 candidates, and 14 event candidates.
+- The event candidates have sourced dates but no verified quarterly coverage; that work belongs to A3.
 - The six-company, 18-company-year dataset is a Pilot snapshot, not the formal sample.
-- Formal Data Path, peer groups, year window, H1 Tier, and Q2 Tier remain pending A3 and Gate 1.
+- Formal Data Path, peer groups, year window, H1 Tier, and Q2 Tier remain pending A2, A3, and the applicable gates.
 
 ## Pilot Time and Sample Coverage
 

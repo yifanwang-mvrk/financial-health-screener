@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-08-05 - Complete A1 Company and Event Census
+
+- Expanded the light-research universe to 50 companies and 40 Q1 candidates across four provisional peer groups.
+- Expanded the sourced event census to 14 candidates while keeping quarterly coverage and Q2 qualification fields provisional for A3.
+- Recorded stable issuer IDs, historical CIK fallbacks, listing-date provenance, status changes, and ticker-history notes, including legacy/current BBBY separation.
+- Added reproducible A1 census generation, stopping-rule audits, and tests; Gate 1 and Gate 2 remain pending.
+
 ## 2026-08-05 - Restore Six-Company Work to B1 Pilot
 
 - Re-read Execution Charter v3.0 and the Phase A/Q1 Master Execution Checklist as the sole execution contract.

@@ -4,14 +4,14 @@ Last updated: 2026-08-05
 
 ## Current Position
 
-Current milestone: **A1 Unified Company & Event Census in progress.**
+Current milestone: **A1 Unified Company & Event Census complete; A2 source-probe revalidation next.**
 
-The six-company analytical and Power BI work is formally restored to a **B1 Pilot snapshot**. It is retained as useful engineering evidence but does not satisfy the formal release sequence because A1, A3, and Gate 1 have not been completed.
+The six-company analytical and Power BI work remains a **B1 Pilot snapshot**. It is retained as useful engineering evidence but does not satisfy the formal release sequence because A2, A3, and Gate 1 have not been completed.
 
 ```text
 A0E PASSED
-    -> A1 IN PROGRESS
-    -> A2 reusable probe evidence exists; formal closure waits for A1
+    -> A1 DONE: 50 companies, 40 Q1 candidates, 14 event candidates
+    -> A2 NEXT: reusable AMZN/EBAY probe evidence requires formal revalidation
     -> A3 NOT STARTED across all candidates/events
     -> Gate 1 PENDING
     -> B1 six-company Pilot snapshot exists; formal revalidation pending
@@ -21,15 +21,15 @@ A0E PASSED
 
 ## Evidence Retained
 
-- Preliminary 26-company universe with 13 Q1 candidates.
-- Preliminary five-event table.
+- Completed 50-company A1 universe with 40 Q1 candidates.
+- Fourteen sourced A1 event candidates with all A3 verification fields intentionally provisional.
 - Six-company SEC cache, accession-level facts, latest-restated selection, conflicts, and reconciliation.
 - Six-company FY2021-FY2023 DuPont, Shapley, peer, H1-audit, notebook, chart, test, and Power BI artifacts.
 - A saved one-page Power BI Pilot prototype and PBIX reference snapshot.
 
 ## Missing Exit Conditions
 
-- A1: approximately 30-40 Q1 candidates and 10-15 event candidates, with complete census audits.
+- A2: formal two-company source-probe conclusions and reusable mapping/override rules.
 - A3: all-candidate annual coverage, real H1 transition audit, and event-level quarterly/PIT feasibility verification.
 - Gate 1: evidence-backed Data Path, formal company sample, years, peer groups, H1 Tier, schema, version rules, and Power BI mart freeze.
 - B2-B5: formal-sample data, marts, analysis, and Power BI release.

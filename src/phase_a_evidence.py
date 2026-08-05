@@ -70,6 +70,54 @@ PROVISIONAL_LISTING_DATES = {
     "UBER": "2019-05-10",
     "VIPS": "2012-03-23",
     "W": "2014-10-02",
+    "AKA": "2021-09-22",
+    "APRN": "2017-06-29",
+    "BARK": "2021-06-02",
+    "BBBY": "1992-06-04",
+    "BIRD": "2021-11-03",
+    "BOXD": "2021-12-09",
+    "CARG": "2017-10-12",
+    "CARS": "2017-06-01",
+    "CVNA": "2017-04-28",
+    "FIGS": "2021-05-27",
+    "GROV": "2022-06-17",
+    "HNST": "2021-05-05",
+    "LOVE": "2018-06-27",
+    "ME": "2021-06-17",
+    "PRPL": "2018-02-05",
+    "PTON": "2019-09-26",
+    "QVCGA": "2006-05-10",
+    "RENT": "2021-10-27",
+    "SDC": "2019-09-12",
+    "SNBR": "1998-12-04",
+    "TDUP": "2021-03-26",
+    "VRM": "2020-06-09",
+    "WISH": "2020-12-16",
+    "WRBY": "2021-09-29",
+}
+PROVISIONAL_CIKS = {
+    "aprn": 1701114,
+    "bbby": 886158,
+    "boxd": 1828672,
+    "byon": 1130713,
+    "ftch": 1740915,
+    "me": 1804591,
+    "posh": 1825480,
+    "qvcga": 1355096,
+    "sdc": 1775625,
+    "snbr": 827187,
+    "wish": 1822250,
+}
+TICKER_HISTORY_NOTES = {
+    "bbby": (
+        "Legacy Bed Bath & Beyond issuer, CIK 0000886158; the BBBY ticker was "
+        "later reused by current CIK 0001130713."
+    ),
+    "byon": (
+        "Current ticker BBBY since 2025-08-29; BYON is retained as the stable "
+        "census label to distinguish the legacy BBBY issuer."
+    ),
+    "qvcga": "Formerly QRTEA; QVCGA became effective on 2025-02-24.",
 }
 CONFLICT_COLUMNS = [
     "conflict_id",
@@ -204,8 +252,9 @@ def build_company_universe(refresh: bool = False) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
     for _, source in master.iterrows():
         ticker = str(source["ticker"]).upper()
+        company_id = ticker.lower()
         sec_item = ticker_map.get(ticker, {})
-        cik_value = sec_item.get("cik")
+        cik_value = PROVISIONAL_CIKS.get(company_id) or sec_item.get("cik")
         fiscal_year_end = ""
         sec_entity_name = ""
         if cik_value and ticker in pilot_tickers:
@@ -238,15 +287,15 @@ def build_company_universe(refresh: bool = False) -> pd.DataFrame:
 
         rows.append(
             {
-                "company_id": ticker.lower(),
+                "company_id": company_id,
                 "ticker": ticker,
                 "company_name": source["company_name"],
                 "cik": f"{int(cik_value):010d}" if cik_value else "",
                 "exchange": sec_item.get("exchange") or source["exchange"],
                 "listing_date": PROVISIONAL_LISTING_DATES[ticker],
                 "listing_date_source_note": (
-                    "Provisional public-listing date from the project census; "
-                    "reverify during A1 before A3 coverage verification"
+                    "Provisional listing or first-trading date from light public "
+                    "company/exchange research; verify in A3 before formal sample freeze"
                 ),
                 "peer_group": source["peer_group"],
                 "classification_confidence": confidence,
@@ -261,10 +310,15 @@ def build_company_universe(refresh: bool = False) -> pd.DataFrame:
                 "q2_event_candidate": int(ticker in event_tickers),
                 "exclusion_reason": source["exclude_reason"],
                 "sec_entity_name": sec_entity_name,
+                "ticker_history_note": TICKER_HISTORY_NOTES.get(company_id, ""),
                 "source_note": (
-                    "SEC ticker map and submissions metadata; project classification"
+                    "SEC ticker map and submissions metadata; A1 project classification"
                     if ticker in pilot_tickers
-                    else "SEC ticker map where current; project census classification"
+                    else (
+                        "Historical SEC CIK fallback; A1 project classification"
+                        if company_id in PROVISIONAL_CIKS
+                        else "SEC ticker map where current; A1 project classification"
+                    )
                 ),
             }
         )
@@ -637,7 +691,7 @@ def _write_source_probe_report(
             "- Differences are routed to `sec_manual_reconciliation.csv`; they are not auto-forced into the Pilot mart.",
             "- The Pilot source cutoff is 2024-04-30, matching the filing vintage used for the FY2021-FY2023 snapshot.",
             "",
-            "This is reusable A2 probe evidence. A2 is formally closed only after A1 reaches its stopping rules and the probe is revalidated against that candidate pool.",
+            "This is reusable A2 probe evidence. A1 has reached its stopping rules; A2 closes only after the probe questions and reusable mapping rules are revalidated against the completed census.",
         ]
     )
     (DOCS_DIR / "source_probe_report.md").write_text(
@@ -713,7 +767,7 @@ def build_pilot_coverage(
         "manual_review_mapping_count": int(
             (reconciliation["reconciliation_status"] == "review_company_mapping").sum()
         ),
-        "gate1_status": "Pending A1 and A3",
+        "gate1_status": "Pending A3 and formal Gate 1 decision",
         "gate2_status": "Pending A3 event verification",
     }
     PILOT_AUDIT_SUMMARY_PATH.write_text(
@@ -765,13 +819,13 @@ def build_pilot_coverage(
         "",
         "## Why the Earlier No-Go Is Withdrawn",
         "",
-        f"- The current event table contains only {len(events)} records across {events['company_id'].nunique()} companies, below the A1 stopping range of approximately 10-15 candidates.",
+        f"- A1 now contains {len(events)} event candidates across {events['company_id'].nunique()} companies, within the required stopping range of approximately 10-15.",
         "- Blank or unverified quarterly coverage is missing evidence, not proof that point-in-time coverage is infeasible.",
         "- A3 has not yet checked real pre-event quarters, three-statement coverage, filing dates, PIT feasibility, YTD cash-flow reconstruction, peer availability, or manual cost for the full event pool.",
         "",
         "## Required Next Step",
         "",
-        "Complete A1 to approximately 10-15 event candidates, perform the A3 event feasibility scan, and then apply the frozen Gate 2 thresholds. Q2 and Q3 remain unbuilt while the decision is pending.",
+        "Complete A2, perform the A3 event feasibility scan, and then apply the frozen Gate 2 thresholds. Q2 and Q3 remain unbuilt while the decision is pending.",
     ]
     (DOCS_DIR / "gate2_decision.md").write_text(
         "\n".join(gate2_lines) + "\n", encoding="utf-8"

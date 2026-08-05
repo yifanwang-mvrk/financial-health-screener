@@ -18,4 +18,4 @@ The probe uses Amazon (inventory-led/hybrid) and eBay (marketplace) to test the 
 - Differences are routed to `sec_manual_reconciliation.csv`; they are not auto-forced into the Pilot mart.
 - The Pilot source cutoff is 2024-04-30, matching the filing vintage used for the FY2021-FY2023 snapshot.
 
-This is reusable A2 probe evidence. A2 is formally closed only after A1 reaches its stopping rules and the probe is revalidated against that candidate pool.
+This is reusable A2 probe evidence. A1 has reached its stopping rules; A2 closes only after the probe questions and reusable mapping rules are revalidated against the completed census.

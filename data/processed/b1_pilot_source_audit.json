@@ -1,9 +1,9 @@
 {
   "generated_on": "2026-08-05",
   "source_cutoff": "2024-04-30",
-  "universe_company_count": 26,
+  "universe_company_count": 50,
   "b1_pilot_company_count": 6,
-  "event_candidate_count": 5,
+  "event_candidate_count": 14,
   "cached_raw_artifact_count": 12,
   "normalized_financial_fact_count": 599,
   "latest_canonical_fact_count": 222,
@@ -12,6 +12,6 @@
   "required_company_field_total_count": 48,
   "manual_match_count": 215,
   "manual_review_mapping_count": 7,
-  "gate1_status": "Pending A1 and A3",
+  "gate1_status": "Pending A3 and formal Gate 1 decision",
   "gate2_status": "Pending A3 event verification"
 }

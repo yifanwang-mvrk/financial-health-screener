@@ -14,7 +14,7 @@ The project does not provide investment recommendations, target prices, return p
 
 ## Current Status
 
-Status: **A1 Unified Company & Event Census in progress. Six-company work restored to a B1 Pilot snapshot. Gate 1 and Gate 2 are pending.**
+Status: **A1 Unified Company & Event Census complete. A2 source-probe revalidation is next. Six-company work remains a B1 Pilot snapshot; Gate 1 and Gate 2 are pending.**
 
 The frozen execution order is:
 
@@ -22,10 +22,10 @@ The frozen execution order is:
 A0E -> A1 -> A2 -> A3 -> Gate 1 -> B1 -> B2 -> B3 -> B4 -> B5 -> Gate 2
 ```
 
-The repository currently contains useful work completed out of sequence:
+The repository currently contains:
 
-- A 26-company preliminary census with 13 Q1 candidates, below the A1 stopping range of approximately 30-40 candidates.
-- Five preliminary event records, below the A1 stopping range of approximately 10-15 candidates.
+- A completed 50-company A1 census with 40 Q1 candidates, satisfying the approximately 30-40 stopping range.
+- Fourteen sourced event candidates, satisfying the approximately 10-15 A1 stopping range while leaving A3 verification fields blank.
 - A reusable Amazon/eBay SEC source probe and a six-company accession-level evidence cache.
 - A reproducible six-company, FY2021-FY2023 analytical Pilot with SQL marts, tests, notebooks, charts, and a one-page Power BI prototype.
 
@@ -46,7 +46,7 @@ The six-company peer comparisons are descriptive examples only. The Pilot has ze
 
 ## Gate Status
 
-- **Gate 1: pending.** A1 and A3 have not yet produced the evidence required to freeze Data Path, formal sample, years, peer groups, H1 Tier, canonical fields, and Power BI mart.
+- **Gate 1: pending.** A3 has not yet produced the evidence required to freeze Data Path, formal sample, years, peer groups, H1 Tier, canonical fields, and Power BI mart.
 - **Gate 2: pending.** Blank event coverage is missing evidence, not evidence of infeasibility. A3 must verify real event-quarter coverage, filing dates, point-in-time feasibility, YTD cash-flow reconstruction, peer availability, and manual cost before applying Tier A/B/C thresholds.
 
 ## Method

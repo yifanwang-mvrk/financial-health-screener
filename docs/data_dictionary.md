@@ -14,7 +14,7 @@ Contains the active A1 census, stable company ID, SEC CIK where available, provi
 
 Grain: one candidate event.
 
-Contains the first-public event date, date basis, effective date, source, confidence, theoretical and verified pre-event coverage, Q2 qualification, and exclusion reason. The current five records are preliminary A1 candidates. Their unverified quarterly coverage leaves Gate 2 pending.
+Contains the first-public event date, date basis, effective date, source, confidence, theoretical and verified pre-event coverage, Q2 qualification, and exclusion reason. The 14 records complete the A1 event census. Their unverified quarterly coverage leaves Gate 2 pending until A3.
 
 ### `data/raw/sec/`
 

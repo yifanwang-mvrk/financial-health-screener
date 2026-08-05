@@ -68,7 +68,7 @@ class PhaseAEvidenceTests(unittest.TestCase):
         self.assertTrue(pilot["cik"].str.fullmatch(r"\d{10}").all())
 
     def test_event_census_has_sources_and_leaves_gate2_pending(self) -> None:
-        self.assertGreaterEqual(len(self.events), 3)
+        self.assertGreaterEqual(len(self.events), 10)
         self.assertTrue(
             set(self.events["company_id"]).issubset(
                 set(self.universe["company_id"])
@@ -86,8 +86,8 @@ class PhaseAEvidenceTests(unittest.TestCase):
         )
         self.assertEqual(set(self.events["coverage_verified"]), {0})
         self.assertTrue(self.events["verified_pre_event_quarters"].eq("").all())
-        self.assertEqual(set(self.events["qualifies_for_q2"]), {0})
-        self.assertTrue(self.events["exclusion_reason"].str.len().gt(0).all())
+        self.assertTrue(self.events["qualifies_for_q2"].eq("").all())
+        self.assertTrue(self.events["exclusion_reason"].eq("").all())
 
     def test_raw_manifest_and_checksums(self) -> None:
         self.assertEqual(len(self.manifest), 12)
