@@ -1,10 +1,10 @@
 # Financial Health Screener Project Status
 
-Last updated: 2026-08-05
+Last updated: 2026-08-13
 
 ## Current Position
 
-Current milestone: **B4 Analytical Release passed; B5 Power BI Product Release passed. Q1 Portfolio Release v1.0 is published. Gate 2 remains pending.**
+Current milestone: **B4 Analytical Release passed; B5 Power BI Product Release passed. Q1 Portfolio Release v1.0 is released. Gate 2 remains pending.**
 
 The formal minimum CV deliverable was reached at B4. B5 rebuilt the Power BI Service report on the frozen 137-row, 60-field formal mart, replacing the six-company Pilot page.
 
@@ -57,6 +57,7 @@ A0E PASSED
 - Six-company SEC cache, accession-level facts, latest-restated selection, conflicts, and reconciliation.
 - Six-company FY2021-FY2023 DuPont, Shapley, peer, H1-audit, notebook, chart, test, and Power BI artifacts, retained as B1 Pilot evidence.
 - B5 rebuilt the Power BI Service report on the formal 137-row/60-field mart: fixed the peer-group slicer and the Selected Company-Year Interpretation table (both had referenced fields retired from the Pilot schema), corrected the header subtitle, and reconciled AMZN FY2023/FY2018, BKNG FY2023/FY2019, ETSY FY2023, and FIGS FY2024 against the mart. Saved in Power BI Service; exported as `.pbix` (`powerbi/Financial_Health_Screener_Q1_Executive_Overview.pbix`) and screenshot (`powerbi/financial_health_screener_q1_powerbi.jpg`).
+- On 2026-08-13, the B5 presentation layer was polished in Power BI Service: technical field captions were replaced with recruiter-facing labels, Tier B evidence was surfaced in the subtitle, both narrative tables received bounded column widths and wrapping, and the empty reader filter pane was hidden. The updated `.pbix` and English static preview were re-exported. The static portfolio preview is public through this repository; anonymous Power BI Publish to web remains unavailable under the current account/license.
 
 ## Remaining Exit Conditions
 

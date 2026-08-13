@@ -3,13 +3,13 @@ from __future__ import annotations
 import json
 import subprocess
 import unittest
-from pathlib import Path
 
 import duckdb
 import pandas as pd
 
+from project_test_context import PYTHON, project_root
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = project_root()
 REFERENCE = ROOT / "data" / "reference"
 NORMALIZED = ROOT / "data" / "normalized"
 PROCESSED = ROOT / "data" / "processed"
@@ -19,7 +19,7 @@ class B1PilotPipelineTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         subprocess.run(
-            [str(ROOT / ".venv/bin/python"), "src/build_b1_pilot.py"],
+            [PYTHON, "src/build_b1_pilot.py"],
             cwd=ROOT,
             check=True,
             capture_output=True,

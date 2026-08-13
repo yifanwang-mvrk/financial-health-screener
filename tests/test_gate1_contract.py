@@ -3,8 +3,9 @@ import unittest
 from collections import Counter
 from pathlib import Path
 
+from project_test_context import project_root
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = project_root()
 REFERENCE = ROOT / "data" / "reference"
 PROCESSED = ROOT / "data" / "processed"
 

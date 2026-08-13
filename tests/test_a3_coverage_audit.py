@@ -4,12 +4,12 @@ import json
 import hashlib
 import subprocess
 import unittest
-from pathlib import Path
 
 import pandas as pd
 
+from project_test_context import PYTHON, project_root
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = project_root()
 PROCESSED = ROOT / "data/processed"
 
 
@@ -17,7 +17,7 @@ class A3CoverageAuditTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         subprocess.run(
-            [str(ROOT / ".venv/bin/python"), "src/build_a3_coverage_audit.py"],
+            [PYTHON, "src/build_a3_coverage_audit.py"],
             cwd=ROOT,
             check=True,
             capture_output=True,

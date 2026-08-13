@@ -1,13 +1,13 @@
 # Limitations and Evidence Boundary
 
-Last updated: 2026-08-05
+Last updated: 2026-08-13
 
 ## Current Stage Boundary
 
 - A1 is complete with 50 companies, 40 Q1 candidates, and 14 event candidates.
 - A3 verified all 14 event candidates; 12 meet the provisional Tier A metadata criteria, while BOXD and FTCH have specific coverage exclusions.
-- B2-B4 are complete for the frozen 21-company FY2018-FY2024 sample, with FY2017 used only for opening balances. B5 formal Power BI productization has not yet been completed.
-- The six-company, 18-company-year dataset and its Power BI page remain Pilot artifacts and do not replace the formal B2 layer.
+- B2-B4 are complete for the frozen 21-company FY2018-FY2024 sample, with FY2017 used only for opening balances. B5 is also complete: the formal 137-row, 60-field mart is presented in the released Power BI Executive Overview.
+- The six-company, 18-company-year dataset remains a retained Pilot artifact. Its earlier Power BI page is superseded and survives only in git history; it does not replace the formal B2-B5 release.
 - Gate 1 freezes Path A, H1 Tier B, and Q2 Tier A feasibility. Q2 itself remains unauthorized until the later formal Gate 2.
 
 ## Pilot Time and Sample Coverage

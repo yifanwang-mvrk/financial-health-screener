@@ -6,6 +6,8 @@ Status: **B5 formal release complete — Q1 Portfolio Release v1.0**
 
 The Power BI Service report is rebuilt on the frozen 21-company, 137-row, 60-field formal mart, saved in Power BI Service, exported as a `.pbix` reference file, and reconciled against `data/processed/q1_powerbi_mart.csv`. The prior six-company Pilot page is superseded; the Pilot's PBIX and screenshot survive only in git history.
 
+Presentation polish completed on 2026-08-13: the peer slicer and interpretation table use recruiter-facing labels, the subtitle surfaces the Tier B evidence boundary, both narrative tables use bounded widths and wrapping, and the empty reader filter pane is hidden. The checked-in `.pbix` and screenshot are synchronized with this saved Service version.
+
 ## Input Boundary
 
 Power BI consumes only:
@@ -95,4 +97,6 @@ Formal reconciliation completed on 2026-08-05 against the frozen mart:
 - [x] The report is saved in Power BI Service and exported as a `.pbix` reference file (`Built in Power BI Service; .pbix exported for reference.`).
 - [x] Report screenshot (`financial_health_screener_q1_powerbi.jpg`) reflects the formal mart.
 
-Power BI Service report: [Financial Health Screener Q1 Executive Overview](https://app.powerbi.com/groups/me/reports/fb9d94b1-fc87-484a-9282-2895f48b80fa/4ffbaf6ac660aec51266?experience=power-bi)
+## Portfolio Access
+
+The screenshot and `.pbix` in this public repository provide the no-sign-in portfolio artifacts. The [interactive Power BI Service report](https://app.powerbi.com/groups/me/reports/fb9d94b1-fc87-484a-9282-2895f48b80fa/4ffbaf6ac660aec51266?experience=power-bi&language=en-US) requires an eligible Power BI sign-in. Anonymous Publish to web is not enabled for the current account/tenant; do not describe the Service URL as public until an embed code is deliberately created.

@@ -3,20 +3,20 @@ from __future__ import annotations
 import json
 import subprocess
 import unittest
-from pathlib import Path
 
 import nbformat
 import pandas as pd
 
+from project_test_context import PYTHON, project_root
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = project_root()
 
 
 class A2SourceProbeTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         subprocess.run(
-            [str(ROOT / ".venv/bin/python"), "src/build_a2_source_probe.py"],
+            [PYTHON, "src/build_a2_source_probe.py"],
             cwd=ROOT,
             check=True,
             capture_output=True,

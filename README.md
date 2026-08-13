@@ -14,7 +14,7 @@ The project does not provide investment recommendations, target prices, return p
 
 ## Current Status
 
-Status: **B4 Analytical Release is complete and is the CV-ready minimum deliverable. B5 Power BI Product Release is complete — Q1 Portfolio Release v1.0 is published. Gate 2 remains pending.**
+Status: **B4 Analytical Release is complete and is the CV-ready minimum deliverable. B5 Power BI Product Release is complete — Q1 Portfolio Release v1.0 is released. Gate 2 remains pending.**
 
 Data as of: **2026-08-05**
 
@@ -59,7 +59,7 @@ The six-company peer comparisons are descriptive examples only. The Pilot has ze
 - **B2: passed.** The formal layer rebuilds 42 SEC artifacts into 4,780 filing-level facts and 1,959 latest/derived facts; all 21 companies are covered and no required company-year field is missing.
 - **B3: passed.** Seven formal marts rebuild 137 company-years; DuPont and Shapley gaps remain below `1e-10`, H1 matches the frozen 21-transition/10-company Tier B audit, and the Power BI mart matches all 60 contracted fields.
 - **B4: passed.** Formal analytical inputs are checksummed; quality EDA, Q1-A profiles, Tier B persistence analysis, company cases, eight static charts, two executed notebooks, two-company filing reconciliation, and release narrative are complete.
-- **B5: passed.** The single-page Power BI Executive Overview was rebuilt on the frozen 137-row mart, every visual reconciled against the mart, and the Service report saved and exported as reference `.pbix` and screenshot. Q1 Portfolio Release v1.0 is published.
+- **B5: passed.** The single-page Power BI Executive Overview was rebuilt on the frozen 137-row mart, every visual reconciled against the mart, and the Service report saved and exported as reference `.pbix` and screenshot. Q1 Portfolio Release v1.0 is released.
 - **Gate 2: pending.** A3 recommends Tier A feasibility from 12 qualified events, but no Q2 work is authorized until the formal Gate 2 decision is made.
 
 ## Method
@@ -102,7 +102,7 @@ The page includes company, peer-group (`formal_peer_group`), and fiscal-year sli
 
 Reference export: [`powerbi/Financial_Health_Screener_Q1_Executive_Overview.pbix`](powerbi/Financial_Health_Screener_Q1_Executive_Overview.pbix)
 
-Power BI Service report: [Financial Health Screener Q1 Executive Overview](https://app.powerbi.com/groups/me/reports/fb9d94b1-fc87-484a-9282-2895f48b80fa/4ffbaf6ac660aec51266?experience=power-bi)
+Public portfolio preview: the screenshot above and the checked-in `.pbix` require no private repository access. The [interactive Power BI Service report](https://app.powerbi.com/groups/me/reports/fb9d94b1-fc87-484a-9282-2895f48b80fa/4ffbaf6ac660aec51266?experience=power-bi&language=en-US) currently requires an eligible Power BI sign-in; anonymous Publish to web is not enabled for the current account/tenant.
 
 ## Repository Guide
 
@@ -173,6 +173,8 @@ Legacy composite risk-ranking files remain labelled learning artifacts and are n
 .venv/bin/python src/build_b4_analytical_release.py
 .venv/bin/python -m unittest discover -s tests -p 'test_*.py' -v
 ```
+
+The test suite rebuilds the project inside one disposable system-temporary copy of the repository. It validates the real generated outputs without modifying the checked-in release artifacts in the working tree.
 
 ## Rebuild Completed Phase A Stages
 

@@ -3,12 +3,12 @@ from __future__ import annotations
 import json
 import subprocess
 import unittest
-from pathlib import Path
 
 import pandas as pd
 
+from project_test_context import PYTHON, project_root
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = project_root()
 PROCESSED = ROOT / "data" / "processed"
 REFERENCE = ROOT / "data" / "reference"
 
@@ -17,7 +17,7 @@ class Q1V3PipelineTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         subprocess.run(
-            [str(ROOT / ".venv/bin/python"), "src/build_b3_analytical_marts.py"],
+            [PYTHON, "src/build_b3_analytical_marts.py"],
             cwd=ROOT,
             check=True,
             capture_output=True,

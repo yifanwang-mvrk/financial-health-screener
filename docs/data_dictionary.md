@@ -1,6 +1,6 @@
 # Q1 Data and Analytical Dictionary
 
-Last updated: 2026-08-05
+Last updated: 2026-08-13
 
 ## Inputs
 
@@ -317,7 +317,7 @@ Purpose: joins company metrics to peer medians and calculates differences and RO
 
 Grain: one formal company x available fiscal year.
 
-Purpose: exact 60-field Gate1-v1.0 single-table input for the future B5 Executive Overview. It contains all research outputs already calculated in SQL so Power BI does not become a second financial-logic layer. The current file has 137 rows; the existing PBIX still reflects the earlier Pilot snapshot until B5.
+Purpose: exact 60-field Gate1-v1.0 single-table input for the released B5 Executive Overview. It contains all research outputs already calculated in SQL so Power BI does not become a second financial-logic layer. The current file has 137 rows, and the released PBIX and screenshot both reflect this formal mart; the earlier Pilot snapshot is superseded and survives only in git history.
 
 ### `data/processed/b3_mart_schema.csv`
 

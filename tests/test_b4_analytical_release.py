@@ -4,15 +4,15 @@ import hashlib
 import json
 import subprocess
 import unittest
-from pathlib import Path
 
 import nbformat
 import numpy as np
 import pandas as pd
 from PIL import Image
 
+from project_test_context import PYTHON, project_root
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = project_root()
 PROCESSED = ROOT / "data" / "processed"
 DOCS = ROOT / "docs"
 CHARTS = DOCS / "assets" / "q1"
@@ -22,7 +22,7 @@ class B4AnalyticalReleaseTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         subprocess.run(
-            [str(ROOT / ".venv/bin/python"), "src/build_b4_analytical_release.py"],
+            [PYTHON, "src/build_b4_analytical_release.py"],
             cwd=ROOT,
             check=True,
             capture_output=True,
