@@ -314,6 +314,17 @@ Two honest possibilities, both worth saying out loud in an interview: (1) the pa
 - **No investment or distress-prediction claim.** The retrospective, descriptive persistence analysis is never described as forward-looking or predictive.
 - **Company concentration.** Maximum single-company share of transitions is 14.3% in the formal sample — below the Tier A 20% threshold, but still worth disclosing given the small group sizes.
 
+### 6.1 Additional self-critique (for "what would you do differently" questions)
+
+The five points above are disclosed *in* the project itself (README, limitations doc). The ones below are not written anywhere else — they're the answer to "what's the weakest part" or "what would you change," and the honest answer is more convincing coming from you unprompted than extracted under questioning.
+
+- **Peer-group classification carries single-rater judgment.** Boundary calls (e.g., merging BYON into Inventory-led, excluding GROV as a short-history boundary case) were made by one person with no second reviewer or inter-rater check. Low-confidence classifications were kept low rather than forced, but the classification itself wasn't independently verified.
+- **No control for scale heterogeneity within a peer group.** AMZN sits in the same Inventory-led group as much smaller companies (BYON, VRM). Peer-median comparison dampens but doesn't eliminate the effect of scale on margin and turnover — a mega-cap and a micro-cap can have structurally different economics for reasons unrelated to the DuPont story being tested.
+- **No cash-quality cross-check.** The whole analysis is accounting-ROE based. A company could show strong ROE via aggressive revenue recognition while cash conversion is weak, and this project has no FCF/ROIC cross-check that would catch that — a real gap for something billed as a "financial quality" screener.
+- **Conflict severity thresholds (0.5% / 5%) are internally derived, not externally benchmarked.** They were frozen from this project's own observed A2/A3 conflict distribution, not from an industry or audit standard. Defensible, but worth naming as a choice rather than a fact.
+- **No sensitivity analysis on the H1 result.** The +35.2pp vs. -11.9pp finding comes from one frozen rule specification. There's no check of how much that number moves under slightly different eligibility thresholds — so its fragility is genuinely unknown, not just its statistical power.
+- **Live Power BI link isn't publicly shareable.** Discovered during B5: the Power BI Service report requires an eligible sign-in under the current free-tier account, and anonymous Publish to web isn't enabled. The GitHub README's screenshot and checked-in `.pbix` are the actual public-facing path — be ready to explain that up front rather than let a recruiter hit a dead link first.
+
 ---
 
 ## Part 7 — Interview Question Bank (by topic)
