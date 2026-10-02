@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: screener_inputs
+    description: Existing upstream tables copied from the production DuckDB database for the bounded dbt migration.
+    database: screener_dbt
+    schema: main
+    tables:
+      - name: q1_formal_sample
+        description: Frozen B2 formal sample used by the first core-table transformation.
+      - name: company_universe
+        description: Company classification attributes used by the first core-table transformation.
+      - name: financial_facts
+        description: Existing normalized SEC fact records consumed by the latest-restated selection logic.

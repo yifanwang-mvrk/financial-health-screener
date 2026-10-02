@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_q1_formal_company_dim
+    description: The first transformation from sql/01_core_tables.sql, migrated without its CREATE TABLE wrapper.
+    columns:
+      - name: company_id
+        description: Stable company identifier; one row per formal-sample company at this stage.
+        data_tests:
+          - not_null
+          - unique

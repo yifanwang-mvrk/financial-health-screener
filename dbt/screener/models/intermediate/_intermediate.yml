@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: int_q1_latest_restated
+    description: Latest-valid annual fact selection and derived free cash flow from sql/02_q1_latest_restated.sql.
+    columns:
+      - name: company_id
+        description: Stable company identifier in the company-year-canonical-field grain.
+      - name: fiscal_year
+        description: Fiscal year selected from normalized annual SEC facts.
+      - name: canonical_field
+        description: Canonical financial concept, including derived free cash flow.

@@ -1,0 +1,17 @@
+name: screener
+version: 1.0.0
+config-version: 2
+
+profile: screener
+
+model-paths:
+  - models
+
+clean-targets:
+  - target
+  - dbt_packages
+
+models:
+  screener:
+    staging:
+      +materialized: table

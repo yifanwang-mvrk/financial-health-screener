@@ -1,0 +1,8 @@
+screener:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: /absolute/path/to/financial-health-screener/db/screener_dbt.duckdb
+      schema: main
+      threads: 1
